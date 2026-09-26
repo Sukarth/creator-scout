@@ -110,6 +110,15 @@ All notable changes to this project are documented here. The format follows
   placeholder that keeps the top-level domain.
 
 ### Fixed
+- Harvest source groups (local hashtags, YouTube searches, keyword searches,
+  global tags) take turns page by page; before, YouTube could get no budget
+  when TikTok hashtags and snowballing came first.
+- The judge's decision is kept consistent with its own score thresholds
+  (relevance >= 3 or young-gamer appeal >= 4 with verified evidence accepts).
+- Re-judging drops pitches written for the previous decision.
+- Accounts without a known region that are seen while scouting one market are
+  queued for any other supported market whose language or signals they match.
+- `scout refresh-metrics` recomputes view windows from stored videos.
 - Market languages that are widely spoken elsewhere (`shared_languages`,
   Russian for Estonia, Swedish for Finland) no longer make an account a
   market candidate on their own; a region match or another signal is needed.
@@ -138,3 +147,4 @@ All notable changes to this project are documented here. The format follows
   `region`; it is used as a market hint so out-of-market authors cost nothing.
 - Estonian keyword search returns mostly unrelated results; hashtags are the
   primary harvest source for small-language markets.
+
