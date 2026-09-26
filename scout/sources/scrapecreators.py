@@ -77,6 +77,7 @@ class ScrapeCreators:
         self.store = store
         self.api_key = api_key
         self.meter = meter
+        self.run_id: int | None = None  # recorded with each paid response
         self.offline = offline or not api_key
         self.max_retries = max_retries
         self._http = httpx.Client(base_url=BASE_URL, timeout=timeout,
@@ -111,7 +112,7 @@ class ScrapeCreators:
         # Client errors such as "user not found" are cached too so the same
         # miss is never paid for twice. Server errors are not cached.
         if status < 500:
-            self.store.cache_put(key, endpoint, params, status, body, charged)
+            self.store.cache_put(key, endpoint, params, status, body, charged, run_id=self.run_id)
         return self._unwrap(status, body)
 
     def _request(self, endpoint: str, params: dict) -> tuple[int, Any]:

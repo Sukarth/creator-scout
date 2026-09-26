@@ -225,6 +225,7 @@ ADDED_COLUMNS = [
     ("videos", "caption_language", "TEXT"),
     ("runs", "llm_calls", "INTEGER DEFAULT 0"),
     ("runs", "llm_tokens", "INTEGER DEFAULT 0"),
+    ("cache", "run_id", "INTEGER"),
 ]
 
 # Columns a caller may set on ``creators`` via ``upsert_creator``.
@@ -290,12 +291,12 @@ class Store:
         }
 
     def cache_put(self, key: str, endpoint: str, params: dict, status_code: int,
-                  response: Any, credits_charged: int) -> None:
+                  response: Any, credits_charged: int, run_id: int | None = None) -> None:
         self.conn.execute(
             "INSERT OR REPLACE INTO cache (key, endpoint, params, status_code, response,"
-            " credits_charged, fetched_at) VALUES (?, ?, ?, ?, ?, ?, ?)",
+            " credits_charged, fetched_at, run_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
             (key, endpoint, json.dumps(params, sort_keys=True), status_code,
-             json.dumps(response, ensure_ascii=False), credits_charged, time.time()),
+             json.dumps(response, ensure_ascii=False), credits_charged, time.time(), run_id),
         )
         self.conn.commit()
 

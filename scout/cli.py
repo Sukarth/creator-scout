@@ -83,6 +83,7 @@ def _pipeline_for(store: Store, run: dict, progress=None, offline: bool = False)
     meter = CreditMeter(budget=run["budget"], used=run["credits_used"] or 0,
                         live_calls=run["api_calls"] or 0, cache_hits=run["cache_hits"] or 0)
     client = ScrapeCreators(store, None if offline else config.sc_key(), meter, offline=offline)
+    client.run_id = run["id"]
     judge, llm = _make_judge(store, p.get("judge", "none"))
     youtube = None
     if "youtube" in p.get("platforms", ["tiktok", "youtube"]):
@@ -304,6 +305,18 @@ def pitches(run_id: Optional[int] = typer.Option(None, "--run", help="Run id (de
     n = pipe.write_pitches()
     store.update_run(run_id, funnel=pipe.funnel)
     typer.echo(f"drafted {n} pitches")
+
+
+@app.command("yield")
+def yield_(run_id: Optional[int] = typer.Option(None, "--run", help="Run id (default: latest)")) -> None:
+    """Accepted creators per 100 credits, by source type."""
+    from .export import source_yield
+    store = _setup()
+    run_id = run_id or store.latest_run_id()
+    typer.echo(f"{'source':<36}{'discovery':>10}{'enrich':>8}{'credits':>9}{'accepted':>10}{'per 100 cr':>12}")
+    for g in source_yield(store, run_id):
+        typer.echo(f"{g['source']:<36}{g['discovery_credits']:>10}{g['enrichment_credits']:>8}"
+                   f"{g['credits']:>9}{g['accepted']:>10}{str(g['accepted_per_100_credits']):>12}")
 
 
 @app.command()

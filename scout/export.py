@@ -302,6 +302,7 @@ def build_sheets(store: Store, run_id: int) -> dict[str, list[dict]]:
 
     return {"Shortlist": shortlist, "Maybe": maybe, "Existing partners": existing,
             "Prenew format": [prenew_row(r, market) for r in shortlist + existing],
+            "Yield by source": source_yield(store, run_id),
             "Other markets pool": other, "Seeds and sources": seeds, "All screened": everyone,
             "Run log": log}
 
@@ -367,6 +368,112 @@ def accepted_by_first_source(store: Store, run_id: int, market: str) -> dict[str
                  }.get(first["kind"], first["kind"])
         out[label] = out.get(label, 0) + 1
     return dict(sorted(out.items(), key=lambda kv: -kv[1]))
+
+
+DISCOVERY = {"/v1/tiktok/search/hashtag": "hashtag", "/v1/tiktok/search/keyword": "keyword",
+             "/v1/youtube/search": "yt_search", "/v1/tiktok/user/following": "following"}
+ENRICHMENT = {"/v1/tiktok/profile", "/v1/tiktok/profile/region", "/v3/tiktok/profile/videos",
+              "/v1/youtube/channel"}
+
+
+def source_group(kind: str, via: str, market) -> str:
+    if kind == "hashtag":
+        return "local hashtags" if via in market.seed_hashtags or via not in market.global_hashtags \
+            else "global / Russian hashtags (proxy)"
+    return {"keyword": "TikTok keyword search", "yt_search": "YouTube search",
+            "following": "snowball (following lists)", "tiktok_link": "cross-platform link",
+            "youtube_link": "cross-platform link"}.get(kind, kind)
+
+
+def source_yield(store: Store, run_id: int) -> list[dict]:
+    """Credits and accepted creators per source type for one run.
+
+    Discovery credits (search, hashtag and following pages) go to their source;
+    enrichment credits of an account (profile, region, videos, channel) go to the
+    source that first found it in the run. Cached responses cost nothing.
+    """
+    from .market import load_market
+
+    run = store.get_run(run_id)
+    market = load_market(run["market"])
+    code = market.code
+    # A resumed run spends credits after its first finish time, so untagged
+    # calls are matched from the start of the run until now, by market.
+    import time as _time
+    started, finished = run["started_at"], _time.time()
+    rows = store.conn.execute(
+        "SELECT endpoint, params, credits_charged, run_id FROM cache WHERE credits_charged > 0"
+        " AND (run_id = ? OR (run_id IS NULL AND fetched_at BETWEEN ? AND ?))",
+        (run_id, started - 1, finished + 1)).fetchall()
+    first_source: dict[tuple[str, str], str] = {}
+    for p in ("tiktok", "youtube"):
+        for s in store.screenings(code, run_id=run_id, platform=p):
+            if s["status"] == "other_market":
+                continue  # never enriched for this market; other runs may have paid for it
+            edges = [e for e in store.edges_to(p, s["uid"]) if e["run_id"] == run_id]
+            if edges:
+                first_source[(p, s["uid"])] = source_group(edges[0]["kind"], edges[0]["via"], market)
+    handle_to = {}
+    for (p, uid) in first_source:
+        c = store.get_creator(p, uid) or {}
+        if c.get("handle"):
+            handle_to[(p, c["handle"].lower())] = (p, uid)
+    groups: dict[str, dict] = {}
+
+    def bucket(name: str) -> dict:
+        return groups.setdefault(name, {"source": name, "discovery_credits": 0,
+                                        "enrichment_credits": 0, "accepted": 0})
+
+    own_tags = set(market.seed_hashtags) | set(market.global_hashtags) | set(market.general_hashtags)
+    for r in rows:
+        params = json.loads(r["params"])
+        ep, credits = r["endpoint"], r["credits_charged"] or 0
+        if ep in DISCOVERY:
+            kind = DISCOVERY[ep]
+            if r["run_id"] is None:  # untagged: keep only calls that belong to this market
+                region = params.get("region")
+                if kind == "hashtag" and not (region == code or (region is None and
+                                                                 params.get("hashtag") in own_tags)):
+                    continue
+                if kind in ("keyword", "yt_search") and region not in (code, None):
+                    continue
+                if kind == "following" and not any(s["handle"] == params.get("handle", "").lower()
+                                                   for s in store.seeds(code, active_only=False)):
+                    continue
+            via = params.get("hashtag") or params.get("query") or params.get("handle") or ""
+            bucket(source_group(kind, via, market))["discovery_credits"] += credits
+        elif ep in ENRICHMENT:
+            platform = "youtube" if "youtube" in ep else "tiktok"
+            handle = (params.get("handle") or "").lstrip("@").lower()
+            key = handle_to.get((platform, handle))
+            if key is None:
+                continue
+            bucket(first_source[key])["enrichment_credits"] += credits
+    for s in store.screenings(code, "accepted", run_id=run_id):
+        name = first_source.get((s["platform"], s["uid"]))
+        if name:
+            bucket(name)["accepted"] += 1
+    out = []
+    for g in groups.values():
+        g["credits"] = g["discovery_credits"] + g["enrichment_credits"]
+        g["accepted_per_100_credits"] = round(100 * g["accepted"] / g["credits"], 1) if g["credits"] else None
+        out.append(g)
+    out.sort(key=lambda g: -(g["accepted_per_100_credits"] or 0))
+    attributed = sum(g["credits"] for g in out)
+    metered = run["credits_used"] or 0
+    if metered > attributed:
+        # Mostly region lookups and profiles of accounts that turned out to be
+        # outside the market; they cannot be tied to one source reliably.
+        out.append({"source": "not attributed (accounts ruled out of market)", "discovery_credits": 0,
+                    "enrichment_credits": metered - attributed, "accepted": 0,
+                    "credits": metered - attributed, "accepted_per_100_credits": 0.0})
+    total = {"source": "TOTAL (metered)", "discovery_credits": sum(g["discovery_credits"] for g in out),
+             "enrichment_credits": sum(g["enrichment_credits"] for g in out),
+             "accepted": sum(g["accepted"] for g in out)}
+    total["credits"] = max(metered, total["discovery_credits"] + total["enrichment_credits"])
+    total["accepted_per_100_credits"] = (round(100 * total["accepted"] / total["credits"], 1)
+                                         if total["credits"] else None)
+    return out + [total]
 
 
 def _iso(ts: float | None) -> str:
