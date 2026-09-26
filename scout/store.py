@@ -162,6 +162,15 @@ CREATE TABLE IF NOT EXISTS pitches (
     PRIMARY KEY (market, platform, uid)
 );
 
+CREATE TABLE IF NOT EXISTS identity_links (
+    platform_a TEXT NOT NULL,
+    uid_a TEXT NOT NULL,
+    platform_b TEXT NOT NULL,
+    uid_b TEXT NOT NULL,
+    evidence TEXT,
+    PRIMARY KEY (platform_a, uid_a, platform_b, uid_b)
+);
+
 CREATE TABLE IF NOT EXISTS llm_cache (
     key TEXT PRIMARY KEY,
     task TEXT,
@@ -234,7 +243,7 @@ FINAL_STATUSES = ("accepted", "rejected", "contacted", "maybe")
 class Store:
     def __init__(self, path: str | Path):
         self.path = str(path)
-        self.conn = sqlite3.connect(self.path)
+        self.conn = sqlite3.connect(self.path, timeout=30)
         self.conn.row_factory = sqlite3.Row
         self.conn.execute("PRAGMA journal_mode=WAL")
         self.conn.executescript(SCHEMA)
@@ -494,9 +503,12 @@ class Store:
         self.conn.commit()
 
     def screenings(self, market: str, status: str | tuple[str, ...] | None = None,
-                   run_id: int | None = None) -> list[dict]:
+                   run_id: int | None = None, platform: str | None = None) -> list[dict]:
         sql = "SELECT * FROM screenings WHERE market = ?"
         args: list[Any] = [market]
+        if platform:
+            sql += " AND platform = ?"
+            args.append(platform)
         if status:
             statuses = (status,) if isinstance(status, str) else status
             sql += f" AND status IN ({', '.join('?' for _ in statuses)})"
@@ -585,6 +597,35 @@ class Store:
             " VALUES (?, ?, ?, ?, ?)",
             (key, task, model, json.dumps(response, ensure_ascii=False), time.time()))
         self.conn.commit()
+
+    def link_identities(self, a: tuple[str, str], b: tuple[str, str], evidence: str) -> None:
+        """Record that two platform accounts belong to the same creator."""
+        (pa, ua), (pb, ub) = sorted([a, b])
+        if (pa, ua) == (pb, ub):
+            return
+        self.conn.execute(
+            "INSERT OR IGNORE INTO identity_links (platform_a, uid_a, platform_b, uid_b, evidence)"
+            " VALUES (?, ?, ?, ?, ?)", (pa, ua, pb, ub, evidence))
+        self.conn.commit()
+
+    def linked_accounts(self, platform: str, uid: str) -> list[tuple[str, str, str]]:
+        """All accounts connected to ``(platform, uid)``, as ``(platform, uid, evidence)``."""
+        seen = {(platform, uid)}
+        frontier = [(platform, uid)]
+        out: list[tuple[str, str, str]] = []
+        while frontier:
+            p, u = frontier.pop()
+            rows = self.conn.execute(
+                "SELECT platform_b AS p, uid_b AS u, evidence FROM identity_links"
+                " WHERE platform_a = ? AND uid_a = ?"
+                " UNION SELECT platform_a, uid_a, evidence FROM identity_links"
+                " WHERE platform_b = ? AND uid_b = ?", (p, u, p, u)).fetchall()
+            for r in rows:
+                if (r["p"], r["u"]) not in seen:
+                    seen.add((r["p"], r["u"]))
+                    frontier.append((r["p"], r["u"]))
+                    out.append((r["p"], r["u"], r["evidence"]))
+        return out
 
     def reset_market(self, market: str) -> dict:
         """Forget a market's screening state. Creators, videos and the API cache are kept."""

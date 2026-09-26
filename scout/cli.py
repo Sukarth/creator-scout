@@ -15,6 +15,7 @@ from .export import export_run
 from .judge import (DeferredJudge, FreeJudge, JudgeResult, PitchResult, PrejudgeResult,
                     judge_payload, pitch_payload, prejudge_payload)
 from .llm import LLMClient
+from .sources.youtube import YouTubeData
 from .market import list_markets, load_market
 from .pipeline import Pipeline, keywords_meta_key
 from .sources.scrapecreators import CreditMeter, ScrapeCreators
@@ -73,16 +74,33 @@ def _pipeline_for(store: Store, run: dict, progress=None, offline: bool = False)
     """Rebuild the pipeline of a stored run (for resume and decision import)."""
     p = run["params"]
     settings = config.RunSettings(
-        band_min=p["band_min"], band_max=p["band_max"], target=p["target"], budget=run["budget"],
-        max_pages_per_seed=p.get("max_pages_per_seed", 5),
-        extra={k: p[k] for k in ("harvest_share", "use_general_tags", "use_retailer_seeds") if k in p})
+        band_min=p["band_min"], band_max=p["band_max"],
+        yt_band_min=p.get("yt_band_min", 5_000), yt_band_max=p.get("yt_band_max", 250_000),
+        target=p["target"], budget=run["budget"],
+        max_pages_per_seed=p.get("max_pages_per_seed", 30),
+        extra={k: p[k] for k in ("harvest_share", "use_general_tags", "use_retailer_seeds",
+                                 "use_partner_seeds", "pitches", "platforms") if k in p})
     meter = CreditMeter(budget=run["budget"], used=run["credits_used"] or 0,
                         live_calls=run["api_calls"] or 0, cache_hits=run["cache_hits"] or 0)
     client = ScrapeCreators(store, None if offline else config.sc_key(), meter, offline=offline)
     judge, llm = _make_judge(store, p.get("judge", "none"))
+    youtube = None
+    if "youtube" in p.get("platforms", ["tiktok", "youtube"]):
+        youtube = YouTubeData(store, offline=offline)
     return Pipeline(store, client, load_market(run["market"]), settings, run["id"],
                     progress=progress, fetch_link_pages=not p.get("no_link_pages"),
-                    judge=judge, llm=llm)
+                    judge=judge, llm=llm, youtube=youtube)
+
+
+def _band_params(preset: str, band: Optional[str], yt_band: Optional[str]) -> dict:
+    if preset not in config.PRESETS:
+        raise typer.BadParameter(f"preset must be one of {', '.join(config.PRESETS)}")
+    (tlo, thi), (ylo, yhi) = config.PRESETS[preset]["tiktok"], config.PRESETS[preset]["youtube"]
+    if band:
+        tlo, thi = _parse_band(band)
+    if yt_band:
+        ylo, yhi = _parse_band(yt_band)
+    return {"preset": preset, "band_min": tlo, "band_max": thi, "yt_band_min": ylo, "yt_band_max": yhi}
 
 
 def _summary(store: Store, result: dict, paths: list[Path]) -> None:
@@ -104,7 +122,11 @@ def _summary(store: Store, result: dict, paths: list[Path]) -> None:
 @app.command()
 def run(
     market: str = typer.Option(..., help="Market code, e.g. ee"),
-    band: str = typer.Option("1000-100000", help="Follower band, e.g. 2000-50000"),
+    preset: str = typer.Option("default", help="Size preset: default or hidden-gems"),
+    band: Optional[str] = typer.Option(None, help="TikTok follower band, e.g. 4000-500000"),
+    yt_band: Optional[str] = typer.Option(None, help="YouTube subscriber band, e.g. 50000-250000"),
+    platforms: str = typer.Option("tiktok,youtube", help="Comma-separated platforms"),
+    pitches: bool = typer.Option(False, help="Also draft outreach pitches for accepted creators"),
     target: int = typer.Option(40, help="Stop after this many accepted (or qualified) creators"),
     budget: int = typer.Option(300, help="Hard credit budget for this run"),
     judge: str = typer.Option("free", help="Fit judge: free (LLM chain), claude (file handoff) or none"),
@@ -112,7 +134,7 @@ def run(
     keywords: Optional[str] = typer.Option(None, help="Comma-separated keywords (default: market plan)"),
     general_tags: bool = typer.Option(False, help="Also harvest general country tags (lifestyle-heavy)"),
     retailer_seeds: bool = typer.Option(False, help="Also snowball from retailer and shop accounts"),
-    max_pages_per_seed: int = typer.Option(5, help="Following-list pages per snowball seed"),
+    max_pages_per_seed: int = typer.Option(30, help="Most following-list pages per snowball seed"),
     harvest_share: float = typer.Option(0.35, help="Share of the budget available to harvest"),
     no_link_pages: bool = typer.Option(False, help="Do not fetch bio-link pages for contacts"),
     brief: str = typer.Option("", help="Free-text brief stored with the run"),
@@ -122,8 +144,9 @@ def run(
     """Harvest, filter, judge and snowball one market."""
     store = _setup()
     mk = load_market(market)
-    lo, hi = _parse_band(band)
-    params = {"band_min": lo, "band_max": hi, "target": target, "judge": judge,
+    params = {**_band_params(preset, band, yt_band), "target": target, "judge": judge,
+              "platforms": [p.strip() for p in platforms.split(",") if p.strip()],
+              "pitches": pitches,
               "hashtags": hashtags, "keywords": keywords, "harvest_share": harvest_share,
               "use_general_tags": general_tags, "use_retailer_seeds": retailer_seeds,
               "max_pages_per_seed": max_pages_per_seed, "no_link_pages": no_link_pages}
@@ -146,12 +169,26 @@ def resume(run_id: Optional[int] = typer.Option(None, "--run", help="Run id (def
            budget: Optional[int] = typer.Option(None, help="Raise the run's credit budget"),
            rescreen: bool = typer.Option(False, help="Re-apply hard filters to pending accounts first"),
            rejudge: bool = typer.Option(False, help="Send judged accounts back to the judge first"),
+           preset: Optional[str] = typer.Option(None, help="Switch the run to a size preset"),
+           platforms: Optional[str] = typer.Option(None, help="Switch the run's platforms"),
+           partner_seeds: bool = typer.Option(False, help="Allow the client's partners as seeds"),
            export: bool = typer.Option(True, help="Write XLSX and CSV when finished")) -> None:
     """Continue a paused or budget-limited run from its stored state."""
     store = _setup()
     run_id = run_id or store.latest_run_id()
     if budget is not None:
         store.update_run(run_id, budget=budget)
+    params = dict(store.get_run(run_id)["params"])
+    if preset:
+        params.update(_band_params(preset, None, None))
+    if platforms:
+        params["platforms"] = [p.strip() for p in platforms.split(",") if p.strip()]
+    if partner_seeds:
+        params["use_partner_seeds"] = True
+    params.setdefault("max_pages_per_seed", 30)
+    params["max_pages_per_seed"] = max(params["max_pages_per_seed"], 30)
+    store.conn.execute("UPDATE runs SET params = ? WHERE id = ?", (json.dumps(params), run_id))
+    store.conn.commit()
     run_row = store.get_run(run_id)
     pipe = _pipeline_for(store, run_row, _print_progress)
     result = pipe.run(resume=True, rescreen=rescreen, rejudge=rejudge)
@@ -267,6 +304,62 @@ def pitches(run_id: Optional[int] = typer.Option(None, "--run", help="Run id (de
     n = pipe.write_pitches()
     store.update_run(run_id, funnel=pipe.funnel)
     typer.echo(f"drafted {n} pitches")
+
+
+@app.command()
+def recall(market: str = typer.Option(..., help="Market code"),
+           as_json: bool = typer.Option(False, "--json", help="Print JSON")) -> None:
+    """Hold-out check: which of the client's existing partners did the tool find by itself?"""
+    from .partners import load_partners, recall_report
+    store = _setup()
+    code = load_market(market).code
+    partners = load_partners()
+    if not partners:
+        typer.echo("no partner list found (set SCOUT_PARTNERS_FILE)")
+        raise typer.Exit(1)
+    report = recall_report(store, code, partners=partners)
+    if as_json:
+        typer.echo(json.dumps(report, ensure_ascii=False, indent=1, default=str))
+        return
+    found = sum(1 for r in report if r["found"])
+    typer.echo(f"{code}: found {found} of {len(report)} existing partners by itself")
+    for r in report:
+        typer.echo(f"  {'FOUND' if r['found'] else 'MISSED':<6} {r['partner']:<22} "
+                   f"({'/'.join(r['platforms']) or '?'}, {r['niche'] or '?'}): {r['stage']}")
+        for a in r["accounts"]:
+            via = ", ".join(f"{e['kind']}:{e['via']}" for e in a["found_via"])
+            typer.echo(f"         {a['platform']:<8} @{a['handle']} {a['followers']} "
+                       f"region={a['region']} status={a['status']} via {via}")
+
+
+@app.command("partner-seeds")
+def partner_seeds(market: str = typer.Option(..., help="Market code"),
+                  budget: int = typer.Option(10, help="Credits for resolving handles")) -> None:
+    """Add the client's partners in a market as snowball seeds (after the recall test)."""
+    from .partners import load_partners, norm
+    from .sources import tiktok as tt
+    store = _setup()
+    code = load_market(market).code
+    client = ScrapeCreators(store, config.sc_key(), CreditMeter(budget))
+    added = 0
+    for p in [x for x in load_partners() if x.market == code]:
+        known = next((dict(r) for r in store.conn.execute(
+            "SELECT uid, handle, nickname FROM creators WHERE platform = 'tiktok'").fetchall()
+            if p.matches(r["handle"], r["nickname"])), None)
+        if known is None:
+            body = client.tiktok_search_users(p.key)
+            hit = next((a for a in tt.parse_users(body) if p.matches(a["handle"], a["nickname"])), None)
+            if hit is None:
+                typer.echo(f"  no TikTok account found for {p.key}")
+                continue
+            store.upsert_creator("tiktok", hit["uid"], handle=hit["handle"], nickname=hit["nickname"],
+                                 followers=hit["followers"])
+            known = hit
+        if store.add_seed(code, "tiktok", known["handle"], "partner", uid=known["uid"]):
+            added += 1
+            typer.echo(f"  seed @{known['handle']} ({p.key})")
+    typer.echo(f"added {added} partner seeds ({client.meter.used} credits); use them with "
+               f"--partner-seeds on run or resume")
 
 
 @app.command()

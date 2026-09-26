@@ -1,0 +1,367 @@
+{
+ "kind": "youtube#playlistItemListResponse",
+ "etag": "zncDqot_E_jwnjlgEVQg7XUMiTo",
+ "items": [
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "_37h6EXSCz1bKhnnmlIC3rmYTDA",
+   "id": "VVVTSDY1RXE2a2lvT0hzeERLYWg3ZGlzZlEucEJWOWVwdWVqdGs",
+   "snippet": {
+    "publishedAt": "2025-01-14T08:44:39Z",
+    "channelId": "UC65Eq6kioOHsxDKah7disfQ",
+    "title": "Mis Plaan Neil Oli? #buckshotroulette #estmagicz #krispoiss #ralfpaldermaa",
+    "description": "",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/pBV9epuejtk/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/pBV9epuejtk/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/pBV9epuejtk/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/pBV9epuejtk/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/pBV9epuejtk/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "EstMagicz",
+    "playlistId": "UUSH65Eq6kioOHsxDKah7disfQ",
+    "position": 0,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "pBV9epuejtk"
+    },
+    "videoOwnerChannelTitle": "EstMagicz",
+    "videoOwnerChannelId": "UC65Eq6kioOHsxDKah7disfQ"
+   },
+   "contentDetails": {
+    "videoId": "pBV9epuejtk",
+    "videoPublishedAt": "2025-01-14T08:44:39Z"
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "qqrrhyZBoIX0fJuJoyT05b6m62A",
+   "id": "VVVTSDY1RXE2a2lvT0hzeERLYWg3ZGlzZlEuTHNOM3ZLbmdTQm8",
+   "snippet": {
+    "publishedAt": "2025-01-14T08:40:02Z",
+    "channelId": "UC65Eq6kioOHsxDKah7disfQ",
+    "title": "KELLENA TÖÖTAKS ESTMAGICZ KUI TA EI OLEKS SISULOOJA? #estmagicz",
+    "description": "",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/LsN3vKngSBo/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/LsN3vKngSBo/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/LsN3vKngSBo/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/LsN3vKngSBo/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/LsN3vKngSBo/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "EstMagicz",
+    "playlistId": "UUSH65Eq6kioOHsxDKah7disfQ",
+    "position": 1,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "LsN3vKngSBo"
+    },
+    "videoOwnerChannelTitle": "EstMagicz",
+    "videoOwnerChannelId": "UC65Eq6kioOHsxDKah7disfQ"
+   },
+   "contentDetails": {
+    "videoId": "LsN3vKngSBo",
+    "videoPublishedAt": "2025-01-14T08:40:02Z"
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "kux39NDsQ9IDwb3-39BRQ1Domxw",
+   "id": "VVVTSDY1RXE2a2lvT0hzeERLYWg3ZGlzZlEuelFrLVBuek81V00",
+   "snippet": {
+    "publishedAt": "2025-01-14T08:37:43Z",
+    "channelId": "UC65Eq6kioOHsxDKah7disfQ",
+    "title": "TESTIME ÕNNE! #buckshotroulette",
+    "description": "",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/zQk-PnzO5WM/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/zQk-PnzO5WM/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/zQk-PnzO5WM/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/zQk-PnzO5WM/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/zQk-PnzO5WM/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "EstMagicz",
+    "playlistId": "UUSH65Eq6kioOHsxDKah7disfQ",
+    "position": 2,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "zQk-PnzO5WM"
+    },
+    "videoOwnerChannelTitle": "EstMagicz",
+    "videoOwnerChannelId": "UC65Eq6kioOHsxDKah7disfQ"
+   },
+   "contentDetails": {
+    "videoId": "zQk-PnzO5WM",
+    "videoPublishedAt": "2025-01-14T08:37:43Z"
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "orPoIPMkkjMCtkXjkyirU6HWgiY",
+   "id": "VVVTSDY1RXE2a2lvT0hzeERLYWg3ZGlzZlEuSmppYmNkNVpPc2M",
+   "snippet": {
+    "publishedAt": "2024-01-07T11:10:02Z",
+    "channelId": "UC65Eq6kioOHsxDKah7disfQ",
+    "title": "KAS SEE ON TÕSI? #deadsignal #estmagicz",
+    "description": "",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/Jjibcd5ZOsc/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/Jjibcd5ZOsc/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/Jjibcd5ZOsc/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/Jjibcd5ZOsc/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/Jjibcd5ZOsc/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "EstMagicz",
+    "playlistId": "UUSH65Eq6kioOHsxDKah7disfQ",
+    "position": 3,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "Jjibcd5ZOsc"
+    },
+    "videoOwnerChannelTitle": "EstMagicz",
+    "videoOwnerChannelId": "UC65Eq6kioOHsxDKah7disfQ"
+   },
+   "contentDetails": {
+    "videoId": "Jjibcd5ZOsc",
+    "videoPublishedAt": "2024-01-07T11:10:02Z"
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "OPKf7P3ueFCu0WW1U-TXMLH6kHw",
+   "id": "VVVTSDY1RXE2a2lvT0hzeERLYWg3ZGlzZlEuOTNOcHZTc3lyWlU",
+   "snippet": {
+    "publishedAt": "2023-12-25T21:30:10Z",
+    "channelId": "UC65Eq6kioOHsxDKah7disfQ",
+    "title": "RALF ISEGI EI MÕELNUD! #lethalcompany #estmagicz",
+    "description": "",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/93NpvSsyrZU/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/93NpvSsyrZU/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/93NpvSsyrZU/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/93NpvSsyrZU/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/93NpvSsyrZU/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "EstMagicz",
+    "playlistId": "UUSH65Eq6kioOHsxDKah7disfQ",
+    "position": 4,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "93NpvSsyrZU"
+    },
+    "videoOwnerChannelTitle": "EstMagicz",
+    "videoOwnerChannelId": "UC65Eq6kioOHsxDKah7disfQ"
+   },
+   "contentDetails": {
+    "videoId": "93NpvSsyrZU",
+    "videoPublishedAt": "2023-12-25T21:30:10Z"
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "2ubUNdwEqnisrx-bVAQXCYXGf-k",
+   "id": "VVVTSDY1RXE2a2lvT0hzeERLYWg3ZGlzZlEub1Q2WmhkTlQ2NzA",
+   "snippet": {
+    "publishedAt": "2023-12-24T23:19:29Z",
+    "channelId": "UC65Eq6kioOHsxDKah7disfQ",
+    "title": "Lethal Company mesitarude mäss! #estmagicz #lethalcompany",
+    "description": "",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/oT6ZhdNT670/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/oT6ZhdNT670/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/oT6ZhdNT670/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/oT6ZhdNT670/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/oT6ZhdNT670/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "EstMagicz",
+    "playlistId": "UUSH65Eq6kioOHsxDKah7disfQ",
+    "position": 5,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "oT6ZhdNT670"
+    },
+    "videoOwnerChannelTitle": "EstMagicz",
+    "videoOwnerChannelId": "UC65Eq6kioOHsxDKah7disfQ"
+   },
+   "contentDetails": {
+    "videoId": "oT6ZhdNT670",
+    "videoPublishedAt": "2023-12-24T23:19:29Z"
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "OTdGY-QqZivoB-dAoH27F__N7GQ",
+   "id": "VVVTSDY1RXE2a2lvT0hzeERLYWg3ZGlzZlEuNm5QSzl6bUYxdk0",
+   "snippet": {
+    "publishedAt": "2023-02-16T21:18:51Z",
+    "channelId": "UC65Eq6kioOHsxDKah7disfQ",
+    "title": "ARCTIS NOVA 7 WIRELESS KÕRVAKLAPID #steelseries #ad",
+    "description": "",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/6nPK9zmF1vM/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/6nPK9zmF1vM/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/6nPK9zmF1vM/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/6nPK9zmF1vM/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/6nPK9zmF1vM/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "EstMagicz",
+    "playlistId": "UUSH65Eq6kioOHsxDKah7disfQ",
+    "position": 6,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "6nPK9zmF1vM"
+    },
+    "videoOwnerChannelTitle": "EstMagicz",
+    "videoOwnerChannelId": "UC65Eq6kioOHsxDKah7disfQ"
+   },
+   "contentDetails": {
+    "videoId": "6nPK9zmF1vM",
+    "videoPublishedAt": "2023-02-16T21:18:51Z"
+   }
+  }
+ ],
+ "pageInfo": {
+  "totalResults": 7,
+  "resultsPerPage": 50
+ }
+}

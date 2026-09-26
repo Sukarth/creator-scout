@@ -1,0 +1,286 @@
+{
+ "kind": "youtube#channelListResponse",
+ "etag": "DB5n1QC6O-f-yO158SkwtDaVWa0",
+ "pageInfo": {
+  "totalResults": 4,
+  "resultsPerPage": 5
+ },
+ "items": [
+  {
+   "kind": "youtube#channel",
+   "etag": "MyfiDnCzzzmKdWJHX02Zu3p6mhs",
+   "id": "UC65Eq6kioOHsxDKah7disfQ",
+   "snippet": {
+    "title": "EstMagicz",
+    "description": "Ma mängin väga palju mänge, videomänge! \n\n\n",
+    "customUrl": "@estmagicz",
+    "publishedAt": "2016-07-25T19:35:13Z",
+    "thumbnails": {
+     "default": {
+      "url": "https://yt3.ggpht.com/AjogaYyTlNWCb9OD-huK1i2BqzJuZmfs3ko0_wukFeZYLiPO6zIuNyh-X9UZyPvdySHezTogyIE=s88-c-k-c0x00ffffff-no-rj",
+      "width": 88,
+      "height": 88
+     },
+     "medium": {
+      "url": "https://yt3.ggpht.com/AjogaYyTlNWCb9OD-huK1i2BqzJuZmfs3ko0_wukFeZYLiPO6zIuNyh-X9UZyPvdySHezTogyIE=s240-c-k-c0x00ffffff-no-rj",
+      "width": 240,
+      "height": 240
+     },
+     "high": {
+      "url": "https://yt3.ggpht.com/AjogaYyTlNWCb9OD-huK1i2BqzJuZmfs3ko0_wukFeZYLiPO6zIuNyh-X9UZyPvdySHezTogyIE=s800-c-k-c0x00ffffff-no-rj",
+      "width": 800,
+      "height": 800
+     }
+    },
+    "localized": {
+     "title": "EstMagicz",
+     "description": "Ma mängin väga palju mänge, videomänge! \n\n\n"
+    },
+    "country": "EE"
+   },
+   "contentDetails": {
+    "relatedPlaylists": {
+     "likes": "",
+     "uploads": "UU65Eq6kioOHsxDKah7disfQ"
+    }
+   },
+   "statistics": {
+    "viewCount": "34657599",
+    "subscriberCount": "50500",
+    "hiddenSubscriberCount": false,
+    "videoCount": "498"
+   },
+   "topicDetails": {
+    "topicIds": [
+     "/m/025zzc",
+     "/m/02ntfj",
+     "/m/0bzvm2",
+     "/m/0403l3g"
+    ],
+    "topicCategories": [
+     "https://en.wikipedia.org/wiki/Action_game",
+     "https://en.wikipedia.org/wiki/Action-adventure_game",
+     "https://en.wikipedia.org/wiki/Video_game_culture",
+     "https://en.wikipedia.org/wiki/Role-playing_video_game"
+    ]
+   },
+   "brandingSettings": {
+    "channel": {
+     "title": "EstMagicz",
+     "description": "Ma mängin väga palju mänge, videomänge! \n\n\n",
+     "keywords": "gaming videomängud õudus minecraft roblox raft estonia eesti \"eesti keeles\" \"oliver hollo\" phasmophobia \"eesti youtube\" jalgpall õudusmängud \"horror games\" krispoiss tondipüüdjad",
+     "unsubscribedTrailer": "llUAuH9juqY",
+     "country": "EE"
+    },
+    "image": {
+     "bannerExternalUrl": "https://yt3.googleusercontent.com/49xLYN008cpijbeOefLAHKlbQTa-gSklXwTVUgB3NYNkCuvRj8IBY4rHSMdC1ZmranhBsdSn"
+    }
+   }
+  },
+  {
+   "kind": "youtube#channel",
+   "etag": "VTq83nSRj1b1IiiB2LysZjAjgKA",
+   "id": "UCb3JUVdREZ-Dvbp-IEg_xDQ",
+   "snippet": {
+    "title": "Mänguväli",
+    "description": "Mänguväli on mängude teemaline kanal, kus Joosep, Oliver ja sõbrad toovad teieni lõbusaid ja huvitavaid videoid kõigest mängudega seonduvast.\n\nKülasta kindlasti ka meie veebilehte!\nNäeme võrgus!\n\n\nKui teile meie videod meeldivad ja tahate toetada uute videote tegemist, siis visake pilk meie Patreonile!\nhttps://www.patreon.com/manguvali",
+    "customUrl": "@manguvali",
+    "publishedAt": "2011-03-16T17:24:35Z",
+    "thumbnails": {
+     "default": {
+      "url": "https://yt3.ggpht.com/ytc/AIdro_kXr8xf9Ene6XLwR4S4ni1S3t3Li7zqe7YgC28bBR_lrpo=s88-c-k-c0x00ffffff-no-rj",
+      "width": 88,
+      "height": 88
+     },
+     "medium": {
+      "url": "https://yt3.ggpht.com/ytc/AIdro_kXr8xf9Ene6XLwR4S4ni1S3t3Li7zqe7YgC28bBR_lrpo=s240-c-k-c0x00ffffff-no-rj",
+      "width": 240,
+      "height": 240
+     },
+     "high": {
+      "url": "https://yt3.ggpht.com/ytc/AIdro_kXr8xf9Ene6XLwR4S4ni1S3t3Li7zqe7YgC28bBR_lrpo=s800-c-k-c0x00ffffff-no-rj",
+      "width": 800,
+      "height": 800
+     }
+    },
+    "localized": {
+     "title": "Mänguväli",
+     "description": "Mänguväli on mängude teemaline kanal, kus Joosep, Oliver ja sõbrad toovad teieni lõbusaid ja huvitavaid videoid kõigest mängudega seonduvast.\n\nKülasta kindlasti ka meie veebilehte!\nNäeme võrgus!\n\n\nKui teile meie videod meeldivad ja tahate toetada uute videote tegemist, siis visake pilk meie Patreonile!\nhttps://www.patreon.com/manguvali"
+    },
+    "country": "EE"
+   },
+   "contentDetails": {
+    "relatedPlaylists": {
+     "likes": "",
+     "uploads": "UUb3JUVdREZ-Dvbp-IEg_xDQ"
+    }
+   },
+   "statistics": {
+    "viewCount": "33498462",
+    "subscriberCount": "35400",
+    "hiddenSubscriberCount": false,
+    "videoCount": "1288"
+   },
+   "topicDetails": {
+    "topicIds": [
+     "/m/025zzc",
+     "/m/0bzvm2",
+     "/m/0403l3g",
+     "/m/02ntfj",
+     "/m/021bp2"
+    ],
+    "topicCategories": [
+     "https://en.wikipedia.org/wiki/Action_game",
+     "https://en.wikipedia.org/wiki/Video_game_culture",
+     "https://en.wikipedia.org/wiki/Role-playing_video_game",
+     "https://en.wikipedia.org/wiki/Action-adventure_game",
+     "https://en.wikipedia.org/wiki/Simulation_video_game"
+    ]
+   },
+   "brandingSettings": {
+    "channel": {
+     "title": "Mänguväli",
+     "description": "Mänguväli on mängude teemaline kanal, kus Joosep, Oliver ja sõbrad toovad teieni lõbusaid ja huvitavaid videoid kõigest mängudega seonduvast.\n\nKülasta kindlasti ka meie veebilehte!\nNäeme võrgus!\n\n\nKui teile meie videod meeldivad ja tahate toetada uute videote tegemist, siis visake pilk meie Patreonile!\nhttps://www.patreon.com/manguvali",
+     "keywords": "Mänguväli Manguvali Eesti keel keeles Estonia gameplay mini ülevaade mängime minecraft saade let's play review show server mängud tehnika MV Oliver Joosep Joel",
+     "unsubscribedTrailer": "Gd6sbtHUH1A",
+     "country": "EE"
+    },
+    "image": {
+     "bannerExternalUrl": "https://yt3.googleusercontent.com/odk_dHNwuV1hmr6MjOUyIYFQmCM1NcxemlJsiTTy4A3GfcL-9TDvJ7gUhBNmhY3RdtTh2HCqonU"
+    }
+   }
+  },
+  {
+   "kind": "youtube#channel",
+   "etag": "jnvl5hw2uoD7_DY3MF3W_hZU3GM",
+   "id": "UCDlGuYoiJEh87wfrETMKs0w",
+   "snippet": {
+    "title": "JustGronEST",
+    "description": "Tere olen eesti youtuber kes teeb videosi erinevatest mängudest koos oma sõpradega.\n\n",
+    "customUrl": "@justgronest",
+    "publishedAt": "2023-07-20T14:05:19.64124Z",
+    "thumbnails": {
+     "default": {
+      "url": "https://yt3.ggpht.com/6NC8YjW5Yl5lAE9ObSAs8wrEW067DAsxrFO66v4vDV-UPdou4FKR57RDKhgPuZSU9jVL3vzdzA=s88-c-k-c0x00ffffff-no-rj",
+      "width": 88,
+      "height": 88
+     },
+     "medium": {
+      "url": "https://yt3.ggpht.com/6NC8YjW5Yl5lAE9ObSAs8wrEW067DAsxrFO66v4vDV-UPdou4FKR57RDKhgPuZSU9jVL3vzdzA=s240-c-k-c0x00ffffff-no-rj",
+      "width": 240,
+      "height": 240
+     },
+     "high": {
+      "url": "https://yt3.ggpht.com/6NC8YjW5Yl5lAE9ObSAs8wrEW067DAsxrFO66v4vDV-UPdou4FKR57RDKhgPuZSU9jVL3vzdzA=s800-c-k-c0x00ffffff-no-rj",
+      "width": 800,
+      "height": 800
+     }
+    },
+    "localized": {
+     "title": "JustGronEST",
+     "description": "Tere olen eesti youtuber kes teeb videosi erinevatest mängudest koos oma sõpradega.\n\n"
+    }
+   },
+   "contentDetails": {
+    "relatedPlaylists": {
+     "likes": "",
+     "uploads": "UUDlGuYoiJEh87wfrETMKs0w"
+    }
+   },
+   "statistics": {
+    "viewCount": "65168",
+    "subscriberCount": "563",
+    "hiddenSubscriberCount": false,
+    "videoCount": "60"
+   },
+   "topicDetails": {
+    "topicIds": [
+     "/m/0403l3g",
+     "/m/0bzvm2",
+     "/m/02ntfj"
+    ],
+    "topicCategories": [
+     "https://en.wikipedia.org/wiki/Role-playing_video_game",
+     "https://en.wikipedia.org/wiki/Video_game_culture",
+     "https://en.wikipedia.org/wiki/Action-adventure_game"
+    ]
+   },
+   "brandingSettings": {
+    "channel": {
+     "title": "JustGronEST",
+     "description": "Tere olen eesti youtuber kes teeb videosi erinevatest mängudest koos oma sõpradega.\n\n",
+     "unsubscribedTrailer": "YSKLv4s__Gc"
+    },
+    "image": {
+     "bannerExternalUrl": "https://yt3.googleusercontent.com/YID3BxeqlvbTA8JWk6jYUkyAJRlWlBvcbwJtGOVO-Gq4aQL4W_mJLtRAIQx8LB2oZSrZ2B9IbQ"
+    }
+   }
+  },
+  {
+   "kind": "youtube#channel",
+   "etag": "UWVaVIDSUOa_JyyfWMaXkUNGsg4",
+   "id": "UCIjhUWSWiYt9GAfO2Xo_VPA",
+   "snippet": {
+    "title": "freq_k",
+    "description": "",
+    "customUrl": "@freq_k",
+    "publishedAt": "2021-09-17T19:45:56.363639Z",
+    "thumbnails": {
+     "default": {
+      "url": "https://yt3.ggpht.com/h-tiTdviNkVyi9c90biQIOklPUldsnVmMwn7qiUKnqhBX9hbEBdattRXV30ucFmO-4uXpx2A=s88-c-k-c0x00ffffff-no-rj",
+      "width": 88,
+      "height": 88
+     },
+     "medium": {
+      "url": "https://yt3.ggpht.com/h-tiTdviNkVyi9c90biQIOklPUldsnVmMwn7qiUKnqhBX9hbEBdattRXV30ucFmO-4uXpx2A=s240-c-k-c0x00ffffff-no-rj",
+      "width": 240,
+      "height": 240
+     },
+     "high": {
+      "url": "https://yt3.ggpht.com/h-tiTdviNkVyi9c90biQIOklPUldsnVmMwn7qiUKnqhBX9hbEBdattRXV30ucFmO-4uXpx2A=s800-c-k-c0x00ffffff-no-rj",
+      "width": 800,
+      "height": 800
+     }
+    },
+    "localized": {
+     "title": "freq_k",
+     "description": ""
+    }
+   },
+   "contentDetails": {
+    "relatedPlaylists": {
+     "likes": "",
+     "uploads": "UUIjhUWSWiYt9GAfO2Xo_VPA"
+    }
+   },
+   "statistics": {
+    "viewCount": "414437",
+    "subscriberCount": "3490",
+    "hiddenSubscriberCount": false,
+    "videoCount": "79"
+   },
+   "topicDetails": {
+    "topicIds": [
+     "/m/02ntfj",
+     "/m/0bzvm2",
+     "/m/0403l3g",
+     "/m/025zzc"
+    ],
+    "topicCategories": [
+     "https://en.wikipedia.org/wiki/Action-adventure_game",
+     "https://en.wikipedia.org/wiki/Video_game_culture",
+     "https://en.wikipedia.org/wiki/Role-playing_video_game",
+     "https://en.wikipedia.org/wiki/Action_game"
+    ]
+   },
+   "brandingSettings": {
+    "channel": {
+     "title": "freq_k"
+    },
+    "image": {
+     "bannerExternalUrl": "https://yt3.googleusercontent.com/jBl93mEqDRcvHlC6p3_OeStnEArZ57-5AdYx3rbwhCaKASc53K3-7XAV34GzN1eM9X1PozSC"
+    }
+   }
+  }
+ ]
+}

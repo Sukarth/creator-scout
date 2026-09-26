@@ -31,7 +31,7 @@ def mask_email(match: re.Match) -> str:
 DROP_KEYS = {
     "video", "music", "added_sound_music_info", "share_info", "image_post_info", "anchors",
     "anchors_extras", "interaction_stickers", "log_pb", "extra", "global_doodle_config",
-    "music_list", "challenge_list", "effects", "musics", "mix_list", "challenges", "items",
+    "music_list", "challenge_list", "effects", "musics", "mix_list", "challenges",
     "item_list", "risk_infos", "text_extra", "video_labels", "cha_list", "status",
     "green_screen_materials", "aweme_acl", "comment_config", "creation_info", "content_desc_extra",
     "commerce_config_data", "cover_labels", "platform_sync_info", "shield_edit_field_info",

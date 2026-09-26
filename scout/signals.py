@@ -78,6 +78,9 @@ def market_signals(text: str | None, market: Market) -> list[str]:
     for word in market.words:
         if re.search(r"(?<!\w)" + re.escape(_norm(word)) + r"(?!\w)", t):
             found.append(f"word '{word}'")
+    for ch in market.distinct_chars:
+        if ch in t:
+            found.append(f"local letter '{ch}'")
     return found
 
 

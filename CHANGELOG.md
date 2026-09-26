@@ -6,6 +6,37 @@ All notable changes to this project are documented here. The format follows
 ## [Unreleased]
 
 ### Added
+- YouTube as a core platform: ScrapeCreators search with a region (1 credit
+  per page) for discovery; the official YouTube Data API (`YOUTUBE_API_KEY`,
+  free quota) for country, subscribers, description and recent uploads, with
+  long videos (`UULF`) and Shorts (`UUSH`) measured separately. Accepted
+  channels get one ScrapeCreators channel lookup for email and links.
+- Cross-platform identities: TikTok accounts that expose a YouTube channel id
+  and channels that link a TikTok handle are linked and exported as one row.
+  A linked TikTok account of an accepted channel becomes a snowball seed.
+- Size bands per platform with presets: `default` (TikTok 4k-500k, YouTube
+  50k-250k) and `hidden-gems` (TikTok 1k+, YouTube 5k+).
+- View metrics as clients quote them: average views over the last 30 days (90
+  when fewer than 3 videos), with the window and video count stated, a
+  20th-80th percentile range ("10K-30K") and a recent-versus-older trend.
+- Judge output adds a niche category, the games covered and a
+  young-gamer-appeal score; fit is judged as "would a young PC-gaming audience
+  watch this", with gaming and tech as the core.
+- Existing client partners (private list, `SCOUT_PARTNERS_FILE`): marked and
+  listed separately in exports; `scout recall` reports which partners a run
+  found by itself and at which stage the others were lost; `scout
+  partner-seeds` adds them as snowball seeds afterwards.
+- Export: one row per creator with the required columns first (country,
+  followers/subscribers, average views with window, niche and games, contact),
+  then risks (competitor sponsorship, brand safety, inactivity) and trend; a
+  "Prenew format" sheet mirrors the client's collaboration sheet.
+- `scout check` requires the client's columns to be filled for shortlisted rows.
+
+### Changed
+- Snowballing starts as soon as two creators are accepted and then alternates
+  two following-list pages with one harvest page; seeds are expanded while
+  they keep yielding (up to 30 pages).
+- Pitches are opt-in (`--pitches`); they are not part of a run by default.
 - Free LLM provider chain (`scout/llm.py`): Groq `gpt-oss-120b`, `qwen3.8-27b`,
   `gpt-oss-20b` and OpenCode Zen `space-bunny-free`, OpenAI-compatible JSON
   mode, per-model sliding token window under the 8k tokens-per-minute free

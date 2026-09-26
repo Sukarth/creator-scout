@@ -68,8 +68,11 @@ def test_snowball_from_retailer_finds_digikamu(cached_store, tmp_path):
 
     sheets = build_sheets(store, run_id)
     row = sheets["Shortlist"][0]
-    assert row["handle"] == "digikamu" and row["found_via"] == "followed by @jimmspc"
-    assert row["competitor_conflict"] == "no" and row["price_low_eur"] == 60
+    assert row["tiktok_url"].endswith("@digikamu") and row["found_via"] == "followed by @jimmspc"
+    assert row["risks"] == "" and row["followers_tiktok"] == 32571
+    assert row["views_window_tiktok"] == "last 30 days, 5 videos" and row["views_range_tiktok"]
+    assert row["contact"] == "creatorbd06af@example.fi"
+    assert sheets["Prenew format"][0]["TikTok followers"] == 32571
     paths = export_run(store, run_id, tmp_path)
     assert paths[0].suffix == ".xlsx" and paths[0].stat().st_size > 0
     assert check_run(store, run_id).passed
@@ -116,8 +119,8 @@ def test_estonian_hashtag_to_qualified_creator(cached_store):
     seeds = {s["handle"]: s for s in store.seeds("EE", active_only=False)}
     assert seeds["arvutitarkofficial"]["kind"] == "retailer"
     row = build_sheets(store, run_id)["Shortlist"][0]
-    assert row["handle"] == "smmart_avocado" and row["market"] == "EE"
-    assert row["emails"] == "creatorad250a@example.com"
+    assert row["tiktok_url"].endswith("@smmart_avocado") and row["market"] == "EE"
+    assert row["contact"] == "creatorad250a@example.com"
     assert row["found_via"] == "#mängimine"
     assert check_run(store, run_id).passed
 

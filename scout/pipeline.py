@@ -35,8 +35,10 @@ from .sources import linkpages
 from .sources import tiktok as tt
 from .sources.scrapecreators import ApiError, BudgetExhausted, ScrapeCreators
 from .store import Store
+from .youtube_stage import YouTubeStage
 
 PLATFORM = tt.PLATFORM
+YOUTUBE = "youtube"
 
 PENDING = "pending"
 QUALIFIED = "needs_judgment"
@@ -68,12 +70,17 @@ def _norm(text: str) -> str:
     return " ".join(unicodedata.normalize("NFC", text or "").lower().split())
 
 
-class Pipeline:
+class Pipeline(YouTubeStage):
     def __init__(self, store: Store, client: ScrapeCreators, market: Market,
                  settings: RunSettings, run_id: int, progress: ProgressFn | None = None,
                  fetch_link_pages: bool = True, now: float | None = None, judge=None,
-                 llm=None):
+                 llm=None, youtube=None):
         self.store = store
+        self.youtube = youtube
+        self.harvest_spent = 0
+        self._harvest = None
+        self._plan_hashtags: list[str] | None = None
+        self._plan_keywords: list[str] | None = None
         self.now = now
         self.client = client
         self.market = market
@@ -187,6 +194,12 @@ class Pipeline:
             return None
         bucket = self.screen(uid, business_hint=acc.get("enterprise_reason"))
         self.funnel[f"bucket_{bucket}"] += 1
+        # In-market TikTok accounts that link a YouTube channel: link and screen
+        # the channel too (free API call).
+        if bucket != filters.OTHER and (acc.get("youtube_channel_id") or "").startswith("UC") \
+                and self.youtube is not None:
+            self.link_youtube_channel(acc["youtube_channel_id"], (PLATFORM, uid),
+                                      "TikTok profile links the YouTube channel")
         return bucket
 
     def screen(self, uid: str, business_hint: str | None = None) -> str:
@@ -293,31 +306,68 @@ class Pipeline:
                 add("keyword", q, code)
             return plan
         gen = self.generated_keywords()
-        for t in self.market.seed_hashtags + gen.get("local_hashtags", []):
-            add("hashtag", t, None)
-        for t in self.market.global_hashtags + gen.get("global_hashtags", []):
-            add("hashtag", t, code)
-        if self.s.extra.get("use_general_tags"):
-            for t in self.market.general_hashtags:
+        platforms = self.s.extra.get("platforms", ["tiktok", "youtube"])
+        tiktok = "tiktok" in platforms
+        if tiktok:
+            for t in self.market.seed_hashtags + gen.get("local_hashtags", []):
                 add("hashtag", t, None)
-        for q in self.market.seed_keywords + gen.get("keywords", []):
-            add("keyword", q, code)
+        if "youtube" in platforms:
+            for q in self.market.youtube_queries:
+                add("yt_search", q, code)
+        # Global and proxied tags return few in-market authors in small markets:
+        # they come after local sources.
+        if tiktok:
+            for q in self.market.seed_keywords + gen.get("keywords", []):
+                add("keyword", q, code)
+            if self.s.extra.get("use_general_tags"):
+                for t in self.market.general_hashtags:
+                    add("hashtag", t, None)
+            for t in self.market.global_hashtags + gen.get("global_hashtags", []):
+                add("hashtag", t, code)
         return plan
 
-    def harvest(self, hashtags: list[str] | None = None, keywords: list[str] | None = None) -> None:
-        cap = int(self.s.budget * self.s.extra.get("harvest_share", 0.35))
-        for kind, term, region in self.harvest_plan(hashtags, keywords):
-            if self.client.meter.used >= cap:
-                break
-            self._harvest_source(kind, term, region, cap)
+    def harvest_cap(self) -> int:
+        return int(self.s.budget * self.s.extra.get("harvest_share", 0.35))
 
-    def _harvest_source(self, kind: str, term: str, region: str | None, cap: int) -> None:
+    def harvest_iter(self, hashtags: list[str] | None = None, keywords: list[str] | None = None):
+        """Yield once per harvest page fetched, following the harvest plan."""
+        for kind, term, region in self.harvest_plan(hashtags, keywords):
+            if self.harvest_spent >= self.harvest_cap():
+                return
+            yield from self._harvest_source(kind, term, region)
+
+    def harvest_step(self) -> bool:
+        """Fetch the next harvest page. Returns False once the plan or its cap is exhausted."""
+        if self._harvest is None:
+            self._harvest = self.harvest_iter(self._plan_hashtags, self._plan_keywords)
+        return next(self._harvest, None) is not None
+
+    def harvest(self, hashtags: list[str] | None = None, keywords: list[str] | None = None) -> None:
+        """Run the whole harvest plan at once (used by tests and harvest-only runs)."""
+        for _ in self.harvest_iter(hashtags, keywords):
+            pass
+
+    def _harvest_source(self, kind: str, term: str, region: str | None):
         cursor = None
         dry = 0
-        max_pages = self.s.max_pages_per_hashtag if kind == "hashtag" else self.s.max_pages_per_keyword
+        max_pages = {"hashtag": self.s.max_pages_per_hashtag,
+                     "yt_search": self.s.extra.get("max_pages_per_yt_query", 3)}.get(
+            kind, self.s.max_pages_per_keyword)
         for page in range(max_pages):
-            if self.client.meter.used >= cap:
+            if self.harvest_spent >= self.harvest_cap():
                 return
+            if kind == "yt_search":
+                before = self.client.meter.used
+                new_in_market, cursor, fetched = self.yt_search_page(term, cursor)
+                self.harvest_spent += self.client.meter.used - before
+                if not fetched:
+                    return
+                yield True
+                dry = dry + 1 if new_in_market < 1 else 0
+                if dry >= self.s.stop_after_dry_pages or not cursor:
+                    return
+                continue
+            before = self.client.meter.used
             if kind == "hashtag":
                 body, _ = self._call(self.client.tiktok_hashtag, term, cursor=cursor, region=region,
                                      max_age=self.s.ttl_search)
@@ -325,6 +375,7 @@ class Pipeline:
                 body, _ = self._call(self.client.tiktok_keyword, term, cursor=cursor,
                                      date_posted=self.s.keyword_date_posted, region=region,
                                      max_age=self.s.ttl_search)
+            self.harvest_spent += self.client.meter.used - before
             if body is None:
                 return
             parse = tt.parse_hashtag if kind == "hashtag" else tt.parse_keyword
@@ -338,6 +389,7 @@ class Pipeline:
             proxy = f" via {region} proxy" if region else ""
             self.emit("harvest", f"{kind} '{term}'{proxy} page {page + 1}: {len(pairs)} videos, "
                                  f"{new_in_market} new in-market accounts")
+            yield True
             dry = dry + 1 if new_in_market < self.s.min_new_in_market_per_page else 0
             # A short page means the tag or query is nearly exhausted even when the
             # API still reports ``has_more``; the next page is usually empty.
@@ -377,8 +429,8 @@ class Pipeline:
 
     # ---- stage: pre-judge ------------------------------------------------
 
-    def _pending(self) -> list[dict]:
-        return [s for s in self.store.screenings(self.market.code, PENDING)
+    def _pending(self, platform: str | None = None) -> list[dict]:
+        return [s for s in self.store.screenings(self.market.code, PENDING, platform=platform)
                 if s["uid"] not in self.skipped_uids]
 
     def prejudge_pending(self) -> int:
@@ -386,32 +438,33 @@ class Pipeline:
         if not self.judging:
             return 0
         code = self.market.code
-        todo = [s["uid"] for s in self._pending()
-                if self.store.get_prejudgment(code, PLATFORM, s["uid"]) is None]
+        todo = [(s["platform"], s["uid"]) for s in self._pending()
+                if self.store.get_prejudgment(code, s["platform"], s["uid"]) is None]
         if not todo:
             return 0
-        items = [prejudge_payload(self.store, self.market, uid) for uid in todo]
+        items = [prejudge_payload(self.store, self.market, uid, platform) for platform, uid in todo]
         results = self.judge.prejudge(self.market, items)
         if results is None:
             raise Paused("awaiting_prejudge", len(todo))
-        for uid in todo:
+        for platform, uid in todo:
             r = results.get(uid)
             # A missing answer never excludes: the account continues as "unsure".
             verdict = r["verdict"] if r else "unsure"
             reason = (r or {}).get("reason") or ("" if r else "pre-judge gave no answer")
-            self.apply_prejudgment(uid, verdict, reason, (r or {}).get("model"))
+            self.apply_prejudgment(uid, verdict, reason, (r or {}).get("model"), platform)
         self.emit("prejudge", f"triaged {len(todo)} candidates: {self.funnel['prejudge_yes']} yes, "
                               f"{self.funnel['prejudge_unsure']} unsure, "
                               f"{self.funnel['prejudge_no']} no so far")
         return len(todo)
 
-    def apply_prejudgment(self, uid: str, verdict: str, reason: str, model: str | None) -> None:
+    def apply_prejudgment(self, uid: str, verdict: str, reason: str, model: str | None,
+                          platform: str = PLATFORM) -> None:
         code = self.market.code
-        self.store.set_prejudgment(code, PLATFORM, uid, verdict, reason, model, self.run_id)
+        self.store.set_prejudgment(code, platform, uid, verdict, reason, model, self.run_id)
         self.funnel["prejudged"] += 1
         self.funnel[f"prejudge_{verdict}"] += 1
         if verdict == "no":
-            self.store.set_screening(code, PLATFORM, uid, FILTERED,
+            self.store.set_screening(code, platform, uid, FILTERED,
                                      reason=f"pre-judge: no ({reason})", run_id=self.run_id)
 
     # ---- stage: enrichment -----------------------------------------------
@@ -423,13 +476,13 @@ class Pipeline:
         hint (followers known in band, else the harvested video's view count,
         since near-zero views usually mean an account below the band).
         """
-        uid = s["uid"]
-        c = self.store.get_creator(PLATFORM, uid) or {}
-        pj = self.store.get_prejudgment(self.market.code, PLATFORM, uid)
+        uid, platform = s["uid"], s["platform"]
+        c = self.store.get_creator(platform, uid) or {}
+        pj = self.store.get_prejudgment(self.market.code, platform, uid)
         verdict_rank = {"yes": 0, "unsure": 1}.get(pj["verdict"], 2) if pj else 1
-        vids = self.store.videos_for(PLATFORM, uid, limit=3)
+        vids = self.store.videos_for(platform, uid, limit=3)
         texts = [c.get("nickname"), c.get("bio")] + [v["caption"] for v in vids] + \
-                [e["via"] for e in self.store.edges_to(PLATFORM, uid) if e["kind"] == "hashtag"]
+                [e["via"] for e in self.store.edges_to(platform, uid) if e["kind"] == "hashtag"]
         hits = len(signals.gaming_hits(texts, self.market))
         if c.get("followers") is not None:
             size_rank = 0
@@ -444,15 +497,16 @@ class Pipeline:
         pending = self._pending()
         if self.judging:
             pending = [s for s in pending
-                       if (self.store.get_prejudgment(code, PLATFORM, s["uid"]) or {}).get("verdict")
-                       in ("yes", "unsure")]
+                       if (self.store.get_prejudgment(code, s["platform"], s["uid"]) or {})
+                       .get("verdict") in ("yes", "unsure")]
         pending.sort(key=self.priority)
         qualified = attempted = 0
         for s in pending:
             if self.target_met() or (limit is not None and attempted >= limit):
                 break
             attempted += 1
-            if self.enrich_one(s["uid"]):
+            enrich = self.yt_enrich_one if s["platform"] == YOUTUBE else self.enrich_one
+            if enrich(s["uid"]):
                 qualified += 1
         self.last_enrich_attempts = attempted
         return qualified
@@ -581,32 +635,33 @@ class Pipeline:
         if not self.judging:
             return 0
         code = self.market.code
-        todo = [s["uid"] for s in self.store.screenings(code, QUALIFIED, run_id=self.run_id)
+        todo = [(s["platform"], s["uid"])
+                for s in self.store.screenings(code, QUALIFIED, run_id=self.run_id)
                 if self.judge_attempts.get(s["uid"], 0) < 2]
         if not todo:
             return 0
-        items = [judge_payload(self.store, self.market, uid) for uid in todo]
+        items = [judge_payload(self.store, self.market, uid, platform) for platform, uid in todo]
         results = self.judge.judge(self.market, items)
         if results is None:
             raise Paused("awaiting_judgment", len(todo))
         judged = 0
-        for uid in todo:
+        for platform, uid in todo:
             r = results.get(uid)
             if r is None:
                 self.judge_attempts[uid] = self.judge_attempts.get(uid, 0) + 1
                 continue
-            self.apply_decision(uid, r, r.get("model"))
+            self.apply_decision(uid, r, r.get("model"), platform)
             judged += 1
         self.emit("judge", f"judged {judged}: {self.funnel['accepted']} accepted, "
                            f"{self.funnel['maybe']} maybe, {self.funnel['rejected']} rejected so far")
         return judged
 
-    def apply_decision(self, uid: str, r: dict, model: str | None) -> str:
+    def apply_decision(self, uid: str, r: dict, model: str | None, platform: str = PLATFORM) -> str:
         """Store a judgment after code-side checks. Returns the resulting status."""
         code = self.market.code
-        c = self.store.get_creator(PLATFORM, uid) or {}
-        m = self.store.get_metrics(PLATFORM, uid) or {}
-        s = self.store.get_screening(code, PLATFORM, uid) or {}
+        c = self.store.get_creator(platform, uid) or {}
+        m = self.store.get_metrics(platform, uid) or {}
+        s = self.store.get_screening(code, platform, uid) or {}
         r = dict(r)
         notes: list[str] = []
         decision = r.get("decision", "maybe")
@@ -624,7 +679,7 @@ class Pipeline:
             downgrade("reject", "business account")
         if r.get("is_organization") and decision == "accept":
             downgrade("maybe", "organisation account")
-        if decision == "accept" and not self._evidence_found(r.get("evidence_quote"), uid):
+        if decision == "accept" and not self._evidence_found(r.get("evidence_quote"), uid, platform):
             downgrade("maybe", "evidence quote not found in bio or captions")
         resolution = (r.get("market_resolution") or "unclear").upper()
         if s.get("bucket") == filters.UNSURE and resolution not in (code, "UNCLEAR"):
@@ -639,27 +694,44 @@ class Pipeline:
         r["decision"] = decision
         if notes:
             r["code_notes"] = notes
-        self.store.set_decision(code, PLATFORM, uid, decision, r.get("fit_score"), r, model,
+        self.store.set_decision(code, platform, uid, decision, r.get("fit_score"), r, model,
                                 self.run_id)
-        self.store.set_screening(code, PLATFORM, uid, status, reason=reason, run_id=self.run_id)
-        self.store.add_run_member(self.run_id, code, PLATFORM, uid, status)
+        self.store.set_screening(code, platform, uid, status, reason=reason, run_id=self.run_id)
+        self.store.add_run_member(self.run_id, code, platform, uid, status)
         self.funnel["judged"] += 1
         if status in (ACCEPTED, MAYBE, REJECTED):
             self.funnel[status] += 1
-        if status == ACCEPTED and c.get("handle"):
-            self.store.add_seed(code, PLATFORM, c["handle"], "creator", uid=uid, run_id=self.run_id)
-            self.emit("judge", f"accepted @{c['handle']} (fit {r.get('fit_score')})",
-                      handle=c["handle"])
+        if status == ACCEPTED:
+            self.on_accept(platform, uid, c, r)
         return status
 
-    def _evidence_found(self, quote: str | None, uid: str) -> bool:
+    def on_accept(self, platform: str, uid: str, c: dict, r: dict) -> None:
+        """Accepted creators feed the snowball and get their other platforms linked."""
+        code = self.market.code
+        label = f"@{c.get('handle')}" if platform == PLATFORM else f"YouTube {c.get('nickname')}"
+        self.emit("judge", f"accepted {label} (fit {r.get('fit_score')})", handle=c.get("handle"))
+        if platform == PLATFORM and c.get("handle"):
+            self.store.add_seed(code, PLATFORM, c["handle"], "creator", uid=uid, run_id=self.run_id)
+            yt_link = (c.get("links") or {}).get("youtube") or ""
+            if yt_link.startswith("UC") and self.youtube is not None:
+                self.link_youtube_channel(yt_link, (PLATFORM, uid), "TikTok bio links the channel")
+        elif platform == YOUTUBE and not isinstance(self.judge, DeferredJudge):
+            self.yt_after_accept(uid)
+            # A linked TikTok account of an accepted channel is a snowball seed.
+            for p, other, _ in self.store.linked_accounts(YOUTUBE, uid):
+                oc = self.store.get_creator(p, other) or {}
+                if p == PLATFORM and oc.get("handle"):
+                    self.store.add_seed(code, PLATFORM, oc["handle"], "linked", uid=other,
+                                        run_id=self.run_id)
+
+    def _evidence_found(self, quote: str | None, uid: str, platform: str = PLATFORM) -> bool:
         """The quote must appear (whitespace- and case-insensitively) in the bio or a caption."""
         q = _norm(quote or "").strip(" \"'“”….")
         if len(q) < 4:
             return False
-        c = self.store.get_creator(PLATFORM, uid) or {}
+        c = self.store.get_creator(platform, uid) or {}
         texts = [c.get("bio") or "", c.get("nickname") or ""] + \
-                [v["caption"] or "" for v in self.store.videos_for(PLATFORM, uid, limit=30)]
+                [v["caption"] or "" for v in self.store.videos_for(platform, uid, limit=40)]
         blob = " ".join(_norm(t) for t in texts)
         probe = q[:40]
         return probe in blob or all(part in blob for part in q.split("…") if part.strip())
@@ -670,16 +742,17 @@ class Pipeline:
         if not self.judging:
             return 0
         code = self.market.code
-        todo = [s["uid"] for s in self.store.screenings(code, ACCEPTED, run_id=self.run_id)
-                if self.store.get_pitch(code, PLATFORM, s["uid"]) is None]
+        todo = {s["uid"]: s["platform"] for s in self.store.screenings(code, ACCEPTED, run_id=self.run_id)
+                if self.store.get_pitch(code, s["platform"], s["uid"]) is None}
         if not todo:
             return 0
-        results = self.judge.pitch(self.market, [pitch_payload(self.store, self.market, u) for u in todo])
+        results = self.judge.pitch(self.market, [pitch_payload(self.store, self.market, u, p)
+                                                 for u, p in todo.items()])
         if not results:
             return 0
         for uid, p in results.items():
             if uid in todo:
-                self.store.set_pitch(code, PLATFORM, uid, p.get("language"), p.get("subject"),
+                self.store.set_pitch(code, todo[uid], uid, p.get("language"), p.get("subject"),
                                      p.get("body"), p.get("dm"), p.get("model"), self.run_id)
                 self.funnel["pitches"] += 1
         self.emit("pitch", f"drafted {self.funnel['pitches']} pitches")
@@ -691,6 +764,10 @@ class Pipeline:
         """Creator seeds must be accepted (or qualified when not judging); shops only on request."""
         if seed["kind"] in ("retailer", "business"):
             return bool(self.s.extra.get("use_retailer_seeds"))
+        if seed["kind"] == "partner":
+            return bool(self.s.extra.get("use_partner_seeds"))
+        if seed["kind"] == "linked":
+            return True  # added only for accepted channels on another platform
         if not seed.get("uid"):
             return False
         s = self.store.get_screening(self.market.code, PLATFORM, seed["uid"]) or {}
@@ -699,18 +776,28 @@ class Pipeline:
         return s.get("status") in (QUALIFIED, ACCEPTED)
 
     def seed_score(self, seed: dict) -> float:
-        prior = {"creator": 2.0, "retailer": 1.5, "business": 1.0}.get(seed["kind"], 1.0)
+        prior = {"creator": 2.0, "linked": 2.0, "partner": 2.0, "retailer": 1.5,
+                 "business": 1.0}.get(seed["kind"], 1.0)
         if seed["pages_fetched"] == 0:
-            return prior
+            return prior * 1.5  # try new seeds early
         return (seed["new_in_market"] + 1) / (seed["credits_spent"] + 1) * prior
+
+    def usable_seeds(self) -> list[dict]:
+        return sorted((s for s in self.store.seeds(self.market.code)
+                       if s["handle"] not in self.skipped_seeds and self.seed_usable(s)),
+                      key=self.seed_score, reverse=True)
+
+    def snowball_step(self) -> bool:
+        """Expand one following page of the most productive usable seed."""
+        for seed in self.usable_seeds():
+            if self.expand_seed(seed):
+                return True
+        return False
 
     def snowball_round(self) -> int:
         """Fetch one following page from each usable seed, best first. Returns pages fetched."""
-        seeds = sorted((s for s in self.store.seeds(self.market.code)
-                        if s["handle"] not in self.skipped_seeds and self.seed_usable(s)),
-                       key=self.seed_score, reverse=True)
         pages = 0
-        for seed in seeds:
+        for seed in self.usable_seeds():
             if self.target_met():
                 break
             if self.expand_seed(seed):
@@ -778,12 +865,43 @@ class Pipeline:
             if not self.last_enrich_attempts or not self.judging:
                 return
 
+    def main_loop(self) -> None:
+        """Process candidates, then fetch more: harvest pages first, snowball once it can start.
+
+        Hashtags and searches only find starting points in small markets; the
+        following lists of accepted creators find the rest. As soon as
+        ``snowball_start_after`` creators are accepted, the loop alternates
+        ``snowball_pages_per_harvest_page`` snowball pages with one harvest page.
+        """
+        harvest_open = True
+        while True:
+            self.process_pending()
+            if self.target_met():
+                return
+            progressed = False
+            if self.count_status(ACCEPTED) >= self.s.snowball_start_after or not harvest_open:
+                for _ in range(self.s.snowball_pages_per_harvest_page):
+                    if self.snowball_step():
+                        progressed = True
+                        self.process_pending()
+                        if self.target_met():
+                            return
+            if harvest_open:
+                if self.harvest_step():
+                    progressed = True
+                else:
+                    harvest_open = False
+                    progressed = progressed or self.snowball_step()
+            if not progressed:
+                self.process_pending()
+                return
+
     def rescreen(self) -> int:
         """Re-apply the hard filters to this run's pending accounts (after a config change)."""
         moved = 0
         for s in self.store.screenings(self.market.code, PENDING, run_id=self.run_id):
-            self.screen(s["uid"])
-            if self.store.get_screening(self.market.code, PLATFORM, s["uid"])["status"] != PENDING:
+            (self.yt_screen if s["platform"] == YOUTUBE else self.screen)(s["uid"])
+            if self.store.get_screening(self.market.code, s["platform"], s["uid"])["status"] != PENDING:
                 moved += 1
         self.funnel["rescreened_out"] = self.funnel.get("rescreened_out", 0) + moved
         self.emit("rescreen", f"{moved} pending accounts no longer pass the hard filters")
@@ -797,8 +915,9 @@ class Pipeline:
             for s in self.store.screenings(code, status, run_id=self.run_id):
                 self.store.conn.execute(
                     "DELETE FROM decisions WHERE market = ? AND platform = ? AND uid = ?",
-                    (code, PLATFORM, s["uid"]))
-                self.store.set_screening(code, PLATFORM, s["uid"], QUALIFIED, run_id=self.run_id)
+                    (code, s["platform"], s["uid"]))
+                self.store.set_screening(code, s["platform"], s["uid"], QUALIFIED,
+                                         run_id=self.run_id)
                 self.funnel[status] = max(self.funnel.get(status, 0) - 1, 0)
                 self.funnel["judged"] = max(self.funnel.get("judged", 0) - 1, 0)
                 reopened += 1
@@ -810,7 +929,7 @@ class Pipeline:
         """Restore counters of a paused run so a resumed run reports one funnel."""
         run = self.store.get_run(self.run_id) or {}
         for k, v in (run.get("funnel") or {}).items():
-            if k in self.funnel and isinstance(v, int):
+            if isinstance(v, int) and k != "target_count":
                 self.funnel[k] = v
         rows = self.store.conn.execute(
             "SELECT DISTINCT to_uid FROM edges WHERE run_id = ?", (self.run_id,)).fetchall()
@@ -829,30 +948,23 @@ class Pipeline:
             else:
                 if self.judging:
                     self.ensure_keywords()
-                self.emit("harvest", "harvesting gaming hashtags and keywords")
-                self.harvest(hashtags, keywords)
                 if self.s.extra.get("use_retailer_seeds"):
                     self.resolve_retailer_seeds()
-            for round_no in range(self.s.max_snowball_rounds):
-                self.emit("round", f"round {round_no + 1}")
-                self.process_pending()
-                if self.target_met():
-                    break
-                if self.snowball_round() == 0:
-                    self.process_pending()
-                    break
-            else:
-                self.process_pending()
-            self.write_pitches()
+            self._plan_hashtags, self._plan_keywords = hashtags, keywords
+            self.main_loop()
+            if self.s.extra.get("pitches"):
+                self.write_pitches()
             self.status = "target_met" if self.target_met() else "done"
         except BudgetExhausted:
             self.status = "budget_exhausted"
             self.emit("budget", "credit budget reached; judging what was enriched")
             try:
                 self.judge_qualified()
-                self.write_pitches()
-            except Paused as p:
-                self.status = p.status
+                if self.s.extra.get("pitches"):
+                    self.write_pitches()
+            except (Paused, BudgetExhausted) as p:
+                if isinstance(p, Paused):
+                    self.status = p.status
         except Paused as p:
             self.status = p.status
             self.emit("paused", f"waiting for external judge: {p.count} candidates ({p.status})")

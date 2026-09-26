@@ -68,6 +68,9 @@ class JudgeResult(_Lenient):
     is_organization: bool = False
     market_resolution: str = "unclear"
     content_language: str = ""
+    niche_category: str = ""
+    games: list[str] = []
+    young_gamer_appeal: int = Field(0, ge=0, le=5)
     niche_tags: list[str] = []
     content_styles: list[str] = []
     trust_content_score: int = Field(0, ge=0, le=5)
@@ -88,7 +91,8 @@ class JudgeResult(_Lenient):
     def _decision(cls, v):
         return str(v).strip().lower()
 
-    @field_validator("fit_score", "trust_content_score", "gaming_pc_relevance", mode="before")
+    @field_validator("fit_score", "trust_content_score", "gaming_pc_relevance",
+                     "young_gamer_appeal", mode="before")
     @classmethod
     def _clamp(cls, v, info):
         top = 100 if info.field_name == "fit_score" else 5
@@ -98,7 +102,7 @@ class JudgeResult(_Lenient):
             return 0
 
     @field_validator("niche_tags", "content_styles", "sponsors_mentioned", "brand_safety_flags",
-                     mode="before")
+                     "games", mode="before")
     @classmethod
     def _list(cls, v):
         if v is None:
@@ -123,46 +127,55 @@ class PitchResult(_Lenient):
 
 # ---- payload builders -----------------------------------------------------
 
-def prejudge_payload(store: Store, market: Market, uid: str) -> dict:
-    """Free data only: what harvest and following lists already returned."""
-    c = store.get_creator(PLATFORM, uid) or {}
-    vids = store.videos_for(PLATFORM, uid, limit=3)
+def prejudge_payload(store: Store, market: Market, uid: str, platform: str = PLATFORM) -> dict:
+    """Free data only: what harvest, search and following lists already returned."""
+    c = store.get_creator(platform, uid) or {}
+    vids = store.videos_for(platform, uid, limit=3)
     captions = [_trim(v["caption"], 140) for v in vids if v.get("caption")]
     tags = sorted({t for v in vids for t in signals.hashtags_in(v.get("caption"))})[:12]
-    item = {"id": uid, "handle": c.get("handle"), "nickname": _trim(c.get("nickname"), 40),
-            "bio": _trim(c.get("bio"), 160), "captions": captions[:2], "hashtags": tags,
-            "found_via": found_via(store, uid, limit=2)}
+    item = {"id": uid, "platform": platform, "handle": c.get("handle"),
+            "nickname": _trim(c.get("nickname"), 40), "bio": _trim(c.get("bio"), 160),
+            ("video_titles" if platform == "youtube" else "captions"): captions[:3 if platform == "youtube" else 2],
+            "hashtags": tags, "found_via": found_via(store, uid, limit=2, platform=platform)}
     if c.get("followers"):
-        item["followers"] = c["followers"]
+        item["subscribers" if platform == "youtube" else "followers"] = c["followers"]
     return item
 
 
-def judge_payload(store: Store, market: Market, uid: str) -> dict:
-    c = store.get_creator(PLATFORM, uid) or {}
-    m = store.get_metrics(PLATFORM, uid) or {}
-    s = store.get_screening(market.code, PLATFORM, uid) or {}
-    vids = store.videos_for(PLATFORM, uid, limit=12)
-    return {
-        "id": uid, "handle": c.get("handle"), "nickname": _trim(c.get("nickname"), 40),
-        "followers": c.get("followers"), "app_language": c.get("language"),
+def judge_payload(store: Store, market: Market, uid: str, platform: str = PLATFORM) -> dict:
+    c = store.get_creator(platform, uid) or {}
+    m = store.get_metrics(platform, uid) or {}
+    s = store.get_screening(market.code, platform, uid) or {}
+    vids = store.videos_for(platform, uid, limit=12)
+    item = {
+        "id": uid, "platform": platform, "handle": c.get("handle"),
+        "nickname": _trim(c.get("nickname"), 40),
+        ("subscribers" if platform == "youtube" else "followers"): c.get("followers"),
+        "app_language": c.get("language"), "country_field": c.get("region"),
         "market_bucket": s.get("bucket"),
         "market_evidence": (s.get("market_evidence") or [])[:5],
         "bio": _trim(c.get("bio"), 220), "bio_link": c.get("bio_link"),
-        "recent_captions": [_trim(v["caption"], 110) for v in vids if v.get("caption")][:10],
-        "median_views": m.get("median_views"), "engagement_rate_views": m.get("er_views"),
+        ("recent_video_titles" if platform == "youtube" else "recent_captions"):
+            [_trim(v["caption"], 110) for v in vids if v.get("caption")][:10],
         "posts_per_week": m.get("posts_per_week"), "ad_posts_in_recent": m.get("ad_count"),
         "sponsors_detected": m.get("sponsors") or [],
         "competitors_detected": m.get("competitors") or [],
     }
+    for key in ("views", "long", "shorts"):
+        if m.get(key):
+            v = m[key]
+            item[f"{key}_views" if key != "views" else "views"] = \
+                f"avg {v.get('avg_views')} over {v.get('window')} ({v.get('n')} videos)"
+    return item
 
 
-def pitch_payload(store: Store, market: Market, uid: str) -> dict:
-    c = store.get_creator(PLATFORM, uid) or {}
-    m = store.get_metrics(PLATFORM, uid) or {}
-    d = (store.get_decision(market.code, PLATFORM, uid) or {}).get("data", {})
-    vids = [v for v in store.videos_for(PLATFORM, uid, limit=6) if v.get("caption")]
+def pitch_payload(store: Store, market: Market, uid: str, platform: str = PLATFORM) -> dict:
+    c = store.get_creator(platform, uid) or {}
+    m = store.get_metrics(platform, uid) or {}
+    d = (store.get_decision(market.code, platform, uid) or {}).get("data", {})
+    vids = [v for v in store.videos_for(platform, uid, limit=6) if v.get("caption")]
     return {
-        "id": uid, "handle": c.get("handle"), "nickname": c.get("nickname"),
+        "id": uid, "platform": platform, "handle": c.get("handle"), "nickname": c.get("nickname"),
         "content_language": d.get("content_language") or c.get("language") or market.languages[0],
         "niche_tags": d.get("niche_tags"), "content_styles": d.get("content_styles"),
         "recent_videos": [_trim(v["caption"], 120) for v in vids[:4]],
@@ -191,12 +204,12 @@ def batches(items: list[dict], max_items: int, max_tokens: int) -> list[list[dic
 # ---- prompts --------------------------------------------------------------
 
 def prejudge_system(brand: dict, market: Market) -> str:
-    return f"""You triage TikTok accounts for influencer outreach by {brand['name']} ({brand['niche']}) in {market.name}.
-You only see free data: nickname, bio, up to two captions, hashtags and how the account was found.
-Decide whether the account could plausibly be a creator whose content involves gaming (PC or console games, streaming, esports, game clips) or PC and tech hardware.
-- "yes": a clear gaming, PC or tech signal.
-- "unsure": too little information, or mixed content where gaming might appear. When in doubt, answer unsure.
-- "no": confidently irrelevant. The content is clearly another niche (food, beauty, fashion, news, politics, music, family or pure lifestyle) with no gaming signal, or the account is a shop, brand or organisation.
+    return f"""You triage TikTok and YouTube accounts for influencer outreach by {brand['name']} ({brand['niche']}) in {market.name}.
+You only see free data: nickname, bio or channel description, a few captions or video titles, hashtags and how the account was found.
+The question: could a young audience that plays PC games plausibly watch this creator? Gaming (PC or console games, streaming, esports, game clips), tech, PC hardware, gaming gear and gaming news are the core; entertainment or comedy creators with a young, gaming-adjacent audience also count.
+- "yes": a clear gaming, tech or young-gamer-audience signal.
+- "unsure": too little information, or mixed content where gaming or a young gamer audience might appear. When in doubt, answer unsure.
+- "no": confidently irrelevant. The content is clearly another niche for an older or non-gaming audience (food, beauty, fashion, parenting, news, politics, finance, music teaching) with no gaming signal, or the account is a shop, brand or organisation.
 An empty bio or a single caption is "unsure", not "no". Text may be in {', '.join(market.languages)} or English.
 Some local words for playing (e.g. Estonian "mängimine") also cover children's play, playgrounds, board games and sports; those are "no" unless video games appear.
 Return JSON: {{"results": [{{"id": "<id>", "verdict": "yes|unsure|no", "reason": "<max 12 words>"}}]}} with exactly one entry per input id."""
@@ -205,23 +218,28 @@ Return JSON: {{"results": [{{"id": "<id>", "verdict": "yes|unsure|no", "reason":
 def judge_system(brand: dict, market: Market) -> str:
     competitors = "; ".join(f"{c['name']} ({c['kind']}, TikTok: {', '.join('@' + h for h in c.get('handles', []))})"
                             for c in brand.get("competitors", []))
-    return f"""You judge TikTok creators for influencer partnerships with {brand['name']}.
+    return f"""You judge TikTok and YouTube creators for influencer partnerships with {brand['name']}.
 About the brand: {brand['description']}
 Target market: {market.name} ({market.code}); local languages: {', '.join(market.languages)}.
+The core question: would a young audience that plays PC games watch this creator? Gaming and tech are the core; gaming gear, gaming news and entertainment creators with a young gamer audience also fit.
 A good partner: {brand['good_partner']}
 Reject: {brand['reject']}
 Competitors and competing retailers: {competitors}. Sponsorship by one of them is a flag (competitor_conflict=true), never a reason to reject: it proves the creator takes deals.
 Rules:
-- Base every judgment only on the data given. evidence_quote must be copied verbatim from the bio or a caption. No evidence, no accept.
+- Base every judgment only on the data given. evidence_quote must be copied verbatim from the bio, a caption or a video title. No evidence, no accept.
 - Shops, retailers and brands: decision "reject", is_business_account=true.
 - Organisations (police, schools, public bodies, media outlets): is_organization=true; at most "maybe".
 - market_resolution: "{market.code}" if the creator is plausibly based in or speaks to {market.name}; another ISO country code if clearly elsewhere; "unclear" otherwise. Use market_bucket and market_evidence: "sure" means TikTok registration country is {market.code}.
 - content_language: ISO 639-1 code of the language the creator mainly writes or speaks in captions.
 - gaming_pc_relevance (0-5): 5 = PC hardware, builds or setups are the focus; 4 = mostly gameplay, streaming or game content; 3 = gaming is a regular part of the content; 2 = occasional gaming; 1 = a single mention; 0 = none.
 - trust_content_score (0-5): how well the creator could make trust content (builds, benchmarks, setup tours, upgrade stories, honest reviews). It is a score for prioritising, not a requirement: a gamer whose audience plays games is a good partner even without hardware content today, because a PC upgrade story is a natural video for them.
-- "accept": a real creator (own content, not a repost or clip account) with gaming_pc_relevance >= 3. "maybe": relevance 2, or the evidence is thin. "reject": relevance 0-1, not a real creator, business account, or brand-unsafe.
+- young_gamer_appeal (0-5): how likely a young PC-gaming audience watches this creator.
+- niche_category: one of "gaming", "tech review", "gaming gear", "gaming news", "entertainment", "lifestyle", "other".
+- games: the game titles the creator plays or covers (e.g. ["Minecraft", "Fortnite"]); empty if none.
+- brand_safety_flags: short labels for real risks only (e.g. "gambling", "adult content", "hate speech", "mostly children on camera").
+- "accept": a real creator (own content, not a repost or clip account) with gaming_pc_relevance >= 3, or young_gamer_appeal >= 4 for entertainment/tech creators. "maybe": borderline (relevance 2 or appeal 3), or the evidence is thin. "reject": no gaming or young-gamer angle, not a real creator, business account, or brand-unsafe.
 - reasons: one or two sentences in English.
-Return JSON: {{"results": [{{"id": "<id>", "decision": "accept|maybe|reject", "fit_score": 0-100, "is_business_account": bool, "is_organization": bool, "market_resolution": "...", "content_language": "..", "niche_tags": [], "content_styles": [], "trust_content_score": 0-5, "gaming_pc_relevance": 0-5, "sponsors_mentioned": [], "competitor_conflict": bool, "brand_safety_flags": [], "reasons": "...", "evidence_quote": "..."}}]}} with exactly one entry per input id."""
+Return JSON: {{"results": [{{"id": "<id>", "decision": "accept|maybe|reject", "fit_score": 0-100, "is_business_account": bool, "is_organization": bool, "market_resolution": "...", "content_language": "..", "niche_category": "...", "games": [], "niche_tags": [], "content_styles": [], "trust_content_score": 0-5, "gaming_pc_relevance": 0-5, "young_gamer_appeal": 0-5, "sponsors_mentioned": [], "competitor_conflict": bool, "brand_safety_flags": [], "reasons": "...", "evidence_quote": "..."}}]}} with exactly one entry per input id."""
 
 
 def pitch_system(brand: dict, market: Market) -> str:
@@ -298,7 +316,7 @@ class FreeJudge:
 
     def judge(self, market: Market, items: list[dict]) -> dict[str, dict]:
         return self._run("judge", judge_system(self.brand, market), items, JudgeResult,
-                         self.JUDGE_BATCH, 3600, 260, 0.2)
+                         self.JUDGE_BATCH, 3400, 320, 0.2)
 
     def pitch(self, market: Market, items: list[dict]) -> dict[str, dict]:
         return self._run("pitch", pitch_system(self.brand, market), items, PitchResult,

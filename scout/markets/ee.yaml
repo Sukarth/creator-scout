@@ -64,6 +64,24 @@ seed_keywords:
   - игровой пк таллинн
   - стрим эстония
 
+# YouTube search queries (sent with regionCode set to the market).
+youtube_queries:
+  - minecraft eesti keeles
+  - eesti keeles mängime
+  - roblox eesti keeles
+  - fortnite eesti
+  - gta eesti keeles
+  - õudusmängud eesti keeles
+  - eesti youtuber mängud
+  - let's play eesti keeles
+  - cs2 eesti
+  - mänguarvuti eesti
+  - arvuti kokkupanek
+  - eesti gamer
+
+# Characters that occur in the local language and rarely elsewhere.
+distinct_chars: ["õ"]
+
 # Terms that raise a candidate's enrichment priority. They never exclude anyone.
 gaming_terms: [mängimine, mängur, mängud, mänguarvuti, arvutimängud, striim, striimer,
                игры, игра, геймер, стрим, стример, игровой, сборка пк, киберспорт, кс2, майнкрафт]

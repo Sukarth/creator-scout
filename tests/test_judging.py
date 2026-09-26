@@ -38,6 +38,7 @@ class StubJudge:
                 "id": it["id"], "decision": "accept" if accept else "reject",
                 "fit_score": 80 if accept else 10, "market_resolution": "FI",
                 "content_language": "fi", "gaming_pc_relevance": 4 if accept else 0,
+                "niche_category": "tech review" if accept else "other",
                 "evidence_quote": self.quote if accept else "", "reasons": "stub"}).model_dump()
             out[it["id"]]["model"] = "stub"
         return out
@@ -55,7 +56,7 @@ def fi_market():
 
 def make(store, judge, target=1, judge_kind="free"):
     settings = RunSettings(band_min=1000, band_max=100_000, target=target, budget=50,
-                           extra={"use_retailer_seeds": True})
+                           extra={"use_retailer_seeds": True, "pitches": True})
     run_id = store.create_run("FI", {"band_min": 1000, "band_max": 100_000, "target": target,
                                      "judge": judge_kind}, 50)
     client = ScrapeCreators(store, None, CreditMeter(50), offline=True)
@@ -85,7 +86,7 @@ def test_prejudge_no_is_stored_and_yes_is_enriched_and_accepted(cached_store):
     assert accepted_by_first_source(store, run_id, "FI") == {"snowball": 1}
 
     row = build_sheets(store, run_id)["Shortlist"][0]
-    assert row["handle"] == "digikamu" and row["pitch_language"] == "fi"
+    assert row["tiktok_url"].endswith("@digikamu") and row["pitch_language"] == "fi"
     assert row["prejudge"].startswith("yes")
     assert check_run(store, run_id).passed
 
