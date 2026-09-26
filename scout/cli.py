@@ -235,16 +235,16 @@ def candidates(run_id: Optional[int] = typer.Option(None, "--run", help="Run id 
     mk = load_market(run_row["market"])
     code = mk.code
     if stage == "prejudge":
-        uids = [s["uid"] for s in store.screenings(code, "pending")
-                if store.get_prejudgment(code, "tiktok", s["uid"]) is None]
-        items = [prejudge_payload(store, mk, u) for u in uids]
+        items = [prejudge_payload(store, mk, s["uid"], s["platform"])
+                 for s in store.screenings(code, "pending")
+                 if store.get_prejudgment(code, s["platform"], s["uid"]) is None]
     elif stage == "judge":
-        items = [judge_payload(store, mk, s["uid"])
+        items = [judge_payload(store, mk, s["uid"], s["platform"])
                  for s in store.screenings(code, "needs_judgment", run_id=run_id)]
     elif stage == "pitch":
-        items = [pitch_payload(store, mk, s["uid"])
+        items = [pitch_payload(store, mk, s["uid"], s["platform"])
                  for s in store.screenings(code, "accepted", run_id=run_id)
-                 if store.get_pitch(code, "tiktok", s["uid"]) is None]
+                 if store.get_pitch(code, s["platform"], s["uid"]) is None]
     else:
         raise typer.BadParameter("stage must be prejudge, judge or pitch")
     if fmt == "md":
@@ -283,12 +283,15 @@ def decide(file: Path = typer.Option(..., help='JSON file: {"results": [...]} or
             bad.append(f"{row.get('id') if isinstance(row, dict) else row}: {exc}".splitlines()[0])
             continue
         uid = r["id"]
+        # YouTube channel ids start with "UC"; TikTok ids are numeric.
+        platform = (row.get("platform") if isinstance(row, dict) else None) or \
+            ("youtube" if str(uid).startswith("UC") else "tiktok")
         if stage == "prejudge":
-            pipe.apply_prejudgment(uid, r["verdict"], r.get("reason", ""), model)
+            pipe.apply_prejudgment(uid, r["verdict"], r.get("reason", ""), model, platform)
         elif stage == "judge":
-            pipe.apply_decision(uid, r, model)
+            pipe.apply_decision(uid, r, model, platform)
         else:
-            store.set_pitch(pipe.market.code, "tiktok", uid, r["language"], r["subject"], r["body"],
+            store.set_pitch(pipe.market.code, platform, uid, r["language"], r["subject"], r["body"],
                             r["dm"], model, run_id)
             pipe.funnel["pitches"] += 1
         ok += 1
