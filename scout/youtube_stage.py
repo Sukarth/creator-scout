@@ -171,6 +171,9 @@ class YouTubeStage:
         if not self.youtube or not self.youtube.available():
             self.skipped_uids.add(uid)
             return False
+        if self.deadline and time.time() > self.deadline:
+            from .pipeline import TimeLimit
+            raise TimeLimit("time limit reached")
         c = self.store.get_creator(YT, uid) or {}
         try:
             long_ids, long_total = self.youtube.uploads(uid, "long", 30)

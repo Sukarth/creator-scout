@@ -53,6 +53,10 @@ ERROR = "error"
 ProgressFn = Callable[[dict], None]
 
 
+class TimeLimit(BudgetExhausted):
+    """The run's wall-clock deadline passed; stop fetching, keep what was found."""
+
+
 class Paused(Exception):
     """The run is waiting for an external judge."""
 
@@ -84,6 +88,10 @@ class Pipeline(YouTubeStage):
                  llm=None, youtube=None):
         self.store = store
         self.youtube = youtube
+        # Optional wall-clock limits (epoch seconds): no new fetches after
+        # ``deadline``; judging of what was found stops at ``hard_deadline``.
+        self.deadline: float | None = None
+        self.hard_deadline: float | None = None
         self.harvest_spent = 0
         self._harvest = None
         self._plan_hashtags: list[str] | None = None
@@ -148,6 +156,8 @@ class Pipeline(YouTubeStage):
         """
         before = self.client.meter.used
         self.last_error_status = None
+        if self.deadline and time.time() > self.deadline:
+            raise TimeLimit("time limit reached")
         try:
             body = fn(*args, **kwargs)
         except ApiError as exc:
@@ -780,6 +790,9 @@ class Pipeline(YouTubeStage):
         chunk = self.s.extra.get("judge_chunk", 12)
         judged = 0
         for start in range(0, len(todo), chunk):
+            if self.hard_deadline and time.time() > self.hard_deadline:
+                self.emit("judge", f"time limit: {len(todo) - start} left unjudged")
+                break
             part = todo[start:start + chunk]
             items = [judge_payload(self.store, self.market, uid, platform) for platform, uid in part]
             results = self.judge.judge(self.market, items)
@@ -819,7 +832,10 @@ class Pipeline(YouTubeStage):
         relevance = r.get("gaming_pc_relevance") or 0
         appeal = r.get("young_gamer_appeal") or 0
         meets_rule = relevance >= 3 or appeal >= 4
-        if decision == "maybe" and meets_rule and not r.get("brand_safety_flags") \
+        # Only upgrade when the judge's own fit score agrees; a low score with high
+        # relevance usually means "gaming, but not a real creator" (e.g. clip accounts).
+        if decision == "maybe" and meets_rule and (r.get("fit_score") or 0) >= 50 \
+                and not r.get("brand_safety_flags") \
                 and not r.get("is_business_account") and not r.get("is_organization") \
                 and self._evidence_found(r.get("evidence_quote"), uid, platform):
             decision = "accept"
@@ -1114,9 +1130,10 @@ class Pipeline(YouTubeStage):
             if self.s.extra.get("pitches"):
                 self.write_pitches()
             self.status = "target_met" if self.target_met() else "done"
-        except BudgetExhausted:
-            self.status = "budget_exhausted"
-            self.emit("budget", "credit budget reached; judging what was enriched")
+        except BudgetExhausted as exc:
+            self.status = "time_limit" if isinstance(exc, TimeLimit) else "budget_exhausted"
+            self.emit("budget", f"{'time limit' if isinstance(exc, TimeLimit) else 'credit budget'} "
+                                "reached; judging what was enriched")
             try:
                 self.judge_qualified()
                 if self.s.extra.get("pitches"):

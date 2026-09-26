@@ -117,6 +117,8 @@ def view_summary(videos: list[dict], now: float | None = None, min_videos: int =
 def trend_label(trend: float | None) -> str:
     if trend is None:
         return ""
+    if trend >= 5 or trend <= 0.2:
+        return "spiky (one video far above the rest)"
     if trend >= 1.3:
         return f"rising (x{trend})"
     if trend <= 0.7:

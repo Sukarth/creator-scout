@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creator Scout</title>
+<meta name="description" content="Finds small gaming and tech creators per country on TikTok and YouTube and produces an outreach-ready sheet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <span class="logo" aria-hidden="true">◎</span>
+    <div>
+      <h1>Creator Scout</h1>
+      <p class="tag">Small gaming &amp; tech creators, country by country. TikTok and YouTube.</p>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="demo" role="tab">Saved runs</button>
+    <button class="tab" data-tab="live" role="tab">Live run</button>
+    <button class="tab" data-tab="how" role="tab">How it works</button>
+  </nav>
+</header>
+
+<main>
+  <!-- Saved runs -->
+  <section id="tab-demo" class="panel active">
+    <div id="run-cards" class="cards"><div class="muted">Loading saved runs…</div></div>
+    <div id="run-view" hidden>
+      <div class="run-head">
+        <div>
+          <h2 id="run-title"></h2>
+          <p id="run-sub" class="muted"></p>
+        </div>
+        <div class="actions">
+          <a id="dl-full" class="btn">Download XLSX</a>
+          <a id="dl-prenew" class="btn primary">Download in Prenew format</a>
+        </div>
+      </div>
+      <div id="funnel" class="funnel"></div>
+      <div class="grid2">
+        <div class="box">
+          <h3>Where accepted creators came from</h3>
+          <table class="mini" id="yield"></table>
+        </div>
+        <div class="box">
+          <h3>Hold-out check</h3>
+          <div id="recall"></div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="tablebar">
+          <h3>Creators <span id="count" class="muted"></span></h3>
+          <div class="filters">
+            <input id="q" type="search" placeholder="Filter by name, game, niche…">
+            <select id="list-filter">
+              <option value="shortlist">Shortlist</option>
+              <option value="maybe">Maybe</option>
+              <option value="all">All</option>
+            </select>
+          </div>
+        </div>
+        <div class="tablewrap"><table id="rows" class="rows"></table></div>
+        <p class="muted small">Click a row for evidence, reasons and how the creator was found. Email addresses are masked in the public demo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live run -->
+  <section id="tab-live" class="panel">
+    <div class="grid2">
+      <form id="live-form" class="box form">
+        <h3>Start a live run</h3>
+        <label>Market <select name="market" id="market"></select></label>
+        <fieldset class="inline">
+          <legend>Platforms</legend>
+          <label><input type="checkbox" name="platforms" value="tiktok" checked> TikTok</label>
+          <label><input type="checkbox" name="platforms" value="youtube" checked> YouTube</label>
+        </fieldset>
+        <label>Size preset
+          <select name="preset">
+            <option value="hidden-gems">Hidden gems (TikTok 1k+, YouTube 5k+)</option>
+            <option value="default">Default (TikTok 4k–500k, YouTube 50k–250k)</option>
+          </select>
+        </label>
+        <div class="row2">
+          <label>Target creators <input type="number" name="target" value="10" min="1" max="50"></label>
+          <label>Credit budget <input type="number" name="budget" id="budget" value="40" min="5"></label>
+        </div>
+        <label>Access code <input type="password" name="access_code" autocomplete="off" required></label>
+        <button class="btn primary wide" type="submit" id="go">Run (about 4 minutes)</button>
+        <p class="muted small" id="live-note"></p>
+      </form>
+      <div class="box">
+        <h3>Progress</h3>
+        <div id="live-funnel" class="funnel compact"></div>
+        <div class="meter"><div id="credit-bar"></div></div>
+        <p class="muted small" id="credit-text">Credits used: 0</p>
+        <ol id="log" class="log"></ol>
+      </div>
+    </div>
+    <div id="live-results"></div>
+  </section>
+
+  <!-- How it works -->
+  <section id="tab-how" class="panel">
+    <div class="box prose">
+      <h3>How a run works</h3>
+      <ol class="steps">
+        <li><b>Search like a local.</b> Gaming hashtags and phrases in the market's own language (and Russian for Estonia), YouTube searches in that language with the region set, Shorts search. Each source gets a couple of pages; after that, sources that yield creators get more of the budget.</li>
+        <li><b>Hard filters in code.</b> TikTok registration region or YouTube channel country, language and local signals, follower/subscriber band (soft cap: up to 1.5× is kept and flagged), private and inactive accounts. Nothing is discarded; every account keeps its reason.</li>
+        <li><b>Free pre-judge.</b> An LLM looks at what we already have for free (bio, a few captions) and only a confident "no" is skipped before we pay for more data.</li>
+        <li><b>Enrich.</b> TikTok profile and recent videos; YouTube uploads from the official API, with long videos and Shorts measured separately. Average views over the last 30 days, with the window stated.</li>
+        <li><b>Judge fit.</b> Would a young PC-gaming audience watch this creator? Niche, games, risks, and a verbatim evidence quote. No evidence, no accept.</li>
+        <li><b>Snowball.</b> Creators follow creators from their own country. Once two are accepted, their following lists are expanded between search pages. This is where most small-market finds come from.</li>
+      </ol>
+      <p class="muted">Public, logged-out data only. The tool drafts; a person decides and sends.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot muted small">Creator Scout · built for the Prenew challenge · data via ScrapeCreators and the YouTube Data API · free LLMs (Groq, OpenCode)</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>

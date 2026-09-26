@@ -1,0 +1,16 @@
+# Never upload client data, local databases, planning notes or caches.
+private/
+data/
+exports/
+.planning/
+CLAUDE.md
+TODO.md
+RUNLOG.md
+MORNING.md
+.env
+.venv/
+tests/
+__pycache__/
+*.pyc
+*.db
+!demo/snapshot.db
