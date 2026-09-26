@@ -35,21 +35,6 @@ All notable changes to this project are documented here. The format follows
   by first source in the run log.
 - `scout check`: pitch language must match the creator's content language.
 
-### Changed
-- Harvest plan is gaming-first: local-language gaming hashtags (curated, then
-  generated), then global game hashtags fetched through a proxy in the market
-  and filtered by region, then keyword searches. General country tags such as
-  `#eestitiktok` are opt-in (`--general-tags`).
-- Snowball seeds are accepted creators only. Retailer and shop accounts are
-  opt-in (`--retailer-seeds`): they mostly follow mainstream influencers.
-- Estonian market config adds Russian gaming hashtags, keywords, city names
-  and ad markers.
-- Enrichment runs in chunks between pre-judge and judge rounds, so the target
-  check stays current and the budget goes to the most promising candidates.
-- Test fixtures are anonymised: every email is replaced by a deterministic
-  placeholder that keeps the top-level domain.
-
-### Added (initial)
 - Project skeleton: `scout` package, `pyproject.toml`, `.env.example`, MIT licence.
 - SQLite store for creators, per-market screenings, edges, videos, metrics,
   snowball seeds, runs and the API response cache. Screenings are per market,
@@ -78,6 +63,20 @@ All notable changes to this project are documented here. The format follows
 - `scout check` quality gates: band, market resolution, no duplicates from
   earlier runs, evidence quotes, contact path, funnel totals.
 - CLI: `markets`, `run`, `export`, `check`, `credits`, `api`, `cache stats|clear`.
+
+### Changed
+- Harvest plan is gaming-first: local-language gaming hashtags (curated, then
+  generated), then global game hashtags fetched through a proxy in the market
+  and filtered by region, then keyword searches. General country tags such as
+  `#eestitiktok` are opt-in (`--general-tags`).
+- Snowball seeds are accepted creators only. Retailer and shop accounts are
+  opt-in (`--retailer-seeds`): they mostly follow mainstream influencers.
+- Estonian market config adds Russian gaming hashtags, keywords, city names
+  and ad markers.
+- Enrichment runs in chunks between pre-judge and judge rounds, so the target
+  check stays current and the budget goes to the most promising candidates.
+- Test fixtures are anonymised: every email is replaced by a deterministic
+  placeholder that keeps the top-level domain.
 
 ### Fixed
 - Market words matched as prefixes (Estonian "tere" inside "Terezinha");
