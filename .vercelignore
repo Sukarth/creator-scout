@@ -8,6 +8,8 @@ TODO.md
 RUNLOG.md
 MORNING.md
 .env
+.env.*
+!.env.example
 .venv/
 tests/
 __pycache__/

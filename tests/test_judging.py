@@ -270,6 +270,17 @@ def test_daily_quota_cools_the_model_for_the_stated_time():
     assert _daily_limit_wait({"error": "rate"}) is None
 
 
+def test_keyword_generation_on_a_fresh_market(cached_store):
+    class KeywordJudge(StubJudge):
+        def keywords(self, market):
+            return {"local_hashtags": ["a"], "tiktok_queries": ["b"], "youtube_queries": [],
+                    "shorts_hashtags": [], "global_hashtags": [], "notes": "", "model": "stub"}
+
+    pipe, _ = make(cached_store, KeywordJudge())
+    pipe.ensure_keywords()  # must not fail when no plan is stored yet
+    assert pipe.generated_keywords()["tiktok_queries"] == ["b"]
+
+
 def test_free_judge_maps_results_by_id(monkeypatch):
     class FakeLLM:
         def chat_json(self, task, system, user, max_tokens, temperature):

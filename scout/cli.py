@@ -351,6 +351,7 @@ def yield_(run_id: Optional[int] = typer.Option(None, "--run", help="Run id (def
 
 @app.command()
 def recall(market: str = typer.Option(..., help="Market code"),
+           run_id: Optional[int] = typer.Option(None, "--run", help="Ignore anything screened after this run"),
            as_json: bool = typer.Option(False, "--json", help="Print JSON")) -> None:
     """Hold-out check: which of the client's existing partners did the tool find by itself?"""
     from .partners import load_partners, recall_report
@@ -360,7 +361,7 @@ def recall(market: str = typer.Option(..., help="Market code"),
     if not partners:
         typer.echo("no partner list found (set SCOUT_PARTNERS_FILE)")
         raise typer.Exit(1)
-    report = recall_report(store, code, partners=partners)
+    report = recall_report(store, code, run_id=run_id, partners=partners)
     if as_json:
         typer.echo(json.dumps(report, ensure_ascii=False, indent=1, default=str))
         return

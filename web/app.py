@@ -62,22 +62,41 @@ def work_dir() -> Path:
 
 
 _stores: dict[str, Store] = {}
+_store_lock = threading.Lock()
+# One SQLite connection per store is shared by request threads; access is serialised.
+_db_locks = {"demo": threading.RLock(), "live": threading.RLock()}
+
+
+def locked(fn):
+    """Run an endpoint body while holding the lock of the store it reads."""
+    import functools
+
+    @functools.wraps(fn)
+    def wrapper(source: str, *args, **kwargs):
+        if source not in _db_locks:
+            raise HTTPException(404, "unknown source")
+        with _db_locks[source]:
+            return fn(source, *args, **kwargs)
+    return wrapper
 
 
 def store_for(source: str) -> Store:
     """``demo``: a private copy of the bundled snapshot. ``live``: the working database."""
     if source not in ("demo", "live"):
         raise HTTPException(404, "unknown source")
-    if source not in _stores:
-        if source == "demo":
-            if not SNAPSHOT.is_file():
-                raise HTTPException(503, "demo snapshot missing")
-            target = work_dir() / "demo-copy.db"
-            if not target.is_file() or target.stat().st_mtime < SNAPSHOT.stat().st_mtime:
-                shutil.copyfile(SNAPSHOT, target)
-            _stores[source] = Store(target)
-        else:
-            _stores[source] = Store(os.environ.get("SCOUT_DB", work_dir() / "live.db"))
+    with _store_lock:  # concurrent first requests must not see a half-copied file
+        if source not in _stores:
+            if source == "demo":
+                if not SNAPSHOT.is_file():
+                    raise HTTPException(503, "demo snapshot missing")
+                target = work_dir() / "demo-copy.db"
+                if not target.is_file() or target.stat().st_mtime < SNAPSHOT.stat().st_mtime:
+                    partial = target.with_suffix(f".{os.getpid()}.part")
+                    shutil.copyfile(SNAPSHOT, partial)
+                    os.replace(partial, target)
+                _stores[source] = Store(target)
+            else:
+                _stores[source] = Store(os.environ.get("SCOUT_DB", work_dir() / "live.db"))
     return _stores[source]
 
 
@@ -92,18 +111,21 @@ def mask(value):
 
 
 def funnel(store: Store, run: dict) -> dict:
+    """Counts from the stored screenings, so accounts queued by earlier runs of other
+    markets (and processed by this run) are included."""
     f = run.get("funnel") or {}
     code, rid = run["market"], run["id"]
-    count = lambda status: store.conn.execute(
-        "SELECT COUNT(*) FROM screenings WHERE market = ? AND run_id = ? AND status = ?",
-        (code, rid, status)).fetchone()[0]
-    in_market = (f.get("bucket_sure") or 0) + (f.get("bucket_unsure") or 0)
-    judged = store.conn.execute("SELECT COUNT(*) FROM decisions WHERE market = ? AND run_id = ?",
-                                (code, rid)).fetchone()[0]
-    return {"reviewed": f.get("seen") or 0, "in_market": in_market,
-            "in_band": max(in_market - (f.get("filtered_band") or 0), 0),
-            "prejudged_out": f.get("prejudge_no") or 0,
-            "judged": judged, "accepted": count("accepted")}
+    q = lambda sql: store.conn.execute(sql, (code, rid)).fetchone()[0]
+    screened = q("SELECT COUNT(*) FROM screenings WHERE market = ? AND run_id = ?")
+    in_market = q("SELECT COUNT(*) FROM screenings WHERE market = ? AND run_id = ? "
+                  "AND bucket IN ('sure', 'unsure') AND status != 'other_market'")
+    out_band = q("SELECT COUNT(*) FROM screenings WHERE market = ? AND run_id = ? "
+                 "AND status = 'filtered' AND reason LIKE '%band%'")
+    judged = q("SELECT COUNT(*) FROM decisions WHERE market = ? AND run_id = ?")
+    accepted = q("SELECT COUNT(*) FROM screenings WHERE market = ? AND run_id = ? AND status = 'accepted'")
+    return {"reviewed": max(f.get("seen") or 0, screened), "in_market": in_market,
+            "in_band": max(in_market - out_band, 0), "prejudged_out": f.get("prejudge_no") or 0,
+            "judged": judged, "accepted": accepted}
 
 
 def run_summary(store: Store, run: dict) -> dict:
@@ -143,13 +165,15 @@ def api_config() -> dict:
 
 @app.get("/api/demo/runs")
 def demo_runs() -> list[dict]:
-    store = store_for("demo")
-    ids = json.loads(store.meta_get("demo_runs") or "[]")
-    runs = [store.get_run(i) for i in ids]
-    return [run_summary(store, r) for r in runs if r]
+    with _db_locks["demo"]:
+        store = store_for("demo")
+        ids = json.loads(store.meta_get("demo_runs") or "[]")
+        runs = [store.get_run(i) for i in ids]
+        return [run_summary(store, r) for r in runs if r]
 
 
 @app.get("/api/{source}/runs/{run_id}")
+@locked
 def run_detail(source: str, run_id: int) -> dict:
     store = store_for(source)
     run = store.get_run(run_id)
@@ -159,6 +183,7 @@ def run_detail(source: str, run_id: int) -> dict:
 
 
 @app.get("/api/{source}/runs/{run_id}/rows")
+@locked
 def run_rows(source: str, run_id: int) -> JSONResponse:
     store = store_for(source)
     if store.get_run(run_id) is None:
@@ -170,6 +195,7 @@ def run_rows(source: str, run_id: int) -> JSONResponse:
 
 
 @app.get("/api/{source}/runs/{run_id}/export")
+@locked
 def run_export(source: str, run_id: int, layout: str = "full") -> Response:
     store = store_for(source)
     run = store.get_run(run_id)
@@ -224,17 +250,20 @@ async def live_run(request: Request) -> StreamingResponse:
         tlo = int(body["band_min"])
     if body.get("band_max"):
         thi = int(body["band_max"])
-    store = store_for("live")
     params = {"preset": preset, "band_min": tlo, "band_max": thi, "yt_band_min": ylo,
               "yt_band_max": yhi, "target": target, "judge": "free", "platforms": platforms,
               "harvest_share": 0.5, "source": "web"}
-    run_id = store.create_run(market.code, params, budget, brief="web live run")
+    with _db_locks["live"]:
+        live_path = store_for("live").path
+        run_id = store_for("live").create_run(market.code, params, budget,
+                                              brief=f"live run: {market.name}")
     events: queue.Queue = queue.Queue()
 
     def work() -> None:
         from scout.judge import FreeJudge
         from scout.llm import LLMClient
         from scout.sources.youtube import YouTubeData
+        store = Store(live_path)  # the worker's own connection
         try:
             settings = config.RunSettings(band_min=tlo, band_max=thi, yt_band_min=ylo, yt_band_max=yhi,
                                           target=target, budget=budget,
@@ -250,12 +279,19 @@ async def live_run(request: Request) -> StreamingResponse:
             now = time.time()
             pipe.deadline, pipe.hard_deadline = now + LIVE_SECONDS, now + LIVE_HARD_SECONDS
             result = pipe.run()
-            events.put({"stage": "finished", "run": run_summary(store, result)})
+            # Rows travel with the final event: on serverless hosts a follow-up
+            # request may reach another instance that has no copy of this run.
+            sheets = build_sheets(store, run_id)
+            rows = [{**{k: r.get(k) for k in ROW_FIELDS}, "list": lst}
+                    for lst, sheet in (("shortlist", "Shortlist"), ("maybe", "Maybe"))
+                    for r in sheets[sheet]]
+            events.put({"stage": "finished", "run": run_summary(store, result), "rows": rows})
         except Exception as exc:  # report the type only; details go to the server log
             import traceback
             traceback.print_exc()
             events.put({"stage": "failed", "message": type(exc).__name__})
         finally:
+            store.close()
             events.put(None)
             _live_lock.release()
 

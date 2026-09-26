@@ -89,7 +89,7 @@ def build(run_ids: list[int], out: Path, titles: dict[int, str] | None = None) -
         run = src.get_run(rid)
         snap.meta_set(f"yield:{rid}", json.dumps(source_yield(src, rid)))
         if partners:
-            rep = recall_report(src, run["market"], partners=partners)
+            rep = recall_report(src, run["market"], run_id=rid, partners=partners)
             snap.meta_set(f"recall:{rid}", json.dumps({
                 "found": sum(1 for r in rep if r["found"]), "total": len(rep),
                 "note": "Found includes partners outside the size band."}))

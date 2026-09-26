@@ -121,6 +121,8 @@ def recall_report(store: Store, market: str, run_id: int | None = None,
         best_rank = 99
         for c in matches:
             s = store.get_screening(market, c["platform"], c["uid"]) or {}
+            if run_id is not None and (s.get("run_id") or 0) > run_id:
+                s = {}  # first screened by a later run (e.g. one seeded with the partners)
             pj = store.get_prejudgment(market, c["platform"], c["uid"]) or {}
             d = store.get_decision(market, c["platform"], c["uid"]) or {}
             status = s.get("status")

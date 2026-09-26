@@ -382,6 +382,9 @@ def accepted_by_first_source(store: Store, run_id: int, market: str) -> dict[str
     for s in store.screenings(market, "accepted", run_id=run_id):
         edges = [e for e in store.edges_to(s["platform"], s["uid"]) if e["run_id"] == run_id]
         if not edges:
+            if store.edges_to(s["platform"], s["uid"]):
+                out["queued while scouting other markets"] = out.get(
+                    "queued while scouting other markets", 0) + 1
             continue
         first = edges[0]
         label = {"hashtag": f"#{first['via']}", "keyword": f"TikTok search '{first['via']}'",
@@ -445,6 +448,9 @@ def source_yield(store: Store, run_id: int) -> list[dict]:
             if edges:
                 first_source[(p, s["uid"])] = source_group(edges[0]["kind"], edges[0]["via"], market,
                                                            partner_seeds)
+            elif any(e["run_id"] != run_id for e in store.edges_to(p, s["uid"])):
+                # Found while scouting another market and queued for this one.
+                first_source[(p, s["uid"])] = "queued while scouting other markets"
     handle_to = {}
     for (p, uid) in first_source:
         c = store.get_creator(p, uid) or {}

@@ -24,3 +24,7 @@ __pycache__/
 
 # Partner-provided data (not for publication)
 private/
+
+.vercel
+.env*
+!.env.example

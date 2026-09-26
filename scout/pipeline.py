@@ -328,8 +328,9 @@ class Pipeline(YouTubeStage):
             self.emit("keywords", f"keyword generation unavailable: {exc}")
             return
         self.store.meta_set(keywords_meta_key(self.market.code), json.dumps(data, ensure_ascii=False))
-        self.emit("keywords", f"generated {len(data['local_hashtags'])} local hashtags, "
-                              f"{len(data['keywords'])} keywords")
+        self.emit("keywords", f"generated {len(data.get('local_hashtags', []))} local hashtags, "
+                              f"{len(data.get('tiktok_queries', []))} TikTok and "
+                              f"{len(data.get('youtube_queries', []))} YouTube queries")
 
     def harvest_plan(self, hashtags: list[str] | None = None,
                      keywords: list[str] | None = None) -> list[tuple[str, str, str | None]]:

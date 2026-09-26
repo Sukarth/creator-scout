@@ -158,7 +158,7 @@ $("#live-form").addEventListener("submit", async (ev) => {
         const e = JSON.parse(chunk.slice(6));
         if (e.stage === "started") { add("start", `run ${e.run_id} in ${e.market}, budget ${e.budget} credits`); continue; }
         if (e.stage === "failed") { add("error", "run failed: " + e.message); continue; }
-        if (e.stage === "finished") { await showLiveResult(e.run); continue; }
+        if (e.stage === "finished") { await showLiveResult(e.run, e.rows); continue; }
         if (e.message) add(e.stage, e.message);
         if (e.funnel) {
           const f = e.funnel;
@@ -172,8 +172,8 @@ $("#live-form").addEventListener("submit", async (ev) => {
   finally { $("#go").disabled = false; $("#go").textContent = "Run (about 4 minutes)"; }
 });
 
-async function showLiveResult(run) {
-  const rows = await (await fetch(`/api/live/runs/${run.id}/rows`)).json();
+async function showLiveResult(run, rows) {
+  rows = rows || await (await fetch(`/api/live/runs/${run.id}/rows`)).json();
   const box = $("#live-results");
   box.innerHTML = `<div class="box"><div class="tablebar"><h3>${esc(run.market_name)}: ${run.funnel.accepted} accepted creators <span class="muted">(${run.credits} credits)</span></h3>
     <div class="actions"><a class="btn" href="/api/live/runs/${run.id}/export?layout=full">Download XLSX</a>
