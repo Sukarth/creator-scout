@@ -330,10 +330,28 @@ class Pipeline(YouTubeStage):
         return int(self.s.budget * self.s.extra.get("harvest_share", 0.35))
 
     def harvest_iter(self, hashtags: list[str] | None = None, keywords: list[str] | None = None):
-        """Yield once per harvest page fetched, following the harvest plan."""
+        """Yield once per harvest page fetched.
+
+        Source groups (local hashtags, YouTube searches, keyword searches, global
+        tags) take turns page by page, so no platform waits for another to be
+        exhausted; within a group the plan order is kept.
+        """
+        groups: dict[str, list] = {}
         for kind, term, region in self.harvest_plan(hashtags, keywords):
-            if self.harvest_spent >= self.harvest_cap():
-                return
+            group = "global" if (kind == "hashtag" and region) else kind
+            groups.setdefault(group, []).append((kind, term, region))
+        streams = [self._group_stream(sources) for sources in groups.values()]
+        while streams:
+            for stream in list(streams):
+                if self.harvest_spent >= self.harvest_cap():
+                    return
+                if next(stream, None) is None:
+                    streams.remove(stream)
+                else:
+                    yield True
+
+    def _group_stream(self, sources: list):
+        for kind, term, region in sources:
             yield from self._harvest_source(kind, term, region)
 
     def harvest_step(self) -> bool:

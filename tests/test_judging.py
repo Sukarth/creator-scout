@@ -171,6 +171,24 @@ def test_harvest_plan_is_gaming_first_with_proxy_for_global_tags():
     assert "eestitiktok" in [t for _, t, _ in Pipeline.harvest_plan(store_less)]
 
 
+def test_harvest_interleaves_source_groups():
+    p = Pipeline.__new__(Pipeline)
+    p.market = load_market("ee")
+    p.s = RunSettings(budget=100)
+    p.harvest_spent = 0
+    p.generated_keywords = lambda: {}
+    order = []
+
+    def fake_source(kind, term, region):
+        order.append(kind)
+        yield True
+
+    p._harvest_source = fake_source
+    list(Pipeline.harvest_iter(p))
+    # The first three pages come from three different source groups.
+    assert order[:3] == ["hashtag", "yt_search", "keyword"]
+
+
 def test_batches_respect_count_and_tokens():
     items = [{"id": str(i), "bio": "x" * 280} for i in range(70)]
     out = batches(items, max_items=30, max_tokens=10_000)
