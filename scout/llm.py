@@ -14,6 +14,7 @@ import hashlib
 import json
 import os
 import re
+import threading
 import time
 from collections import deque
 from dataclasses import dataclass, field
@@ -36,8 +37,11 @@ class Model:
     name: str
     tpm: int = 8000
     extra: dict = field(default_factory=dict)
+    max_inflight: int = 1  # concurrent requests allowed on this model
+    min_max_tokens: int = 0  # floor for max_tokens (reasoning models)
     window: deque = field(default_factory=deque)  # (timestamp, tokens)
     cooldown_until: float = 0.0
+    inflight: int = 0
 
     @property
     def label(self) -> str:
@@ -64,8 +68,11 @@ def default_models() -> dict[str, Model]:
                              extra={"reasoning_effort": "none"}),
         "gpt-oss-20b": Model("groq", GROQ, "GROQ_API_KEY", "openai/gpt-oss-20b",
                              extra={"reasoning_effort": "low"}),
+        # A reasoning model: low effort keeps it fast, and a token floor stops the
+        # hidden reasoning from using up the whole answer budget.
         "space-bunny": Model("opencode", OPENCODE, "OPENCODE_API_KEY", "space-bunny-free",
-                             tpm=10**9),
+                             tpm=10**9, max_inflight=4, min_max_tokens=5000,
+                             extra={"reasoning_effort": "low"}),
     }
 
 
@@ -117,6 +124,7 @@ class LLMClient:
         self.max_wait = max_wait
         self.stats = LLMStats()
         self._http = http or httpx.Client(timeout=timeout)
+        self._lock = threading.RLock()
 
     def available(self) -> bool:
         return any(os.environ.get(m.key_env) for m in self.models.values())
@@ -130,7 +138,8 @@ class LLMClient:
         key = hashlib.sha256(json.dumps([task, system, user, max_tokens, temperature],
                                         ensure_ascii=False).encode()).hexdigest()
         if use_cache and self.store:
-            cached = self.store.llm_cache_get(key)
+            with self._lock:
+                cached = self.store.llm_cache_get(key)
             if cached:
                 self.stats.cache_hits += 1
                 return cached["response"], cached["model"]
@@ -142,24 +151,49 @@ class LLMClient:
             raise LLMUnavailable("no LLM API key configured (GROQ_API_KEY or OPENCODE_API_KEY)")
         deadline = time.time() + self.max_wait
         errors: list[str] = []
+        tried: set[str] = set()
         while True:
-            now = time.time()
-            ready = [m for m in route if m.has_room(need, now)]
-            if not ready:
-                if now >= deadline:
+            model = self._reserve(route, need, tried)
+            if model is None:
+                if time.time() >= deadline:
                     break
-                time.sleep(2)
+                if len(tried) >= len(route):
+                    tried.clear()  # every model failed once: wait, then retry them
+                time.sleep(1)
                 continue
-            for model in ready:
+            try:
                 result = self._try_model(model, system, user, max_tokens, temperature, errors)
-                if result is not None:
-                    if self.store:
+            finally:
+                with self._lock:
+                    model.inflight -= 1
+            if result is not None:
+                if self.store:
+                    with self._lock:
                         self.store.llm_cache_put(key, task, model.label, result)
-                    return result, model.label
+                return result, model.label
+            tried.add(model.label)
             if time.time() >= deadline:
                 break
         self.stats.failures += 1
         raise LLMUnavailable("; ".join(errors[-6:]) or "all models rate limited")
+
+    def _reserve(self, route: list[Model], need: int, tried: set[str]) -> Model | None:
+        """Pick the first model in preference order that has capacity, and book it.
+
+        Booking (a token reservation in the model's window and an in-flight
+        slot) happens under a lock, so parallel callers spread across models
+        instead of all hitting the same one.
+        """
+        with self._lock:
+            now = time.time()
+            for model in route:
+                if model.label in tried or model.inflight >= model.max_inflight:
+                    continue
+                if model.has_room(need, now):
+                    model.window.append((now, need))
+                    model.inflight += 1
+                    return model
+        return None
 
     def _try_model(self, model: Model, system: str, user: str, max_tokens: int,
                    temperature: float, errors: list[str]) -> dict | None:
@@ -167,8 +201,9 @@ class LLMClient:
         for attempt in range(2):
             status, body, headers = self._post(model, messages, max_tokens, temperature)
             if status == 429:
-                model.cooldown_until = time.time() + _retry_after(headers, default=20.0)
-                errors.append(f"{model.label}: rate limited")
+                daily = _daily_limit_wait(body)
+                model.cooldown_until = time.time() + (daily or _retry_after(headers, default=20.0))
+                errors.append(f"{model.label}: {'daily limit' if daily else 'rate limited'}")
                 return None
             if status != 200:
                 errors.append(f"{model.label}: HTTP {status} {str(body)[:120]}")
@@ -176,10 +211,10 @@ class LLMClient:
                 return None
             usage = body.get("usage") or {}
             used = int(usage.get("total_tokens") or estimate_tokens(system + user))
-            model.window.append((time.time(), used))
-            self.stats.calls += 1
-            self.stats.tokens += used
-            self.stats.by_model[model.label] = self.stats.by_model.get(model.label, 0) + 1
+            with self._lock:  # the token reservation made in _reserve stands for this call
+                self.stats.calls += 1
+                self.stats.tokens += used
+                self.stats.by_model[model.label] = self.stats.by_model.get(model.label, 0) + 1
             content = ((body.get("choices") or [{}])[0].get("message") or {}).get("content") or ""
             try:
                 return parse_json_object(content)
@@ -194,7 +229,8 @@ class LLMClient:
 
     def _post(self, model: Model, messages: list[dict], max_tokens: int,
               temperature: float) -> tuple[int, Any, dict]:
-        payload = {"model": model.name, "messages": messages, "max_tokens": max_tokens,
+        payload = {"model": model.name, "messages": messages,
+                   "max_tokens": max(max_tokens, model.min_max_tokens),
                    "temperature": temperature, "response_format": {"type": "json_object"},
                    **model.extra}
         try:
@@ -207,6 +243,20 @@ class LLMClient:
         except ValueError:
             body = resp.text[:300]
         return resp.status_code, body, dict(resp.headers)
+
+
+def _daily_limit_wait(body) -> float | None:
+    """Seconds until a per-day quota resets, from a 429 body such as Groq's
+    "... tokens per day (TPD) ... Please try again in 15m6.3s"."""
+    err = body.get("error") if isinstance(body, dict) else body
+    msg = str(err.get("message") if isinstance(err, dict) else err)
+    if "per day" not in msg:
+        return None
+    m = re.search(r"try again in (?:(\d+)h)?(?:(\d+)m)?([\d.]+)s", msg)
+    if not m:
+        return 3600.0
+    h, mi, s = int(m.group(1) or 0), int(m.group(2) or 0), float(m.group(3))
+    return h * 3600 + mi * 60 + s
 
 
 def _retry_after(headers: dict, default: float) -> float:

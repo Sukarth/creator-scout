@@ -12,6 +12,7 @@ Payload builders are shared, so both judges see exactly the same evidence.
 from __future__ import annotations
 
 import json
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Literal
 
@@ -287,21 +288,33 @@ class FreeJudge:
     PREJUDGE_BATCH = 30
     JUDGE_BATCH = 6
 
-    def __init__(self, llm: LLMClient, brand: dict | None = None):
+    def __init__(self, llm: LLMClient, brand: dict | None = None, parallel: int = 6):
         self.llm = llm
         self.brand = brand or load_brand()
+        self.parallel = parallel
 
     def _run(self, task: str, system: str, items: list[dict], schema, max_items: int,
              max_prompt_tokens: int, out_tokens_per_item: int, temperature: float) -> dict[str, dict]:
         results: dict[str, dict] = {}
-        for batch in batches(items, max_items, max_prompt_tokens):
+
+        def ask(batch: list[dict]):
             user = json.dumps({"accounts": batch}, ensure_ascii=False)
             try:
-                data, model = self.llm.chat_json(task, system, user,
-                                                 max_tokens=300 + out_tokens_per_item * len(batch),
-                                                 temperature=temperature)
+                return self.llm.chat_json(task, system, user,
+                                          max_tokens=300 + out_tokens_per_item * len(batch),
+                                          temperature=temperature)
             except LLMUnavailable:
+                return None
+
+        # Batches run in parallel; the LLM client spreads them over every free
+        # model that has capacity (each Groq model has its own rate limit).
+        todo = batches(items, max_items, max_prompt_tokens)
+        with ThreadPoolExecutor(max_workers=min(self.parallel, len(todo) or 1)) as pool:
+            answers = list(pool.map(ask, todo))
+        for answer in answers:
+            if answer is None:
                 continue
+            data, model = answer
             for raw in data.get("results") or []:
                 try:
                     parsed = schema.model_validate(raw)

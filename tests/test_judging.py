@@ -262,6 +262,14 @@ def test_llm_rotates_to_next_model_on_rate_limit(monkeypatch):
     assert models["a"].cooldown_until > 0
 
 
+def test_daily_quota_cools_the_model_for_the_stated_time():
+    from scout.llm import _daily_limit_wait
+    body = {"error": {"message": "Rate limit reached ... tokens per day (TPD): Limit 200000, "
+                                 "Used 197507. Please try again in 15m6.3s."}}
+    assert abs(_daily_limit_wait(body) - 906.3) < 0.01
+    assert _daily_limit_wait({"error": "rate"}) is None
+
+
 def test_free_judge_maps_results_by_id(monkeypatch):
     class FakeLLM:
         def chat_json(self, task, system, user, max_tokens, temperature):

@@ -244,7 +244,8 @@ FINAL_STATUSES = ("accepted", "rejected", "contacted", "maybe")
 class Store:
     def __init__(self, path: str | Path):
         self.path = str(path)
-        self.conn = sqlite3.connect(self.path, timeout=30)
+        # Worker threads (parallel LLM calls) use the cache; callers serialise access.
+        self.conn = sqlite3.connect(self.path, timeout=30, check_same_thread=False)
         self.conn.row_factory = sqlite3.Row
         self.conn.execute("PRAGMA journal_mode=WAL")
         self.conn.executescript(SCHEMA)
