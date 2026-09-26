@@ -307,6 +307,28 @@ def pitches(run_id: Optional[int] = typer.Option(None, "--run", help="Run id (de
     typer.echo(f"drafted {n} pitches")
 
 
+@app.command("refresh-metrics")
+def refresh_metrics(run_id: Optional[int] = typer.Option(None, "--run", help="Run id (default: latest)")) -> None:
+    """Recompute view metrics from stored videos (no API calls)."""
+    from . import metrics as metrics_mod
+    store = _setup()
+    run_id = run_id or store.latest_run_id()
+    run_row = store.get_run(run_id)
+    n = 0
+    for s in store.screenings(run_row["market"], run_id=run_id):
+        m = store.get_metrics(s["platform"], s["uid"])
+        if not m or m.get("views"):
+            continue
+        vids = [v for v in store.videos_for(s["platform"], s["uid"], limit=60)
+                if v.get("source") in ("profile_videos", "yt_long", "yt_shorts")]
+        if not vids:
+            continue
+        m["views"] = metrics_mod.view_summary(vids)
+        store.put_metrics(s["platform"], s["uid"], m)
+        n += 1
+    typer.echo(f"refreshed metrics for {n} accounts")
+
+
 @app.command("yield")
 def yield_(run_id: Optional[int] = typer.Option(None, "--run", help="Run id (default: latest)")) -> None:
     """Accepted creators per 100 credits, by source type."""
