@@ -12,7 +12,7 @@ from scout.judge import DeferredJudge, FreeJudge, JudgeResult, batches, judge_pa
 from scout.llm import LLMClient, Model, parse_json_object
 from scout.market import load_market
 from scout.pipeline import Pipeline
-from scout.sources.scrapecreators import CreditMeter, ScrapeCreators
+from scout.sources.scrapecreators import BudgetExhausted, CreditMeter, ScrapeCreators
 
 
 class StubJudge:
@@ -123,6 +123,22 @@ def test_evidence_match_ignores_emoji_and_punctuation(cached_store):
     store.upsert_creator("youtube", "UCx", handle="x", bio="Varsinkin JOS Minecraft kiinnostaa! ❤")
     assert pipe._evidence_found("Varsinkin JOS Minecraft kiinnostaa! ❤️", "UCx", "youtube")
     assert not pipe._evidence_found("I build gaming PCs", "UCx", "youtube")
+
+
+def test_judging_continues_when_budget_is_spent(cached_store):
+    store = cached_store
+    pipe, _ = make(store, StubJudge())
+    pipe.run(hashtags=[], keywords=[])
+    digi = store.get_creator_by_handle("tiktok", "digikamu")
+
+    def paid_link(*a, **k):
+        raise BudgetExhausted("spent")
+
+    pipe.on_accept = paid_link
+    status = pipe.apply_decision(digi["uid"], {"id": digi["uid"], "decision": "accept",
+                                               "gaming_pc_relevance": 4, "market_resolution": "FI",
+                                               "evidence_quote": "Tech, News, Reviews"}, "stub")
+    assert status == "accepted"
 
 
 def test_rejected_creators_are_not_seeds(cached_store):

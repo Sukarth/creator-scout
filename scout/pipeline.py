@@ -854,7 +854,11 @@ class Pipeline(YouTubeStage):
             self.funnel[status] += 1
         if status == ACCEPTED:
             self._group_credit(uid, "accepted")
-            self.on_accept(platform, uid, c, r)
+            try:
+                self.on_accept(platform, uid, c, r)
+            except BudgetExhausted:
+                # Linking another platform is optional; judging must not stop on it.
+                self.emit("budget", f"skipped cross-platform link for {uid}: budget spent")
         return status
 
     def on_accept(self, platform: str, uid: str, c: dict, r: dict) -> None:
