@@ -53,6 +53,7 @@ class Market:
     seed_keywords: list[str] = field(default_factory=list)
     gaming_terms: list[str] = field(default_factory=list)
     youtube_queries: list[str] = field(default_factory=list)
+    shorts_hashtags: list[str] = field(default_factory=list)
     distinct_chars: list[str] = field(default_factory=list)
     retailer_seeds: list[dict] = field(default_factory=list)
     ad_markers: list[str] = field(default_factory=list)
@@ -88,6 +89,7 @@ def load_market(code: str, directory: Path = MARKETS_DIR) -> Market:
         seed_keywords=raw.get("seed_keywords", []),
         gaming_terms=raw.get("gaming_terms", []),
         youtube_queries=raw.get("youtube_queries", []),
+        shorts_hashtags=[h.lstrip("#") for h in raw.get("shorts_hashtags", [])],
         distinct_chars=raw.get("distinct_chars", []),
         retailer_seeds=raw.get("retailer_seeds", []),
         ad_markers=raw.get("ad_markers", []),

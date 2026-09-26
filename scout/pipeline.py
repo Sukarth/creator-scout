@@ -81,6 +81,10 @@ class Pipeline(YouTubeStage):
         self._harvest = None
         self._plan_hashtags: list[str] | None = None
         self._plan_keywords: list[str] | None = None
+        # Per-source-group yield, used to give productive sources more pages.
+        self.group_stats: dict[str, dict] = {}
+        self.group_of: dict[str, str] = {}
+        self.current_group: str | None = None
         self.now = now
         self.client = client
         self.market = market
@@ -184,6 +188,7 @@ class Pipeline(YouTubeStage):
         if uid in self.seen_this_run:
             return None
         self.seen_this_run.add(uid)
+        self.note_group(uid)
         self.funnel["seen"] += 1
         if existing is None:
             self.funnel["new"] += 1
@@ -332,52 +337,89 @@ class Pipeline(YouTubeStage):
             return plan
         gen = self.generated_keywords()
         platforms = self.s.extra.get("platforms", ["tiktok", "youtube"])
-        tiktok = "tiktok" in platforms
-        if tiktok:
+        tiktok_queries = self.market.seed_keywords + gen.get("tiktok_queries", []) + gen.get("keywords", [])
+        yt_queries = self.market.youtube_queries + gen.get("youtube_queries", [])
+        if "tiktok" in platforms:
             for t in self.market.seed_hashtags + gen.get("local_hashtags", []):
                 add("hashtag", t, None)
-        if "youtube" in platforms:
-            for q in self.market.youtube_queries:
-                add("yt_search", q, code)
-        # Global and proxied tags return few in-market authors in small markets:
-        # they come after local sources.
-        if tiktok:
-            for q in self.market.seed_keywords + gen.get("keywords", []):
+            for q in tiktok_queries:
+                add("tt_top", q, code)
                 add("keyword", q, code)
+                add("keyword_liked", q, code)
+                add("tt_users", q, None)
             if self.s.extra.get("use_general_tags"):
                 for t in self.market.general_hashtags:
                     add("hashtag", t, None)
             for t in self.market.global_hashtags + gen.get("global_hashtags", []):
                 add("hashtag", t, code)
+        if "youtube" in platforms:
+            for q in yt_queries:
+                add("yt_search", q, code)
+                add("yt_channels", q, code)
+                add("yt_shorts", q, code)
+                add("yt_api_shorts", q, code)
+            for t in self.market.shorts_hashtags + gen.get("shorts_hashtags", []):
+                add("yt_shorts_tag", t, code)
         return plan
 
     def harvest_cap(self) -> int:
         return int(self.s.budget * self.s.extra.get("harvest_share", 0.35))
 
+    @staticmethod
+    def source_group(kind: str, region: str | None) -> str:
+        return "global" if (kind == "hashtag" and region) else kind
+
+    def note_group(self, uid: str) -> None:
+        """Remember which source group first found ``uid`` in this run."""
+        if self.current_group:
+            self.group_of.setdefault(uid, self.current_group)
+
+    def _group_credit(self, uid: str, field: str) -> None:
+        group = self.group_of.get(uid)
+        if group:
+            self.group_stats.setdefault(group, self._new_group_stats())[field] += 1
+
+    @staticmethod
+    def _new_group_stats() -> dict:
+        return {"pages": 0, "credits": 0, "new_in_market": 0, "yes": 0, "accepted": 0}
+
+    def group_score(self, group: str) -> float:
+        """Yield per credit: accepted creators weigh most, pre-judge "yes" and new in-market
+        accounts give an early signal before anything is judged."""
+        st = self.group_stats.get(group) or self._new_group_stats()
+        value = 10 * st["accepted"] + 2 * st["yes"] + st["new_in_market"] + 1
+        return value / (st["credits"] + 2)
+
     def harvest_iter(self, hashtags: list[str] | None = None, keywords: list[str] | None = None):
         """Yield once per harvest page fetched.
 
-        Source groups (local hashtags, YouTube searches, keyword searches, global
-        tags) take turns page by page, so no platform waits for another to be
-        exhausted; within a group the plan order is kept.
+        Every source group (local hashtags, TikTok top / keyword / user search,
+        YouTube search, channel search, Shorts search, global tags) first gets a
+        couple of exploration pages; after that the next page goes to the group
+        with the best yield per credit so far, so sources that work get more of
+        the budget automatically.
         """
         groups: dict[str, list] = {}
         for kind, term, region in self.harvest_plan(hashtags, keywords):
-            group = "global" if (kind == "hashtag" and region) else kind
-            groups.setdefault(group, []).append((kind, term, region))
-        streams = [self._group_stream(sources) for sources in groups.values()]
+            groups.setdefault(self.source_group(kind, region), []).append((kind, term, region))
+        streams = {g: self._group_stream(g, sources) for g, sources in groups.items()}
+        order = list(streams)
+        explore = self.s.extra.get("explore_pages", 2)
         while streams:
-            for stream in list(streams):
-                if self.harvest_spent >= self.harvest_cap():
-                    return
-                if next(stream, None) is None:
-                    streams.remove(stream)
-                else:
-                    yield True
+            if self.harvest_spent >= self.harvest_cap():
+                return
+            fresh = [g for g in order if g in streams
+                     and (self.group_stats.get(g) or {}).get("pages", 0) < explore]
+            group = fresh[0] if fresh else max(streams, key=self.group_score)
+            if next(streams[group], None) is None:
+                del streams[group]
+            else:
+                yield True
 
-    def _group_stream(self, sources: list):
+    def _group_stream(self, group: str, sources: list):
         for kind, term, region in sources:
-            yield from self._harvest_source(kind, term, region)
+            for _ in self._harvest_source(kind, term, region):
+                yield True
 
     def harvest_step(self) -> bool:
         """Fetch the next harvest page. Returns False once the plan or its cap is exhausted."""
@@ -390,55 +432,96 @@ class Pipeline(YouTubeStage):
         for _ in self.harvest_iter(hashtags, keywords):
             pass
 
+    YT_MODES = ("yt_search", "yt_channels", "yt_shorts", "yt_shorts_tag", "yt_api_shorts")
+
     def _harvest_source(self, kind: str, term: str, region: str | None):
+        """Page through one source while it keeps yielding new in-market accounts."""
+        group = self.source_group(kind, region)
+        stats = self.group_stats.setdefault(group, self._new_group_stats())
         cursor = None
         dry = 0
-        max_pages = {"hashtag": self.s.max_pages_per_hashtag,
-                     "yt_search": self.s.extra.get("max_pages_per_yt_query", 3)}.get(
-            kind, self.s.max_pages_per_keyword)
+        # Deep pagination is allowed; the dry-page rule stops sources that stop yielding.
+        max_pages = self.s.extra.get("max_pages_per_source", 10)
+        if kind == "yt_api_shorts":
+            max_pages = 1  # official search costs 100 quota units per call
+            if self.funnel.get("yt_api_shorts_pages", 0) >= self.s.extra.get("max_api_searches", 25):
+                return
         for page in range(max_pages):
             if self.harvest_spent >= self.harvest_cap():
                 return
-            if kind == "yt_search":
-                before = self.client.meter.used
-                new_in_market, cursor, fetched = self.yt_search_page(term, cursor)
-                self.harvest_spent += self.client.meter.used - before
-                if not fetched:
-                    return
-                yield True
-                dry = dry + 1 if new_in_market < 1 else 0
-                if dry >= self.s.stop_after_dry_pages or not cursor:
-                    return
-                continue
             before = self.client.meter.used
-            if kind == "hashtag":
-                body, _ = self._call(self.client.tiktok_hashtag, term, cursor=cursor, region=region,
-                                     max_age=self.s.ttl_search)
-            else:
-                body, _ = self._call(self.client.tiktok_keyword, term, cursor=cursor,
-                                     date_posted=self.s.keyword_date_posted, region=region,
-                                     max_age=self.s.ttl_search)
-            self.harvest_spent += self.client.meter.used - before
-            if body is None:
-                return
-            parse = tt.parse_hashtag if kind == "hashtag" else tt.parse_keyword
-            pairs, cursor, has_more = parse(body, term)
-            self.funnel[f"{kind}_pages"] += 1
-            new_in_market = 0
-            for acc, video in pairs:
-                bucket = self.observe(acc, kind, term, video=video)
-                if bucket in (filters.SURE, filters.UNSURE):
-                    new_in_market += 1
-            proxy = f" via {region} proxy" if region else ""
-            self.emit("harvest", f"{kind} '{term}'{proxy} page {page + 1}: {len(pairs)} videos, "
-                                 f"{new_in_market} new in-market accounts")
+            self.current_group = group
+            try:
+                if kind in self.YT_MODES:
+                    new_in_market, cursor, fetched = self.yt_search_page(term, cursor, kind)
+                    items, has_more = None, bool(cursor)
+                    if not fetched:
+                        return
+                else:
+                    fetched_page = self._tiktok_search_page(kind, term, region, cursor)
+                    if fetched_page is None:
+                        return
+                    new_in_market, items, cursor, has_more = fetched_page
+            finally:
+                spent = self.client.meter.used - before
+                self.harvest_spent += spent
+                stats["credits"] += spent
+                self.current_group = None
+            stats["pages"] += 1
+            stats["new_in_market"] += new_in_market
             yield True
             dry = dry + 1 if new_in_market < self.s.min_new_in_market_per_page else 0
-            # A short page means the tag or query is nearly exhausted even when the
-            # API still reports ``has_more``; the next page is usually empty.
-            short_page = len(pairs) < self.s.extra.get("min_page_size", 10)
+            # A short page means the source is nearly exhausted even when the API
+            # still reports ``has_more``; the next page is usually empty.
+            short_page = items is not None and items < self.s.extra.get("min_page_size", 10)
             if dry >= self.s.stop_after_dry_pages or not has_more or short_page:
                 return
+
+    def _tiktok_search_page(self, kind: str, term: str, region: str | None, cursor):
+        """One TikTok hashtag / keyword / top / user search page.
+
+        Returns ``(new_in_market, items_on_page, next_cursor, has_more)`` or None.
+        """
+        if kind == "hashtag":
+            body, _ = self._call(self.client.tiktok_hashtag, term, cursor=cursor, region=region,
+                                 max_age=self.s.ttl_search)
+            parse = tt.parse_hashtag
+        elif kind in ("keyword", "keyword_liked"):
+            liked = kind == "keyword_liked"
+            body, _ = self._call(self.client.tiktok_keyword, term, cursor=cursor,
+                                 date_posted="all-time" if liked else self.s.keyword_date_posted,
+                                 sort_by="most-liked" if liked else "relevance", region=region,
+                                 max_age=self.s.ttl_search)
+            parse = tt.parse_keyword
+        elif kind == "tt_top":
+            body, _ = self._call(self.client.get, "/v1/tiktok/search/top",
+                                 {"query": term, "region": region, "cursor": cursor},
+                                 max_age=self.s.ttl_search)
+            parse = tt.parse_top
+        elif kind == "tt_users":
+            body, _ = self._call(self.client.tiktok_search_users, term, cursor=cursor,
+                                 max_age=self.s.ttl_search)
+            parse = None
+        else:
+            return None
+        if body is None:
+            return None
+        if parse is None:
+            accounts = tt.parse_users(body)
+            pairs = [(a, None) for a in accounts]
+            cursor, has_more = body.get("cursor"), bool(body.get("has_more"))
+        else:
+            pairs, cursor, has_more = parse(body, term)
+        self.funnel[f"{kind}_pages"] = self.funnel.get(f"{kind}_pages", 0) + 1
+        new_in_market = 0
+        for acc, video in pairs:
+            bucket = self.observe(acc, kind, term, video=video)
+            if bucket in (filters.SURE, filters.UNSURE):
+                new_in_market += 1
+        proxy = f" via {region} proxy" if region else ""
+        self.emit("harvest", f"{kind} '{term}'{proxy}: {len(pairs)} results, "
+                             f"{new_in_market} new in-market accounts")
+        return new_in_market, len(pairs), cursor, has_more
 
     # ---- stage: retailer seeds ------------------------------------------
 
@@ -506,6 +589,8 @@ class Pipeline(YouTubeStage):
         self.store.set_prejudgment(code, platform, uid, verdict, reason, model, self.run_id)
         self.funnel["prejudged"] += 1
         self.funnel[f"prejudge_{verdict}"] += 1
+        if verdict == "yes":
+            self._group_credit(uid, "yes")
         if verdict == "no":
             self.store.set_screening(code, platform, uid, FILTERED,
                                      reason=f"pre-judge: no ({reason})", run_id=self.run_id)
@@ -756,6 +841,7 @@ class Pipeline(YouTubeStage):
         if status in (ACCEPTED, MAYBE, REJECTED):
             self.funnel[status] += 1
         if status == ACCEPTED:
+            self._group_credit(uid, "accepted")
             self.on_accept(platform, uid, c, r)
         return status
 
@@ -884,10 +970,12 @@ class Pipeline(YouTubeStage):
         if seed_uid:
             self.store.upsert_creator(PLATFORM, seed_uid, following_visible=bool(accounts))
         new_in_market = 0
+        self.current_group = "snowball"
         for acc in accounts:
             bucket = self.observe(acc, "following", handle, from_uid=seed_uid)
             if bucket in (filters.SURE, filters.UNSURE):
                 new_in_market += 1
+        self.current_group = None
         fields: dict[str, Any] = {
             "pages_fetched": seed["pages_fetched"] + 1,
             "next_cursor": str(next_cursor) if next_cursor else None,

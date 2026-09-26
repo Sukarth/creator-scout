@@ -33,8 +33,9 @@ COUNTRY_NAMES = {"EE": "Estonia", "FI": "Finland", "SE": "Sweden", "DE": "German
 SHORTLIST_COLUMNS = [
     "status", "creator", "platforms", "market", "country", "existing_partner",
     "followers_tiktok", "avg_views_tiktok", "views_window_tiktok", "views_range_tiktok",
-    "subscribers_youtube", "avg_views_youtube", "views_window_youtube", "views_range_youtube",
-    "avg_views_youtube_shorts", "views_window_youtube_shorts",
+    "subscribers_youtube", "youtube_format", "avg_views_youtube", "views_window_youtube",
+    "views_range_youtube", "avg_views_youtube_shorts", "views_window_youtube_shorts",
+    "views_range_youtube_shorts",
     "niche", "games", "contact", "risks", "trend",
     "decision", "fit_score", "young_gamer_appeal", "gaming_pc_relevance", "reasons",
     "evidence_quote", "tiktok_url", "youtube_url", "other_links", "market_confidence",
@@ -144,8 +145,12 @@ def creator_row(store: Store, market: str, accounts: list[dict], partners=None,
         row["subscribers_youtube"] = c.get("followers")
         avg, win, rng, trend = _views(m.get("long"))
         row.update(avg_views_youtube=avg, views_window_youtube=win, views_range_youtube=rng)
-        savg, swin, _, strend = _views(m.get("shorts"))
-        row.update(avg_views_youtube_shorts=savg, views_window_youtube_shorts=swin)
+        savg, swin, srng, strend = _views(m.get("shorts"))
+        row.update(avg_views_youtube_shorts=savg, views_window_youtube_shorts=swin,
+                   views_range_youtube_shorts=srng)
+        if m.get("format"):
+            row["youtube_format"] = (f"{m['format']} ({m.get('shorts_total', 0)} Shorts, "
+                                     f"{m.get('long_total', 0)} long)")
         for label, t in (("YouTube", trend), ("Shorts", strend)):
             if t is not None:
                 views_trend.append(f"{label} {metrics_mod.trend_label(t)}")
@@ -323,18 +328,24 @@ def prenew_row(r: dict, market: str) -> dict:
     niche = r["niche"] or ""
     if r["games"]:
         niche = f"{niche}: {r['games']}" if niche else r["games"]
-    yt_avg = r["avg_views_youtube"] or r["avg_views_youtube_shorts"]
-    yt_win = r["views_window_youtube"] or r["views_window_youtube_shorts"]
+    shorts_first = (r.get("youtube_format") or "").startswith("Shorts-first")
+    if shorts_first:
+        yt_avg, yt_win = r["avg_views_youtube_shorts"], r["views_window_youtube_shorts"]
+        yt_range = r["views_range_youtube_shorts"]
+    else:
+        yt_avg = r["avg_views_youtube"] or r["avg_views_youtube_shorts"]
+        yt_win = r["views_window_youtube"] or r["views_window_youtube_shorts"]
+        yt_range = r["views_range_youtube"]
+    platform = r["platforms"].replace("YouTube", "YouTube Shorts") if shorts_first else r["platforms"]
     return {
         "Creator key": r["partner_key"] or r["creator"],
         "Market": market,
         "Country": r["country"],
         "Creator / channel": r["creator"],
-        "Platform": r["platforms"],
+        "Platform": platform,
         "Niche / content": niche,
         "YT subscribers": r["subscribers_youtube"],
-        "YT views / video": r["views_range_youtube"] or (metrics_mod.fmt_count(yt_avg) + " avg"
-                                                          if yt_avg else None),
+        "YT views / video": yt_range or (metrics_mod.fmt_count(yt_avg) + " avg" if yt_avg else None),
         "TikTok followers": r["followers_tiktok"],
         "TikTok views / video": r["views_range_tiktok"] or None,
         "YT avg views (window)": f"{yt_avg} ({yt_win})" if yt_avg else None,

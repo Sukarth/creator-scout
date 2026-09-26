@@ -257,10 +257,12 @@ def keywords_system(brand: dict, market: Market) -> str:
     return f"""You help find small gaming and PC-hardware creators on TikTok in {market.name} for {brand['name']}.
 Local languages: {', '.join(market.languages)}. Generate search terms that local gaming creators actually use.
 - local_hashtags: 20 to 40 gaming-specific hashtags in the local languages (and local-English mixes like "eestigamer"). No general country or lifestyle tags such as a plain country name, "tiktok"+country or city names alone.
-- keywords: 10 to 20 short search queries (1 to 4 words) in the local languages about gaming, streaming and PC building.
+- tiktok_queries: 40 to 60 short TikTok search queries (1 to 4 words) mixing: popular game names with local-language phrasing (e.g. "minecraft suomi", "fortnite suomeksi", "minecraft eesti keeles", "gta rp eesti"); creator-style phrases in the local language (e.g. "pelaan", "striimi", "let's play suomi"); and tech-review phrases in the local language (PC builds, graphics cards, gaming gear reviews).
+- youtube_queries: 20 to 40 YouTube search queries in the same style, favouring phrases local creators put in video titles (e.g. "minecraft suomeksi", "eesti keeles").
+- shorts_hashtags: 10 to 20 hashtags local creators use on YouTube Shorts (e.g. "minecraftsuomi").
 - global_hashtags: 5 to 15 game titles or hardware tags popular with players in {market.name}.
-Hashtags are lowercase, without "#" and without spaces.
-Return JSON: {{"local_hashtags": [], "keywords": [], "global_hashtags": [], "notes": "one sentence"}}"""
+Hashtags are lowercase, without "#" and without spaces. Queries are lowercase, no "#".
+Return JSON: {{"local_hashtags": [], "tiktok_queries": [], "youtube_queries": [], "shorts_hashtags": [], "global_hashtags": [], "notes": "one sentence"}}"""
 
 
 # ---- judges ---------------------------------------------------------------
@@ -327,10 +329,14 @@ class FreeJudge:
                            "curated_keywords": market.seed_keywords,
                            "curated_global_hashtags": market.global_hashtags}, ensure_ascii=False)
         data, model = self.llm.chat_json("keywords", keywords_system(self.brand, market), user,
-                                         max_tokens=1600, temperature=0.4)
-        clean = lambda xs: [str(x).strip().lstrip("#").lower().replace(" ", "")
-                            for x in xs or [] if str(x).strip()]
-        return {"local_hashtags": clean(data.get("local_hashtags")),
-                "keywords": [str(k).strip() for k in data.get("keywords") or [] if str(k).strip()],
-                "global_hashtags": clean(data.get("global_hashtags")),
+                                         max_tokens=3000, temperature=0.4)
+        tags = lambda xs: list(dict.fromkeys(str(x).strip().lstrip("#").lower().replace(" ", "")
+                                             for x in xs or [] if str(x).strip()))
+        queries = lambda xs: list(dict.fromkeys(str(x).strip().lstrip("#").lower()
+                                                for x in xs or [] if str(x).strip()))
+        return {"local_hashtags": tags(data.get("local_hashtags")),
+                "tiktok_queries": queries(data.get("tiktok_queries") or data.get("keywords")),
+                "youtube_queries": queries(data.get("youtube_queries")),
+                "shorts_hashtags": tags(data.get("shorts_hashtags")),
+                "global_hashtags": tags(data.get("global_hashtags")),
                 "notes": data.get("notes", ""), "model": model}

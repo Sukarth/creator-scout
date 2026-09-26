@@ -99,16 +99,38 @@ class YouTubeData:
         return out
 
     def uploads(self, channel_id: str, kind: str, max_results: int = 30,
-                max_age: float = 86400) -> list[str]:
-        """Recent video ids of one kind: ``long`` (UULF) or ``shorts`` (UUSH)."""
+                max_age: float = 86400) -> tuple[list[str], int]:
+        """Recent video ids of one kind, ``long`` (UULF) or ``shorts`` (UUSH), and the total count."""
         prefix = {"long": "UULF", "shorts": "UUSH"}[kind]
         try:
             body = self._get("playlistItems", {"part": "contentDetails",
                                                "playlistId": prefix + channel_id[2:],
                                                "maxResults": max_results}, max_age)
         except YouTubeApiError:
-            return []  # playlist missing: the channel has no videos of this kind
-        return [it["contentDetails"]["videoId"] for it in body.get("items") or []]
+            return [], 0  # playlist missing: the channel has no videos of this kind
+        ids = [it["contentDetails"]["videoId"] for it in body.get("items") or []]
+        return ids, int((body.get("pageInfo") or {}).get("totalResults") or len(ids))
+
+    def video_channels(self, video_ids: list[str], max_age: float = 7 * 86400) -> dict[str, dict]:
+        """Map video ids (e.g. Shorts from search, which carry no channel) to their channel."""
+        out: dict[str, dict] = {}
+        for v in self.videos(video_ids, max_age=max_age):
+            if v.get("uid"):
+                out[v["video_id"]] = v
+        return out
+
+    def search_short_channels(self, query: str, region: str, language: str,
+                              max_results: int = 50, max_age: float = 3 * 86400) -> list[dict]:
+        """Official ``search.list`` for Shorts-length videos (100 quota units per call)."""
+        body = self._get("search", {"part": "snippet", "q": query, "type": "video",
+                                    "videoDuration": "short", "regionCode": region,
+                                    "relevanceLanguage": language, "maxResults": max_results},
+                         max_age)
+        return [{"video_id": it["id"]["videoId"], "uid": it["snippet"]["channelId"],
+                 "nickname": it["snippet"].get("channelTitle"),
+                 "title": it["snippet"].get("title") or "",
+                 "published": it["snippet"].get("publishedAt")}
+                for it in body.get("items") or [] if (it.get("id") or {}).get("videoId")]
 
     def videos(self, ids: list[str], max_age: float = 86400) -> list[dict]:
         out: list[dict] = []
@@ -176,6 +198,22 @@ def parse_search(body: dict, query: str) -> list[dict]:
                                   "video_id": item.get("id") if kind == "videos" else None,
                                   "published": item.get("publishedTime")})
     return list(seen.values())
+
+
+def parse_shorts(body: dict) -> list[dict]:
+    """Shorts from a ScrapeCreators search or hashtag page: video id, title, views (no channel)."""
+    return [{"video_id": s["id"], "title": s.get("title") or "", "views": s.get("viewCountInt")}
+            for s in body.get("shorts") or [] if s.get("id")]
+
+
+def format_label(shorts_total: int, long_total: int) -> str:
+    if not shorts_total and not long_total:
+        return ""
+    if shorts_total >= 2 * max(long_total, 1) or (shorts_total and not long_total):
+        return "Shorts-first"
+    if long_total >= 2 * max(shorts_total, 1) or (long_total and not shorts_total):
+        return "long-form"
+    return "mixed"
 
 
 def parse_sc_channel(body: dict) -> dict:

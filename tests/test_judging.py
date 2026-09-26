@@ -171,22 +171,36 @@ def test_harvest_plan_is_gaming_first_with_proxy_for_global_tags():
     assert "eestitiktok" in [t for _, t, _ in Pipeline.harvest_plan(store_less)]
 
 
-def test_harvest_interleaves_source_groups():
+def test_harvest_explores_every_group_then_follows_yield():
     p = Pipeline.__new__(Pipeline)
     p.market = load_market("ee")
-    p.s = RunSettings(budget=100)
+    p.s = RunSettings(budget=1000, extra={"explore_pages": 1})
     p.harvest_spent = 0
+    p.group_stats, p.group_of, p.current_group = {}, {}, None
     p.generated_keywords = lambda: {}
     order = []
 
     def fake_source(kind, term, region):
-        order.append(kind)
-        yield True
+        group = Pipeline.source_group(kind, region)
+        st = p.group_stats.setdefault(group, Pipeline._new_group_stats())
+        for _ in range(3):
+            order.append(group)
+            st["pages"] += 1
+            st["credits"] += 1
+            st["accepted"] += 1 if group == "yt_shorts" else 0  # the only productive source
+            yield True
 
     p._harvest_source = fake_source
-    list(Pipeline.harvest_iter(p))
-    # The first three pages come from three different source groups.
-    assert order[:3] == ["hashtag", "yt_search", "keyword"]
+    it = Pipeline.harvest_iter(p)
+    for _ in range(40):
+        next(it)
+    groups = {"hashtag", "tt_top", "keyword", "keyword_liked", "tt_users", "global", "yt_search",
+              "yt_channels", "yt_shorts", "yt_api_shorts", "yt_shorts_tag"}
+    first = order[:len(groups)]
+    assert set(first) == groups  # each group explored once first
+    # Afterwards the productive group gets most pages.
+    later = order[len(groups):]
+    assert later.count("yt_shorts") > len(later) / 2
 
 
 def test_batches_respect_count_and_tokens():

@@ -32,7 +32,26 @@ All notable changes to this project are documented here. The format follows
   "Prenew format" sheet mirrors the client's collaboration sheet.
 - `scout check` requires the client's columns to be filled for shortlisted rows.
 
+- More platform search: TikTok top search, keyword search sorted by likes,
+  TikTok user search; YouTube channel search, Shorts search, Shorts hashtags
+  and the official Shorts-length search (`search.list`, free quota). Shorts
+  results carry no channel, so their channels are resolved with the free API.
+- LLM query generation adds 40-60 TikTok queries (game names in local
+  phrasing, creator-style and tech-review phrases), YouTube queries and
+  Shorts hashtags per market.
+- YouTube channels are labelled Shorts-first, long-form or mixed from their
+  upload counts; Shorts and long-video views are reported separately.
+
 ### Changed
+- Harvest budget follows yield: each source group gets exploration pages,
+  then the next page goes to the group with the most accepted creators,
+  pre-judge "yes" and new in-market accounts per credit. Sources paginate
+  deeper while they keep yielding.
+- Size limits are soft: creators up to 1.5x the upper limit are kept and
+  flagged "above typical range"; recall counts partners found outside the
+  band as found.
+- No credits are spent on contact enrichment; contacts come only from bios,
+  channel descriptions and bio-link pages.
 - Snowballing starts as soon as two creators are accepted and then alternates
   two following-list pages with one harvest page; seeds are expanded while
   they keep yielding (up to 30 pages).

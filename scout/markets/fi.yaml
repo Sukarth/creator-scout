@@ -8,7 +8,10 @@ market_signals:
   flags: ["🇫🇮"]
   tlds: [".fi"]
   cities: [Helsinki, Espoo, Tampere, Vantaa, Oulu, Turku, Jyväskylä, Kuopio, Lahti, Pori, Joensuu, Rovaniemi]
-  words: [suomi, suomalainen, suomeksi, pelikone, yhteistyö, yhteistyössä, moi, kiitos]
+  words: [suomi, suomalainen, suomeksi, pelikone, yhteistyö, yhteistyössä, moi, kiitos, finland, finnish]
+
+# YouTube Shorts hashtags (searched with type=shorts).
+shorts_hashtags: [minecraftsuomi, suomitubettaja, fortnitesuomi, robloxsuomi, suomishorts, pelitsuomi, suomigaming]
 
 seed_hashtags:
   - pelikone

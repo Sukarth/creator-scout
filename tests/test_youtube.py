@@ -46,6 +46,28 @@ def test_view_summary_windows():
     assert metrics.fmt_count(18_400) == "18K" and metrics.fmt_count(1_250) == "1.2K"
 
 
+def test_shorts_search_gives_video_ids_without_channels(fixture):
+    body = fixture("youtube_search_shorts_minecraft_suomi")
+    shorts = yt.parse_shorts(body)
+    assert len(shorts) >= 20 and all(s["video_id"] and s["title"] for s in shorts)
+    assert yt.parse_search(body, "q") == []  # no channel info: resolved via the free API
+
+
+def test_format_label():
+    assert yt.format_label(120, 10) == "Shorts-first"
+    assert yt.format_label(7, 365) == "long-form"
+    assert yt.format_label(40, 30) == "mixed"
+    assert yt.format_label(0, 0) == ""
+
+
+def test_tiktok_top_search_has_followers_and_video_region(fixture):
+    from scout.sources import tiktok as tt
+    pairs, cursor, has_more = tt.parse_top(fixture("tiktok_search_top_minecraft_suomi"), "minecraft suomi")
+    assert len(pairs) >= 30 and has_more
+    acc, video = pairs[0]
+    assert acc["followers"] and acc["region"] is None and video["region"] == "FI"
+
+
 def test_sc_channel_links(fixture):
     info = yt.parse_sc_channel(fixture("youtube_channel_channel_a"))
     assert info["links"]["instagram"] and info["email"] is None

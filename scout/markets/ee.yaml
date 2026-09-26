@@ -12,7 +12,10 @@ market_signals:
   cities: [Tallinn, Tartu, Narva, Pärnu, Kohtla-Järve, Viljandi, Rakvere, Maardu, Kuressaare, Haapsalu, Sillamäe,
            Таллинн, Тарту, Нарва, Пярну, Кохтла-Ярве, Силламяэ, Маарду, Йыхви]
   words: [eesti, eestlane, eestis, eestikeelne, mängimine, koostöö, koostööd, tere, aitäh,
-          эстония, эстонии, эстонец, эстонка, эстонский, таллине]
+          эстония, эстонии, эстонец, эстонка, эстонский, таллине, estonia, estonian]
+
+# YouTube Shorts hashtags (searched with type=shorts).
+shorts_hashtags: [minecrafteesti, eestiyoutuber, robloxeesti, fortniteeesti, eestigamer, eestishorts]
 
 # Gaming-specific hashtags in the local languages. Harvested without a proxy.
 seed_hashtags:

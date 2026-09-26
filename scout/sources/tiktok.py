@@ -101,6 +101,20 @@ def parse_keyword(body: dict, query: str) -> tuple[list[tuple[dict, dict]], Any,
     return out, body.get("cursor"), bool(body.get("has_more"))
 
 
+def parse_top(body: dict, query: str) -> tuple[list[tuple[dict, dict]], Any, bool]:
+    """Top search: like keyword search (followers present, author region empty)."""
+    out = []
+    for aweme in body.get("items") or []:
+        author = aweme.get("author") or {}
+        if not author.get("uid"):
+            continue
+        aweme = dict(aweme)
+        aweme.setdefault("aweme_id", aweme.get("id"))
+        out.append((account_from_author(author), video_from_aweme(aweme, f"tt_top:{query}")))
+    cursor = body.get("cursor")
+    return out, cursor, bool(out) and cursor is not None
+
+
 def parse_following(body: dict) -> tuple[list[dict], Any, bool, int | None]:
     """Return ``(accounts, next_min_time, has_more, total)``."""
     accounts = [account_from_author(u) for u in body.get("followings") or []]
@@ -108,7 +122,14 @@ def parse_following(body: dict) -> tuple[list[dict], Any, bool, int | None]:
 
 
 def parse_users(body: dict) -> list[dict]:
-    return [account_from_author(u.get("user_info") or {}) for u in body.get("user_list") or []]
+    out = []
+    for u in body.get("user_list") or []:
+        info = u.get("user_info") or {}
+        acc = account_from_author(info)
+        # User search omits the bio; the matched display text stands in for it.
+        acc["bio"] = acc.get("bio") or info.get("search_user_desc") or None
+        out.append(acc)
+    return out
 
 
 def parse_profile(body: dict) -> dict:

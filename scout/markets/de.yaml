@@ -7,7 +7,9 @@ market_signals:
   flags: ["🇩🇪"]
   tlds: [".de"]
   cities: [Berlin, Hamburg, München, Köln, Frankfurt, Stuttgart, Düsseldorf, Leipzig, Dortmund, Essen, Bremen, Dresden, Hannover, Nürnberg]
-  words: [deutsch, deutschland, zocken, zocker, kooperation, anfragen, danke]
+  words: [deutsch, deutschland, zocken, zocker, kooperation, anfragen, danke, germany, german]
+
+shorts_hashtags: [minecraftdeutsch, gamingdeutsch, fortnitedeutsch, zocken]
 
 seed_hashtags:
   - zockerpc

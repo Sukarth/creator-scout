@@ -28,16 +28,51 @@ class YouTubeStage:
 
     # ---- harvest ----------------------------------------------------------
 
-    def yt_search_page(self, query: str, token: str | None) -> tuple[int, str | None, bool]:
-        """Fetch one search page; returns ``(new_in_market, next_token, fetched)``."""
-        params = {"query": query, "region": self.market.code}
-        if token:
-            params["continuationToken"] = token
-        body, _ = self._call(self.client.get, "/v1/youtube/search", params,
-                             max_age=self.s.ttl_search)
-        if body is None:
-            return 0, None, False
-        channels = yt.parse_search(body, query)
+    def yt_search_page(self, query: str, token: str | None,
+                       mode: str = "yt_search") -> tuple[int, str | None, bool]:
+        """Fetch one discovery page; returns ``(new_in_market, next_token, fetched)``.
+
+        Modes: ``yt_search`` (mixed results), ``yt_channels`` (channel results),
+        ``yt_shorts`` (Shorts search), ``yt_shorts_tag`` (Shorts by hashtag) and
+        ``yt_api_shorts`` (official Shorts-length search, free quota). Shorts
+        results carry no channel, so their channels come from the free API.
+        """
+        body: dict | None = {}
+        if mode == "yt_api_shorts":
+            if not self.youtube or not self.youtube.available() or token:
+                return 0, None, False
+            try:
+                hits = self.youtube.search_short_channels(query, self.market.code,
+                                                          self.market.languages[0])
+            except yt.YouTubeApiError as exc:
+                self.emit("error", f"YouTube API: {exc}")
+                return 0, None, False
+            channels = self._channels_from_hits(hits)
+        else:
+            if mode == "yt_shorts_tag":
+                endpoint = "/v1/youtube/search/hashtag"
+                params = {"hashtag": query.lstrip("#").replace(" ", ""), "type": "shorts"}
+            else:
+                endpoint = "/v1/youtube/search"
+                params = {"query": query, "region": self.market.code}
+                if mode in ("yt_channels", "yt_shorts"):
+                    params["type"] = {"yt_channels": "channels", "yt_shorts": "shorts"}[mode]
+            if token:
+                params["continuationToken"] = token
+            body, _ = self._call(self.client.get, endpoint, params, max_age=self.s.ttl_search)
+            if body is None:
+                return 0, None, False
+            channels = yt.parse_search(body, query)
+            shorts = yt.parse_shorts(body)
+            if shorts and self.youtube and self.youtube.available():
+                try:
+                    owners = self.youtube.video_channels([s["video_id"] for s in shorts])
+                except yt.YouTubeApiError:
+                    owners = {}
+                channels += self._channels_from_hits(
+                    [{"video_id": s["video_id"], "uid": owners[s["video_id"]]["uid"],
+                      "nickname": None, "title": s["title"], "views": s["views"],
+                      "published": None} for s in shorts if s["video_id"] in owners])
         new_ids = []
         for ch in channels:
             existing = self.store.get_creator(YT, ch["uid"])
@@ -47,8 +82,9 @@ class YouTubeStage:
                 "video_id": h["video_id"] or f"{ch['uid']}:{h['title'][:40]}", "uid": ch["uid"],
                 "caption": h["title"], "play_count": h["views"],
                 "create_time": yt._ts(h["published"]) if h.get("published") else None,
-                "source": f"yt_search:{query}"} for h in ch["hits"]])
-            self.store.add_edge(YT, ch["uid"], "yt_search", query, run_id=self.run_id)
+                "source": f"{mode}:{query}"} for h in ch["hits"]])
+            self.store.add_edge(YT, ch["uid"], mode, query, run_id=self.run_id)
+            self.note_group(ch["uid"])
             if ch["uid"] not in self.seen_this_run:
                 new_ids.append(ch["uid"])
                 if existing is None:
@@ -67,10 +103,20 @@ class YouTubeStage:
             self.funnel[f"bucket_{bucket}"] += 1
             if bucket != filters.OTHER:
                 new_in_market += 1
-        self.funnel["yt_search_pages"] = self.funnel.get("yt_search_pages", 0) + 1
-        self.emit("harvest", f"YouTube '{query}' ({self.market.code}): {len(channels)} channels, "
+        self.funnel[f"{mode}_pages"] = self.funnel.get(f"{mode}_pages", 0) + 1
+        self.emit("harvest", f"{mode} '{query}' ({self.market.code}): {len(channels)} channels, "
                              f"{new_in_market} new in-market")
-        return new_in_market, body.get("continuationToken"), True
+        return new_in_market, (body or {}).get("continuationToken"), True
+
+    def _channels_from_hits(self, hits: list[dict]) -> list[dict]:
+        """Group video hits (with a known channel id) into parse_search-style channel entries."""
+        by: dict[str, dict] = {}
+        for h in hits:
+            entry = by.setdefault(h["uid"], {"uid": h["uid"], "handle": None,
+                                             "nickname": h.get("nickname"), "hits": []})
+            entry["hits"].append({"kind": "shorts", "title": h["title"], "views": h.get("views"),
+                                  "video_id": h["video_id"], "published": h.get("published")})
+        return list(by.values())
 
     def _yt_fetch_channels(self, ids: list[str]) -> None:
         if not ids or not self.youtube or not self.youtube.available():
@@ -127,8 +173,8 @@ class YouTubeStage:
             return False
         c = self.store.get_creator(YT, uid) or {}
         try:
-            long_ids = self.youtube.uploads(uid, "long", 30)
-            short_ids = self.youtube.uploads(uid, "shorts", 30)
+            long_ids, long_total = self.youtube.uploads(uid, "long", 30)
+            short_ids, short_total = self.youtube.uploads(uid, "shorts", 30)
             long_v = self.youtube.videos(long_ids) if long_ids else []
             short_v = self.youtube.videos(short_ids) if short_ids else []
         except yt.YouTubeApiError as exc:
@@ -145,6 +191,8 @@ class YouTubeStage:
         m = metrics.compute(long_v + short_v, c.get("followers"), now=now)
         m["long"] = metrics.view_summary(long_v, now) if long_v else None
         m["shorts"] = metrics.view_summary(short_v, now) if short_v else None
+        m["long_total"], m["shorts_total"] = long_total, short_total
+        m["format"] = yt.format_label(short_total, long_total)
         # Headline views follow the format the channel posts most recently.
         latest_long = max((v["create_time"] or 0 for v in long_v), default=0)
         latest_short = max((v["create_time"] or 0 for v in short_v), default=0)
