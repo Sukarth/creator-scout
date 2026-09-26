@@ -1,0 +1,23 @@
+{
+  "skill_name": "creator-scout",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Find 40 Estonian gaming creators with 2k to 50k followers, TikTok and YouTube. Keep it under 200 credits.",
+      "expected_output": "Runs `scout run --market ee` with a hidden-gems style band and budget <= 200, judges candidates with the rubric (verbatim evidence), resumes until done, passes `scout check`, and reports accepted count, credits, yield by source and the XLSX path.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "We already work with a few Finnish Minecraft YouTubers. Expand the list with similar creators we don't know yet.",
+      "expected_output": "Uses the Finland market with YouTube enabled, uses existing partners as seeds only if a partner list is configured (`scout partner-seeds`, `--partner-seeds`), excludes already-known creators, and flags existing partners instead of presenting them as new.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "German PC-build creators under 20k followers — who is worth a gifted PC?",
+      "expected_output": "Runs the Germany market with an explicit band up to 20k, favours tech review / gaming gear niches and trust-content scores in the report, and marks competitor sponsorships as risks.",
+      "files": []
+    }
+  ]
+}

@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sqlite3
 import sys
 from pathlib import Path
@@ -24,9 +25,31 @@ from scout.partners import load_partners, recall_report  # noqa: E402
 from scout.store import Store  # noqa: E402
 
 RUN_TABLES = ["screenings", "decisions", "prejudgments", "run_members"]
+EMAIL_RE = re.compile(r"([A-Za-z0-9._%+\-])[A-Za-z0-9._%+\-]*(@[A-Za-z0-9.\-]+\.[A-Za-z]{2,})")
 
 
-def build(run_ids: list[int], out: Path) -> None:
+def _mask(text):
+    return EMAIL_RE.sub(lambda m: f"{m.group(1)}***{m.group(2)}", text) if isinstance(text, str) else text
+
+
+def mask_emails(snap: Store) -> None:
+    """The snapshot is published: keep only the first letter and the domain of emails."""
+    c = snap.conn
+    for table, key, cols in (("creators", ("platform", "uid"), ("bio", "emails", "links")),
+                             ("videos", ("platform", "video_id"), ("caption",)),
+                             ("decisions", ("market", "platform", "uid"), ("data",))):
+        rows = c.execute(f"SELECT {', '.join(key + cols)} FROM {table}").fetchall()
+        for row in rows:
+            k, vals = row[:len(key)], row[len(key):]
+            new = [_mask(v) for v in vals]
+            if new != list(vals):
+                sets = ", ".join(f"{col} = ?" for col in cols)
+                where = " AND ".join(f"{col} = ?" for col in key)
+                c.execute(f"UPDATE {table} SET {sets} WHERE {where}", (*new, *k))
+    c.commit()
+
+
+def build(run_ids: list[int], out: Path, titles: dict[int, str] | None = None) -> None:
     config.load_dotenv()
     src_path = config.db_path()
     src = Store(src_path)
@@ -71,6 +94,9 @@ def build(run_ids: list[int], out: Path) -> None:
                 "found": sum(1 for r in rep if r["found"]), "total": len(rep),
                 "note": "Found includes partners outside the size band."}))
     snap.meta_set("demo_runs", json.dumps(run_ids))
+    for rid, title in (titles or {}).items():
+        snap.conn.execute("UPDATE runs SET brief = ? WHERE id = ?", (title, rid))
+    mask_emails(snap)
     snap.conn.execute("DELETE FROM cache")
     snap.conn.execute("DELETE FROM llm_cache")
     snap.conn.commit()
@@ -83,5 +109,6 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--runs", type=int, nargs="+", required=True)
     ap.add_argument("--out", type=Path, default=ROOT / "demo" / "snapshot.db")
+    ap.add_argument("--title", action="append", default=[], help="RUN_ID=display title")
     a = ap.parse_args()
-    build(a.runs, a.out)
+    build(a.runs, a.out, {int(t.split("=", 1)[0]): t.split("=", 1)[1] for t in a.title})
