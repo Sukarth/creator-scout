@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 from .export import build_sheets
+from .filters import SOFT_CAP_FACTOR
 from .store import Store
 
 
@@ -46,7 +47,7 @@ def check_run(store: Store, run_id: int) -> Report:
                 continue  # linked account shown for context, not shortlisted itself
             f = (store.get_creator(platform, uid) or {}).get("followers")
             lo, hi = bands[platform]
-            if f is None or not lo <= f <= hi:
+            if f is None or not lo <= f <= hi * SOFT_CAP_FACTOR:
                 out_of_band.append(f"{r['creator']} ({platform}: {f})")
     report.results.append(CheckResult(
         "followers inside band", not out_of_band,

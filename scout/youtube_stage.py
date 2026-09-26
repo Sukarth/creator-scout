@@ -2,14 +2,15 @@
 
 Discovery costs one ScrapeCreators credit per search page. Channel statistics,
 country and recent uploads come from the official YouTube Data API (free
-quota), so screening and enrichment of YouTube channels cost no credits. Only
-accepted channels get a ScrapeCreators channel lookup (1 credit) for email and
-outbound links; a linked TikTok account is then resolved, linked to the channel
-and, once in the market, used as a snowball seed.
+quota), so screening and enrichment of YouTube channels cost no credits.
+Contacts come only from the channel description (free). A TikTok handle in the
+description of an accepted channel is resolved, linked to the channel and used
+as a snowball seed.
 """
 
 from __future__ import annotations
 
+import re
 import time
 
 from . import filters, metrics, signals
@@ -171,19 +172,17 @@ class YouTubeStage:
     # ---- contacts and cross-platform links --------------------------------
 
     def yt_after_accept(self, uid: str) -> None:
-        """Email and links for an accepted channel (1 credit); follow a TikTok link."""
+        """Follow a TikTok link from the (free) channel description to link and snowball it.
+
+        Contact details come only from free sources (the channel description);
+        no credits are spent on contact enrichment.
+        """
         c = self.store.get_creator(YT, uid) or {}
-        params = {"handle": c["handle"]} if c.get("handle") else {"channelId": uid}
-        body, _ = self._call(self.client.get, "/v1/youtube/channel", params,
-                             max_age=self.s.ttl_profile)
-        if body is None:
-            return
-        info = yt.parse_sc_channel(body)
-        emails = list(dict.fromkeys((c.get("emails") or []) + ([info["email"]] if info["email"] else [])
-                                    + signals.extract_emails(info["description"])))
         links = dict(c.get("links") or {})
-        links.update(info["links"])
-        self.store.upsert_creator(YT, uid, emails=emails, links=links)
+        m = re.search(r"tiktok\.com/@([A-Za-z0-9._]+)", c.get("bio") or "", re.I)
+        if m:
+            links["tiktok"] = m.group(1)
+            self.store.upsert_creator(YT, uid, links=links)
         tiktok_handle = links.get("tiktok")
         if tiktok_handle:
             self.link_tiktok_handle(tiktok_handle, (YT, uid), f"YouTube channel links @{tiktok_handle}")

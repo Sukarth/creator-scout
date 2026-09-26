@@ -134,7 +134,11 @@ def recall_report(store: Store, market: str, run_id: int | None = None,
                 "stage": stage})
             if rank < best_rank:
                 best_rank, entry["stage"] = rank, stage
-                entry["found"] = status in ("accepted", "maybe")
+                # Finding a partner that only misses the size band still counts:
+                # discovery worked, the band is a campaign choice.
+                entry["found"] = status in ("accepted", "maybe") or \
+                    (status == "filtered" and (s.get("reason") or "").startswith(("above band",
+                                                                                 "below band")))
         out.append(entry)
     return out
 
@@ -150,6 +154,8 @@ def _stage(status: str | None, reason: str | None, pj: dict, d: dict) -> tuple[s
         return f"rejected by the judge: {((d.get('data') or {}).get('reasons') or '')[:120]}", 3
     if status == "pending":
         return "seen, waiting for enrichment (budget or priority)", 4
+    if status == "filtered" and (reason or "").startswith(("above band", "below band")):
+        return f"found, outside the size band: {reason}", 2
     if status == "filtered" and (reason or "").startswith("pre-judge"):
         return f"skipped by the pre-judge: {reason}", 5
     if status == "filtered":

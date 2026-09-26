@@ -109,7 +109,8 @@ def account_facts(store: Store, market: str, platform: str, uid: str) -> dict:
             "prejudge": store.get_prejudgment(market, platform, uid) or {}}
 
 
-def creator_row(store: Store, market: str, accounts: list[dict], partners=None) -> dict:
+def creator_row(store: Store, market: str, accounts: list[dict], partners=None,
+                bands: dict | None = None) -> dict:
     """Merge the accounts of one creator into one row."""
     by_platform = {a["platform"]: a for a in accounts}
     tk, ytb = by_platform.get(PLATFORM), by_platform.get(YOUTUBE)
@@ -165,6 +166,12 @@ def creator_row(store: Store, market: str, accounts: list[dict], partners=None) 
     if competitors or d.get("competitor_conflict"):
         risks.append("competitor sponsorship: " + (", ".join(competitors) or "flagged by judge"))
     risks += [f"brand safety: {f}" for f in d.get("brand_safety_flags") or []]
+    for a in accounts:
+        hi = (bands or {}).get(a["platform"], (0, None))[1]
+        f = a["creator"].get("followers")
+        if hi and f and f > hi:
+            noun = "subscribers" if a["platform"] == YOUTUBE else "followers"
+            risks.append(f"above typical range ({f} {noun} > {hi})")
     days = [a["metrics"].get("days_since_last_post") for a in accounts
             if a["metrics"].get("days_since_last_post") is not None]
     if days and min(days) > 30:
@@ -238,11 +245,15 @@ def build_sheets(store: Store, run_id: int) -> dict[str, list[dict]]:
     market = run["market"]
     partners = PartnerIndex(load_partners())
     scr = store.screenings(market, run_id=run_id)
-    judged_run = (run["params"] or {}).get("judge", "none") != "none"
+    params = run["params"] or {}
+    judged_run = params.get("judge", "none") != "none"
+    bands = {"tiktok": (params.get("band_min", 0), params.get("band_max")),
+             "youtube": (params.get("yt_band_min", 0), params.get("yt_band_max"))}
 
     def rows(statuses: tuple[str, ...]) -> list[dict]:
         chosen = [s for s in scr if s["status"] in statuses]
-        out = [creator_row(store, market, g, partners) for g in group_accounts(store, market, chosen)]
+        out = [creator_row(store, market, g, partners, bands)
+               for g in group_accounts(store, market, chosen)]
         out.sort(key=lambda r: (-(r["fit_score"] or 0), -((r["followers_tiktok"] or 0)
                                                           + (r["subscribers_youtube"] or 0))))
         return out

@@ -72,15 +72,25 @@ def market_bucket(market: Market, *, region: str | None, region_source: str | No
     return BucketResult(OTHER, [f"region {region}" if region else "region unknown, no market signals"])
 
 
-def band_reason(followers: int | None, band_min: int, band_max: int) -> str | None:
-    """Return a filter reason when ``followers`` is outside the band, else None."""
+# Creators up to this multiple of the upper limit are kept and flagged
+# "above typical range" rather than dropped.
+SOFT_CAP_FACTOR = 1.5
+
+
+def band_reason(followers: int | None, band_min: int, band_max: int,
+                soft_factor: float = SOFT_CAP_FACTOR) -> str | None:
+    """Return a filter reason when ``followers`` is outside the (soft) band, else None."""
     if followers is None:
         return None
     if followers < band_min:
         return f"below band ({followers} < {band_min})"
-    if followers > band_max:
-        return f"above band ({followers} > {band_max})"
+    if followers > band_max * soft_factor:
+        return f"above band ({followers} > {int(band_max * soft_factor)})"
     return None
+
+
+def above_typical(followers: int | None, band_max: int) -> bool:
+    return followers is not None and followers > band_max
 
 
 def activity_reason(days_since_last_post: float | None, max_days: int) -> str | None:
