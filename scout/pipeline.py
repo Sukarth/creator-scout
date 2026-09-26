@@ -67,7 +67,14 @@ def keywords_meta_key(market: str) -> str:
 
 
 def _norm(text: str) -> str:
-    return " ".join(unicodedata.normalize("NFC", text or "").lower().split())
+    """Lowercase letters and digits only, single-spaced.
+
+    Quotes copied by an LLM often differ from the source in emoji variation
+    selectors, quote marks or punctuation; comparing words avoids false misses.
+    """
+    text = unicodedata.normalize("NFKC", text or "").lower()
+    text = "".join(ch if ch.isalnum() else " " for ch in text)
+    return " ".join(text.split())
 
 
 class Pipeline(YouTubeStage):
@@ -866,7 +873,7 @@ class Pipeline(YouTubeStage):
 
     def _evidence_found(self, quote: str | None, uid: str, platform: str = PLATFORM) -> bool:
         """The quote must appear (whitespace- and case-insensitively) in the bio or a caption."""
-        q = _norm(quote or "").strip(" \"'“”….")
+        q = _norm(quote or "")
         if len(q) < 4:
             return False
         c = self.store.get_creator(platform, uid) or {}

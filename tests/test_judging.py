@@ -117,6 +117,14 @@ def test_decision_follows_rubric_scores(cached_store):
     assert status == "maybe"
 
 
+def test_evidence_match_ignores_emoji_and_punctuation(cached_store):
+    store = cached_store
+    pipe, _ = make(store, StubJudge())
+    store.upsert_creator("youtube", "UCx", handle="x", bio="Varsinkin JOS Minecraft kiinnostaa! ❤")
+    assert pipe._evidence_found("Varsinkin JOS Minecraft kiinnostaa! ❤️", "UCx", "youtube")
+    assert not pipe._evidence_found("I build gaming PCs", "UCx", "youtube")
+
+
 def test_rejected_creators_are_not_seeds(cached_store):
     store = cached_store
     pipe, run_id = make(store, StubJudge(), target=5)
