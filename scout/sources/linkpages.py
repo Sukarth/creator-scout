@@ -16,8 +16,10 @@ from ..signals import EMAIL_RE, extract_links
 
 MAILTO_RE = re.compile(r"mailto:([^\"'?>\s]+)", re.I)
 HREF_RE = re.compile(r"href=[\"']([^\"']+)[\"']", re.I)
-# Domains whose pages never carry creator contact details.
-SKIP_DOMAINS = {"tiktok.com", "www.tiktok.com", "vm.tiktok.com"}
+# Domains whose pages are login-walled or never carry creator contact details.
+# Links to them are still recorded from the URL itself.
+SKIP_DOMAINS = {"tiktok.com", "vm.tiktok.com", "instagram.com", "facebook.com", "youtube.com",
+                "youtu.be", "twitch.tv", "x.com", "twitter.com", "discord.gg", "discord.com"}
 IGNORED_EMAIL_DOMAINS = {"sentry.io", "example.com", "wixpress.com", "linktr.ee", "beacons.ai"}
 USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
               "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
@@ -36,7 +38,10 @@ def fetch_contacts(url: str | None, timeout: float = 10.0) -> dict:
     if not url:
         return result
     url = normalise_url(url)
-    if urlparse(url).netloc.lower() in SKIP_DOMAINS:
+    result["links"] = extract_links(url)
+    host = urlparse(url).netloc.lower().removeprefix("www.").removeprefix("m.")
+    if host in SKIP_DOMAINS:
+        result["ok"] = bool(result["links"])
         return result
     try:
         resp = httpx.get(url, timeout=timeout, follow_redirects=True,
@@ -55,6 +60,8 @@ def fetch_contacts(url: str | None, timeout: float = 10.0) -> dict:
                         if e.split("@")[-1] not in IGNORED_EMAIL_DOMAINS
                         and not e.endswith((".png", ".jpg", ".webp", ".svg", ".gif"))][:5]
     hrefs = " ".join(HREF_RE.findall(body))
-    result["links"] = extract_links(hrefs)
+    page_links = extract_links(hrefs)
+    page_links.update(result["links"])
+    result["links"] = page_links
     result["ok"] = True
     return result

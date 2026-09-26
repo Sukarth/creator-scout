@@ -35,6 +35,16 @@ All notable changes to this project are documented here. The format follows
   earlier runs, evidence quotes, contact path, funnel totals.
 - CLI: `markets`, `run`, `export`, `check`, `credits`, `api`, `cache stats|clear`.
 
+### Fixed
+- Market words matched as prefixes (Estonian "tere" inside "Terezinha");
+  they now match whole words only.
+- Social links scraped from bio-link pages could pick up asset paths such as
+  `instagram.com/rsrc.php`. Reserved paths and file names are ignored, and
+  login-walled bio links (Instagram, YouTube, Twitch, X) are read from the URL
+  without fetching the page.
+- Hashtag and keyword harvest stops after a short page instead of paying for
+  the empty page that usually follows.
+
 ### Notes
 - Keyword search results carry no author region, but each video has its own
   `region`; it is used as a market hint so out-of-market authors cost nothing.

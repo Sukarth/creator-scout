@@ -45,6 +45,23 @@ def test_business_hints():
     assert signals.business_hints("digikamu", "Digikamu", "Techtok\nTech, News, Reviews\ncreatorbd06af@example.fi") == []
 
 
+def test_market_words_match_whole_words_only():
+    assert signals.market_signals("Terezinha na rádio", EE) == []
+    assert "word 'tere'" in signals.market_signals("Tere kõigile!", EE)
+
+
+def test_links_ignore_static_and_reserved_paths():
+    hrefs = "https://static.cdninstagram.com/rsrc.php/v4 https://www.instagram.com/rsrc.php https://instagram.com/p/"
+    assert "instagram" not in signals.extract_links(hrefs)
+    assert signals.extract_links("IG: avocado.kak.nado")["instagram"] == "avocado.kak.nado"
+
+
+def test_instagram_bio_link_is_read_from_url_without_fetching():
+    from scout.sources.linkpages import fetch_contacts
+    found = fetch_contacts("https://www.instagram.com/lislotte_minejev")
+    assert found["ok"] and found["links"] == {"instagram": "lislotte_minejev"}
+
+
 def test_links_from_bio():
     links = signals.extract_links("🎱🍒🫧\nMa hammustan\nIG: @illic7t\n💌Koostööd ja PR: creatord16dec@example.com")
     assert links["instagram"] == "illic7t"

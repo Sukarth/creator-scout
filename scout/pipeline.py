@@ -251,7 +251,10 @@ class Pipeline:
             self.emit("harvest", f"{kind} '{term}' page {page + 1}: {len(pairs)} videos, "
                                  f"{new_in_market} new in-market accounts")
             dry = dry + 1 if new_in_market < self.s.min_new_in_market_per_page else 0
-            if dry >= self.s.stop_after_dry_pages or not has_more or not pairs:
+            # A short page means the tag or query is nearly exhausted even when the
+            # API still reports ``has_more``; the next page is usually empty.
+            short_page = len(pairs) < self.s.extra.get("min_page_size", 10)
+            if dry >= self.s.stop_after_dry_pages or not has_more or short_page:
                 return
 
     # ---- stage: retailer seeds ------------------------------------------

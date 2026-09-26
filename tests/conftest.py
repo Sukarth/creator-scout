@@ -20,6 +20,11 @@ CACHED_CALLS = {
     "tiktok_following_jimmspc": ("/v1/tiktok/user/following", {"handle": "jimmspc"}),
     "tiktok_following_nuvoosuomi": ("/v1/tiktok/user/following", {"handle": "nuvoosuomi"}),
     "tiktok_search_users_nuvoo": ("/v1/tiktok/search/users", {"query": "nuvoo"}),
+    "tiktok_hashtag_mangimine": ("/v1/tiktok/search/hashtag", {"hashtag": "mängimine"}),
+    "tiktok_search_users_arvutitark": ("/v1/tiktok/search/users", {"query": "arvutitark"}),
+    "tiktok_profile_smmart_avocado": ("/v1/tiktok/profile", {"handle": "smmart_avocado"}),
+    "tiktok_videos_smmart_avocado": ("/v3/tiktok/profile/videos",
+                                     {"handle": "smmart_avocado", "sort_by": "latest"}),
 }
 
 # Fixed clock just after the newest fixture video, so activity filters are stable.

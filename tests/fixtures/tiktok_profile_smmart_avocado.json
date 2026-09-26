@@ -1,0 +1,61 @@
+{
+ "success": true,
+ "credits_remaining": 7054,
+ "credits_charged": 1,
+ "user": {
+  "id": "6729824270250263557",
+  "shortId": "",
+  "uniqueId": "smmart_avocado",
+  "nickname": "🇺🇦Ukrainian in Estonia🇪🇪",
+  "signature": "Daša-Tujutõstja. \nKõige tuntud Ukraina Baba Eestis.\n📩creatorad250a@example.com",
+  "createTime": 1572292937,
+  "verified": false,
+  "secUid": "MS4wLjABAAAAgqigqOrGCjjzf_ITaDuoR3bgMNKvDitYC7tQzzpyIyXFpg-MUGTIrMaBN0JkESAp",
+  "ftc": false,
+  "relation": 0,
+  "openFavorite": false,
+  "commentSetting": 0,
+  "commerceUserInfo": {
+   "commerceUser": false
+  },
+  "duetSetting": 0,
+  "stitchSetting": 0,
+  "privateAccount": false,
+  "secret": false,
+  "isADVirtual": false,
+  "roomId": "",
+  "uniqueIdModifyTime": 0,
+  "ttSeller": false,
+  "downloadSetting": 0,
+  "followingVisibility": 1,
+  "recommendReason": "",
+  "nowInvitationCardUrl": "",
+  "nickNameModifyTime": 1611254069,
+  "isEmbedBanned": false,
+  "canExpPlaylist": true,
+  "profileEmbedPermission": 1,
+  "language": "en",
+  "isOrganization": 0,
+  "UserStoryStatus": 0,
+  "shortDramaCreator": {}
+ },
+ "stats": {
+  "followerCount": 35000,
+  "followingCount": 290,
+  "heart": 1200000,
+  "heartCount": 1200000,
+  "videoCount": 1121,
+  "diggCount": 0,
+  "friendCount": 70
+ },
+ "statsV2": {
+  "followerCount": "34950",
+  "followingCount": "290",
+  "heart": "1217632",
+  "heartCount": "1217632",
+  "videoCount": "1121",
+  "diggCount": "0",
+  "friendCount": "70"
+ },
+ "itemList": []
+}

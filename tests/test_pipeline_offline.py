@@ -96,6 +96,23 @@ def test_hashtag_harvest_buckets(cached_store):
     assert store.get_screening("EE", "tiktok", acc["uid"])["bucket"] == "unsure"
 
 
+def test_estonian_hashtag_to_qualified_creator(cached_store):
+    store = cached_store
+    ee = load_market("ee")
+    ee.retailer_seeds = [{"name": "Arvutitark", "query": "arvutitark"}]
+    settings = RunSettings(band_min=1000, band_max=100_000, target=1, budget=50)
+    pipe, run_id = make_pipeline(store, ee, settings)
+    pipe.run(hashtags=["mängimine"], keywords=[])
+
+    seeds = {s["handle"]: s for s in store.seeds("EE", active_only=False)}
+    assert seeds["arvutitarkofficial"]["kind"] == "retailer"
+    row = build_sheets(store, run_id)["Shortlist"][0]
+    assert row["handle"] == "smmart_avocado" and row["market"] == "EE"
+    assert row["emails"] == "creatorad250a@example.com"
+    assert row["found_via"] == "#mängimine"
+    assert check_run(store, run_id).passed
+
+
 def test_budget_stops_cleanly(store):
     settings = RunSettings(band_min=1000, band_max=100_000, target=5, budget=0)
     run_id = store.create_run("FI", {}, 0)

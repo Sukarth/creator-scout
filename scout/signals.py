@@ -18,6 +18,13 @@ LINK_PATTERNS = {
     "discord": re.compile(r"(discord\.gg/[A-Za-z0-9\-]+|discord\.com/invite/[A-Za-z0-9\-]+)", re.I),
 }
 
+# URL path segments on social sites that are pages, not account handles.
+RESERVED_PATHS = {"p", "reel", "reels", "explore", "accounts", "stories", "tv", "about",
+                  "legal", "privacy", "watch", "results", "feed", "directory", "login",
+                  "static", "embed", "share", "intent", "home", "videos", "shorts", "channel"}
+
+FILE_EXT_RE = re.compile(r"\.(php|js|css|png|jpe?g|gif|svg|ico|webp|html?)$", re.I)
+
 # Handle or bio fragments that indicate a shop, brand or retailer account.
 BUSINESS_WORDS = ["shop", "store", "kauppa", "pood", "official", "virallinen", "ametlik",
                   "gmbh", "oy", "oü", "ltd", "osta", "order now", "tellimine",
@@ -41,9 +48,11 @@ def extract_links(text: str | None, ins_id: str | None = None,
                   youtube_channel_id: str | None = None) -> dict[str, str]:
     links: dict[str, str] = {}
     for name, pattern in LINK_PATTERNS.items():
-        m = pattern.search(text or "")
-        if m:
-            links[name] = next(g for g in m.groups() if g)
+        for m in pattern.finditer(text or ""):
+            value = next(g for g in m.groups() if g)
+            if value.lower().rstrip("/") not in RESERVED_PATHS and not FILE_EXT_RE.search(value):
+                links[name] = value
+                break
     if ins_id:
         links["instagram"] = ins_id
     if youtube_channel_id:
@@ -67,7 +76,7 @@ def market_signals(text: str | None, market: Market) -> list[str]:
         if re.search(r"\b" + re.escape(_norm(city)) + r"\b", t):
             found.append(f"city {city}")
     for word in market.words:
-        if re.search(r"\b" + re.escape(_norm(word)), t):
+        if re.search(r"(?<!\w)" + re.escape(_norm(word)) + r"(?!\w)", t):
             found.append(f"word '{word}'")
     return found
 

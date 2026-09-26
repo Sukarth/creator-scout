@@ -1,0 +1,4224 @@
+{
+ "success": true,
+ "credits_remaining": 7053,
+ "credits_charged": 1,
+ "max_cursor": 1784719832053,
+ "has_more": 1,
+ "status_code": 0,
+ "aweme_list": [
+  {
+   "aweme_id": "7446000824687349014",
+   "desc": "Kuidas teile lugu meeldib?) #tommycash #tommycashofficial #eurovision2025 #eestimuusika ",
+   "create_time": 1733657169,
+   "author": {
+    "uid": "6729824270250263557",
+    "short_id": "0",
+    "nickname": "🇺🇦Ukrainian in Estonia🇪🇪",
+    "signature": "Daša-Tujutõstja. \nKõige tuntud Ukraina Baba Eestis.\n📩creatorad250a@example.com",
+    "follow_status": 0,
+    "aweme_count": 1119,
+    "following_count": 290,
+    "follower_count": 34951,
+    "favoriting_count": 27826,
+    "total_favorited": 1217605,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "smmart_avocado",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790426534,
+    "ins_id": "avocado.kak.nado",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 1732699659,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "en",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "3",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAgqigqOrGCjjzf_ITaDuoR3bgMNKvDitYC7tQzzpyIyXFpg-MUGTIrMaBN0JkESAp",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "qa_status": 0,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@smmart_avocado/video/7446000824687349014?_r=1&u_code=elg4gf5eb6cf8d&preview_pb=0&sharer_language=en&_d=elh59a4cl84234&share_item_id=7446000824687349014&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7446000824687349014",
+    "comment_count": 332,
+    "digg_count": 20228,
+    "download_count": 74,
+    "play_count": 278305,
+    "share_count": 813,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 12,
+    "collect_count": 1266,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 1,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6729824270250264000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "EE",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "stickers": "1123299091",
+   "group_id": "7446000824687349014",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "sticker_detail": {
+    "id": "1123299091",
+    "name": "Mustache 18",
+    "children": null,
+    "owner_id": "7058588123802321921",
+    "tags": null,
+    "sec_uid": "MS4wLjABAAAA9CoYndrduHdGat1SILnT9j3iV4sQhl5kwsN9HQFc3PT0GAHQwMWt3CrgAOrlU3q5",
+    "linked_anchors": null,
+    "attributions": null
+   },
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "et",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 1,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"2026092612421330E11006D4146277538E\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "",
+   "products_info": null,
+   "follow_up_publish_from_id": 7445378146091765000,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": [
+     7446000824687349000
+    ],
+    "GroupdIdList1": [
+     7446000824687349000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 15000,
+   "retry_type": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "follow_up_first_item_id": "7445378146091765025",
+   "is_text_sticker_translatable": true,
+   "text_sticker_major_lang": "en",
+   "original_client_text": {
+    "markup_text": "Kuidas teile lugu meeldib?) <h id=\"38\">#tommycash</h> <h id=\"118\">#tommycashofficial</h> <h id=\"302\">#eurovision2025</h> <h id=\"454\">#eestimuusika</h> "
+   },
+   "music_selected_from": "single_song",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 0,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "0.000000",
+   "music_volume": "50.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 2,
+   "shoot_tab_name": "video_15",
+   "content_type": "video",
+   "content_size_type": 1,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": "[{\"start_time\":0,\"end_time\":-1,\"transform_x\":0,\"transform_y\":0,\"scale\":0.746,\"rotation\":0,\"layer\":0,\"text_str\":\"Tommy Cash Eurovision 2025 winner\",\"bg_mode\":1,\"color\":-1,\"align\":0,\"font_resource_id\":\"6792500966827495950\",\"text_style\":0,\"border_color\":\"0x000000\",\"voice_resource_id\":\"\",\"speaker_id\":\"\",\"is_voice_clone\":false,\"start_x\":0.5945,\"start_y\":0.095,\"stream_speaker_id\":\"\"}]"
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 2
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "2026092612421330E11006D4146277538E",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -2,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 1,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"play_time_prob_dist\":\"[800,0.7892,2625.4228]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2024-12-08T11:26:09.000Z",
+   "url": "https://www.tiktok.com/@smmart_avocado/video/7446000824687349014",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "6990007976497040646",
+   "desc": "#estonianlanguage #eestitiktok #foryourpage",
+   "create_time": 1627488057,
+   "author": {
+    "uid": "6729824270250263557",
+    "short_id": "0",
+    "nickname": "🇺🇦Ukrainian in Estonia🇪🇪",
+    "signature": "Daša-Tujutõstja. \nKõige tuntud Ukraina Baba Eestis.\n📩creatorad250a@example.com",
+    "follow_status": 0,
+    "aweme_count": 1119,
+    "following_count": 290,
+    "follower_count": 34951,
+    "favoriting_count": 27826,
+    "total_favorited": 1217605,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "smmart_avocado",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790426534,
+    "ins_id": "avocado.kak.nado",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 1732699659,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "en",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "3",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAgqigqOrGCjjzf_ITaDuoR3bgMNKvDitYC7tQzzpyIyXFpg-MUGTIrMaBN0JkESAp",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "qa_status": 0,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@smmart_avocado/video/6990007976497040646?_r=1&u_code=elg4gf5eb6cf8d&preview_pb=0&sharer_language=en&_d=elh59a4cl84234&share_item_id=6990007976497040646&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "6990007976497040646",
+    "comment_count": 400,
+    "digg_count": 14932,
+    "download_count": 557,
+    "play_count": 196238,
+    "share_count": 2444,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 167,
+    "collect_count": 953,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 1,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6729824270250264000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "EE",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "6990007976497040646",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "un",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 1,
+   "video_control": {
+    "allow_download": true,
+    "share_type": 1,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 0,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"2026092612421330E11006D4146277538E\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "",
+   "products_info": null,
+   "follow_up_publish_from_id": 0,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": null,
+    "GroupdIdList1": null
+   },
+   "music_begin_time_in_ms": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": false,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "<h id=\"4907\">#estonianlanguage</h> <h id=\"2391\">#eestitiktok</h> <h id=\"3020\">#foryourpage</h>"
+   },
+   "music_selected_from": "edit_page_recommend_favourite",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "0.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 2,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 2
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "reviewed": 1,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "2026092612421330E11006D4146277538E",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 0,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"play_time_prob_dist\":\"[800,0.5818,4134.2165]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2021-07-28T16:00:57.000Z",
+   "url": "https://www.tiktok.com/@smmart_avocado/video/6990007976497040646",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7099419007719050501",
+   "desc": "Krimm🇺🇦",
+   "create_time": 1652962300,
+   "author": {
+    "uid": "6729824270250263557",
+    "short_id": "0",
+    "nickname": "🇺🇦Ukrainian in Estonia🇪🇪",
+    "signature": "Daša-Tujutõstja. \nKõige tuntud Ukraina Baba Eestis.\n📩creatorad250a@example.com",
+    "follow_status": 0,
+    "aweme_count": 1119,
+    "following_count": 290,
+    "follower_count": 34951,
+    "favoriting_count": 27826,
+    "total_favorited": 1217605,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "smmart_avocado",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790426534,
+    "ins_id": "avocado.kak.nado",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 1732699659,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "en",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "3",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAgqigqOrGCjjzf_ITaDuoR3bgMNKvDitYC7tQzzpyIyXFpg-MUGTIrMaBN0JkESAp",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "qa_status": 0,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@smmart_avocado/video/7099419007719050501?_r=1&u_code=elg4gf5eb6cf8d&preview_pb=0&sharer_language=en&_d=elh59a4cl84234&share_item_id=7099419007719050501&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7099419007719050501",
+    "comment_count": 356,
+    "digg_count": 31879,
+    "download_count": 375,
+    "play_count": 687212,
+    "share_count": 352,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 49,
+    "collect_count": 1312,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 1,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6729824270250264000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "EE",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "stickers": "1022514",
+   "group_id": "7099419007719050501",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "sticker_detail": {
+    "id": "1022514",
+    "name": "Inverted Bob Haircut",
+    "children": null,
+    "owner_id": "",
+    "tags": null,
+    "sec_uid": "",
+    "linked_anchors": null,
+    "attributions": null
+   },
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "de",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 1,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"2026092612421330E11006D4146277538E\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "playlist_info": {
+    "mix_id": "7083794170321668869",
+    "name": "Sõda Ukrainas",
+    "index": 3,
+    "item_total": 41
+   },
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": null,
+    "GroupdIdList1": null
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 41136,
+   "retry_type": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "Krimm🇺🇦"
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "0.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 2,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "banner_enabled": true,
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 2
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "2026092612421330E11006D4146277538E",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 0,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"play_time_prob_dist\":\"[800,0.5818,4134.2165]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2022-05-19T12:11:40.000Z",
+   "url": "https://www.tiktok.com/@smmart_avocado/video/7099419007719050501",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7686013802596355350",
+   "desc": "Vali õige avokaado! DISCOVERED Ready to Eat avokaado on söömiseks valmis! 🥑 #selver #retseptid #maitsev ",
+   "create_time": 1789539549,
+   "author": {
+    "uid": "6729824270250263557",
+    "short_id": "0",
+    "nickname": "🇺🇦Ukrainian in Estonia🇪🇪",
+    "signature": "Daša-Tujutõstja. \nKõige tuntud Ukraina Baba Eestis.\n📩creatorad250a@example.com",
+    "follow_status": 0,
+    "aweme_count": 1119,
+    "following_count": 290,
+    "follower_count": 34951,
+    "favoriting_count": 27826,
+    "total_favorited": 1217605,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "smmart_avocado",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790426534,
+    "ins_id": "avocado.kak.nado",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 1732699659,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "en",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "3",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAgqigqOrGCjjzf_ITaDuoR3bgMNKvDitYC7tQzzpyIyXFpg-MUGTIrMaBN0JkESAp",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "qa_status": 0,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@smmart_avocado/video/7686013802596355350?_r=1&u_code=elg4gf5eb6cf8d&preview_pb=0&sharer_language=en&_d=elh59a4cl84234&share_item_id=7686013802596355350&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7686013802596355350",
+    "comment_count": 13,
+    "digg_count": 289,
+    "download_count": 1,
+    "play_count": 11772,
+    "share_count": 50,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 1,
+    "collect_count": 21,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6729824270250264000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "EE",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "7686013802596355350",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "et",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 1,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"2026092612421330E11006D4146277538E\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "[\"Vali õige avokaado!\",\"DISCOVERED Ready to Eat avokaado on söömiseks valmis! \\ud83e\\udd51 #selver #retseptid #maitsev \"]",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": [
+     7686013802596355000
+    ],
+    "GroupdIdList1": [
+     7686013802596355000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 55583,
+   "retry_type": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "Vali õige avokaado!<br>DISCOVERED Ready to Eat avokaado on söömiseks valmis! 🥑 <h id=\"26\">#selver</h> <h id=\"106\">#retseptid</h> <h id=\"206\">#maitsev</h> "
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 1,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 1,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "2026092612421330E11006D4146277538E",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -1,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 1,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.501240061782736, \\\"1\\\": 4.501252348513908, \\\"0\\\": 4.501232719505692}\",\"PACK_VOD:audio_loudness_info_android\":\"{\\\"1\\\": -0.0006107665094391137, \\\"2\\\": -0.0008621394835558585, \\\"-1\\\": -0.0005300395033380967}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": -0.00014642728417112375, \\\"-1\\\": -0.00017466865920719252}\",\"PACK_VOD:audio_loudness_info_ios\":\"{\\\"1\\\": 9.801427397895305e-05, \\\"2\\\": 0.00039670709350303024, \\\"-1\\\": -0.0002667253876332306}\",\"PACK_VOD:audio_meta\":\"{\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"normal\\\":{\\\"base_metrics\\\":{\\\"rcd\\\":[0],\\\"mp\\\":-8.65,\\\"be\\\":[37.7,10906.6],\\\"ocf\\\":[-16.8216,-14.152,-6.4088,-3.4784,-6.3895,-15.4552,-24.0374,-30.4154,-35.9265,-52.0499],\\\"il\\\":-26.1,\\\"tacm\\\":[1],\\\"drr\\\":20.6}},\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\"},\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"tacm\\\":[1],\\\"drr\\\":20.5,\\\"rcd\\\":[0],\\\"mp\\\":-8.58,\\\"be\\\":[37.7,11030.4],\\\"ocf\\\":[-16.9961,-14.1232,-6.3892,-3.4676,-6.407,-15.524,-24.2357,-30.6516,-35.7948,-50.5639],\\\"il\\\":-26.1}}},\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"il\\\":-26.2,\\\"tacm\\\":[1],\\\"drr\\\":20.5,\\\"rcd\\\":[0],\\\"mp\\\":-8.68,\\\"be\\\":[32.3,10384.4],\\\"ocf\\\":[-16.6329,-14.0691,-6.4245,-3.4848,-6.4044,-15.3677,-23.9169,-30.7733,-36.0769,-53.9737]}}},\\\"src\\\":{\\\"src\\\":{\\\"ts\\\":[\\\"tag_03010309\\\",\\\"tag_03010306\\\",\\\"tag_01010226\\\",\\\"tag_03010304\\\",\\\"tag_02040205\\\"],\\\"trs\\\":[0.76,0.12,0.1,0.08,0.08],\\\"base_metrics\\\":{\\\"be\\\":[37.7,11272.6],\\\"ocf\\\":[-17.1116,-14.3279,-6.432,-3.4877,-6.2922,-15.4622,-24.1732,-30.5986,-35.1515,-50.9419],\\\"il\\\":-26,\\\"tacm\\\":[1],\\\"drr\\\":21.7,\\\"rcd\\\":[0],\\\"mp\\\":-8.61}}}}\",\"play_time_prob_dist\":\"[800,0.5335,4894.98]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2026-09-16T06:19:09.000Z",
+   "url": "https://www.tiktok.com/@smmart_avocado/video/7686013802596355350",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7677942308746104086",
+   "desc": "Kes veel on kooli üle sama rõõmus kui mina?😃 Soovitan soojalt läbi astuda @Rahva Raamat kui te armastate sama pööraselt ilusat kirjatarbet nagu mina. Ja poja seljakotid ostan ka ainult sealt. 🎒✨ P.S. Osta koolikampaania ajal püsikliendina Rahva Raamatu e-poest või kauplusest vähemalt 30€ eest ja võida vinge jalgratas!🚲 #rahvaraamat #lugemine #kooliaeg",
+   "create_time": 1787660258,
+   "author": {
+    "uid": "6729824270250263557",
+    "short_id": "0",
+    "nickname": "🇺🇦Ukrainian in Estonia🇪🇪",
+    "signature": "Daša-Tujutõstja. \nKõige tuntud Ukraina Baba Eestis.\n📩creatorad250a@example.com",
+    "follow_status": 0,
+    "aweme_count": 1119,
+    "following_count": 290,
+    "follower_count": 34951,
+    "favoriting_count": 27826,
+    "total_favorited": 1217605,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "smmart_avocado",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790426534,
+    "ins_id": "avocado.kak.nado",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 1732699659,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "en",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "3",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAgqigqOrGCjjzf_ITaDuoR3bgMNKvDitYC7tQzzpyIyXFpg-MUGTIrMaBN0JkESAp",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "qa_status": 0,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@smmart_avocado/video/7677942308746104086?_r=1&u_code=elg4gf5eb6cf8d&preview_pb=0&sharer_language=en&_d=elh59a4cl84234&share_item_id=7677942308746104086&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7677942308746104086",
+    "comment_count": 19,
+    "digg_count": 777,
+    "download_count": 4,
+    "play_count": 25403,
+    "share_count": 374,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 2,
+    "collect_count": 104,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6729824270250264000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "EE",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "7677942308746104086",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "et",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 1,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"2026092612421330E11006D4146277538E\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "[\"Kes veel on kooli üle sama rõõmus kui mina?\\ud83d\\ude03\",\"\",\"Soovitan soojalt läbi astuda @Rahva Raamat kui te armastate sama pööraselt ilusat kirjatarbet nagu mina. Ja poja seljakotid ostan ka ainult sealt. \\ud83c\\udf92✨\",\"\",\"P.S. Osta koolikampaania ajal püsikliendina Rahva Raamatu e-poest või kauplusest vähemalt 30€ eest ja võida vinge jalgratas!\\ud83d\\udeb2 #rahvaraamat #lugemine #kooliaeg\"]",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": [
+     7677942308746104000
+    ],
+    "GroupdIdList1": [
+     7677942308746104000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 57866,
+   "retry_type": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "Kes veel on kooli üle sama rõõmus kui mina?😃<br><br>Soovitan soojalt läbi astuda <m id=\"1095\">@Rahva Raamat</m> kui te armastate sama pööraselt ilusat kirjatarbet nagu mina. Ja poja seljakotid ostan ka ainult sealt. 🎒✨<br><br>P.S. Osta koolikampaania ajal püsikliendina Rahva Raamatu e-poest või kauplusest vähemalt 30€ eest ja võida vinge jalgratas!🚲 <h id=\"936\">#rahvaraamat</h> <h id=\"937\">#lugemine</h> <h id=\"938\">#kooliaeg</h>"
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 0,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 1,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 1,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "2026092612421330E11006D4146277538E",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -1,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 1,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.501265315913465, \\\"1\\\": 4.501277602644637, \\\"0\\\": 4.501257973636421}\",\"PACK_VOD:audio_loudness_info_android\":\"{\\\"1\\\": -0.00012202501981641524, \\\"2\\\": -0.0004163886879911884, \\\"-1\\\": -0.00026140912922503843}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": -0.001635369483926762, \\\"-1\\\": -0.001655799974321158}\",\"PACK_VOD:audio_loudness_info_ios\":\"{\\\"1\\\": -0.0001097883063362827, \\\"2\\\": 0.00017675194800684688, \\\"-1\\\": -0.0005277246521782901}\",\"PACK_VOD:audio_meta\":\"{\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"ocf\\\":[-10.1622,-5.4939,-7.8467,-5.993,-7.9092,-14.1176,-23.7366,-31.728,-37.8338,-54.6586],\\\"il\\\":-15.9,\\\"tacm\\\":[0.98],\\\"drr\\\":21.2,\\\"rcd\\\":[0],\\\"mp\\\":0.76,\\\"be\\\":[21.5,10793.5]}}},\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"mp\\\":1.59,\\\"be\\\":[21.5,11504.1],\\\"ocf\\\":[-10.1373,-5.5122,-7.8409,-5.9792,-7.9132,-14.1377,-23.8609,-31.3681,-37.8013,-52.5737],\\\"il\\\":-15.9,\\\"tacm\\\":[0.98],\\\"drr\\\":21.2,\\\"rcd\\\":[0]}}},\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"ocf\\\":[-10.2428,-5.5052,-7.8425,-5.9453,-7.8956,-14.1971,-24.0379,-31.5264,-37.5947,-51.5369],\\\"il\\\":-15.9,\\\"tacm\\\":[0.98],\\\"drr\\\":21.2,\\\"rcd\\\":[0],\\\"mp\\\":0.64,\\\"be\\\":[21.5,11832.5]}}},\\\"src\\\":{\\\"src\\\":{\\\"base_metrics\\\":{\\\"tacm\\\":[0.97],\\\"drr\\\":21.3,\\\"rcd\\\":[0],\\\"mp\\\":0.4,\\\"be\\\":[21.5,12198.6],\\\"ocf\\\":[-10.4972,-5.7612,-7.7522,-5.7729,-7.75,-14.0136,-23.5917,-31.0749,-36.3348,-51.5319],\\\"il\\\":-15.8},\\\"ts\\\":[\\\"tag_03010309\\\",\\\"tag_01010226\\\",\\\"tag_02040205\\\",\\\"tag_03010306\\\",\\\"tag_03010304\\\"],\\\"trs\\\":[0.74,0.5,0.06,0.06,0.04]}}}\",\"play_time_prob_dist\":\"[800,0.5414,5239.943]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2026-08-25T12:17:38.000Z",
+   "url": "https://www.tiktok.com/@smmart_avocado/video/7677942308746104086",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7668239953079307542",
+   "desc": "Investor Marat Kasparov ütles Äripäeva investeerimisfestivalil, et naised on muutunud liiga iseseisvaks ega hoolitse enam eriti oma välimuse eest. Naise ülesanne on tema sõnul hoolitseda kodu eest ja lihtsalt olla ilus. Marat: “Wall Streetil pole peaaegu üldse naisi, allo!” #naistele #äripäev #investeerimine #rahatarkus #ebaaus ",
+   "create_time": 1785401250,
+   "author": {
+    "uid": "6729824270250263557",
+    "short_id": "0",
+    "nickname": "🇺🇦Ukrainian in Estonia🇪🇪",
+    "signature": "Daša-Tujutõstja. \nKõige tuntud Ukraina Baba Eestis.\n📩creatorad250a@example.com",
+    "follow_status": 0,
+    "aweme_count": 1119,
+    "following_count": 290,
+    "follower_count": 34951,
+    "favoriting_count": 27826,
+    "total_favorited": 1217605,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "smmart_avocado",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790426534,
+    "ins_id": "avocado.kak.nado",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 1732699659,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "en",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "3",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAgqigqOrGCjjzf_ITaDuoR3bgMNKvDitYC7tQzzpyIyXFpg-MUGTIrMaBN0JkESAp",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "qa_status": 0,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@smmart_avocado/video/7668239953079307542?_r=1&u_code=elg4gf5eb6cf8d&preview_pb=0&sharer_language=en&_d=elh59a4cl84234&share_item_id=7668239953079307542&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7668239953079307542",
+    "comment_count": 6,
+    "digg_count": 249,
+    "download_count": 1,
+    "play_count": 9708,
+    "share_count": 17,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 0,
+    "collect_count": 6,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6729824270250264000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "EE",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "7668239953079307542",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "et",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 2,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"2026092612421330E11006D4146277538E\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": null,
+    "GroupdIdList1": [
+     7668239953079307000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 63233,
+   "retry_type": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "Investor Marat Kasparov ütles Äripäeva investeerimisfestivalil, et naised on muutunud liiga iseseisvaks ega hoolitse enam eriti oma välimuse eest. Naise ülesanne on tema sõnul hoolitseda kodu eest ja lihtsalt olla ilus. Marat: “Wall Streetil pole peaaegu üldse naisi, allo!” <h id=\"1\">#naistele</h> <h id=\"2\">#äripäev</h> <h id=\"3\">#investeerimine</h> <h id=\"4\">#rahatarkus</h> <h id=\"811\">#ebaaus</h> "
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 1,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 1,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "2026092612421330E11006D4146277538E",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -1,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 0,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.5012501254389115, \\\"1\\\": 4.5012624121700835, \\\"0\\\": 4.501242783161867}\",\"PACK_VOD:audio_loudness_info_android\":\"{\\\"1\\\": -4.191709719244441e-05, \\\"2\\\": -0.00039172750190449005, \\\"-1\\\": -0.00017416307021903278}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": 0.0003071491315790693, \\\"-1\\\": 0.00034759477032889096}\",\"PACK_VOD:audio_loudness_info_ios\":\"{\\\"1\\\": 0.00018401227759994027, \\\"2\\\": 0.0004809755433828568, \\\"-1\\\": -0.00011219287261354038}\",\"PACK_VOD:audio_meta\":\"{\\\"src\\\":{\\\"src\\\":{\\\"ts\\\":[\\\"tag_03010309\\\",\\\"tag_01010226\\\",\\\"tag_03010306\\\",\\\"tag_03010300\\\",\\\"tag_03010304\\\"],\\\"trs\\\":[0.77,0.31,0.23,0.12,0.11],\\\"base_metrics\\\":{\\\"be\\\":[26.9,12279.3],\\\"ocf\\\":[-13.6496,-11.2343,-9.7985,-2.9614,-6.1879,-16.1647,-23.7166,-27.8692,-32.6759,-49.4531],\\\"il\\\":-18.7,\\\"tacm\\\":[0.98],\\\"drr\\\":22.1,\\\"rcd\\\":[0],\\\"mp\\\":0.31}}},\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"normal\\\":{\\\"base_metrics\\\":{\\\"ocf\\\":[-13.6212,-11.1424,-9.821,-2.9518,-6.2305,-16.1449,-23.6351,-28.352,-33.962,-51.7094],\\\"il\\\":-19,\\\"tacm\\\":[0.99],\\\"drr\\\":21.8,\\\"rcd\\\":[0.1],\\\"mp\\\":3.14,\\\"be\\\":[26.9,11213.4]}},\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\"},\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"normal\\\":{\\\"base_metrics\\\":{\\\"be\\\":[32.3,11784],\\\"ocf\\\":[-14.1007,-11.2207,-9.9546,-2.9262,-6.1338,-16.0962,-23.4691,-27.7363,-33.57,-49.9375],\\\"il\\\":-19.1,\\\"tacm\\\":[0.99],\\\"drr\\\":21.5,\\\"rcd\\\":[0.1],\\\"mp\\\":1.15}},\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\"},\\\"74ae78915d808e76104b38765219c117\\\":{\\\"Md5\\\":\\\"74ae78915d808e76104b38765219c117\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"drr\\\":23.5,\\\"rcd\\\":[0],\\\"mp\\\":1.16,\\\"be\\\":[32.3,12171.6],\\\"ocf\\\":[-14.3444,-11.6653,-10.0673,-2.9234,-5.9295,-16.0791,-23.6456,-27.7328,-32.8286,-49.2076],\\\"il\\\":-19,\\\"tacm\\\":[0.98]}}},\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"tacm\\\":[0.99],\\\"drr\\\":21.9,\\\"rcd\\\":[0.1],\\\"mp\\\":1.37,\\\"be\\\":[26.9,12284.7],\\\"ocf\\\":[-13.7606,-11.2265,-9.828,-2.924,-6.2158,-16.333,-23.8025,-28.0237,-33.6814,-48.8353],\\\"il\\\":-18.9}}}}\",\"play_time_prob_dist\":\"[800,0.5217,6980.3901]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2026-07-30T08:47:30.000Z",
+   "url": "https://www.tiktok.com/@smmart_avocado/video/7668239953079307542",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7666351089981181206",
+   "desc": "Tervisekassa pidutseb, meie toimetame😆 #wagenküll #huumor #meelelahutus #tervisekassa ",
+   "create_time": 1784961468,
+   "author": {
+    "uid": "6729824270250263557",
+    "short_id": "0",
+    "nickname": "🇺🇦Ukrainian in Estonia🇪🇪",
+    "signature": "Daša-Tujutõstja. \nKõige tuntud Ukraina Baba Eestis.\n📩creatorad250a@example.com",
+    "follow_status": 0,
+    "aweme_count": 1119,
+    "following_count": 290,
+    "follower_count": 34951,
+    "favoriting_count": 27826,
+    "total_favorited": 1217605,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "smmart_avocado",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790426534,
+    "ins_id": "avocado.kak.nado",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 1732699659,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "en",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "3",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAgqigqOrGCjjzf_ITaDuoR3bgMNKvDitYC7tQzzpyIyXFpg-MUGTIrMaBN0JkESAp",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "qa_status": 0,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@smmart_avocado/video/7666351089981181206?_r=1&u_code=elg4gf5eb6cf8d&preview_pb=0&sharer_language=en&_d=elh59a4cl84234&share_item_id=7666351089981181206&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7666351089981181206",
+    "comment_count": 3,
+    "digg_count": 172,
+    "download_count": 1,
+    "play_count": 6599,
+    "share_count": 8,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 0,
+    "collect_count": 5,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6729824270250264000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "EE",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "7666351089981181206",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "et",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 1,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"2026092612421330E11006D4146277538E\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": null,
+    "GroupdIdList1": [
+     7666351089981181000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 49000,
+   "retry_type": 0,
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "Tervisekassa pidutseb, meie toimetame😆 <h id=\"26\">#wagenküll</h> <h id=\"207\">#huumor</h> <h id=\"387\">#meelelahutus</h> <h id=\"539\">#tervisekassa</h> "
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 1,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 1,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "2026092612421330E11006D4146277538E",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -2,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 0,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.501171522706165, \\\"1\\\": 4.501183809437337, \\\"0\\\": 4.501147374613425}\",\"PACK_VOD:audio_loudness_info_android\":\"{\\\"1\\\": -8.623405477664797e-05, \\\"2\\\": -0.00036413870598552136, \\\"-1\\\": -0.0001627984819718728}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": 0.0034730446039193423, \\\"-1\\\": 0.0017422279041103032}\",\"PACK_VOD:audio_loudness_info_ios\":\"{\\\"1\\\": 0.00016779112272731332, \\\"2\\\": 0.0004728340567923137, \\\"-1\\\": -0.00015642004710091098}\",\"PACK_VOD:audio_meta\":\"{\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"normal\\\":{\\\"base_metrics\\\":{\\\"mp\\\":1.19,\\\"be\\\":[16.1,8263.4],\\\"ocf\\\":[-10.5697,-1.7041,-11.3903,-10.8843,-11.8431,-19.0716,-23.922,-31.1523,-43.0371,-56.5977],\\\"il\\\":-17.5,\\\"tacm\\\":[0.83],\\\"drr\\\":26.6,\\\"rcd\\\":[-1.6]}},\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\"},\\\"src\\\":{\\\"src\\\":{\\\"trs\\\":[0.77,0.48,0.12,0.08,0.07],\\\"base_metrics\\\":{\\\"tacm\\\":[0.68],\\\"drr\\\":26.1,\\\"rcd\\\":[-1.5],\\\"mp\\\":0.03,\\\"be\\\":[16.1,13469],\\\"ocf\\\":[-10.7565,-1.7468,-11.1855,-11.0174,-11.6005,-18.0284,-22.7447,-28.7292,-34.5763,-51.8359],\\\"il\\\":-17},\\\"ts\\\":[\\\"tag_03010309\\\",\\\"tag_01010226\\\",\\\"tag_01010305\\\",\\\"tag_00010202\\\",\\\"tag_03010104\\\"]}},\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"tacm\\\":[0.83],\\\"drr\\\":26.2,\\\"rcd\\\":[-1.6],\\\"mp\\\":0.29,\\\"be\\\":[16.1,10524.4],\\\"ocf\\\":[-10.832,-1.6735,-11.307,-10.885,-11.8752,-19.2742,-24.0106,-30.7051,-43.0577,-53.5104],\\\"il\\\":-17.4}}},\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"normal\\\":{\\\"base_metrics\\\":{\\\"be\\\":[16.1,10599.7],\\\"ocf\\\":[-10.7611,-1.6867,-11.3408,-10.86,-11.8516,-19.1596,-23.8808,-30.5749,-42.7731,-54.5844],\\\"il\\\":-17.5,\\\"tacm\\\":[0.83],\\\"drr\\\":26.3,\\\"rcd\\\":[-1.6],\\\"mp\\\":0.37}},\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\"}}\",\"play_time_prob_dist\":\"[800,0.5507,4469.8226]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2026-07-25T06:37:48.000Z",
+   "url": "https://www.tiktok.com/@smmart_avocado/video/7666351089981181206",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7665806211635252502",
+   "desc": "Meie väikeses Eestis ei möödu vist päevagi ilma järjekordse skandaalita🙂 #uudised ",
+   "create_time": 1784834601,
+   "author": {
+    "uid": "6729824270250263557",
+    "short_id": "0",
+    "nickname": "🇺🇦Ukrainian in Estonia🇪🇪",
+    "signature": "Daša-Tujutõstja. \nKõige tuntud Ukraina Baba Eestis.\n📩creatorad250a@example.com",
+    "follow_status": 0,
+    "aweme_count": 1119,
+    "following_count": 290,
+    "follower_count": 34951,
+    "favoriting_count": 27826,
+    "total_favorited": 1217605,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "smmart_avocado",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790426534,
+    "ins_id": "avocado.kak.nado",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 1732699659,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "en",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "3",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAgqigqOrGCjjzf_ITaDuoR3bgMNKvDitYC7tQzzpyIyXFpg-MUGTIrMaBN0JkESAp",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "qa_status": 0,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@smmart_avocado/video/7665806211635252502?_r=1&u_code=elg4gf5eb6cf8d&preview_pb=0&sharer_language=en&_d=elh59a4cl84234&share_item_id=7665806211635252502&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7665806211635252502",
+    "comment_count": 21,
+    "digg_count": 357,
+    "download_count": 3,
+    "play_count": 11749,
+    "share_count": 41,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 2,
+    "collect_count": 14,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6729824270250264000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "EE",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "7665806211635252502",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "et",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 1,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"2026092612421330E11006D4146277538E\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": null,
+    "GroupdIdList1": [
+     7665806211635252000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 41333,
+   "retry_type": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "Meie väikeses Eestis ei möödu vist päevagi ilma järjekordse skandaalita🙂 <h id=\"1105\">#uudised</h> "
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 1,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 1,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "2026092612421330E11006D4146277538E",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -2,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 0,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.501266848118081, \\\"1\\\": 4.501279134849253, \\\"0\\\": 4.501259505841037}\",\"PACK_VOD:audio_loudness_info_android\":\"{\\\"1\\\": -0.00012202501981641524, \\\"2\\\": -0.0004163886879911884, \\\"-1\\\": -0.00026140912922503843}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": -8.723803636595862e-05, \\\"-1\\\": 0.000802032359926274}\",\"PACK_VOD:audio_loudness_info_ios\":\"{\\\"1\\\": 2.564446056280748e-05, \\\"2\\\": 0.00032458623567452045, \\\"-1\\\": -0.00026316760489356603}\",\"PACK_VOD:audio_meta\":\"{\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"il\\\":-21.3,\\\"tacm\\\":[1],\\\"drr\\\":22.5,\\\"rcd\\\":[0],\\\"mp\\\":-3.81,\\\"be\\\":[32.3,15175.5],\\\"ocf\\\":[-11.7444,-3.9442,-7.622,-6.2504,-10.0355,-18.8497,-22.2738,-29.0814,-33.7994,-49.2673]}}},\\\"src\\\":{\\\"src\\\":{\\\"ts\\\":[\\\"tag_03010309\\\",\\\"tag_01010226\\\",\\\"tag_03010306\\\",\\\"tag_02000300\\\",\\\"tag_02040437\\\"],\\\"trs\\\":[0.78,0.08,0.08,0.06,0.05],\\\"base_metrics\\\":{\\\"mp\\\":-3.84,\\\"be\\\":[26.9,15030.2],\\\"ocf\\\":[-11.8013,-3.9141,-7.6485,-6.2987,-9.9342,-18.9736,-22.4919,-29.2395,-32.8956,-47.5566],\\\"il\\\":-21.3,\\\"tacm\\\":[1],\\\"drr\\\":23.6,\\\"rcd\\\":[0]}}},\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"be\\\":[32.3,15003.3],\\\"ocf\\\":[-11.8747,-3.9319,-7.6095,-6.239,-10.0192,-18.9817,-22.4488,-29.3419,-33.5568,-47.1326],\\\"il\\\":-21.3,\\\"tacm\\\":[1],\\\"drr\\\":22.4,\\\"rcd\\\":[0],\\\"mp\\\":-3.85}}},\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"be\\\":[26.9,13905.1],\\\"ocf\\\":[-11.7023,-3.9597,-7.5924,-6.2801,-10.0112,-18.6778,-22.0997,-29.4213,-33.8252,-51.6468],\\\"il\\\":-21.3,\\\"tacm\\\":[1],\\\"drr\\\":22.7,\\\"rcd\\\":[0],\\\"mp\\\":-3.55}}}}\",\"PACK_VOD:vod_diversity_tier3\":\"10083\",\"play_time_prob_dist\":\"[800,0.5818,4134.2165]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2026-07-23T19:23:21.000Z",
+   "url": "https://www.tiktok.com/@smmart_avocado/video/7665806211635252502",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7665757426032971030",
+   "desc": "Bodysculpt juurest leiad kõik vajaliku saleda figuuri heaks: vibromassaaži, käsimassaaži, infrapunateki, pressoteraapia, kehamähised ja veel palju muud🙂💆‍♀️✨ #kehahooldus #naistele #huumor ",
+   "create_time": 1784823246,
+   "author": {
+    "uid": "6729824270250263557",
+    "short_id": "0",
+    "nickname": "🇺🇦Ukrainian in Estonia🇪🇪",
+    "signature": "Daša-Tujutõstja. \nKõige tuntud Ukraina Baba Eestis.\n📩creatorad250a@example.com",
+    "follow_status": 0,
+    "aweme_count": 1119,
+    "following_count": 290,
+    "follower_count": 34951,
+    "favoriting_count": 27826,
+    "total_favorited": 1217605,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "smmart_avocado",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790426534,
+    "ins_id": "avocado.kak.nado",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 1732699659,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "en",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "3",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAgqigqOrGCjjzf_ITaDuoR3bgMNKvDitYC7tQzzpyIyXFpg-MUGTIrMaBN0JkESAp",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "qa_status": 0,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@smmart_avocado/video/7665757426032971030?_r=1&u_code=elg4gf5eb6cf8d&preview_pb=0&sharer_language=en&_d=elh59a4cl84234&share_item_id=7665757426032971030&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7665757426032971030",
+    "comment_count": 1,
+    "digg_count": 82,
+    "download_count": 0,
+    "play_count": 4929,
+    "share_count": 0,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 0,
+    "collect_count": 3,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6729824270250264000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "EE",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "7665757426032971030",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "et",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 1,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"2026092612421330E11006D4146277538E\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": null,
+    "GroupdIdList1": [
+     7665757426032971000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 8600,
+   "retry_type": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "Bodysculpt juurest leiad kõik vajaliku saleda figuuri heaks: vibromassaaži, käsimassaaži, infrapunateki, pressoteraapia, kehamähised ja veel palju muud🙂💆‍♀️✨ <h id=\"806\">#kehahooldus</h> <h id=\"878\">#naistele</h> <h id=\"1083\">#huumor</h> "
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 1,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 1,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "2026092612421330E11006D4146277538E",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -2,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 0,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.501286923487782, \\\"1\\\": 4.501255778098288, \\\"0\\\": 4.501214609816805}\",\"PACK_VOD:audio_loudness_info_android\":\"{\\\"1\\\": -0.00023257757638777923, \\\"2\\\": -0.0005438863562222615, \\\"-1\\\": -0.00033615502353885607}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": -0.00014642728417112375, \\\"-1\\\": -0.00017466865920719252}\",\"PACK_VOD:audio_loudness_info_ios\":\"{\\\"1\\\": 0.00031952329402648686, \\\"2\\\": 0.0006113263623577191, \\\"-1\\\": 8.870161160483357e-06}\",\"PACK_VOD:audio_meta\":\"{\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"drr\\\":12.6,\\\"mp\\\":-1,\\\"be\\\":[26.9,12365.4],\\\"il\\\":-13.8,\\\"rcd\\\":[-0.2],\\\"do\\\":0.0002,\\\"ocf\\\":[-11.9987,-5.2649,-3.568,-9.6663,-13.7319,-14.4145,-20.3627,-24.7462,-32.5914,-52.2668],\\\"tacm\\\":[0.66]}}},\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"drr\\\":12.7,\\\"rcd\\\":[-0.2],\\\"il\\\":-13.8,\\\"be\\\":[26.9,12494.6],\\\"tacm\\\":[0.66],\\\"mp\\\":-1.05,\\\"ocf\\\":[-12.1311,-5.2916,-3.553,-9.6072,-13.7026,-14.3337,-20.4103,-24.9867,-32.3787,-50.7717],\\\"do\\\":0.0003}}},\\\"src\\\":{\\\"src\\\":{\\\"trs\\\":[0.89,0.44,0.24,0.13,0.13],\\\"base_metrics\\\":{\\\"mp\\\":-1.2,\\\"be\\\":[26.9,12397.7],\\\"drr\\\":11.9,\\\"tacm\\\":[0.51],\\\"ocf\\\":[-11.8566,-5.8607,-3.523,-9.3094,-13.0197,-13.1798,-19.4636,-24.1975,-31.2293,-51.9189],\\\"il\\\":-13.7,\\\"rcd\\\":[0.1],\\\"do\\\":0.0003},\\\"ts\\\":[\\\"tag_01010226\\\",\\\"tag_01010211\\\",\\\"tag_03010309\\\",\\\"tag_01010222\\\",\\\"tag_01010305\\\"]}},\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"be\\\":[26.9,11972.5],\\\"do\\\":0.0003,\\\"il\\\":-13.8,\\\"drr\\\":12.6,\\\"rcd\\\":[-0.2],\\\"ocf\\\":[-11.877,-5.2203,-3.5896,-9.7031,-13.83,-14.4558,-20.3293,-25.4605,-32.9423,-52.9149],\\\"tacm\\\":[0.66],\\\"mp\\\":-1.06}}}}\",\"PACK_VOD:vod_diversity_tier3\":\"10027\",\"play_time_prob_dist\":\"[800,1.0168,2240.2837]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2026-07-23T16:14:06.000Z",
+   "url": "https://www.tiktok.com/@smmart_avocado/video/7665757426032971030",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7665313281317457174",
+   "desc": "Parim deit on Marwi’ga! 🦐 #maitsev #retseptid #kohting #naljakas #mereannid ",
+   "create_time": 1784719832,
+   "author": {
+    "uid": "6729824270250263557",
+    "short_id": "0",
+    "nickname": "🇺🇦Ukrainian in Estonia🇪🇪",
+    "signature": "Daša-Tujutõstja. \nKõige tuntud Ukraina Baba Eestis.\n📩creatorad250a@example.com",
+    "follow_status": 0,
+    "aweme_count": 1119,
+    "following_count": 290,
+    "follower_count": 34951,
+    "favoriting_count": 27826,
+    "total_favorited": 1217605,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "smmart_avocado",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790426534,
+    "ins_id": "avocado.kak.nado",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 1732699659,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "en",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "3",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAgqigqOrGCjjzf_ITaDuoR3bgMNKvDitYC7tQzzpyIyXFpg-MUGTIrMaBN0JkESAp",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "qa_status": 0,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@smmart_avocado/video/7665313281317457174?_r=1&u_code=elg4gf5eb6cf8d&preview_pb=0&sharer_language=en&_d=elh59a4cl84234&share_item_id=7665313281317457174&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7665313281317457174",
+    "comment_count": 21,
+    "digg_count": 366,
+    "download_count": 1,
+    "play_count": 11780,
+    "share_count": 26,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 0,
+    "collect_count": 15,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6729824270250264000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "EE",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "7665313281317457174",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "et",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 1,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"2026092612421330E11006D4146277538E\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": null,
+    "GroupdIdList1": [
+     7665313281317457000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 54500,
+   "retry_type": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "Parim deit on Marwi’ga! 🦐 <h id=\"30\">#maitsev</h> <h id=\"110\">#retseptid</h> <h id=\"210\">#kohting</h> <h id=\"586\">#naljakas</h> <h id=\"1075\">#mereannid</h> "
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 1,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 1,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "2026092612421330E11006D4146277538E",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -2,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 0,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.501131588237114, \\\"1\\\": 4.501143874968286, \\\"0\\\": 4.50112424596007}\",\"PACK_VOD:audio_loudness_info_android\":\"{\\\"1\\\": -0.00023257757638777923, \\\"2\\\": -0.0005438863562222615, \\\"-1\\\": -0.00033615502353885607}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": -8.723803636595862e-05, \\\"-1\\\": 0.000802032359926274}\",\"PACK_VOD:audio_loudness_info_ios\":\"{\\\"1\\\": -0.00041423440260009305, \\\"2\\\": -0.00014915882238455136, \\\"-1\\\": -0.0009027066450228422}\",\"PACK_VOD:audio_meta\":\"{\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"normal\\\":{\\\"base_metrics\\\":{\\\"ocf\\\":[-10.4479,-8.0878,-9.0925,-4.8987,-5.7054,-14.7696,-23.5847,-31.1913,-36.2032,-51.5915],\\\"il\\\":-20.2,\\\"tacm\\\":[1],\\\"drr\\\":25.1,\\\"rcd\\\":[0],\\\"mp\\\":-1.16,\\\"be\\\":[21.5,11240.3]}},\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\"},\\\"src\\\":{\\\"src\\\":{\\\"base_metrics\\\":{\\\"mp\\\":-1.13,\\\"be\\\":[21.5,11514.9],\\\"ocf\\\":[-10.5825,-8.3029,-9.2501,-4.7484,-5.6298,-14.9289,-23.8493,-31.5063,-35.5075,-50.4921],\\\"il\\\":-20.1,\\\"tacm\\\":[1],\\\"drr\\\":25.1,\\\"rcd\\\":[0]},\\\"ts\\\":[\\\"tag_03010309\\\",\\\"tag_03010306\\\",\\\"tag_01010226\\\",\\\"tag_03000002\\\",\\\"tag_03010304\\\"],\\\"trs\\\":[0.79,0.1,0.09,0.09,0.08]}},\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"rcd\\\":[0],\\\"mp\\\":-1.14,\\\"be\\\":[21.5,11687.1],\\\"ocf\\\":[-10.5252,-8.0374,-9.1658,-4.8736,-5.6976,-14.8192,-23.7102,-31.3722,-35.9667,-49.9717],\\\"il\\\":-20.1,\\\"tacm\\\":[1],\\\"drr\\\":25}}},\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"tacm\\\":[1],\\\"drr\\\":25.1,\\\"rcd\\\":[0],\\\"mp\\\":-0.91,\\\"be\\\":[21.5,10750.5],\\\"ocf\\\":[-10.3555,-8.0834,-9.1147,-4.9214,-5.715,-14.6771,-23.455,-31.4268,-36.1003,-53.0272],\\\"il\\\":-20.2}}}}\",\"PACK_VOD:vod_diversity_tier3\":\"10000\",\"play_time_prob_dist\":\"[800,0.5373,4873.1954]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2026-07-22T11:30:32.000Z",
+   "url": "https://www.tiktok.com/@smmart_avocado/video/7665313281317457174",
+   "shop_product_url": null
+  }
+ ]
+}
