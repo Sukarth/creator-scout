@@ -2,6 +2,7 @@
 .planning/
 CLAUDE.md
 TODO.md
+RUNLOG.md
 
 # Secrets
 .env
