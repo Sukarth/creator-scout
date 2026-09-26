@@ -1,0 +1,65 @@
+{
+ "success": true,
+ "credits_remaining": 7077,
+ "credits_charged": 1,
+ "user": {
+  "id": "6924756445432415238",
+  "shortId": "",
+  "uniqueId": "digikamu",
+  "nickname": "Digikamu | Tech📱💻",
+  "signature": "Techtok\nTech, News, Reviews\ncreatorbd06af@example.fi",
+  "createTime": 1649752763,
+  "verified": false,
+  "secUid": "MS4wLjABAAAAU9qTssurhTksyMRthJlHKZFiRAcQEBwbhDQr6dl7yoCki824NHXWBrG-M-rTglrf",
+  "ftc": false,
+  "relation": 0,
+  "openFavorite": false,
+  "bioLink": {
+   "link": "https://logi.gg/LGPFALL_FY27_DIGIKAMU",
+   "risk": 3
+  },
+  "commentSetting": 0,
+  "commerceUserInfo": {
+   "commerceUser": false
+  },
+  "duetSetting": 0,
+  "stitchSetting": 0,
+  "privateAccount": false,
+  "secret": false,
+  "isADVirtual": false,
+  "roomId": "",
+  "uniqueIdModifyTime": 0,
+  "ttSeller": false,
+  "downloadSetting": 0,
+  "followingVisibility": 2,
+  "recommendReason": "",
+  "nowInvitationCardUrl": "",
+  "nickNameModifyTime": 1740597003,
+  "isEmbedBanned": false,
+  "canExpPlaylist": true,
+  "profileEmbedPermission": 1,
+  "language": "fi",
+  "isOrganization": 0,
+  "UserStoryStatus": 0,
+  "shortDramaCreator": {}
+ },
+ "stats": {
+  "followerCount": 32600,
+  "followingCount": 134,
+  "heart": 548500,
+  "heartCount": 548500,
+  "videoCount": 566,
+  "diggCount": 0,
+  "friendCount": 63
+ },
+ "statsV2": {
+  "followerCount": "32571",
+  "followingCount": "134",
+  "heart": "548512",
+  "heartCount": "548512",
+  "videoCount": "566",
+  "diggCount": "0",
+  "friendCount": "63"
+ },
+ "itemList": []
+}

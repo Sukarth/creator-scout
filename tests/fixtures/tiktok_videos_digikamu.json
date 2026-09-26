@@ -1,0 +1,4239 @@
+{
+ "success": true,
+ "credits_remaining": 7075,
+ "credits_charged": 1,
+ "max_cursor": 1785952202964,
+ "has_more": 1,
+ "status_code": 0,
+ "aweme_list": [
+  {
+   "aweme_id": "7689466135619718422",
+   "desc": "Mä arvon yhden Logitech G PRO X SUPERLIGHT 2c -hiiren ja sä saat valita värin. Musta vai valkonen? Kompakti 51 g pelihiiri, HERO 2 -sensori ja jopa 95 h akunkesto. Logitech G Play Days on nyt käynnissä: jopa 40 % alennuksia hiiristä, näppäimistöistä, kuulokkeista ja rattiohjaimista, lisäks arvontoja ja kaupanpäällisiä. Parhaat diilit löydät helpoiten mun profiilin kampanjalinkistä. Osallistu arvontaan kommentoimalla, haluatko mustan vai valkosen. Ja jaa video kaverille, joka tarvii uuden hiiren.",
+   "create_time": 1790343359,
+   "author": {
+    "uid": "6924756445432415238",
+    "short_id": "0",
+    "nickname": "Digikamu | Tech📱💻",
+    "signature": "Techtok\nTech, News, Reviews\ncreatorbd06af@example.fi",
+    "follow_status": 0,
+    "aweme_count": 552,
+    "following_count": 134,
+    "follower_count": 32565,
+    "favoriting_count": 240,
+    "total_favorited": 548510,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "digikamu",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790425665,
+    "ins_id": "",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 0,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "fi",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAU9qTssurhTksyMRthJlHKZFiRAcQEBwbhDQr6dl7yoCki824NHXWBrG-M-rTglrf",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@digikamu/video/7689466135619718422?_r=1&u_code=f1a0jfel138a59&preview_pb=0&sharer_language=en&_d=f1aajie84hla67&share_item_id=7689466135619718422&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7689466135619718422",
+    "comment_count": 1020,
+    "digg_count": 1195,
+    "download_count": 2,
+    "play_count": 42382,
+    "share_count": 545,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 38,
+    "collect_count": 119,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6924756445432415000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "FI",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "7689466135619718422",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "fi",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 2,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": true,
+    "bc_label_test_text": "Paid partnership",
+    "branded_content_type": 1,
+    "organic_log_extra": "{\"req_id\":\"20260926122745AB2D35228BFD07979982\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "[\"Mä arvon yhden Logitech G PRO X SUPERLIGHT 2c -hiiren ja sä saat valita värin. Musta vai valkonen?\",\"\",\"Kompakti 51 g pelihiiri, HERO 2 -sensori ja jopa 95 h akunkesto. Logitech G Play Days on nyt käynnissä: jopa 40 % alennuksia hiiristä, näppäimistöistä, kuulokkeista ja rattiohjaimista, lisäks arvontoja ja kaupanpäällisiä. Parhaat diilit löydät helpoiten mun profiilin kampanjalinkistä.\",\"\",\"Osallistu arvontaan kommentoimalla, haluatko mustan vai valkosen. Ja jaa video kaverille, joka tarvii uuden hiiren.\"]",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": [
+     7689466135619718000
+    ],
+    "GroupdIdList1": [
+     7689466135619718000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 62033,
+   "retry_type": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "Mä arvon yhden Logitech G PRO X SUPERLIGHT 2c -hiiren ja sä saat valita värin. Musta vai valkonen?<br><br>Kompakti 51 g pelihiiri, HERO 2 -sensori ja jopa 95 h akunkesto. Logitech G Play Days on nyt käynnissä: jopa 40 % alennuksia hiiristä, näppäimistöistä, kuulokkeista ja rattiohjaimista, lisäks arvontoja ja kaupanpäällisiä. Parhaat diilit löydät helpoiten mun profiilin kampanjalinkistä.<br><br>Osallistu arvontaan kommentoimalla, haluatko mustan vai valkosen. Ja jaa video kaverille, joka tarvii uuden hiiren."
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 1,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 1,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "20260926122745AB2D35228BFD07979982",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -1,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 1,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.501260862494109, \\\"1\\\": 4.501273149225281, \\\"0\\\": 4.501253520217065}\",\"PACK_VOD:audio_loudness_info_android\":\"{\\\"1\\\": -3.751384437190251e-05, \\\"2\\\": -0.0003384710248075634, \\\"-1\\\": -0.0001453416623345348}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": -0.00014642728417112375, \\\"-1\\\": -0.00017466865920719252}\",\"PACK_VOD:audio_loudness_info_ios\":\"{\\\"1\\\": 0.0003778119651611899, \\\"2\\\": 0.0006627468297919544, \\\"-1\\\": 8.552916873196022e-05}\",\"PACK_VOD:audio_meta\":\"{\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"ocf\\\":[-15.6257,-9.2819,-7.2905,-7.2936,-3.6737,-13.6615,-20.7438,-30.9933,-39.9003,-53.0059],\\\"il\\\":-17.9,\\\"tacm\\\":[1],\\\"drr\\\":13.8,\\\"rcd\\\":[0],\\\"mp\\\":-2.71,\\\"be\\\":[37.7,9070.9]}}},\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"normal\\\":{\\\"base_metrics\\\":{\\\"be\\\":[37.7,8516.4],\\\"ocf\\\":[-15.3122,-9.1093,-7.2785,-7.3444,-3.742,-13.548,-20.5209,-31.2784,-40.3886,-55.8358],\\\"il\\\":-18,\\\"tacm\\\":[1],\\\"drr\\\":13.8,\\\"rcd\\\":[0],\\\"mp\\\":-1.85}},\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\"},\\\"src\\\":{\\\"src\\\":{\\\"ts\\\":[\\\"tag_01010226\\\",\\\"tag_03010309\\\",\\\"tag_01000202\\\",\\\"tag_02010001\\\",\\\"tag_01000305\\\"],\\\"trs\\\":[0.77,0.74,0.04,0.04,0.04],\\\"base_metrics\\\":{\\\"rcd\\\":[0],\\\"mp\\\":-2.63,\\\"be\\\":[43.1,10233.7],\\\"ocf\\\":[-16.045,-9.0752,-7.3122,-7.3856,-3.6828,-13.4604,-20.5317,-30.797,-39.3028,-52.4656],\\\"il\\\":-17.9,\\\"tacm\\\":[1],\\\"drr\\\":13.9}}},\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"ocf\\\":[-15.5134,-9.1903,-7.2807,-7.339,-3.6965,-13.6348,-20.6269,-30.769,-40.1574,-54.1015],\\\"il\\\":-18,\\\"tacm\\\":[1],\\\"drr\\\":13.8,\\\"rcd\\\":[0],\\\"mp\\\":-2.46,\\\"be\\\":[37.7,9011.6]}}}}\",\"play_time_prob_dist\":\"[800,0.5459,7452.559]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": true,
+   "create_time_utc": "2026-09-25T13:35:59.000Z",
+   "url": "https://www.tiktok.com/@digikamu/video/7689466135619718422",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7688403443152735510",
+   "desc": "Mainos @realme.suomi Kutsu Tylypahkaan saapui! 🦉✉️ Unboksauksessa todella maaginen Realme 16 Pro Harry Potter Special Edition. ⚡️ Tässä luurissa yhdistyy upea kustomoitu design ja kovat speksit: ✨ Täysin uniikki takakansi ja teemaan sopivat tarvikkeet ✨ Valmiit HP-taustakuvat ja appi-ikonit ✨ 144Hz sulava AMOLED-näyttö ✨ 200MP pääkamera ✨ Jättimäinen 6500mAh akku pikalatauksella",
+   "create_time": 1790095929,
+   "author": {
+    "uid": "6924756445432415238",
+    "short_id": "0",
+    "nickname": "Digikamu | Tech📱💻",
+    "signature": "Techtok\nTech, News, Reviews\ncreatorbd06af@example.fi",
+    "follow_status": 0,
+    "aweme_count": 552,
+    "following_count": 134,
+    "follower_count": 32565,
+    "favoriting_count": 240,
+    "total_favorited": 548510,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "digikamu",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790425665,
+    "ins_id": "",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 0,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "fi",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAU9qTssurhTksyMRthJlHKZFiRAcQEBwbhDQr6dl7yoCki824NHXWBrG-M-rTglrf",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@digikamu/video/7688403443152735510?_r=1&u_code=f1a0jfel138a59&preview_pb=0&sharer_language=en&_d=f1aajie84hla67&share_item_id=7688403443152735510&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7688403443152735510",
+    "comment_count": 4,
+    "digg_count": 42,
+    "download_count": 0,
+    "play_count": 831,
+    "share_count": 1,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 0,
+    "collect_count": 4,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6924756445432415000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "FI",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "7688403443152735510",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "fi",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 2,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": true,
+    "bc_label_test_text": "Paid partnership",
+    "branded_content_type": 1,
+    "organic_log_extra": "{\"req_id\":\"20260926122745AB2D35228BFD07979982\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "[\"Mainos @realme.suomi Kutsu Tylypahkaan saapui! \\ud83e\\udd89✉️ Unboksauksessa todella maaginen Realme 16 Pro Harry Potter Special Edition. ⚡️\",\"Tässä luurissa yhdistyy upea kustomoitu design ja kovat speksit:\",\"✨ Täysin uniikki takakansi ja teemaan sopivat tarvikkeet\",\"✨ Valmiit HP-taustakuvat ja appi-ikonit\",\"✨ 144Hz sulava AMOLED-näyttö\",\"✨ 200MP pääkamera\",\"✨ Jättimäinen 6500mAh akku pikalatauksella\"]",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": [
+     7688403443152735000
+    ],
+    "GroupdIdList1": [
+     7688403443152735000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 74100,
+   "retry_type": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "Mainos <m id=\"17\">@realme.suomi</m> Kutsu Tylypahkaan saapui! 🦉✉️ Unboksauksessa todella maaginen Realme 16 Pro Harry Potter Special Edition. ⚡️<br>Tässä luurissa yhdistyy upea kustomoitu design ja kovat speksit:<br>✨ Täysin uniikki takakansi ja teemaan sopivat tarvikkeet<br>✨ Valmiit HP-taustakuvat ja appi-ikonit<br>✨ 144Hz sulava AMOLED-näyttö<br>✨ 200MP pääkamera<br>✨ Jättimäinen 6500mAh akku pikalatauksella"
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 1,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 1,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "20260926122745AB2D35228BFD07979982",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -1,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 1,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.501295047813699, \\\"1\\\": 4.501307334544871, \\\"0\\\": 4.5012877055366545}\",\"PACK_VOD:audio_loudness_info_android\":\"{\\\"1\\\": -4.191709719244441e-05, \\\"2\\\": -0.00039172750190449005, \\\"-1\\\": -0.00017416307021903278}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": -8.723803636595862e-05, \\\"-1\\\": 0.000802032359926274}\",\"PACK_VOD:audio_loudness_info_ios\":\"{\\\"1\\\": 0.0003778119651611899, \\\"2\\\": 0.0006627468297919544, \\\"-1\\\": 8.552916873196022e-05}\",\"PACK_VOD:audio_meta\":\"{\\\"src\\\":{\\\"src\\\":{\\\"trs\\\":[0.8,0.68,0.09,0.06,0.04],\\\"base_metrics\\\":{\\\"drr\\\":19.8,\\\"rcd\\\":[0.1],\\\"mp\\\":-2.51,\\\"be\\\":[37.7,4667.3],\\\"ocf\\\":[-14.8013,-9.9874,-4.8746,-6.1665,-5.5044,-17.7756,-29.879,-40.3467,-48.0401,-58.1475],\\\"il\\\":-22.1,\\\"tacm\\\":[0.95]},\\\"ts\\\":[\\\"tag_03010309\\\",\\\"tag_01010226\\\",\\\"tag_01000202\\\",\\\"tag_03010301\\\",\\\"tag_00010202\\\"]}},\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"normal\\\":{\\\"base_metrics\\\":{\\\"be\\\":[32.3,3994.4],\\\"ocf\\\":[-14.2363,-10.0589,-5.0426,-6.1204,-5.406,-17.6887,-29.8043,-40.6875,-48.9738,-59.3924],\\\"il\\\":-22.2,\\\"tacm\\\":[0.98],\\\"drr\\\":19.6,\\\"rcd\\\":[0.1],\\\"mp\\\":-2.01}},\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\"},\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"rcd\\\":[0.1],\\\"mp\\\":-2.57,\\\"be\\\":[37.7,4651.2],\\\"ocf\\\":[-14.7478,-9.9173,-4.8236,-6.2589,-5.5246,-17.6653,-29.624,-39.9575,-48.4628,-58.6972],\\\"il\\\":-22.1,\\\"tacm\\\":[0.98],\\\"drr\\\":20.5}}},\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"il\\\":-22.1,\\\"tacm\\\":[0.98],\\\"drr\\\":19.5,\\\"rcd\\\":[0.1],\\\"mp\\\":-2.56,\\\"be\\\":[32.3,4408.9],\\\"ocf\\\":[-14.4552,-10.0701,-5.0354,-6.1036,-5.3908,-17.7705,-30.0193,-40.5369,-48.5864,-58.4355]}}}}\",\"play_time_prob_dist\":\"[800,0.4624,7494.3659]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": true,
+   "create_time_utc": "2026-09-22T16:52:09.000Z",
+   "url": "https://www.tiktok.com/@digikamu/video/7688403443152735510",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7688223428041608470",
+   "desc": "Mainos @Huawei Suomi  Kuinka paljon älykello oikeesti kestää? 👀⌚️Päätin ottaa selvää vähän normaalia rajummalla testillä 😅 Huawei Watch GT 7 Pro selvisi yllättävän kovasta käsittelystä ilman naarmuja. Titaaniseosrunko, nanokeraaminen kehys ja safiirilasi tekevät tehtävänsä 💪 Ja kaiken lisäksi jopa 3 viikon akunkesto 🔋 Saatavilla nyt!",
+   "create_time": 1790054030,
+   "author": {
+    "uid": "6924756445432415238",
+    "short_id": "0",
+    "nickname": "Digikamu | Tech📱💻",
+    "signature": "Techtok\nTech, News, Reviews\ncreatorbd06af@example.fi",
+    "follow_status": 0,
+    "aweme_count": 552,
+    "following_count": 134,
+    "follower_count": 32565,
+    "favoriting_count": 240,
+    "total_favorited": 548510,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "digikamu",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790425665,
+    "ins_id": "",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 0,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "fi",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAU9qTssurhTksyMRthJlHKZFiRAcQEBwbhDQr6dl7yoCki824NHXWBrG-M-rTglrf",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@digikamu/video/7688223428041608470?_r=1&u_code=f1a0jfel138a59&preview_pb=0&sharer_language=en&_d=f1aajie84hla67&share_item_id=7688223428041608470&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7688223428041608470",
+    "comment_count": 7,
+    "digg_count": 141,
+    "download_count": 1,
+    "play_count": 151080,
+    "share_count": 2,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 0,
+    "collect_count": 22,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6924756445432415000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "FI",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "7688223428041608470",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "fi",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 2,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "ad_aweme_source": 1,
+   "has_vs_entry": false,
+   "commerce_info": {
+    "ad_source": 1,
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": true,
+    "bc_label_test_text": "Paid partnership",
+    "branded_content_type": 1,
+    "organic_log_extra": "{\"req_id\":\"20260926122745AB2D35228BFD07979982\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "[\"Mainos @Huawei Suomi \",\"\",\"Kuinka paljon älykello oikeesti kestää? \\ud83d\\udc40⌚️Päätin ottaa selvää vähän normaalia rajummalla testillä \\ud83d\\ude05\",\"\",\"Huawei Watch GT 7 Pro selvisi yllättävän kovasta käsittelystä ilman naarmuja. Titaaniseosrunko, nanokeraaminen kehys ja safiirilasi tekevät tehtävänsä \\ud83d\\udcaa\",\"\",\"Ja kaiken lisäksi jopa 3 viikon akunkesto \\ud83d\\udd0b Saatavilla nyt!\"]",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": [
+     7688223428041608000
+    ],
+    "GroupdIdList1": [
+     7688223428041608000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 84900,
+   "retry_type": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "Mainos <m id=\"1\">@Huawei Suomi</m> <br><br>Kuinka paljon älykello oikeesti kestää? 👀⌚️Päätin ottaa selvää vähän normaalia rajummalla testillä 😅<br><br>Huawei Watch GT 7 Pro selvisi yllättävän kovasta käsittelystä ilman naarmuja. Titaaniseosrunko, nanokeraaminen kehys ja safiirilasi tekevät tehtävänsä 💪<br><br>Ja kaiken lisäksi jopa 3 viikon akunkesto 🔋 Saatavilla nyt!"
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 1,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 1,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "20260926122745AB2D35228BFD07979982",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -1,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 1,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_android_v2\":\"{\\\"29\\\": 1.1685820250534357e-05, \\\"30\\\": 0.0003455886861680449, \\\"32\\\": 0.00035314240686837284, \\\"34\\\": 0.00023874754965536344}\",\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.50120110859065, \\\"1\\\": 4.501213395321822, \\\"0\\\": 4.501193766313606}\",\"PACK_VOD:audio_effect_info_ios_v2\":\"{\\\"35\\\": 0.001263250443744377, \\\"36\\\": -0.0003180905713499896}\",\"PACK_VOD:audio_loudness_info_android\":\"{\\\"1\\\": 8.555302537825019e-05, \\\"2\\\": -5.876492812574701e-05, \\\"-1\\\": 1.2112685198101746e-05}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": 0.0003071491315790693, \\\"-1\\\": 0.00034759477032889096}\",\"PACK_VOD:audio_loudness_info_ios\":\"{\\\"1\\\": 0.0003778119651611899, \\\"2\\\": 0.0006627468297919544, \\\"-1\\\": 8.552916873196022e-05}\",\"PACK_VOD:audio_meta\":\"{\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"drr\\\":16.7,\\\"rcd\\\":[-0.1],\\\"mp\\\":-2.31,\\\"be\\\":[43.1,5657.8],\\\"ocf\\\":[-15.3605,-11.1634,-6.0472,-6.5942,-4.1801,-13.9914,-23.3721,-34.0504,-45.1372,-57.0567],\\\"il\\\":-25.5,\\\"tacm\\\":[0.96]}}},\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"tacm\\\":[0.96],\\\"drr\\\":18.1,\\\"rcd\\\":[-0.1],\\\"mp\\\":-1.53,\\\"be\\\":[37.7,5458.7],\\\"ocf\\\":[-15.1558,-11.2286,-6.0367,-6.4765,-4.2596,-13.9812,-23.3706,-34.6558,-45.1487,-58.0522],\\\"il\\\":-25.5}}},\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"drr\\\":17.5,\\\"rcd\\\":[-0.1],\\\"mp\\\":-3.38,\\\"be\\\":[43.1,5921.6],\\\"ocf\\\":[-15.4071,-11.2959,-6.0731,-6.4336,-4.2127,-14.1111,-23.5779,-34.293,-44.6949,-56.908],\\\"il\\\":-25.5,\\\"tacm\\\":[0.96]}}},\\\"src\\\":{\\\"src\\\":{\\\"ts\\\":[\\\"tag_03010309\\\",\\\"tag_01010226\\\",\\\"tag_02040205\\\",\\\"tag_01000202\\\",\\\"tag_00010202\\\"],\\\"trs\\\":[0.74,0.72,0.19,0.05,0.04],\\\"base_metrics\\\":{\\\"drr\\\":17.2,\\\"rcd\\\":[-0.1],\\\"mp\\\":-3.57,\\\"be\\\":[43.1,6379.2],\\\"ocf\\\":[-15.5755,-11.4282,-6.0352,-6.4005,-4.2306,-14.0301,-23.3777,-33.9409,-43.68,-56.8775],\\\"il\\\":-25.4,\\\"tacm\\\":[0.92]}}}}\",\"play_time_prob_dist\":\"[800,0.4341,7801.1061]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": true,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": true,
+   "create_time_utc": "2026-09-22T05:13:50.000Z",
+   "url": "https://www.tiktok.com/@digikamu/video/7688223428041608470",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7686511374117260566",
+   "desc": "Näillä helpoilla vinkeillä sun iPhonen akku kestää pidempään lyhyellä ja pitkällä aikavälillä 🔋 Latausraja 80 %:iin, optimoitu lataus päälle ja mukautuva virta käyttöön. Tarkista myös akun kunto, huonon akun takia ei kannata heittää hyvää puhelinta menemään.",
+   "create_time": 1789655396,
+   "author": {
+    "uid": "6924756445432415238",
+    "short_id": "0",
+    "nickname": "Digikamu | Tech📱💻",
+    "signature": "Techtok\nTech, News, Reviews\ncreatorbd06af@example.fi",
+    "follow_status": 0,
+    "aweme_count": 552,
+    "following_count": 134,
+    "follower_count": 32565,
+    "favoriting_count": 240,
+    "total_favorited": 548510,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "digikamu",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790425665,
+    "ins_id": "",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 0,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "fi",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAU9qTssurhTksyMRthJlHKZFiRAcQEBwbhDQr6dl7yoCki824NHXWBrG-M-rTglrf",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@digikamu/video/7686511374117260566?_r=1&u_code=f1a0jfel138a59&preview_pb=0&sharer_language=en&_d=f1aajie84hla67&share_item_id=7686511374117260566&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7686511374117260566",
+    "comment_count": 3,
+    "digg_count": 179,
+    "download_count": 5,
+    "play_count": 5024,
+    "share_count": 16,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 2,
+    "collect_count": 54,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6924756445432415000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "FI",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "7686511374117260566",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "fi",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 2,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"20260926122745AB2D35228BFD07979982\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": [
+     7686511374117260000
+    ],
+    "GroupdIdList1": [
+     7686511374117260000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 105533,
+   "retry_type": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "Näillä helpoilla vinkeillä sun iPhonen akku kestää pidempään lyhyellä ja pitkällä aikavälillä 🔋 Latausraja 80 %:iin, optimoitu lataus päälle ja mukautuva virta käyttöön. Tarkista myös akun kunto, huonon akun takia ei kannata heittää hyvää puhelinta menemään."
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 1,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 1,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "20260926122745AB2D35228BFD07979982",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -2,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 1,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.501204452807426, \\\"1\\\": 4.501216739538598, \\\"0\\\": 4.501197110530382}\",\"PACK_VOD:audio_loudness_info_android\":\"{\\\"1\\\": 1.991524897417413e-05, \\\"2\\\": -0.00028989751485137497, \\\"-1\\\": -0.00011687399554255317}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": -0.00014642728417112375, \\\"-1\\\": -0.00017466865920719252}\",\"PACK_VOD:audio_loudness_info_ios\":\"{\\\"1\\\": 0.0003778119651611899, \\\"2\\\": 0.0006627468297919544, \\\"-1\\\": 8.552916873196022e-05}\",\"PACK_VOD:audio_meta\":\"{\\\"src\\\":{\\\"src\\\":{\\\"base_metrics\\\":{\\\"mp\\\":-5.41,\\\"be\\\":[37.7,4527.4],\\\"ocf\\\":[-14.8923,-8.8558,-5.1476,-7.7282,-4.7485,-15.9539,-26.2756,-36.6899,-48.1122,-58.6524],\\\"il\\\":-25.3,\\\"tacm\\\":[0.99],\\\"drr\\\":17.2,\\\"rcd\\\":[0]},\\\"ts\\\":[\\\"tag_03010309\\\",\\\"tag_01010226\\\",\\\"tag_00010202\\\",\\\"tag_01000202\\\",\\\"tag_03010300\\\"],\\\"trs\\\":[0.8,0.41,0.07,0.07,0.04]}},\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"be\\\":[37.7,4258.2],\\\"ocf\\\":[-14.5414,-9.0398,-5.1531,-7.6577,-4.7581,-15.783,-26.217,-37.1502,-49.3985,-59.9274],\\\"il\\\":-25.4,\\\"tacm\\\":[1],\\\"drr\\\":17.1,\\\"rcd\\\":[0],\\\"mp\\\":-5.79}}},\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"tacm\\\":[1],\\\"drr\\\":17.1,\\\"rcd\\\":[0],\\\"mp\\\":-5.52,\\\"be\\\":[37.7,4371.2],\\\"ocf\\\":[-14.8726,-9.0651,-5.1264,-7.6541,-4.7295,-15.9179,-26.4452,-36.9342,-48.926,-59.523],\\\"il\\\":-25.4}}},\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"mp\\\":-5.19,\\\"be\\\":[37.7,4408.9],\\\"ocf\\\":[-14.5609,-9.0349,-5.1235,-7.7192,-4.7464,-15.8765,-26.2426,-36.688,-48.8101,-58.9678],\\\"il\\\":-25.3,\\\"tacm\\\":[1],\\\"drr\\\":16.7,\\\"rcd\\\":[0]}}}}\",\"play_time_prob_dist\":\"[800,0.3994,7838.131]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2026-09-17T14:29:56.000Z",
+   "url": "https://www.tiktok.com/@digikamu/video/7686511374117260566",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7684297920753061142",
+   "desc": "Miten voi perustella 2 500e puhelimen itselleen😂 iPhone Duo on kyllä hieno!",
+   "create_time": 1789140040,
+   "author": {
+    "uid": "6924756445432415238",
+    "short_id": "0",
+    "nickname": "Digikamu | Tech📱💻",
+    "signature": "Techtok\nTech, News, Reviews\ncreatorbd06af@example.fi",
+    "follow_status": 0,
+    "aweme_count": 552,
+    "following_count": 134,
+    "follower_count": 32565,
+    "favoriting_count": 240,
+    "total_favorited": 548510,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "digikamu",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790425665,
+    "ins_id": "",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 0,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "fi",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAU9qTssurhTksyMRthJlHKZFiRAcQEBwbhDQr6dl7yoCki824NHXWBrG-M-rTglrf",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@digikamu/video/7684297920753061142?_r=1&u_code=f1a0jfel138a59&preview_pb=0&sharer_language=en&_d=f1aajie84hla67&share_item_id=7684297920753061142&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7684297920753061142",
+    "comment_count": 36,
+    "digg_count": 205,
+    "download_count": 0,
+    "play_count": 8723,
+    "share_count": 7,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 1,
+    "collect_count": 17,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6924756445432415000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "FI",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "7684297920753061142",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "fi",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 1,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"20260926122745AB2D35228BFD07979982\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": [
+     7684297920753061000
+    ],
+    "GroupdIdList1": [
+     7684297920753061000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 54433,
+   "retry_type": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "Miten voi perustella 2 500e puhelimen itselleen😂 iPhone Duo on kyllä hieno!"
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 1,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 1,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "20260926122745AB2D35228BFD07979982",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -2,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 1,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.501303419906142, \\\"1\\\": 4.501315706637314, \\\"0\\\": 4.501296077629098}\",\"PACK_VOD:audio_loudness_info_android\":\"{\\\"1\\\": -0.00018560661532643127, \\\"2\\\": -0.0003049123953248348, \\\"-1\\\": -7.404533058441515e-05}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": -8.723803636595862e-05, \\\"-1\\\": 0.000802032359926274}\",\"PACK_VOD:audio_loudness_info_ios\":\"{\\\"1\\\": 0.0003778119651611899, \\\"2\\\": 0.0006627468297919544, \\\"-1\\\": 8.552916873196022e-05}\",\"PACK_VOD:audio_meta\":\"{\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"drr\\\":13.2,\\\"rcd\\\":[0],\\\"mp\\\":-3.39,\\\"be\\\":[96.9,4010.6],\\\"ocf\\\":[-25.2107,-21.8844,-9.9761,-3.8943,-3.4281,-15.8735,-27.3025,-37.9942,-48.0275,-57.472],\\\"il\\\":-14.2,\\\"tacm\\\":[1]}}},\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"ocf\\\":[-25.223,-21.9105,-9.9583,-3.9025,-3.4218,-15.9111,-27.3808,-37.7951,-47.8465,-57.0499],\\\"il\\\":-14.2,\\\"tacm\\\":[1],\\\"drr\\\":13.2,\\\"rcd\\\":[0],\\\"mp\\\":-3.95,\\\"be\\\":[96.9,4075.2]}}},\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"tacm\\\":[1],\\\"drr\\\":13.2,\\\"rcd\\\":[0],\\\"mp\\\":-4.2,\\\"be\\\":[96.9,4145.1],\\\"ocf\\\":[-25.3111,-21.8828,-9.9905,-3.887,-3.4255,-15.9577,-27.4656,-37.7469,-47.821,-56.2979],\\\"il\\\":-14.2}}},\\\"src\\\":{\\\"src\\\":{\\\"trs\\\":[0.83,0.15,0.06,0.06,0.05],\\\"base_metrics\\\":{\\\"tacm\\\":[1],\\\"drr\\\":13.1,\\\"rcd\\\":[0],\\\"mp\\\":-4.26,\\\"be\\\":[91.5,4010.6],\\\"ocf\\\":[-24.2003,-21.2323,-10.0486,-3.924,-3.4079,-15.7824,-27.4404,-38.005,-47.8799,-56.6632],\\\"il\\\":-14.2},\\\"ts\\\":[\\\"tag_03010309\\\",\\\"tag_00010202\\\",\\\"tag_01010226\\\",\\\"tag_03010301\\\",\\\"tag_03010300\\\"]}}}\",\"play_time_prob_dist\":\"[800,0.5373,4873.1954]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2026-09-11T15:20:40.000Z",
+   "url": "https://www.tiktok.com/@digikamu/video/7684297920753061142",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7673891805838052630",
+   "desc": "Mainos/tuote saatu @Samsung Nordics Galaxy Z Fold8 + Galaxy Watch Ultra2 on kova kombo. Kello maksaa 749 € eli enemmän kuin moni puhelin, mutta vastineeksi saa titaanirungon, 1,52” Super AMOLED -näytön jopa 5 000 nitin kirkkaudella, 800 mAh akun ja jopa 80 tunnin käyttöajan. Sukelluskestävyys 40 metriin, terveysdata energia- ja unipisteineen, ladattavat sovellukset ja eSIM, jolla kello toimii myös ilman puhelinta.",
+   "create_time": 1786717178,
+   "author": {
+    "uid": "6924756445432415238",
+    "short_id": "0",
+    "nickname": "Digikamu | Tech📱💻",
+    "signature": "Techtok\nTech, News, Reviews\ncreatorbd06af@example.fi",
+    "follow_status": 0,
+    "aweme_count": 552,
+    "following_count": 134,
+    "follower_count": 32565,
+    "favoriting_count": 240,
+    "total_favorited": 548510,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "digikamu",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790425665,
+    "ins_id": "",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 0,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "fi",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAU9qTssurhTksyMRthJlHKZFiRAcQEBwbhDQr6dl7yoCki824NHXWBrG-M-rTglrf",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@digikamu/video/7673891805838052630?_r=1&u_code=f1a0jfel138a59&preview_pb=0&sharer_language=en&_d=f1aajie84hla67&share_item_id=7673891805838052630&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7673891805838052630",
+    "comment_count": 6,
+    "digg_count": 54,
+    "download_count": 0,
+    "play_count": 3624,
+    "share_count": 1,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 0,
+    "collect_count": 11,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6924756445432415000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "FI",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "7673891805838052630",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "fi",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 2,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"20260926122745AB2D35228BFD07979982\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "[\"Mainos/tuote saatu @Samsung Nordics Galaxy Z Fold8 + Galaxy Watch Ultra2 on kova kombo.\",\"\",\"Kello maksaa 749 € eli enemmän kuin moni puhelin, mutta vastineeksi saa titaanirungon, 1,52” Super AMOLED -näytön jopa 5 000 nitin kirkkaudella, 800 mAh akun ja jopa 80 tunnin käyttöajan. Sukelluskestävyys 40 metriin, terveysdata energia- ja unipisteineen, ladattavat sovellukset ja eSIM, jolla kello toimii myös ilman puhelinta.\"]",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": null,
+    "GroupdIdList1": [
+     7673891805838052000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 67400,
+   "retry_type": 0,
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "Mainos/tuote saatu <m id=\"7\">@Samsung Nordics</m> Galaxy Z Fold8 + Galaxy Watch Ultra2 on kova kombo.<br><br>Kello maksaa 749 € eli enemmän kuin moni puhelin, mutta vastineeksi saa titaanirungon, 1,52” Super AMOLED -näytön jopa 5 000 nitin kirkkaudella, 800 mAh akun ja jopa 80 tunnin käyttöajan. Sukelluskestävyys 40 metriin, terveysdata energia- ja unipisteineen, ladattavat sovellukset ja eSIM, jolla kello toimii myös ilman puhelinta."
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 1,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 1,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "20260926122745AB2D35228BFD07979982",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -1,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 1,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.501295523408411, \\\"1\\\": 4.501307810139583, \\\"0\\\": 4.5012881811313665}\",\"PACK_VOD:audio_loudness_info_android\":\"{\\\"1\\\": 0.0001152492050086301, \\\"2\\\": 4.232877338529431e-05, \\\"-1\\\": 0.00014190516221521078}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": -0.00011044504008420746, \\\"-1\\\": 9.495986242450129e-05}\",\"PACK_VOD:audio_loudness_info_ios\":\"{\\\"1\\\": 0.0003778119651611899, \\\"2\\\": 0.0006627468297919544, \\\"-1\\\": 8.552916873196022e-05}\",\"PACK_VOD:audio_meta\":\"{\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"tacm\\\":[0.92],\\\"rcd\\\":[0.1],\\\"be\\\":[26.9,6869.1],\\\"ocf\\\":[-8.0296,-10.6167,-6.1311,-7.4849,-5.0575,-17.3649,-25.2627,-36.3827,-44.0334,-57.9706],\\\"drr\\\":15.7,\\\"mp\\\":-8.48,\\\"do\\\":0.0004,\\\"il\\\":-27.3}}},\\\"src\\\":{\\\"src\\\":{\\\"base_metrics\\\":{\\\"do\\\":0.0004,\\\"rcd\\\":[0.2],\\\"drr\\\":14,\\\"mp\\\":-8.45,\\\"tacm\\\":[0.83],\\\"il\\\":-27.2,\\\"ocf\\\":[-8.2363,-11.0741,-6.14,-7.3675,-4.9081,-17.2317,-25.1558,-36.0207,-43.1827,-57.8239],\\\"be\\\":[26.9,7025.2]},\\\"ts\\\":[\\\"tag_03010309\\\",\\\"tag_01010226\\\",\\\"tag_01000202\\\",\\\"tag_02040205\\\",\\\"tag_03010308\\\"],\\\"trs\\\":[0.78,0.72,0.09,0.05,0.04]}},\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"tacm\\\":[0.92],\\\"drr\\\":15.1,\\\"rcd\\\":[0.1],\\\"be\\\":[26.9,6621.5],\\\"ocf\\\":[-7.6958,-11.0258,-6.1587,-7.4075,-5.159,-17.2371,-24.9422,-36.4922,-44.4434,-59.0575],\\\"do\\\":0.0004,\\\"mp\\\":-8.91,\\\"il\\\":-27.4}}},\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"tacm\\\":[0.92],\\\"rcd\\\":[0.1],\\\"do\\\":0.0004,\\\"mp\\\":-8.57,\\\"il\\\":-27.3,\\\"be\\\":[26.9,6691.4],\\\"drr\\\":15.7,\\\"ocf\\\":[-7.9663,-10.594,-6.1532,-7.5012,-5.0755,-17.2926,-25.0974,-36.2759,-44.2492,-58.375]}}},\\\"74ae78915d808e76104b38765219c117\\\":{\\\"Md5\\\":\\\"74ae78915d808e76104b38765219c117\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"mp\\\":-8.54,\\\"do\\\":0.0004,\\\"rcd\\\":[0.2],\\\"be\\\":[26.9,6879.9],\\\"il\\\":-27.3,\\\"drr\\\":15.6,\\\"tacm\\\":[0.83],\\\"ocf\\\":[-8.3131,-11.0271,-6.2631,-7.3179,-4.8272,-17.1309,-25.2024,-36.2299,-43.7619,-57.2439]}}}}\",\"play_time_prob_dist\":\"[800,0.4921,7213.355]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2026-08-14T14:19:38.000Z",
+   "url": "https://www.tiktok.com/@digikamu/video/7673891805838052630",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7672772973622807830",
+   "desc": "Vastaus käyttäjälle @Mursu902 mainos/tuote saatu @Samsung Nordics Samgung Galaxy Z FOLD8 on todella laadukas laite. Saranaa tai taittoa ei tarvii pelätä.",
+   "create_time": 1786456678,
+   "author": {
+    "uid": "6924756445432415238",
+    "short_id": "0",
+    "nickname": "Digikamu | Tech📱💻",
+    "signature": "Techtok\nTech, News, Reviews\ncreatorbd06af@example.fi",
+    "follow_status": 0,
+    "aweme_count": 552,
+    "following_count": 134,
+    "follower_count": 32565,
+    "favoriting_count": 240,
+    "total_favorited": 548510,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "digikamu",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790425665,
+    "ins_id": "",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 0,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "fi",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAU9qTssurhTksyMRthJlHKZFiRAcQEBwbhDQr6dl7yoCki824NHXWBrG-M-rTglrf",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@digikamu/video/7672772973622807830?_r=1&u_code=f1a0jfel138a59&preview_pb=0&sharer_language=en&_d=f1aajie84hla67&share_item_id=7672772973622807830&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7672772973622807830",
+    "comment_count": 69,
+    "digg_count": 630,
+    "download_count": 0,
+    "play_count": 39007,
+    "share_count": 16,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 2,
+    "collect_count": 28,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6924756445432415000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "FI",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "7672772973622807830",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "fi",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 2,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"20260926122745AB2D35228BFD07979982\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "video_reply_info": {
+    "aweme_id": 7671991394038337000,
+    "comment_id": 7672005137217471000,
+    "alias_comment_id": 7672661536044910000,
+    "user_name": "antsa901",
+    "comment_msg": "Taitto kohta näyttääki hyvältä 1-2 viikon jälkee😂",
+    "comment_user_id": 6881677366688581000,
+    "collect_stat": 0
+   },
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": null,
+    "GroupdIdList1": [
+     7672772973622808000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 105713,
+   "retry_type": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "<rc>Vastaus käyttäjälle <m id=\"6\">@Mursu902</m></rc> mainos/tuote saatu <m id=\"243\">@Samsung Nordics</m> Samgung Galaxy Z FOLD8 on todella laadukas laite. Saranaa tai taittoa ei tarvii pelätä."
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 2,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 2,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "20260926122745AB2D35228BFD07979982",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -1,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 1,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.501319038208972, \\\"1\\\": 4.501331324940144, \\\"0\\\": 4.5013116959319275}\",\"PACK_VOD:audio_loudness_info_android\":\"{\\\"1\\\": 0.0001152492050086301, \\\"2\\\": 4.232877338529431e-05, \\\"-1\\\": 0.00014190516221521078}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": -0.00011044504008420746, \\\"-1\\\": 9.495986242450129e-05}\",\"PACK_VOD:audio_loudness_info_ios\":\"{\\\"1\\\": 0.0003778119651611899, \\\"2\\\": 0.0006627468297919544, \\\"-1\\\": 8.552916873196022e-05}\",\"PACK_VOD:audio_meta\":\"{\\\"74ae78915d808e76104b38765219c117\\\":{\\\"Md5\\\":\\\"74ae78915d808e76104b38765219c117\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"drr\\\":17.5,\\\"rcd\\\":[0],\\\"mp\\\":-8.64,\\\"be\\\":[80.7,4193.6],\\\"ocf\\\":[-23.9884,-18.7694,-7.0816,-6.4003,-2.8313,-14.7798,-24.7911,-36.8771,-47.1225,-57.0426],\\\"il\\\":-27.9,\\\"tacm\\\":[1]}}},\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"rcd\\\":[0],\\\"mp\\\":-9.67,\\\"be\\\":[80.7,4085.9],\\\"ocf\\\":[-23.534,-18.4698,-6.8919,-6.3373,-2.9308,-14.9995,-24.8265,-37.1598,-47.4408,-56.7712],\\\"il\\\":-27.8,\\\"tacm\\\":[1],\\\"drr\\\":17.6}}},\\\"src\\\":{\\\"src\\\":{\\\"ts\\\":[\\\"tag_03010309\\\",\\\"tag_03010300\\\",\\\"tag_02040205\\\",\\\"tag_00010202\\\",\\\"tag_03010304\\\"],\\\"trs\\\":[0.75,0.09,0.09,0.08,0.06],\\\"base_metrics\\\":{\\\"rcd\\\":[0],\\\"mp\\\":-8.99,\\\"be\\\":[80.7,4032.1],\\\"ocf\\\":[-23.4641,-18.4018,-6.9395,-6.325,-2.9139,-15.0901,-24.8875,-37.2514,-47.3445,-58.4625],\\\"il\\\":-27.8,\\\"tacm\\\":[1],\\\"drr\\\":17.4}}},\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"normal\\\":{\\\"base_metrics\\\":{\\\"drr\\\":17.5,\\\"rcd\\\":[0],\\\"mp\\\":-9.69,\\\"be\\\":[80.7,3929.8],\\\"ocf\\\":[-22.9802,-18.3932,-6.8703,-6.3212,-2.9605,-14.9148,-24.6633,-37.4067,-47.8376,-57.8858],\\\"il\\\":-27.9,\\\"tacm\\\":[1]}},\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\"},\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"normal\\\":{\\\"base_metrics\\\":{\\\"mp\\\":-8.48,\\\"be\\\":[80.7,3983.6],\\\"ocf\\\":[-23.6685,-18.64,-6.9405,-6.4311,-2.8637,-14.992,-24.893,-37.221,-47.6883,-57.6658],\\\"il\\\":-27.8,\\\"tacm\\\":[1],\\\"drr\\\":17.4,\\\"rcd\\\":[0]}},\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\"}}\",\"play_time_prob_dist\":\"[800,0.3994,7838.131]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2026-08-11T13:57:58.000Z",
+   "url": "https://www.tiktok.com/@digikamu/video/7672772973622807830",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7671991394038336790",
+   "desc": "Mainos/tuote saatu @Samsung Galaxy Z Fold 8 ensivaikutelmat",
+   "create_time": 1786274704,
+   "author": {
+    "uid": "6924756445432415238",
+    "short_id": "0",
+    "nickname": "Digikamu | Tech📱💻",
+    "signature": "Techtok\nTech, News, Reviews\ncreatorbd06af@example.fi",
+    "follow_status": 0,
+    "aweme_count": 552,
+    "following_count": 134,
+    "follower_count": 32565,
+    "favoriting_count": 240,
+    "total_favorited": 548510,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "digikamu",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790425665,
+    "ins_id": "",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 0,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "fi",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAU9qTssurhTksyMRthJlHKZFiRAcQEBwbhDQr6dl7yoCki824NHXWBrG-M-rTglrf",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@digikamu/video/7671991394038336790?_r=1&u_code=f1a0jfel138a59&preview_pb=0&sharer_language=en&_d=f1aajie84hla67&share_item_id=7671991394038336790&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7671991394038336790",
+    "comment_count": 17,
+    "digg_count": 134,
+    "download_count": 0,
+    "play_count": 9856,
+    "share_count": 8,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 1,
+    "collect_count": 11,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6924756445432415000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "FI",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "7671991394038336790",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "fi",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 2,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"20260926122745AB2D35228BFD07979982\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": null,
+    "GroupdIdList1": [
+     7671991394038337000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 68800,
+   "retry_type": 0,
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "Mainos/tuote saatu <m id=\"1\">@Samsung</m> Galaxy Z Fold 8 ensivaikutelmat"
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 1,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 1,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "20260926122745AB2D35228BFD07979982",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -1,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 1,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.501280725104776, \\\"1\\\": 4.501293011835948, \\\"0\\\": 4.501273382827732}\",\"PACK_VOD:audio_loudness_info_android\":\"{\\\"1\\\": 9.83316390092995e-05, \\\"2\\\": -0.00016313613216237572, \\\"-1\\\": 3.037530111189386e-05}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": -0.001261105956459217, \\\"-1\\\": -0.001720368957216995}\",\"PACK_VOD:audio_loudness_info_ios\":\"{\\\"1\\\": 0.0003778119651611899, \\\"2\\\": 0.0006627468297919544, \\\"-1\\\": 8.552916873196022e-05}\",\"PACK_VOD:audio_meta\":\"{\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"normal\\\":{\\\"base_metrics\\\":{\\\"il\\\":-27.7,\\\"tacm\\\":[1],\\\"drr\\\":17.3,\\\"rcd\\\":[0],\\\"mp\\\":-6.89,\\\"be\\\":[59.2,6266.2],\\\"ocf\\\":[-22.0706,-12.3208,-6.1698,-7.0491,-3.3337,-15.7844,-22.5992,-35.1845,-44.0017,-57.1965]}},\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\"},\\\"src\\\":{\\\"src\\\":{\\\"base_metrics\\\":{\\\"mp\\\":-6.82,\\\"be\\\":[59.2,6433],\\\"ocf\\\":[-22.4179,-12.3728,-6.0828,-6.8727,-3.445,-15.8148,-22.598,-34.937,-43.2347,-57.7264],\\\"il\\\":-27.7,\\\"tacm\\\":[1],\\\"drr\\\":17.9,\\\"rcd\\\":[0]},\\\"ts\\\":[\\\"tag_03010309\\\",\\\"tag_01010226\\\",\\\"tag_01000202\\\",\\\"tag_00010202\\\",\\\"tag_03010300\\\"],\\\"trs\\\":[0.81,0.47,0.08,0.06,0.04]}},\\\"74ae78915d808e76104b38765219c117\\\":{\\\"Md5\\\":\\\"74ae78915d808e76104b38765219c117\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"drr\\\":16.9,\\\"rcd\\\":[0],\\\"mp\\\":-6.91,\\\"be\\\":[59.2,6373.8],\\\"ocf\\\":[-22.0027,-12.3625,-6.2666,-6.9728,-3.3173,-15.7348,-22.443,-35.0071,-43.5776,-56.2035],\\\"il\\\":-27.8,\\\"tacm\\\":[1]}}},\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"drr\\\":17.2,\\\"rcd\\\":[0],\\\"mp\\\":-6.97,\\\"be\\\":[59.2,6120.8],\\\"ocf\\\":[-21.7649,-12.2827,-6.1698,-7.0566,-3.346,-15.7013,-22.478,-35.046,-44.2116,-57.8252],\\\"il\\\":-27.7,\\\"tacm\\\":[1]}}},\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"il\\\":-27.8,\\\"tacm\\\":[1],\\\"drr\\\":17.9,\\\"rcd\\\":[0],\\\"mp\\\":-7.74,\\\"be\\\":[59.2,5927],\\\"ocf\\\":[-21.8371,-12.35,-6.1661,-6.9127,-3.4124,-15.5405,-22.3354,-35.0992,-44.2574,-57.7332]}}}}\",\"play_time_prob_dist\":\"[800,0.4703,6616.7243]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2026-08-09T11:25:04.000Z",
+   "url": "https://www.tiktok.com/@digikamu/video/7671991394038336790",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7670924048330722582",
+   "desc": "Pakko päästä pelaa!! ",
+   "create_time": 1786026188,
+   "author": {
+    "uid": "6924756445432415238",
+    "short_id": "0",
+    "nickname": "Digikamu | Tech📱💻",
+    "signature": "Techtok\nTech, News, Reviews\ncreatorbd06af@example.fi",
+    "follow_status": 0,
+    "aweme_count": 552,
+    "following_count": 134,
+    "follower_count": 32565,
+    "favoriting_count": 240,
+    "total_favorited": 548510,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "digikamu",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790425665,
+    "ins_id": "",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 0,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "fi",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAU9qTssurhTksyMRthJlHKZFiRAcQEBwbhDQr6dl7yoCki824NHXWBrG-M-rTglrf",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@digikamu/video/7670924048330722582?_r=1&u_code=f1a0jfel138a59&preview_pb=0&sharer_language=en&_d=f1aajie84hla67&share_item_id=7670924048330722582&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7670924048330722582",
+    "comment_count": 76,
+    "digg_count": 1029,
+    "download_count": 30,
+    "play_count": 31207,
+    "share_count": 424,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 22,
+    "collect_count": 95,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6924756445432415000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "FI",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "stickers": "308867",
+   "group_id": "7670924048330722582",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "sticker_detail": {
+    "id": "308867",
+    "name": "Green Screen",
+    "children": null,
+    "owner_id": "",
+    "tags": null,
+    "sec_uid": "",
+    "linked_anchors": null,
+    "attributions": null
+   },
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "fi",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 1,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "has_vs_entry": false,
+   "commerce_info": {
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"20260926122745AB2D35228BFD07979982\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "allow_gift": true,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": null,
+    "GroupdIdList1": [
+     7670924048330722000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 29144,
+   "retry_type": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": true,
+   "text_sticker_major_lang": "fi",
+   "original_client_text": {
+    "markup_text": "Pakko päästä pelaa!! "
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 2,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 2,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "20260926122745AB2D35228BFD07979982",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -2,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 1,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.501253360120389, \\\"1\\\": 4.501265646851561, \\\"0\\\": 4.501229212027649}\",\"PACK_VOD:audio_loudness_info_android\":\"{\\\"1\\\": -9.063730759718987e-05, \\\"2\\\": -0.000417395183082448, \\\"-1\\\": -0.0001916198898563708}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": -8.723803636595862e-05, \\\"-1\\\": 0.000802032359926274}\",\"PACK_VOD:audio_loudness_info_ios\":\"{\\\"1\\\": 0.0003778119651611899, \\\"2\\\": 0.0006627468297919544, \\\"-1\\\": 8.552916873196022e-05}\",\"PACK_VOD:audio_meta\":\"{\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"drr\\\":15.7,\\\"rcd\\\":[0],\\\"mp\\\":-12.03,\\\"be\\\":[64.6,8085.7],\\\"ocf\\\":[-21.5052,-17.2253,-4.502,-5.3525,-5.257,-17.111,-20.7186,-27.7372,-39.9912,-55.1877],\\\"il\\\":-28.6,\\\"tacm\\\":[1]}}},\\\"src\\\":{\\\"src\\\":{\\\"base_metrics\\\":{\\\"be\\\":[64.6,8462.5],\\\"ocf\\\":[-21.1082,-17.4556,-4.4977,-5.5371,-5.0923,-17.0916,-20.5932,-27.2862,-38.8501,-55.2268],\\\"il\\\":-28.5,\\\"tacm\\\":[1],\\\"drr\\\":16.4,\\\"rcd\\\":[0],\\\"mp\\\":-12.04},\\\"ts\\\":[\\\"tag_03010309\\\",\\\"tag_00010202\\\",\\\"tag_03010300\\\",\\\"tag_01010226\\\",\\\"tag_03010308\\\"],\\\"trs\\\":[0.76,0.09,0.08,0.07,0.06]}},\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"il\\\":-28.6,\\\"tacm\\\":[1],\\\"drr\\\":15.7,\\\"rcd\\\":[0],\\\"mp\\\":-12.27,\\\"be\\\":[64.6,8171.9],\\\"ocf\\\":[-21.567,-17.1468,-4.5323,-5.3487,-5.2166,-17.2363,-20.8619,-27.7553,-39.6937,-54.5292]}}},\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"ocf\\\":[-21.142,-17.1546,-4.5262,-5.3586,-5.2396,-17.0204,-20.7155,-28.1539,-40.5338,-55.9476],\\\"il\\\":-28.6,\\\"tacm\\\":[1],\\\"drr\\\":15.7,\\\"rcd\\\":[0],\\\"mp\\\":-12.61,\\\"be\\\":[64.6,7918.8]}}}}\",\"play_time_prob_dist\":\"[800,0.6866,3819.8652]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": false,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2026-08-06T14:23:08.000Z",
+   "url": "https://www.tiktok.com/@digikamu/video/7670924048330722582",
+   "shop_product_url": null
+  },
+  {
+   "aweme_id": "7670606285980568854",
+   "desc": "Mainos/tuotteet saatu @amarancreators  Verge Max tulee palvelemaan mua jokaisena päivänä. Vanhat valot ei vedä tälle vertoja lähellekään. Vapaa liikuteltavuus on iso plussa kun tarviin valaistusta välillä vähän eri suunnista. T4C putkivalo tulee olemaan seuraavien bileiden päätähti. Kiitos Amaran❤️",
+   "create_time": 1785952203,
+   "author": {
+    "uid": "6924756445432415238",
+    "short_id": "0",
+    "nickname": "Digikamu | Tech📱💻",
+    "signature": "Techtok\nTech, News, Reviews\ncreatorbd06af@example.fi",
+    "follow_status": 0,
+    "aweme_count": 552,
+    "following_count": 134,
+    "follower_count": 32565,
+    "favoriting_count": 240,
+    "total_favorited": 548510,
+    "is_block": false,
+    "hide_search": false,
+    "custom_verify": "",
+    "unique_id": "digikamu",
+    "bind_phone": "",
+    "special_lock": 1,
+    "need_recommend": 0,
+    "has_facebook_token": false,
+    "has_twitter_token": false,
+    "fb_expire_time": 0,
+    "tw_expire_time": 0,
+    "has_youtube_token": false,
+    "youtube_expire_time": 0,
+    "room_id": 0,
+    "live_verify": 0,
+    "authority_status": 0,
+    "verify_info": "",
+    "shield_follow_notice": 0,
+    "shield_digg_notice": 0,
+    "with_commerce_entry": false,
+    "verification_type": 1,
+    "original_musician": {
+     "music_count": 0,
+     "music_used_count": 0,
+     "digg_count": 0,
+     "new_release_clip_ids": null
+    },
+    "enterprise_verify_reason": "",
+    "is_ad_fake": false,
+    "account_region": "",
+    "commerce_user_level": 0,
+    "live_agreement": 0,
+    "with_shop_entry": false,
+    "is_discipline_member": false,
+    "secret": 0,
+    "has_orders": false,
+    "prevent_download": false,
+    "show_image_bubble": false,
+    "geofencing": null,
+    "unique_id_modify_time": 1790425665,
+    "ins_id": "",
+    "google_account": "",
+    "youtube_channel_id": "",
+    "youtube_channel_title": "",
+    "apple_account": 0,
+    "is_phone_binded": false,
+    "accept_private_policy": false,
+    "twitter_id": "",
+    "twitter_name": "",
+    "user_canceled": false,
+    "has_email": false,
+    "create_time": 0,
+    "follower_status": 0,
+    "comment_setting": 0,
+    "duet_setting": 0,
+    "user_rate": 1,
+    "download_setting": 0,
+    "download_prompt_ts": 0,
+    "react_setting": 0,
+    "live_commerce": false,
+    "language": "fi",
+    "has_insights": false,
+    "user_mode": 1,
+    "user_period": 0,
+    "is_star": false,
+    "cv_level": "",
+    "comment_filter_status": 0,
+    "sec_uid": "MS4wLjABAAAAU9qTssurhTksyMRthJlHKZFiRAcQEBwbhDQr6dl7yoCki824NHXWBrG-M-rTglrf",
+    "need_points": null,
+    "can_set_geofencing": null,
+    "stitch_setting": 0,
+    "bold_fields": null,
+    "advance_feature_item_order": null,
+    "mention_status": 1,
+    "special_account": {
+     "special_account_list": null,
+     "tt_now": {
+      "tt_now_log_status": 2
+     }
+    },
+    "friends_status": 0,
+    "is_mute": 0,
+    "reply_with_video_flag": 4,
+    "is_mute_non_story_post": 0,
+    "is_mute_story": 0,
+    "is_mute_lives": 0,
+    "enabled_filter_all_comments": false
+   },
+   "share_url": "https://www.tiktok.com/@digikamu/video/7670606285980568854?_r=1&u_code=f1a0jfel138a59&preview_pb=0&sharer_language=en&_d=f1aajie84hla67&share_item_id=7670606285980568854&source=h5_m",
+   "user_digged": 0,
+   "statistics": {
+    "aweme_id": "7670606285980568854",
+    "comment_count": 8,
+    "digg_count": 192,
+    "download_count": 0,
+    "play_count": 83379,
+    "share_count": 1,
+    "forward_count": 0,
+    "lose_count": 0,
+    "lose_comment_count": 0,
+    "whatsapp_share_count": 0,
+    "collect_count": 15,
+    "repost_count": 0
+   },
+   "rate": 12,
+   "is_top": 0,
+   "distance": "",
+   "is_vr": false,
+   "is_ads": false,
+   "aweme_type": 0,
+   "cmt_swt": false,
+   "image_infos": null,
+   "is_relieve": false,
+   "sort_label": "",
+   "position": null,
+   "uniqid_position": null,
+   "author_user_id": 6924756445432415000,
+   "bodydance_score": 0,
+   "geofencing": null,
+   "is_hash_tag": 1,
+   "is_pgcshow": false,
+   "region": "FI",
+   "video_text": [],
+   "collect_stat": 0,
+   "label_top_text": null,
+   "group_id": "7670606285980568854",
+   "prevent_download": false,
+   "nickname_position": null,
+   "challenge_position": null,
+   "item_comment_settings": 0,
+   "with_promotional_music": false,
+   "long_video": null,
+   "item_duet": 0,
+   "item_react": 0,
+   "without_watermark": false,
+   "desc_language": "fi",
+   "misc_info": "{}",
+   "origin_comment_ids": null,
+   "distribute_type": 2,
+   "video_control": {
+    "allow_download": false,
+    "share_type": 0,
+    "show_progress_bar": 1,
+    "draft_progress_bar": 1,
+    "allow_duet": true,
+    "allow_react": true,
+    "prevent_download_type": 2,
+    "allow_dynamic_wallpaper": true,
+    "timer_status": 1,
+    "allow_music": true,
+    "allow_stitch": true
+   },
+   "ad_aweme_source": 1,
+   "has_vs_entry": false,
+   "commerce_info": {
+    "ad_source": 1,
+    "auction_ad_invited": false,
+    "with_comment_filter_words": false,
+    "adv_promotable": false,
+    "branded_content_type": 0,
+    "organic_log_extra": "{\"req_id\":\"20260926122745AB2D35228BFD07979982\"}",
+    "is_diversion_ad": 0
+   },
+   "need_vs_entry": false,
+   "is_preview": 0,
+   "hybrid_label": null,
+   "geofencing_regions": null,
+   "have_dashboard": false,
+   "has_promote_entry": 1,
+   "promote_toast": "",
+   "item_stitch": 0,
+   "promote_toast_key": "",
+   "playlist_blocked": false,
+   "need_trim_step": false,
+   "interact_permission": {
+    "duet": 0,
+    "stitch": 0,
+    "duet_privacy_setting": 0,
+    "stitch_privacy_setting": 0,
+    "upvote": 0,
+    "allow_adding_to_story": 0,
+    "allow_create_sticker": {},
+    "allow_story_switch_to_post": {},
+    "allow_adding_as_post": {}
+   },
+   "question_list": null,
+   "content_desc": "",
+   "products_info": null,
+   "follow_up_publish_from_id": -1,
+   "disable_search_trending_bar": false,
+   "group_id_list": {
+    "GroupdIdList0": null,
+    "GroupdIdList1": [
+     7670606285980569000
+    ]
+   },
+   "music_begin_time_in_ms": 0,
+   "music_end_time_in_ms": 143000,
+   "retry_type": 0,
+   "upvote_preload": {
+    "need_pull_upvote_info": false
+   },
+   "is_paid_content": false,
+   "paid_content_info": {
+    "paid_collection_id": 0,
+    "is_paid_collection_intro": false,
+    "category": 0,
+    "episode_num": 0,
+    "should_show_series_purchase_label": false
+   },
+   "branded_content_accounts": null,
+   "is_description_translatable": true,
+   "poi_re_tag_signal": 0,
+   "no_selected_music": false,
+   "is_text_sticker_translatable": false,
+   "text_sticker_major_lang": "un",
+   "original_client_text": {
+    "markup_text": "Mainos/tuotteet saatu <m id=\"175\">@amarancreators</m>  Verge Max tulee palvelemaan mua jokaisena päivänä. Vanhat valot ei vedä tälle vertoja lähellekään. Vapaa liikuteltavuus on iso plussa kun tarviin valaistusta välillä vähän eri suunnista. T4C putkivalo tulee olemaan seuraavien bileiden päätähti. Kiitos Amaran❤️"
+   },
+   "music_selected_from": "original",
+   "tts_voice_ids": null,
+   "reference_tts_voice_ids": null,
+   "voice_filter_ids": null,
+   "reference_voice_filter_ids": null,
+   "music_title_style": 1,
+   "animated_image_info": {
+    "type": 0,
+    "effect": 0
+   },
+   "is_on_this_day": 0,
+   "origin_volume": "50.000000",
+   "music_volume": "0.000000",
+   "support_danmaku": false,
+   "has_danmaku": false,
+   "muf_comment_info_v2": null,
+   "behind_the_song_music_ids": null,
+   "behind_the_song_video_music_ids": null,
+   "ttec_suggest_words": {
+    "ttec_suggest_words": null
+   },
+   "content_original_type": 1,
+   "shoot_tab_name": "video_600",
+   "content_type": "video",
+   "content_size_type": 1,
+   "is_nff_or_nr": false,
+   "operator_boost_info": null,
+   "picked_users": [],
+   "standard_component_info": {
+    "button": {
+     "buttons": [
+      {
+       "key": {
+        "component_key": "bottom_button_quick_external_share"
+       },
+       "signal": {
+        "code": -1,
+        "auto_display": true,
+        "releasable": true
+       },
+       "ui": {
+        "ui_type": 2,
+        "template": {
+         "type": 1,
+         "fields": "{\"buttons\":{\"button1\":{\"text\":\"quick_external_share\",\"variant\":\"secondary\",\"action_key\":\"click_button1\"}}}",
+         "actions": [
+          {
+           "key": "exposure_action"
+          },
+          {
+           "key": "click_button1"
+          }
+         ]
+        }
+       }
+      }
+     ],
+     "enable_standard_button": true
+    }
+   },
+   "is_title_translatable": false,
+   "title_language": "un",
+   "upvote_info": {
+    "user_upvoted": false,
+    "friends_recall_info": "{}",
+    "repost_initiate_score": 0
+   },
+   "promote_capcut_toggle": 0,
+   "comment_topbar_info": null,
+   "content_model": {
+    "standard_biz": {
+     "tts_voice_info": {
+      "tts_voice_attr": "[]",
+      "tts_voice_reuse_params": ""
+     },
+     "vc_filter_info": {
+      "vc_filter_attr": "[]"
+     },
+     "creator_analytics": {
+      "creator_analytics_entrance_status": 1
+     },
+     "e_commerce": {
+      "ttec_content_tag": {
+       "recommendation_tag_consumer_str": "",
+       "recommendation_tag_creator_str": ""
+      }
+     },
+     "local_alliance_info": {
+      "alliance_item_label_type": 0,
+      "alliance_item_label_text": ""
+     },
+     "ai_comment_photo": {
+      "enable_comment": true
+     },
+     "penalty_context": {
+      "arb_content_safety_status": 102,
+      "ec_global_verdict": 1,
+      "reviewed": 0,
+      "tns_status": 102,
+      "video_status": 10,
+      "display_penalty_type": 0,
+      "display_policy": 0,
+      "display_ui_type": 0,
+      "aweme_type": 0,
+      "is_visitor_owner": false,
+      "conclu_refine_reason": 0
+     }
+    },
+    "custom_biz": {
+     "aweme_trace": "20260926122745AB2D35228BFD07979982",
+     "high_quality_boost_info": {
+      "description": "",
+      "link": "",
+      "is_high_quality_post": false
+     },
+     "high_quality_boost_info_v2": {}
+    }
+   },
+   "ttt_product_recall_type": -1,
+   "promote_icon_text": "Promote",
+   "used_full_song": false,
+   "content_level": 1,
+   "promote": {
+    "is_show_video_view": false,
+    "video_view_schema": "",
+    "video_view_count": 0,
+    "promote_traffic_tag": {
+     "traffic_level": 0,
+     "need_track": false,
+     "version": "2025v1"
+    }
+   },
+   "quick_reply_emojis": [
+    "😍",
+    "😂",
+    "😳"
+   ],
+   "visual_search_info": {
+    "vtag_enable": false,
+    "long_press_entrance_enable": false,
+    "fallback_vtag_enable": false,
+    "visual_search_intent_level": 0,
+    "screenshot_entrance_enable": 0,
+    "vtag_enable_type": 0,
+    "fallback_vtag_enable_type": 0,
+    "long_press_entrance_enable_type": 0,
+    "enable_pre_upload_image_type": 0
+   },
+   "social_interaction_blob": {
+    "auxiliary_model_content": "ChIKBPCfmI0KBPCfmIIKBPCfmLMaBAoAEgA="
+   },
+   "solaria_profile": {
+    "profile": "{\"PACK_VOD:audio_effect_info_android_v2\":\"{\\\"29\\\": 6.331191468821465e-06, \\\"30\\\": 0.000340618898208104, \\\"32\\\": 0.0003375605195547458, \\\"34\\\": 0.00024289386523699663}\",\"PACK_VOD:audio_effect_info_ios\":\"{\\\"5\\\": 4.501174599424496, \\\"1\\\": 4.501186886155668, \\\"0\\\": 4.501150451331756}\",\"PACK_VOD:audio_effect_info_ios_v2\":\"{\\\"35\\\": 0.0013127621311031937, \\\"36\\\": -0.00017036203935608905}\",\"PACK_VOD:audio_loudness_info_android_v2\":\"{\\\"1\\\": 0.0003071491315790693, \\\"-1\\\": 0.00034759477032889096}\",\"PACK_VOD:audio_meta\":\"{\\\"74ae78915d808e76104b38765219c117\\\":{\\\"normal\\\":{\\\"base_metrics\\\":{\\\"tacm\\\":[0.97],\\\"drr\\\":13.4,\\\"rcd\\\":[0],\\\"mp\\\":-7.08,\\\"be\\\":[37.7,6368.4],\\\"ocf\\\":[-15.7625,-10.8214,-4.6569,-6.9114,-4.9756,-16.308,-25.3143,-33.3722,-44.4171,-56.7611],\\\"il\\\":-20.5}},\\\"Md5\\\":\\\"74ae78915d808e76104b38765219c117\\\"},\\\"42277fe873a4e5808eb831b25d875e55\\\":{\\\"Md5\\\":\\\"42277fe873a4e5808eb831b25d875e55\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"drr\\\":13.2,\\\"rcd\\\":[0],\\\"mp\\\":-6.21,\\\"be\\\":[37.7,5555.6],\\\"ocf\\\":[-15.9233,-10.8015,-4.5725,-7.0032,-4.9997,-16.34,-25.1519,-33.8572,-45.9286,-58.6397],\\\"il\\\":-20.5,\\\"tacm\\\":[0.98]}}},\\\"adf0f3bd660940a6fcf991f213b06208\\\":{\\\"Md5\\\":\\\"adf0f3bd660940a6fcf991f213b06208\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"rcd\\\":[0],\\\"mp\\\":-6.84,\\\"be\\\":[37.7,5819.3],\\\"ocf\\\":[-15.8888,-10.8202,-4.5576,-7.0028,-5.009,-16.4084,-25.2586,-33.3627,-45.6546,-57.87],\\\"il\\\":-20.5,\\\"tacm\\\":[0.98],\\\"drr\\\":13.4}}},\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\":{\\\"Md5\\\":\\\"b3d19016e6465dcc7b2eb5cf1c934214\\\",\\\"normal\\\":{\\\"base_metrics\\\":{\\\"tacm\\\":[0.98],\\\"drr\\\":12.5,\\\"rcd\\\":[0],\\\"mp\\\":-7.12,\\\"be\\\":[37.7,5953.9],\\\"ocf\\\":[-15.7248,-10.9465,-4.6474,-6.9353,-4.9279,-16.4821,-25.4542,-33.5895,-45.372,-57.3323],\\\"il\\\":-20.5}}},\\\"src\\\":{\\\"src\\\":{\\\"ts\\\":[\\\"tag_03010309\\\",\\\"tag_01010226\\\",\\\"tag_01000202\\\",\\\"tag_00010202\\\",\\\"tag_01000407\\\"],\\\"trs\\\":[0.83,0.61,0.09,0.05,0.04],\\\"base_metrics\\\":{\\\"ocf\\\":[-16.1976,-10.9422,-4.5894,-6.927,-4.9635,-16.4485,-25.3197,-33.2473,-43.9925,-56.9946],\\\"il\\\":-20.4,\\\"tacm\\\":[0.97],\\\"drr\\\":12.9,\\\"rcd\\\":[0],\\\"mp\\\":-7.04,\\\"be\\\":[37.7,6492.3]}}}}\",\"play_time_prob_dist\":\"[800,0.3624,8935.9452]\"}"
+   },
+   "meme_reg_info": {},
+   "smart_search_info": {
+    "find_similar_intent_type": 0,
+    "ask_tako_intent_type": 0,
+    "related_videos_intent_type": 0,
+    "title_smart_search_panel_type": 0,
+    "ai_overview_intent_type": 0
+   },
+   "survey_info": null,
+   "ecosystem_perception_enhancement": null,
+   "creator_ai_comment": {
+    "has_ai_topic": false,
+    "eligible_video": false,
+    "not_eligible_reason": 213
+   },
+   "tako_bubble_info": {
+    "tako_bubble_enable": false
+   },
+   "right_products": null,
+   "comment_at_tako_info": {
+    "show_tako_account": 0
+   },
+   "item_allow_ai_remix": 2,
+   "story_remix_info": {
+    "is_support_remix": false
+   },
+   "is_close_friends_only": false,
+   "is_ad": true,
+   "is_eligible_for_commission": false,
+   "is_paid_partnership": false,
+   "create_time_utc": "2026-08-05T17:50:03.000Z",
+   "url": "https://www.tiktok.com/@digikamu/video/7670606285980568854",
+   "shop_product_url": null
+  }
+ ]
+}
