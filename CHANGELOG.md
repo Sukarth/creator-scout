@@ -41,8 +41,20 @@ All notable changes to this project are documented here. The format follows
   Shorts hashtags per market.
 - YouTube channels are labelled Shorts-first, long-form or mixed from their
   upload counts; Shorts and long-video views are reported separately.
+- Web app (FastAPI, `web/`): saved runs served from a masked snapshot
+  (`scripts/build_snapshot.py`), live runs behind an access code with
+  streamed progress and a funnel, capped in credits and time, and XLSX
+  downloads in the full and the client layout. Deployable to Vercel.
+- Claude Code skill (`skill/creator-scout/`) with the judging rubric, brand
+  brief and outreach style as references.
+- Accounts whose region is unknown are queued for the markets whose signals
+  they match, and are reported as a separate source in the yield table.
+- `scout recall --run` limits the report to one run and ignores later runs.
 
 ### Changed
+- The free LLM chain judges batches in parallel across all configured models,
+  booking capacity per model and waiting out daily limits instead of failing.
+  Judging is chunked so one failed batch no longer loses the others.
 - Harvest budget follows yield: each source group gets exploration pages,
   then the next page goes to the group with the most accepted creators,
   pre-judge "yes" and new in-market accounts per credit. Sources paginate
