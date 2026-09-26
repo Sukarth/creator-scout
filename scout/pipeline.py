@@ -942,9 +942,10 @@ class Pipeline(YouTubeStage):
         reopened = 0
         for status in (ACCEPTED, MAYBE, REJECTED):
             for s in self.store.screenings(code, status, run_id=self.run_id):
-                self.store.conn.execute(
-                    "DELETE FROM decisions WHERE market = ? AND platform = ? AND uid = ?",
-                    (code, s["platform"], s["uid"]))
+                for table in ("decisions", "pitches"):  # a pitch follows the decision it was written for
+                    self.store.conn.execute(
+                        f"DELETE FROM {table} WHERE market = ? AND platform = ? AND uid = ?",
+                        (code, s["platform"], s["uid"]))
                 self.store.set_screening(code, s["platform"], s["uid"], QUALIFIED,
                                          run_id=self.run_id)
                 self.funnel[status] = max(self.funnel.get(status, 0) - 1, 0)
