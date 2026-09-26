@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import math
 import sys
 from pathlib import Path
 from typing import Optional
@@ -84,6 +85,8 @@ def _pipeline_for(store: Store, run: dict, progress=None, offline: bool = False)
                         live_calls=run["api_calls"] or 0, cache_hits=run["cache_hits"] or 0)
     client = ScrapeCreators(store, None if offline else config.sc_key(), meter, offline=offline)
     client.run_id = run["id"]
+    if p.get("use_partner_seeds"):
+        settings.snowball_start_after = 0  # partner seeds are known-good: expand them at once
     judge, llm = _make_judge(store, p.get("judge", "none"))
     youtube = None
     if "youtube" in p.get("platforms", ["tiktok", "youtube"]):
@@ -135,6 +138,7 @@ def run(
     keywords: Optional[str] = typer.Option(None, help="Comma-separated keywords (default: market plan)"),
     general_tags: bool = typer.Option(False, help="Also harvest general country tags (lifestyle-heavy)"),
     retailer_seeds: bool = typer.Option(False, help="Also snowball from retailer and shop accounts"),
+    partner_seeds: bool = typer.Option(False, help="Also snowball from the client's existing partners"),
     max_pages_per_seed: int = typer.Option(30, help="Most following-list pages per snowball seed"),
     harvest_share: float = typer.Option(0.35, help="Share of the budget available to harvest"),
     no_link_pages: bool = typer.Option(False, help="Do not fetch bio-link pages for contacts"),
@@ -150,6 +154,7 @@ def run(
               "pitches": pitches,
               "hashtags": hashtags, "keywords": keywords, "harvest_share": harvest_share,
               "use_general_tags": general_tags, "use_retailer_seeds": retailer_seeds,
+              "use_partner_seeds": partner_seeds,
               "max_pages_per_seed": max_pages_per_seed, "no_link_pages": no_link_pages}
     run_id = store.create_run(mk.code, params, budget, brief=brief)
     pipe = _pipeline_for(store, store.get_run(run_id), None if as_json else _print_progress)
@@ -369,23 +374,46 @@ def recall(market: str = typer.Option(..., help="Market code"),
 
 @app.command("partner-seeds")
 def partner_seeds(market: str = typer.Option(..., help="Market code"),
-                  budget: int = typer.Option(10, help="Credits for resolving handles")) -> None:
+                  budget: int = typer.Option(10, help="Credits for resolving handles"),
+                  min_followers: int = typer.Option(1000, help="Smallest TikTok account accepted as a match"),
+                  drop: str = typer.Option("", help="Comma-separated seed handles to remove first")) -> None:
     """Add the client's partners in a market as snowball seeds (after the recall test)."""
     from .partners import load_partners, norm
     from .sources import tiktok as tt
     store = _setup()
     code = load_market(market).code
     client = ScrapeCreators(store, config.sc_key(), CreditMeter(budget))
+    for handle in [h.strip().lstrip("@").lower() for h in drop.split(",") if h.strip()]:
+        store.conn.execute("DELETE FROM snowball_seeds WHERE market = ? AND handle = ? AND kind = 'partner'",
+                           (code, handle))
+        typer.echo(f"  removed seed @{handle}")
+    store.conn.commit()
     added = 0
     for p in [x for x in load_partners() if x.market == code]:
-        known = next((dict(r) for r in store.conn.execute(
-            "SELECT uid, handle, nickname FROM creators WHERE platform = 'tiktok'").fetchall()
-            if p.matches(r["handle"], r["nickname"])), None)
+        def pick(candidates: list[dict]) -> dict | None:
+            """Closest to the follower count in the partner list, else the largest account.
+
+            A match more than 3x off the listed count is a namesake, not the partner.
+            """
+            if p.tiktok_followers:
+                off = lambda a: abs(math.log((a["followers"] or 1) / float(p.tiktok_followers)))
+                best = min(candidates, key=off)
+                return best if off(best) <= math.log(3) else None
+            return max(candidates, key=lambda a: a["followers"] or 0)
+
+        stored = [dict(r) for r in store.conn.execute(
+            "SELECT uid, handle, nickname, followers FROM creators WHERE platform = 'tiktok'").fetchall()
+            if p.matches(r["handle"], r["nickname"]) and (r["followers"] or 0) >= min_followers]
+        known = pick(stored) if stored else None
         if known is None:
             body = client.tiktok_search_users(p.key)
-            hit = next((a for a in tt.parse_users(body) if p.matches(a["handle"], a["nickname"])), None)
+            # Name matches include small namesakes: take the largest match and
+            # require a real creator-sized account.
+            hits = [a for a in tt.parse_users(body) if p.matches(a["handle"], a["nickname"])
+                    and (a["followers"] or 0) >= min_followers]
+            hit = pick(hits) if hits else None
             if hit is None:
-                typer.echo(f"  no TikTok account found for {p.key}")
+                typer.echo(f"  no TikTok account with {min_followers}+ followers found for {p.key}")
                 continue
             store.upsert_creator("tiktok", hit["uid"], handle=hit["handle"], nickname=hit["nickname"],
                                  followers=hit["followers"])

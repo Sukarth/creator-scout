@@ -970,7 +970,7 @@ class Pipeline(YouTubeStage):
         if seed_uid:
             self.store.upsert_creator(PLATFORM, seed_uid, following_visible=bool(accounts))
         new_in_market = 0
-        self.current_group = "snowball"
+        self.current_group = "snowball (partner seeds)" if seed["kind"] == "partner" else "snowball"
         for acc in accounts:
             bucket = self.observe(acc, "following", handle, from_uid=seed_uid)
             if bucket in (filters.SURE, filters.UNSURE):

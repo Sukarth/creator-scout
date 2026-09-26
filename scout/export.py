@@ -393,16 +393,24 @@ def accepted_by_first_source(store: Store, run_id: int, market: str) -> dict[str
 
 
 DISCOVERY = {"/v1/tiktok/search/hashtag": "hashtag", "/v1/tiktok/search/keyword": "keyword",
-             "/v1/youtube/search": "yt_search", "/v1/tiktok/user/following": "following"}
+             "/v1/tiktok/search/top": "tt_top", "/v1/tiktok/search/users": "tt_users",
+             "/v1/youtube/search": "yt_search", "/v1/youtube/search/hashtag": "yt_shorts_tag",
+             "/v1/tiktok/user/following": "following"}
 ENRICHMENT = {"/v1/tiktok/profile", "/v1/tiktok/profile/region", "/v3/tiktok/profile/videos",
               "/v1/youtube/channel"}
 
 
-def source_group(kind: str, via: str, market) -> str:
+def source_group(kind: str, via: str, market, partner_seeds: set[str] | None = None) -> str:
     if kind == "hashtag":
         return "local hashtags" if via in market.seed_hashtags or via not in market.global_hashtags \
             else "global / Russian hashtags (proxy)"
-    return {"keyword": "TikTok keyword search", "yt_search": "YouTube search",
+    if kind == "following" and partner_seeds and via.lower() in partner_seeds:
+        return "snowball from partner seeds"
+    return {"keyword": "TikTok keyword search", "keyword_liked": "TikTok keyword search (most liked)",
+            "tt_top": "TikTok top search", "tt_users": "TikTok user search",
+            "yt_search": "YouTube search", "yt_channels": "YouTube channel search",
+            "yt_shorts": "YouTube Shorts search", "yt_shorts_tag": "YouTube Shorts hashtags",
+            "yt_api_shorts": "YouTube official Shorts search",
             "following": "snowball (following lists)", "tiktok_link": "cross-platform link",
             "youtube_link": "cross-platform link"}.get(kind, kind)
 
@@ -427,6 +435,7 @@ def source_yield(store: Store, run_id: int) -> list[dict]:
         "SELECT endpoint, params, credits_charged, run_id FROM cache WHERE credits_charged > 0"
         " AND (run_id = ? OR (run_id IS NULL AND fetched_at BETWEEN ? AND ?))",
         (run_id, started - 1, finished + 1)).fetchall()
+    partner_seeds = {s["handle"] for s in store.seeds(code, active_only=False) if s["kind"] == "partner"}
     first_source: dict[tuple[str, str], str] = {}
     for p in ("tiktok", "youtube"):
         for s in store.screenings(code, run_id=run_id, platform=p):
@@ -434,7 +443,8 @@ def source_yield(store: Store, run_id: int) -> list[dict]:
                 continue  # never enriched for this market; other runs may have paid for it
             edges = [e for e in store.edges_to(p, s["uid"]) if e["run_id"] == run_id]
             if edges:
-                first_source[(p, s["uid"])] = source_group(edges[0]["kind"], edges[0]["via"], market)
+                first_source[(p, s["uid"])] = source_group(edges[0]["kind"], edges[0]["via"], market,
+                                                           partner_seeds)
     handle_to = {}
     for (p, uid) in first_source:
         c = store.get_creator(p, uid) or {}
@@ -452,6 +462,10 @@ def source_yield(store: Store, run_id: int) -> list[dict]:
         ep, credits = r["endpoint"], r["credits_charged"] or 0
         if ep in DISCOVERY:
             kind = DISCOVERY[ep]
+            if kind == "yt_search" and params.get("type") in ("channels", "shorts"):
+                kind = {"channels": "yt_channels", "shorts": "yt_shorts"}[params["type"]]
+            if kind == "keyword" and params.get("sort_by") == "most-liked":
+                kind = "keyword_liked"
             if r["run_id"] is None:  # untagged: keep only calls that belong to this market
                 region = params.get("region")
                 if kind == "hashtag" and not (region == code or (region is None and
@@ -463,7 +477,7 @@ def source_yield(store: Store, run_id: int) -> list[dict]:
                                                    for s in store.seeds(code, active_only=False)):
                     continue
             via = params.get("hashtag") or params.get("query") or params.get("handle") or ""
-            bucket(source_group(kind, via, market))["discovery_credits"] += credits
+            bucket(source_group(kind, via, market, partner_seeds))["discovery_credits"] += credits
         elif ep in ENRICHMENT:
             platform = "youtube" if "youtube" in ep else "tiktok"
             handle = (params.get("handle") or "").lstrip("@").lower()
