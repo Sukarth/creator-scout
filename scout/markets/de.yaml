@@ -19,12 +19,28 @@ seed_hashtags:
   - deutschgaming
   - streamerdeutsch
 
+global_hashtags:
+  - cs2
+  - fortnite
+  - minecraft
+  - valorant
+  - roblox
+  - pcbuild
+  - gamingsetup
+
+general_hashtags:
+  - deutschland
+  - deutschlandtiktok
+  - berlin
+
 seed_keywords:
   - gaming pc deutsch
   - pc zusammenbauen
   - zocker pc
   - grafikkarte test
   - pc build deutsch
+
+gaming_terms: [zocken, zocker, spiele, gaming, grafikkarte, streamer, konsole]
 
 retailer_seeds:
   - {name: Mindfactory, query: mindfactory}

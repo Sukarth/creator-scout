@@ -6,6 +6,50 @@ All notable changes to this project are documented here. The format follows
 ## [Unreleased]
 
 ### Added
+- Free LLM provider chain (`scout/llm.py`): Groq `gpt-oss-120b`, `qwen3.8-27b`,
+  `gpt-oss-20b` and OpenCode Zen `space-bunny-free`, OpenAI-compatible JSON
+  mode, per-model sliding token window under the 8k tokens-per-minute free
+  limit, cooldown on 429, one repair retry on invalid JSON, response cache.
+- Pre-judge: every in-market, in-band candidate is triaged (yes / unsure / no)
+  in batches of up to 30 from free data only (nickname, bio, harvested captions
+  and hashtags, how it was found). Only a confident "no" skips paid enrichment;
+  missing answers count as "unsure". Gaming terms only raise priority.
+- Fit judge with a strict schema (decision, fit score, market resolution,
+  content language, niche, trust-content and gaming relevance scores,
+  sponsors, competitor conflict, evidence quote). Code-side rules: competitor
+  matches force the conflict flag, business accounts are rejected, accepts
+  whose evidence quote is not found in the bio or captions become "maybe",
+  unsure-market accounts the judge places elsewhere go to the other-markets pool.
+- Pitch drafts (subject, body under 120 words, DM under 300 characters) in the
+  creator's content language, with an opt-out line.
+- LLM-generated local hashtag and keyword ideas per market (`scout keywords`).
+- Skill-mode handoff: `--judge claude` pauses the run; `scout candidates`,
+  `scout decide` and `scout resume` exchange pre-judge, judge and pitch
+  results as JSON files. `scout pitches` drafts pitches for a finished run.
+- `scout reset --market` forgets a market's screening state while keeping
+  creators and the API cache.
+- Brand brief in `scout/brand.yaml` (description, trust points, what a good
+  partner is, competitors) used by all prompts.
+- Export: pitch columns, pre-judge verdict, content language, gaming relevance;
+  per-source yield (seen, in market, enriched, accepted) and accepted creators
+  by first source in the run log.
+- `scout check`: pitch language must match the creator's content language.
+
+### Changed
+- Harvest plan is gaming-first: local-language gaming hashtags (curated, then
+  generated), then global game hashtags fetched through a proxy in the market
+  and filtered by region, then keyword searches. General country tags such as
+  `#eestitiktok` are opt-in (`--general-tags`).
+- Snowball seeds are accepted creators only. Retailer and shop accounts are
+  opt-in (`--retailer-seeds`): they mostly follow mainstream influencers.
+- Estonian market config adds Russian gaming hashtags, keywords, city names
+  and ad markers.
+- Enrichment runs in chunks between pre-judge and judge rounds, so the target
+  check stays current and the budget goes to the most promising candidates.
+- Test fixtures are anonymised: every email is replaced by a deterministic
+  placeholder that keeps the top-level domain.
+
+### Added (initial)
 - Project skeleton: `scout` package, `pyproject.toml`, `.env.example`, MIT licence.
 - SQLite store for creators, per-market screenings, edges, videos, metrics,
   snowball seeds, runs and the API response cache. Screenings are per market,

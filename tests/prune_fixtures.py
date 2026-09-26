@@ -1,16 +1,32 @@
-"""Shrink saved API responses for use as test fixtures.
+"""Shrink and anonymise saved API responses for use as test fixtures.
 
 Drops media URLs, avatars, music and tracking payloads that the parsers never
-read, keeping every field the pipeline uses. Run after saving a new fixture:
+read, keeping every field the pipeline uses, and replaces every email address
+with a deterministic placeholder that keeps the top-level domain
+(``name@site.fi`` -> ``creator1a2b3c@example.fi``). Run after saving a new
+fixture:
 
     python tests/prune_fixtures.py tests/fixtures/*.json
 """
 
 from __future__ import annotations
 
+import hashlib
 import json
+import re
 import sys
 from pathlib import Path
+
+EMAIL_RE = re.compile(r"[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}")
+
+
+def mask_email(match: re.Match) -> str:
+    email = match.group(0)
+    domain = email.split("@")[1].lower()
+    if domain.startswith("example."):
+        return email
+    digest = hashlib.sha1(email.lower().encode()).hexdigest()[:6]
+    return f"creator{digest}@example.{domain.rsplit('.', 1)[-1]}"
 
 DROP_KEYS = {
     "video", "music", "added_sound_music_info", "share_info", "image_post_info", "anchors",
@@ -36,6 +52,8 @@ def prune(node):
                 and not (isinstance(v, dict) and "url_list" in v)}
     if isinstance(node, list):
         return [prune(v) for v in node]
+    if isinstance(node, str):
+        return EMAIL_RE.sub(mask_email, node)
     return node
 
 

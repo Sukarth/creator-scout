@@ -141,17 +141,20 @@ class ScrapeCreators:
 
     # ---- TikTok endpoints -------------------------------------------------
 
+    # ``region`` on search endpoints places the provider's proxy in that country.
+    # It biases results toward local content but does not filter by country.
+
     def tiktok_hashtag(self, hashtag: str, cursor: int | str | None = None,
-                       max_age: float | None = 24 * 3600) -> dict:
+                       region: str | None = None, max_age: float | None = 24 * 3600) -> dict:
         return self.get("/v1/tiktok/search/hashtag",
-                        {"hashtag": hashtag.lstrip("#"), "cursor": cursor}, max_age)
+                        {"hashtag": hashtag.lstrip("#"), "cursor": cursor, "region": region}, max_age)
 
     def tiktok_keyword(self, query: str, cursor: int | str | None = None,
                        date_posted: str | None = "last-6-months", sort_by: str = "relevance",
-                       max_age: float | None = 24 * 3600) -> dict:
+                       region: str | None = None, max_age: float | None = 24 * 3600) -> dict:
         return self.get("/v1/tiktok/search/keyword",
                         {"query": query, "date_posted": date_posted, "sort_by": sort_by,
-                         "cursor": cursor}, max_age)
+                         "cursor": cursor, "region": region}, max_age)
 
     def tiktok_search_users(self, query: str, cursor: int | str | None = None,
                             max_age: float | None = 7 * 24 * 3600) -> dict:

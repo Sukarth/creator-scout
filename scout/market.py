@@ -24,6 +24,16 @@ GLOBAL_AD_MARKERS = ["#ad", "#sponsored", "#advert", "#partner", "sponsored", "p
                      "#mainos", "#reklaam", "#werbung", "#anzeige"]
 
 
+# Game titles and PC terms shared by all markets. Used only to order candidates.
+GLOBAL_GAMING_TERMS = [
+    "gaming", "gamer", "gameplay", "twitch", "stream", "streamer", "esports", "pc build", "pcbuild",
+    "setup", "rtx", "gpu", "ryzen", "intel", "nvidia", "cs2", "csgo", "counter-strike", "fortnite",
+    "minecraft", "valorant", "roblox", "gta", "league of legends", "apex", "rocket league",
+    "warzone", "call of duty", "overwatch", "dota", "rust", "fifa", "eafc", "playstation",
+    "xbox", "nintendo", "steam", "discord",
+]
+
+
 @dataclass
 class Market:
     code: str
@@ -35,13 +45,20 @@ class Market:
     cities: list[str] = field(default_factory=list)
     words: list[str] = field(default_factory=list)
     seed_hashtags: list[str] = field(default_factory=list)
+    global_hashtags: list[str] = field(default_factory=list)
+    general_hashtags: list[str] = field(default_factory=list)
     seed_keywords: list[str] = field(default_factory=list)
+    gaming_terms: list[str] = field(default_factory=list)
     retailer_seeds: list[dict] = field(default_factory=list)
     ad_markers: list[str] = field(default_factory=list)
 
     @property
     def all_ad_markers(self) -> list[str]:
         return GLOBAL_AD_MARKERS + self.ad_markers
+
+    @property
+    def all_gaming_terms(self) -> list[str]:
+        return GLOBAL_GAMING_TERMS + self.gaming_terms
 
 
 def load_market(code: str, directory: Path = MARKETS_DIR) -> Market:
@@ -60,7 +77,10 @@ def load_market(code: str, directory: Path = MARKETS_DIR) -> Market:
         cities=signals.get("cities", []),
         words=signals.get("words", []),
         seed_hashtags=[h.lstrip("#") for h in raw.get("seed_hashtags", [])],
+        global_hashtags=[h.lstrip("#") for h in raw.get("global_hashtags", [])],
+        general_hashtags=[h.lstrip("#") for h in raw.get("general_hashtags", [])],
         seed_keywords=raw.get("seed_keywords", []),
+        gaming_terms=raw.get("gaming_terms", []),
         retailer_seeds=raw.get("retailer_seeds", []),
         ad_markers=raw.get("ad_markers", []),
     )

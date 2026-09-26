@@ -15,11 +15,26 @@ seed_hashtags:
   - suomigaming
   - gamingsuomi
   - pelisetup
-  - suomitiktok
   - pelaaminen
   - suomistriimaaja
+  - pelaaja
+  - suomigamer
+  - näytönohjain
+
+global_hashtags:
+  - cs2
+  - fortnite
+  - minecraft
+  - valorant
+  - roblox
+  - pcbuild
+  - gamingsetup
+
+general_hashtags:
+  - suomitiktok
+  - suomi
   - suomitubettaja
-  - tietokone
+  - helsinki
 
 seed_keywords:
   - pelikone
@@ -28,6 +43,9 @@ seed_keywords:
   - näytönohjain
   - pc build suomi
   - cs2 suomi
+
+gaming_terms: [peli, pelit, pelaaminen, pelaaja, pelikone, pelitietokone, striimi, striimaaja,
+               näytönohjain, tietokone, konsoli]
 
 retailer_seeds:
   - {name: "Jimm's PC", handle: jimmspc}

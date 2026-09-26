@@ -40,8 +40,9 @@ def check_run(store: Store, run_id: int) -> Report:
     shortlist = sheets["Shortlist"]
     by_handle = {r["handle"]: r for r in shortlist}
     screenings = {s["uid"]: s for s in store.screenings(market, run_id=run_id)}
-    shortlisted_uids = [uid for uid, s in screenings.items()
-                        if s["status"] in ("accepted", "needs_judgment")]
+    handles = set(by_handle)
+    shortlisted_uids = [uid for uid in screenings
+                        if (store.get_creator(PLATFORM, uid) or {}).get("handle") in handles]
 
     out_of_band = [r["handle"] for r in shortlist
                    if r["followers"] is None or not band_min <= r["followers"] <= band_max]
@@ -81,6 +82,18 @@ def check_run(store: Store, run_id: int) -> Report:
         "contact path or explicit 'no contact found'", not no_contact_field,
         f"{sum(1 for r in shortlist if r['emails'] != 'no contact found')} of {len(shortlist)} "
         f"rows have an email"))
+
+    accepted_rows = [r for r in shortlist if r["decision"] == "accept"]
+    wrong_lang = [r["handle"] for r in accepted_rows if r.get("pitch_body")
+                  and (r.get("pitch_language") or "")[:2].lower()
+                  != (r.get("content_language") or "")[:2].lower()]
+    report.results.append(CheckResult(
+        "pitch language matches content language", not wrong_lang,
+        f"{sum(1 for r in accepted_rows if r.get('pitch_body'))} pitches checked"
+        if not wrong_lang else f"mismatch: {wrong_lang}"))
+    missing_pitch = [r["handle"] for r in accepted_rows if not r.get("pitch_body")]
+    if missing_pitch:
+        report.warnings.append(f"{len(missing_pitch)} accepted rows have no pitch yet: {missing_pitch[:10]}")
 
     f = run["funnel"] or {}
     if f:

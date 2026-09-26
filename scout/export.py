@@ -21,11 +21,11 @@ OUTREACH_STATUSES = ["to contact", "contacted", "replied", "deal", "declined"]
 SHORTLIST_COLUMNS = [
     "status", "platform", "handle", "profile_url", "nickname", "market", "market_confidence",
     "market_evidence", "followers", "median_views", "er_views", "posts_per_week",
-    "last_post_date", "decision", "fit_score", "niche_tags", "content_styles",
-    "trust_content_score", "reasons", "evidence_quote", "sponsors_mentioned",
-    "competitor_conflict", "emails", "other_links", "bio", "bio_link", "suggested_deal",
-    "price_low_eur", "price_high_eur", "pitch_subject", "pitch_body", "dm_text", "found_via",
-    "first_seen",
+    "last_post_date", "decision", "fit_score", "gaming_pc_relevance", "niche_tags",
+    "content_styles", "trust_content_score", "reasons", "evidence_quote", "sponsors_mentioned",
+    "competitor_conflict", "emails", "other_links", "bio", "bio_link", "content_language",
+    "suggested_deal", "price_low_eur", "price_high_eur", "pitch_language", "pitch_subject",
+    "pitch_body", "dm_text", "found_via", "prejudge", "first_seen",
 ]
 
 
@@ -54,6 +54,8 @@ def creator_row(store: Store, market: str, screening: dict) -> dict:
     c = store.get_creator(PLATFORM, uid) or {}
     m = store.get_metrics(PLATFORM, uid) or {}
     d = _decision(store, market, uid)
+    pitch = store.get_pitch(market, PLATFORM, uid) or {}
+    pj = store.get_prejudgment(market, PLATFORM, uid) or {}
     price = metrics_mod.price_estimate(m.get("median_views"))
     confidence = {"sure": "high", "unsure": "medium"}.get(screening.get("bucket"), "low")
     competitors = m.get("competitors") or []
@@ -75,6 +77,7 @@ def creator_row(store: Store, market: str, screening: dict) -> dict:
         "decision": d.get("decision") or ("not judged" if screening["status"] == "needs_judgment"
                                           else screening["status"]),
         "fit_score": d.get("fit_score"),
+        "gaming_pc_relevance": d.get("gaming_pc_relevance"),
         "niche_tags": ", ".join(d.get("niche_tags") or []),
         "content_styles": ", ".join(d.get("content_styles") or []),
         "trust_content_score": d.get("trust_content_score"),
@@ -88,13 +91,16 @@ def creator_row(store: Store, market: str, screening: dict) -> dict:
         "other_links": ", ".join(f"{k}: {v}" for k, v in (c.get("links") or {}).items()),
         "bio": c.get("bio"),
         "bio_link": c.get("bio_link"),
+        "content_language": d.get("content_language"),
         "suggested_deal": metrics_mod.suggest_deal(c.get("followers"), m.get("old_hardware")),
         "price_low_eur": price[0] if price else None,
         "price_high_eur": price[1] if price else None,
-        "pitch_subject": d.get("pitch_subject"),
-        "pitch_body": d.get("pitch_body"),
-        "dm_text": d.get("dm_text"),
+        "pitch_language": pitch.get("language"),
+        "pitch_subject": pitch.get("subject"),
+        "pitch_body": pitch.get("body"),
+        "dm_text": pitch.get("dm"),
         "found_via": found_via(store, uid),
+        "prejudge": f"{pj['verdict']}: {pj.get('reason') or ''}".strip(": ") if pj else "",
         "first_seen": _date(c.get("first_seen_at")),
     }
 
@@ -124,8 +130,12 @@ def build_sheets(store: Store, run_id: int) -> dict[str, list[dict]]:
         out.sort(key=lambda r: (-(r["fit_score"] or 0), -(r["followers"] or 0)))
         return out
 
-    shortlist = rows(("accepted", "needs_judgment"))
-    maybe = rows(("maybe",))
+    if (run["params"] or {}).get("judge", "none") == "none":
+        shortlist, maybe = rows(("accepted", "needs_judgment")), rows(("maybe",))
+    else:
+        # Judged runs: only accepted creators are shortlisted; enriched but not yet
+        # judged creators (e.g. when the budget ran out) go with the maybes.
+        shortlist, maybe = rows(("accepted",)), rows(("maybe", "needs_judgment"))
 
     other = []
     for s in scr:
@@ -154,7 +164,7 @@ def build_sheets(store: Store, run_id: int) -> dict[str, list[dict]]:
               "total_following": s["total_following"], "exhausted": bool(s["exhausted"]),
               "exhausted_reason": s["exhausted_reason"]}
              for s in store.seeds(market, active_only=False)]
-    seeds += _source_summary(store, run_id, market)
+    seeds += source_summary(store, run_id, market)
 
     funnel = run["funnel"] or {}
     log = [{"field": k, "value": v} for k, v in [
@@ -162,6 +172,9 @@ def build_sheets(store: Store, run_id: int) -> dict[str, list[dict]]:
         ("params", json.dumps(run["params"])), ("status", run["status"]),
         ("budget", run["budget"]), ("credits_used", run["credits_used"]),
         ("api_calls", run["api_calls"]), ("cache_hits", run["cache_hits"]),
+        ("llm_calls", run.get("llm_calls")), ("llm_tokens", run.get("llm_tokens")),
+        ("accepted_by_first_source", json.dumps(accepted_by_first_source(store, run_id, market),
+                                                ensure_ascii=False)),
         ("started", _iso(run["started_at"])), ("finished", _iso(run["finished_at"])),
         ("duration_s", round((run["finished_at"] or run["started_at"]) - run["started_at"], 1)),
     ]] + [{"field": f"funnel.{k}", "value": v} for k, v in funnel.items()]
@@ -170,19 +183,36 @@ def build_sheets(store: Store, run_id: int) -> dict[str, list[dict]]:
             "Seeds and sources": seeds, "All screened": everyone, "Run log": log}
 
 
-def _source_summary(store: Store, run_id: int, market: str) -> list[dict]:
+def source_summary(store: Store, run_id: int, market: str) -> list[dict]:
+    """Per harvest source and snowball seed: accounts seen, in market, enriched, accepted."""
     rows = store.conn.execute(
         "SELECT e.kind, e.via, COUNT(DISTINCT e.to_uid) AS accounts,"
-        " SUM(CASE WHEN s.bucket IN ('sure', 'unsure') THEN 1 ELSE 0 END) AS in_market,"
-        " SUM(CASE WHEN s.status IN ('needs_judgment', 'accepted', 'maybe') THEN 1 ELSE 0 END) AS qualified"
+        " COUNT(DISTINCT CASE WHEN s.bucket IN ('sure', 'unsure') THEN e.to_uid END) AS in_market,"
+        " COUNT(DISTINCT CASE WHEN s.status IN ('needs_judgment', 'accepted', 'maybe', 'rejected')"
+        "   THEN e.to_uid END) AS enriched,"
+        " COUNT(DISTINCT CASE WHEN s.status = 'accepted' THEN e.to_uid END) AS accepted"
         " FROM edges e LEFT JOIN screenings s ON s.uid = e.to_uid AND s.platform = e.platform"
-        " AND s.market = ? WHERE e.run_id = ? AND e.kind IN ('hashtag', 'keyword')"
-        " GROUP BY e.kind, e.via ORDER BY qualified DESC, in_market DESC",
+        " AND s.market = ? WHERE e.run_id = ? AND e.kind IN ('hashtag', 'keyword', 'following')"
+        " GROUP BY e.kind, e.via ORDER BY accepted DESC, in_market DESC",
         (market, run_id),
     ).fetchall()
     return [{"seed": f"{r['kind']}: {r['via']}", "kind": r["kind"], "label": "",
              "accounts_seen": r["accounts"], "new_in_market": r["in_market"],
-             "qualified": r["qualified"]} for r in rows]
+             "enriched": r["enriched"], "accepted": r["accepted"]} for r in rows]
+
+
+def accepted_by_first_source(store: Store, run_id: int, market: str) -> dict[str, int]:
+    """Attribute each accepted creator to the source type that found it first."""
+    out: dict[str, int] = {}
+    for s in store.screenings(market, "accepted", run_id=run_id):
+        edges = [e for e in store.edges_to(PLATFORM, s["uid"]) if e["run_id"] == run_id]
+        if not edges:
+            continue
+        first = edges[0]
+        label = {"hashtag": f"#{first['via']}", "keyword": f"search '{first['via']}'",
+                 "following": "snowball"}.get(first["kind"], first["kind"])
+        out[label] = out.get(label, 0) + 1
+    return dict(sorted(out.items(), key=lambda kv: -kv[1]))
 
 
 def _iso(ts: float | None) -> str:

@@ -136,6 +136,40 @@ CREATE TABLE IF NOT EXISTS decisions (
     PRIMARY KEY (market, platform, uid)
 );
 
+CREATE TABLE IF NOT EXISTS prejudgments (
+    market TEXT NOT NULL,
+    platform TEXT NOT NULL,
+    uid TEXT NOT NULL,
+    run_id INTEGER,
+    verdict TEXT NOT NULL,
+    reason TEXT,
+    model TEXT,
+    created_at REAL,
+    PRIMARY KEY (market, platform, uid)
+);
+
+CREATE TABLE IF NOT EXISTS pitches (
+    market TEXT NOT NULL,
+    platform TEXT NOT NULL,
+    uid TEXT NOT NULL,
+    run_id INTEGER,
+    language TEXT,
+    subject TEXT,
+    body TEXT,
+    dm TEXT,
+    model TEXT,
+    created_at REAL,
+    PRIMARY KEY (market, platform, uid)
+);
+
+CREATE TABLE IF NOT EXISTS llm_cache (
+    key TEXT PRIMARY KEY,
+    task TEXT,
+    model TEXT,
+    response TEXT NOT NULL,
+    created_at REAL
+);
+
 CREATE TABLE IF NOT EXISTS runs (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     brief TEXT,
@@ -180,6 +214,8 @@ CREATE TABLE IF NOT EXISTS meta (
 ADDED_COLUMNS = [
     ("videos", "region", "TEXT"),
     ("videos", "caption_language", "TEXT"),
+    ("runs", "llm_calls", "INTEGER DEFAULT 0"),
+    ("runs", "llm_tokens", "INTEGER DEFAULT 0"),
 ]
 
 # Columns a caller may set on ``creators`` via ``upsert_creator``.
@@ -473,6 +509,78 @@ class Store:
             "SELECT uid FROM run_members WHERE market = ? AND platform = ? AND run_id < ?",
             (market, platform, run_id)).fetchall()
         return {r["uid"] for r in rows}
+
+    # ---- judgments -------------------------------------------------------
+
+    def set_prejudgment(self, market: str, platform: str, uid: str, verdict: str,
+                        reason: str | None, model: str | None, run_id: int | None) -> None:
+        self.conn.execute(
+            "INSERT OR REPLACE INTO prejudgments (market, platform, uid, run_id, verdict, reason,"
+            " model, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            (market, platform, uid, run_id, verdict, reason, model, time.time()))
+        self.conn.commit()
+
+    def get_prejudgment(self, market: str, platform: str, uid: str) -> dict | None:
+        row = self.conn.execute(
+            "SELECT * FROM prejudgments WHERE market = ? AND platform = ? AND uid = ?",
+            (market, platform, uid)).fetchone()
+        return dict(row) if row else None
+
+    def set_decision(self, market: str, platform: str, uid: str, decision: str,
+                     fit_score: int | None, data: dict, model: str | None,
+                     run_id: int | None) -> None:
+        self.conn.execute(
+            "INSERT OR REPLACE INTO decisions (market, platform, uid, run_id, decision, fit_score,"
+            " data, model, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (market, platform, uid, run_id, decision, fit_score,
+             json.dumps(data, ensure_ascii=False), model, time.time()))
+        self.conn.commit()
+
+    def get_decision(self, market: str, platform: str, uid: str) -> dict | None:
+        row = self.conn.execute(
+            "SELECT * FROM decisions WHERE market = ? AND platform = ? AND uid = ?",
+            (market, platform, uid)).fetchone()
+        if row is None:
+            return None
+        out = dict(row)
+        out["data"] = json.loads(out["data"] or "{}")
+        return out
+
+    def set_pitch(self, market: str, platform: str, uid: str, language: str | None,
+                  subject: str | None, body: str | None, dm: str | None, model: str | None,
+                  run_id: int | None) -> None:
+        self.conn.execute(
+            "INSERT OR REPLACE INTO pitches (market, platform, uid, run_id, language, subject, body,"
+            " dm, model, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (market, platform, uid, run_id, language, subject, body, dm, model, time.time()))
+        self.conn.commit()
+
+    def get_pitch(self, market: str, platform: str, uid: str) -> dict | None:
+        row = self.conn.execute(
+            "SELECT * FROM pitches WHERE market = ? AND platform = ? AND uid = ?",
+            (market, platform, uid)).fetchone()
+        return dict(row) if row else None
+
+    def llm_cache_get(self, key: str) -> dict | None:
+        row = self.conn.execute("SELECT model, response FROM llm_cache WHERE key = ?", (key,)).fetchone()
+        return {"model": row["model"], "response": json.loads(row["response"])} if row else None
+
+    def llm_cache_put(self, key: str, task: str, model: str, response: dict) -> None:
+        self.conn.execute(
+            "INSERT OR REPLACE INTO llm_cache (key, task, model, response, created_at)"
+            " VALUES (?, ?, ?, ?, ?)",
+            (key, task, model, json.dumps(response, ensure_ascii=False), time.time()))
+        self.conn.commit()
+
+    def reset_market(self, market: str) -> dict:
+        """Forget a market's screening state. Creators, videos and the API cache are kept."""
+        counts = {}
+        for table in ("screenings", "snowball_seeds", "run_members", "decisions",
+                      "prejudgments", "pitches"):
+            counts[table] = self.conn.execute(f"DELETE FROM {table} WHERE market = ?",
+                                              (market,)).rowcount
+        self.conn.commit()
+        return counts
 
     # ---- seeds -----------------------------------------------------------
 

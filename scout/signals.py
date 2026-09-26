@@ -103,6 +103,18 @@ def competitor_hits(texts: list[str]) -> list[str]:
     return hits
 
 
+def gaming_hits(texts: list[str | None], market: Market) -> list[str]:
+    """Gaming and PC terms found in ``texts``. Used only to order candidates."""
+    blob = _norm(" ".join(t for t in texts if t))
+    blob = blob.replace("#", " ")
+    return [term for term in market.all_gaming_terms
+            if re.search(r"(?<!\w)" + re.escape(_norm(term)), blob)]
+
+
+def hashtags_in(text: str | None) -> list[str]:
+    return [h.lower() for h in re.findall(r"#(\w+)", text or "")]
+
+
 def business_hints(handle: str | None, nickname: str | None, bio: str | None) -> list[str]:
     """Signals that an account is a shop, retailer or brand rather than a creator."""
     hints = []

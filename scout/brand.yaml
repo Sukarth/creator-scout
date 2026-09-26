@@ -1,0 +1,28 @@
+# Client brief used by the fit judge, pitch writer and keyword generator.
+name: Prenew
+website: prenew.com
+description: >-
+  Prenew buys, refurbishes and sells gaming PCs with a warranty, operating in
+  20+ European markets. Its prices are about 20% below the cheapest
+  non-peer-to-peer alternative. The main barrier for buyers is trust in
+  refurbished hardware.
+niche: gaming and PC hardware
+trust_points:
+  - every PC is tested and refurbished before sale
+  - comes with a warranty
+  - about 20% cheaper than a comparable new or refurbished PC from a store
+good_partner: >-
+  A real creator (not a shop or brand) whose audience plays PC or console
+  games or cares about PC hardware, and who can make trust content: PC builds,
+  benchmarks, setup tours, upgrade stories, "is refurbished worth it" videos,
+  honest reviews. Small creators with engaged audiences are welcome.
+reject: >-
+  Shops, retailers and brand accounts; creators with no gaming or tech
+  angle; accounts that are mainly children; brand-unsafe content.
+# Direct competitors and competing retailers. Sponsorship by one is a flag
+# (proven sponsorable, check exclusivity), never an automatic reject.
+competitors:
+  - {name: Nuvoo, kind: direct refurbished competitor, handles: [nuvoosuomi]}
+  - {name: "Jimm's PC", kind: new-PC retailer, handles: [jimmspc]}
+  - {name: Gigantti, kind: electronics retailer, handles: [gigantti]}
+  - {name: Elgiganten, kind: electronics retailer, handles: [elgiganten]}

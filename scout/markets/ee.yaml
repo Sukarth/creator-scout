@@ -6,20 +6,49 @@ currency: EUR
 market_signals:
   flags: ["🇪🇪"]
   tlds: [".ee"]
-  cities: [Tallinn, Tartu, Narva, Pärnu, Kohtla-Järve, Viljandi, Rakvere, Maardu, Kuressaare, Haapsalu]
-  words: [eesti, eestlane, eestis, eestikeelne, mängimine, koostöö, koostööd, tere, aitäh]
+  cities: [Tallinn, Tartu, Narva, Pärnu, Kohtla-Järve, Viljandi, Rakvere, Maardu, Kuressaare, Haapsalu, Sillamäe,
+           Таллинн, Тарту, Нарва, Пярну, Кохтла-Ярве, Силламяэ, Маарду, Йыхви]
+  words: [eesti, eestlane, eestis, eestikeelne, mängimine, koostöö, koostööd, tere, aitäh,
+          эстония, эстонии, эстонец, эстонка, эстонский, таллине]
 
+# Gaming-specific hashtags in the local languages. Harvested without a proxy.
 seed_hashtags:
-  - eestigamer
   - mängimine
+  - eestigamer
   - eestigaming
-  - eestitiktok
   - mänguarvuti
   - arvutimängud
   - eestistriimer
   - gamingeesti
-  - eestiyoutuber
+  - mängur
+  - eestigamers
+  - геймерэстония
+  - эстонскийгеймер
+  - игрыэстония
+
+# Global game and hardware hashtags. Results are dominated by other countries,
+# so they are fetched through a proxy in the market and filtered by region.
+global_hashtags:
+  - cs2
+  - fortnite
+  - minecraft
+  - valorant
+  - roblox
+  - pcbuild
+  - gamingsetup
+  - геймер
+  - игровойпк
+  - сборкапк
+  - кс2
+  - майнкрафт
+
+# General country tags bring mostly lifestyle creators. Used only on request.
+general_hashtags:
+  - eestitiktok
   - eesti
+  - eestiyoutuber
+  - tallinn
+  - эстония
 
 seed_keywords:
   - eesti gamer
@@ -28,10 +57,17 @@ seed_keywords:
   - eesti striimer
   - cs2 eesti
   - fortnite eesti
+  - геймер эстония
+  - игровой пк таллинн
+  - стрим эстония
 
-# Local PC and electronics retailers and competitors. Their following lists
-# tend to include the creators they sponsor. ``handle`` is used directly when
-# known; otherwise ``query`` is resolved through user search at run time.
+# Terms that raise a candidate's enrichment priority. They never exclude anyone.
+gaming_terms: [mängimine, mängur, mängud, mänguarvuti, arvutimängud, striim, striimer,
+               игры, игра, геймер, стрим, стример, игровой, сборка пк, киберспорт, кс2, майнкрафт]
+
+# Local PC and electronics retailers and competitors. Off by default: they
+# mostly follow mainstream influencers. ``handle`` is used directly when known;
+# otherwise ``query`` is resolved through user search.
 retailer_seeds:
   - {name: Arvutitark, query: arvutitark}
   - {name: Photopoint, query: photopoint}
@@ -40,4 +76,4 @@ retailer_seeds:
   - {name: 1a.ee, query: 1a.ee}
   - {name: Kaup24, query: kaup24}
 
-ad_markers: [reklaam, koostöös, koostöö, sponsoreeritud, tasuline koostöö]
+ad_markers: [reklaam, koostöös, koostöö, sponsoreeritud, tasuline koostöö, реклама, партнерство, спонсор]

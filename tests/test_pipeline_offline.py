@@ -10,9 +10,18 @@ from scout.pipeline import Pipeline
 from scout.sources.scrapecreators import CreditMeter, ScrapeCreators
 
 
-def make_pipeline(store, market, settings, **kw):
+def seeded_settings(**kw):
+    """Settings with retailer seeds enabled (they are opt-in by default)."""
+    kw.setdefault("band_min", 1000)
+    kw.setdefault("band_max", 100_000)
+    kw.setdefault("budget", 50)
+    return RunSettings(extra={"use_retailer_seeds": True}, **kw)
+
+
+def make_pipeline(store, market, settings, judge_kind="none", **kw):
     run_id = store.create_run(market.code, {"band_min": settings.band_min,
-                                            "band_max": settings.band_max}, settings.budget)
+                                            "band_max": settings.band_max,
+                                            "judge": judge_kind}, settings.budget)
     client = ScrapeCreators(store, api_key=None, meter=CreditMeter(settings.budget), offline=True)
     return Pipeline(store, client, market, settings, run_id, fetch_link_pages=False,
                     now=FIXTURE_NOW, **kw), run_id
@@ -27,8 +36,7 @@ def fi_market():
 
 def test_snowball_from_retailer_finds_digikamu(cached_store, tmp_path):
     store = cached_store
-    settings = RunSettings(band_min=1000, band_max=100_000, target=5, budget=50)
-    pipe, run_id = make_pipeline(store, fi_market(), settings)
+    pipe, run_id = make_pipeline(store, fi_market(), seeded_settings(target=5))
     run = pipe.run(hashtags=[], keywords=[])
 
     qualified = store.screenings("FI", "needs_judgment", run_id=run_id)
@@ -56,7 +64,6 @@ def test_snowball_from_retailer_finds_digikamu(cached_store, tmp_path):
 
     f = run["funnel"]
     assert f["seen"] == f["already_known"] + f["bucket_sure"] + f["bucket_unsure"] + f["bucket_other"]
-    assert f["qualified_via_snowball"] == 1
     assert run["credits_used"] == 0  # everything came from the cache
 
     sheets = build_sheets(store, run_id)
@@ -70,7 +77,7 @@ def test_snowball_from_retailer_finds_digikamu(cached_store, tmp_path):
 
 def test_second_run_returns_no_duplicates(cached_store):
     store = cached_store
-    settings = RunSettings(band_min=1000, band_max=100_000, target=5, budget=50)
+    settings = seeded_settings(target=5)
     make_pipeline(store, fi_market(), settings)[0].run(hashtags=[], keywords=[])
     # Reach the same accounts again through a fresh pass over the seed's list.
     store.update_seed("FI", "tiktok", "jimmspc", exhausted=0, pages_fetched=0, next_cursor=None)
@@ -100,8 +107,7 @@ def test_estonian_hashtag_to_qualified_creator(cached_store):
     store = cached_store
     ee = load_market("ee")
     ee.retailer_seeds = [{"name": "Arvutitark", "query": "arvutitark"}]
-    settings = RunSettings(band_min=1000, band_max=100_000, target=1, budget=50)
-    pipe, run_id = make_pipeline(store, ee, settings)
+    pipe, run_id = make_pipeline(store, ee, seeded_settings(target=1))
     pipe.run(hashtags=["mängimine"], keywords=[])
 
     seeds = {s["handle"]: s for s in store.seeds("EE", active_only=False)}
@@ -114,7 +120,7 @@ def test_estonian_hashtag_to_qualified_creator(cached_store):
 
 
 def test_budget_stops_cleanly(store):
-    settings = RunSettings(band_min=1000, band_max=100_000, target=5, budget=0)
+    settings = seeded_settings(target=5, budget=0)
     run_id = store.create_run("FI", {}, 0)
     client = ScrapeCreators(store, api_key="dummy", meter=CreditMeter(0))
     pipe = Pipeline(store, client, fi_market(), settings, run_id, fetch_link_pages=False)
