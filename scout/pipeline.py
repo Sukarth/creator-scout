@@ -775,20 +775,25 @@ class Pipeline(YouTubeStage):
                 if self.judge_attempts.get(s["uid"], 0) < 2]
         if not todo:
             return 0
-        items = [judge_payload(self.store, self.market, uid, platform) for platform, uid in todo]
-        results = self.judge.judge(self.market, items)
-        if results is None:
-            raise Paused("awaiting_judgment", len(todo))
+        # Judge and store in chunks: progress is saved as it goes, so a long
+        # re-judge under free-tier rate limits can be watched and interrupted.
+        chunk = self.s.extra.get("judge_chunk", 12)
         judged = 0
-        for platform, uid in todo:
-            r = results.get(uid)
-            if r is None:
-                self.judge_attempts[uid] = self.judge_attempts.get(uid, 0) + 1
-                continue
-            self.apply_decision(uid, r, r.get("model"), platform)
-            judged += 1
-        self.emit("judge", f"judged {judged}: {self.funnel['accepted']} accepted, "
-                           f"{self.funnel['maybe']} maybe, {self.funnel['rejected']} rejected so far")
+        for start in range(0, len(todo), chunk):
+            part = todo[start:start + chunk]
+            items = [judge_payload(self.store, self.market, uid, platform) for platform, uid in part]
+            results = self.judge.judge(self.market, items)
+            if results is None:
+                raise Paused("awaiting_judgment", len(todo))
+            for platform, uid in part:
+                r = results.get(uid)
+                if r is None:
+                    self.judge_attempts[uid] = self.judge_attempts.get(uid, 0) + 1
+                    continue
+                self.apply_decision(uid, r, r.get("model"), platform)
+                judged += 1
+            self.emit("judge", f"judged {judged} of {len(todo)}: {self.funnel['accepted']} accepted, "
+                               f"{self.funnel['maybe']} maybe, {self.funnel['rejected']} rejected so far")
         return judged
 
     def apply_decision(self, uid: str, r: dict, model: str | None, platform: str = PLATFORM) -> str:
