@@ -256,14 +256,39 @@ class Pipeline(YouTubeStage):
                                 run_id=self.run_id)
 
     def _prequeue_other_market(self, uid: str, region: str | None) -> None:
-        """Queue accounts registered in another supported market for that market's runs."""
-        if not region or region == self.market.code or region not in self.supported:
+        """Queue accounts that belong to another supported market for that market's runs.
+
+        A known registration region queues the account as sure; without a region,
+        any supported market whose language or local signals the account matches
+        gets it as unsure.
+        """
+        if region:
+            if region == self.market.code or region not in self.supported:
+                return
+            if self.store.get_screening(region, PLATFORM, uid) is None:
+                self.store.set_screening(region, PLATFORM, uid, PENDING, bucket=filters.SURE,
+                                         evidence=[f"registered region {region}",
+                                                   f"found while scouting {self.market.code}"],
+                                         run_id=None)
             return
-        if self.store.get_screening(region, PLATFORM, uid) is None:
-            self.store.set_screening(region, PLATFORM, uid, PENDING, bucket=filters.SURE,
-                                     evidence=[f"registered region {region}",
-                                               f"found while scouting {self.market.code}"],
-                                     run_id=None)
+        c = self.store.get_creator(PLATFORM, uid) or {}
+        vids = self.store.videos_for(PLATFORM, uid, limit=10)
+        for other in self._other_markets():
+            if self.store.get_screening(other.code, PLATFORM, uid) is not None:
+                continue
+            res = filters.market_bucket(other, region=None, region_source=None,
+                                        language=c.get("language"), bio=c.get("bio"), videos=vids)
+            if res.bucket != filters.OTHER:
+                self.store.set_screening(other.code, PLATFORM, uid, PENDING, bucket=filters.UNSURE,
+                                         evidence=res.evidence + [f"found while scouting {self.market.code}"],
+                                         run_id=None)
+
+    def _other_markets(self) -> list[Market]:
+        if not hasattr(self, "_other_market_cache"):
+            from .market import load_market
+            self._other_market_cache = [load_market(c) for c in sorted(self.supported)
+                                        if c != self.market.code]
+        return self._other_market_cache
 
     # ---- stage: harvest --------------------------------------------------
 

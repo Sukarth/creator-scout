@@ -58,6 +58,20 @@ def test_shared_language_alone_is_not_evidence():
     assert bucket(EE, region="EE", language="ru").bucket == filters.SURE
 
 
+def test_unknown_region_account_is_queued_for_the_matching_market(store):
+    from scout.config import RunSettings
+    from scout.pipeline import Pipeline
+    from scout.sources.scrapecreators import CreditMeter, ScrapeCreators
+    store.upsert_creator("tiktok", "u1", handle="somefinn", bio="")
+    store.upsert_videos("tiktok", [{"video_id": "v1", "uid": "u1", "caption": "pelataan fortnitea",
+                                    "caption_language": "fi", "region": None}])
+    pipe = Pipeline(store, ScrapeCreators(store, None, CreditMeter(0), offline=True), EE,
+                    RunSettings(), run_id=1)
+    assert pipe.screen("u1") == filters.OTHER
+    queued = store.get_screening("FI", "tiktok", "u1")
+    assert queued["status"] == "pending" and queued["bucket"] == "unsure"
+
+
 def test_no_signals_is_other():
     r = bucket(EE, region="US", language="en", bio="LA vibes")
     assert r.bucket == filters.OTHER
