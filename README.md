@@ -11,7 +11,7 @@ filters on hard data, lets an AI judge fit from each creator's own posts, and
 then follows who good creators follow. That's where most small-market creators
 turn up.
 
-**Live demo:** LIVE_URL (saved runs work for everyone; live runs need the access code)
+**Live demo: https://creator-scout-nu.vercel.app** (saved runs work for everyone; live runs need the access code)
 
 ## Results on real markets
 
@@ -19,7 +19,11 @@ turn up.
 |---|---|---|---|---|
 | Finland | 3,039 | 63 | 650 | 9.7 |
 | Estonia | 2,738 | 19 | 550 | 3.5 |
-| Germany | DE_REVIEWED | DE_ACCEPTED | DE_CREDITS | DE_PER100 |
+| Germany | 292 | 60 | 319 | 18.8 |
+
+Germany is mostly a by-product: nothing is thrown away, so German creators
+met while scouting Estonia and Finland were queued for Germany, and 49 of the
+60 came from that queue before Germany's own search had even started.
 
 **Hold-out recall.** The client shared a list of creators they already work with.
 We ran each market *without* the list, then checked how many of those
