@@ -1,6 +1,7 @@
 country_code: FI
 name: Finland
 languages: [fi, sv]
+shared_languages: [sv]
 currency: EUR
 
 market_signals:

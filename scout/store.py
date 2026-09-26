@@ -73,9 +73,9 @@ CREATE TABLE IF NOT EXISTS edges (
     kind TEXT NOT NULL,
     via TEXT NOT NULL,
     from_uid TEXT,
-    run_id INTEGER,
+    run_id INTEGER NOT NULL DEFAULT 0,
     created_at REAL,
-    PRIMARY KEY (platform, to_uid, kind, via)
+    PRIMARY KEY (platform, to_uid, kind, via, run_id)
 );
 
 CREATE TABLE IF NOT EXISTS videos (
@@ -244,6 +244,20 @@ class Store:
     def _migrate(self) -> None:
         """Add columns introduced after a database was first created."""
         self.conn.execute("DROP TABLE IF EXISTS seeds")
+        # Edges are kept per run so each run's sources can be attributed.
+        sql = self.conn.execute(
+            "SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'edges'").fetchone()
+        if sql and "via, run_id)" not in sql["sql"]:
+            self.conn.executescript("""
+                ALTER TABLE edges RENAME TO edges_old;
+                CREATE TABLE edges (
+                    platform TEXT NOT NULL, to_uid TEXT NOT NULL, kind TEXT NOT NULL,
+                    via TEXT NOT NULL, from_uid TEXT, run_id INTEGER NOT NULL DEFAULT 0,
+                    created_at REAL, PRIMARY KEY (platform, to_uid, kind, via, run_id));
+                INSERT INTO edges SELECT platform, to_uid, kind, via, from_uid,
+                    COALESCE(run_id, 0), created_at FROM edges_old;
+                DROP TABLE edges_old;
+            """)
         for table, column, decl in ADDED_COLUMNS:
             cols = {r["name"] for r in self.conn.execute(f"PRAGMA table_info({table})")}
             if column not in cols:
@@ -399,7 +413,7 @@ class Store:
         self.conn.execute(
             "INSERT OR IGNORE INTO edges (platform, to_uid, kind, via, from_uid, run_id, created_at)"
             " VALUES (?, ?, ?, ?, ?, ?, ?)",
-            (platform, to_uid, kind, via, from_uid, run_id, time.time()),
+            (platform, to_uid, kind, via, from_uid, run_id or 0, time.time()),
         )
         self.conn.commit()
 

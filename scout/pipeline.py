@@ -417,16 +417,26 @@ class Pipeline:
     # ---- stage: enrichment -----------------------------------------------
 
     def priority(self, s: dict) -> tuple:
-        """Lower sorts first: pre-judge yes, more gaming terms, sure market, known followers."""
+        """Lower sorts first.
+
+        Order: confirmed market, pre-judge yes, more gaming terms, then a size
+        hint (followers known in band, else the harvested video's view count,
+        since near-zero views usually mean an account below the band).
+        """
         uid = s["uid"]
         c = self.store.get_creator(PLATFORM, uid) or {}
         pj = self.store.get_prejudgment(self.market.code, PLATFORM, uid)
         verdict_rank = {"yes": 0, "unsure": 1}.get(pj["verdict"], 2) if pj else 1
-        texts = [c.get("nickname"), c.get("bio")] + \
-                [v["caption"] for v in self.store.videos_for(PLATFORM, uid, limit=3)] + \
+        vids = self.store.videos_for(PLATFORM, uid, limit=3)
+        texts = [c.get("nickname"), c.get("bio")] + [v["caption"] for v in vids] + \
                 [e["via"] for e in self.store.edges_to(PLATFORM, uid) if e["kind"] == "hashtag"]
         hits = len(signals.gaming_hits(texts, self.market))
-        return (verdict_rank, -min(hits, 5), s["bucket"] != filters.SURE, c.get("followers") is None)
+        if c.get("followers") is not None:
+            size_rank = 0
+        else:
+            views = max((v.get("play_count") or 0 for v in vids), default=0)
+            size_rank = 1 if views >= self.s.extra.get("min_views_hint", 1000) else 2
+        return (s["bucket"] != filters.SURE, verdict_rank, -min(hits, 5), size_rank)
 
     def enrich_pending(self, limit: int | None = None) -> int:
         """Enrich up to ``limit`` candidates in priority order. Returns the number qualified."""
@@ -456,9 +466,9 @@ class Pipeline:
             return False
         screening = self.store.get_screening(code, PLATFORM, uid) or {}
 
-        # Unsure accounts with known followers: confirm region before paying for more.
-        if screening.get("bucket") == filters.UNSURE and c.get("followers") is not None \
-                and c.get("region_source") != "lookup":
+        # Unsure accounts: confirm the registration region (1 credit) before paying
+        # for the profile and videos; most unsure accounts fail here.
+        if screening.get("bucket") == filters.UNSURE and c.get("region_source") != "lookup":
             if not self._lookup_region(uid, handle) or not self._still_pending(uid):
                 return False
             c = self.store.get_creator(PLATFORM, uid)
@@ -768,6 +778,34 @@ class Pipeline:
             if not self.last_enrich_attempts or not self.judging:
                 return
 
+    def rescreen(self) -> int:
+        """Re-apply the hard filters to this run's pending accounts (after a config change)."""
+        moved = 0
+        for s in self.store.screenings(self.market.code, PENDING, run_id=self.run_id):
+            self.screen(s["uid"])
+            if self.store.get_screening(self.market.code, PLATFORM, s["uid"])["status"] != PENDING:
+                moved += 1
+        self.funnel["rescreened_out"] = self.funnel.get("rescreened_out", 0) + moved
+        self.emit("rescreen", f"{moved} pending accounts no longer pass the hard filters")
+        return moved
+
+    def reopen_judgments(self) -> int:
+        """Send this run's judged accounts back to the judge (after a rubric change)."""
+        code = self.market.code
+        reopened = 0
+        for status in (ACCEPTED, MAYBE, REJECTED):
+            for s in self.store.screenings(code, status, run_id=self.run_id):
+                self.store.conn.execute(
+                    "DELETE FROM decisions WHERE market = ? AND platform = ? AND uid = ?",
+                    (code, PLATFORM, s["uid"]))
+                self.store.set_screening(code, PLATFORM, s["uid"], QUALIFIED, run_id=self.run_id)
+                self.funnel[status] = max(self.funnel.get(status, 0) - 1, 0)
+                self.funnel["judged"] = max(self.funnel.get("judged", 0) - 1, 0)
+                reopened += 1
+        self.store.conn.commit()
+        self.emit("judge", f"reopened {reopened} judgments")
+        return reopened
+
     def resume_state(self) -> None:
         """Restore counters of a paused run so a resumed run reports one funnel."""
         run = self.store.get_run(self.run_id) or {}
@@ -779,11 +817,15 @@ class Pipeline:
         self.seen_this_run = {r["to_uid"] for r in rows}
 
     def run(self, hashtags: list[str] | None = None, keywords: list[str] | None = None,
-            resume: bool = False) -> dict:
+            resume: bool = False, rescreen: bool = False, rejudge: bool = False) -> dict:
         started = time.time()
         try:
             if resume:
                 self.resume_state()
+                if rescreen:
+                    self.rescreen()
+                if rejudge:
+                    self.reopen_judgments()
             else:
                 if self.judging:
                     self.ensure_keywords()

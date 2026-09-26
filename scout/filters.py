@@ -31,13 +31,21 @@ def market_bucket(market: Market, *, region: str | None, region_source: str | No
     code = market.code
     region = (region or "").upper() or None
 
+    # Languages widely spoken outside the market (Russian for Estonia) are noted
+    # but never count as evidence on their own.
+    shared = {l.lower() for l in market.shared_languages}
+    own = [l for l in market.languages if l not in shared]
     evidence: list[str] = []
+    notes: list[str] = []
     if language and language.lower() in market.languages:
-        evidence.append(f"app language {language}")
-    cap_langs = [v.get("caption_language") for v in videos
-                 if (v.get("caption_language") or "").lower() in market.languages]
-    if cap_langs:
-        evidence.append(f"{len(cap_langs)} caption(s) in {cap_langs[0]}")
+        (notes if language.lower() in shared else evidence).append(f"app language {language}")
+    cap_langs = [(v.get("caption_language") or "").lower() for v in videos]
+    own_caps = [l for l in cap_langs if l in own]
+    shared_caps = [l for l in cap_langs if l in shared]
+    if own_caps:
+        evidence.append(f"{len(own_caps)} caption(s) in {own_caps[0]}")
+    if shared_caps:
+        notes.append(f"{len(shared_caps)} caption(s) in {shared_caps[0]}")
     vid_regions = [v.get("region") for v in videos if (v.get("region") or "").upper() == code]
     if vid_regions:
         evidence.append(f"{len(vid_regions)} video(s) posted from {code}")
@@ -50,7 +58,7 @@ def market_bucket(market: Market, *, region: str | None, region_source: str | No
 
     if region == code:
         label = "registered region" + (" (lookup)" if region_source == "lookup" else "")
-        return BucketResult(SURE, [f"{label} {code}"] + evidence)
+        return BucketResult(SURE, [f"{label} {code}"] + evidence + notes)
     if region and region_source == "lookup":
         # The dedicated lookup is authoritative for registration country. Keep
         # the account open only when content strongly points to this market.

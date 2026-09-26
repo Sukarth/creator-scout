@@ -144,6 +144,8 @@ def run(
 @app.command()
 def resume(run_id: Optional[int] = typer.Option(None, "--run", help="Run id (default: latest)"),
            budget: Optional[int] = typer.Option(None, help="Raise the run's credit budget"),
+           rescreen: bool = typer.Option(False, help="Re-apply hard filters to pending accounts first"),
+           rejudge: bool = typer.Option(False, help="Send judged accounts back to the judge first"),
            export: bool = typer.Option(True, help="Write XLSX and CSV when finished")) -> None:
     """Continue a paused or budget-limited run from its stored state."""
     store = _setup()
@@ -152,7 +154,7 @@ def resume(run_id: Optional[int] = typer.Option(None, "--run", help="Run id (def
         store.update_run(run_id, budget=budget)
     run_row = store.get_run(run_id)
     pipe = _pipeline_for(store, run_row, _print_progress)
-    result = pipe.run(resume=True)
+    result = pipe.run(resume=True, rescreen=rescreen, rejudge=rejudge)
     pipe.client.close()
     paths = export_run(store, run_id, config.exports_dir()) if export else []
     _summary(store, result, paths)

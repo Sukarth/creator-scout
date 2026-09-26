@@ -85,6 +85,9 @@ def test_second_run_returns_no_duplicates(cached_store):
     run = pipe.run(hashtags=[], keywords=[])
     assert store.screenings("FI", "needs_judgment", run_id=run_id) == []
     assert run["funnel"]["already_known"] >= 1
+    # Sources are attributed per run, also for accounts first found earlier.
+    digi = store.get_creator_by_handle("tiktok", "digikamu")
+    assert {e["run_id"] for e in store.edges_to("tiktok", digi["uid"])} == {run_id - 1, run_id}
     assert check_run(store, run_id).passed
 
 

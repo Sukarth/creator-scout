@@ -40,6 +40,9 @@ class Market:
     name: str
     languages: list[str]
     currency: str = "EUR"
+    # Market languages that are also widely spoken elsewhere; alone they are
+    # not evidence that an account belongs to this market.
+    shared_languages: list[str] = field(default_factory=list)
     flags: list[str] = field(default_factory=list)
     tlds: list[str] = field(default_factory=list)
     cities: list[str] = field(default_factory=list)
@@ -71,6 +74,7 @@ def load_market(code: str, directory: Path = MARKETS_DIR) -> Market:
         code=raw["country_code"].upper(),
         name=raw.get("name", raw["country_code"]),
         languages=[l.lower() for l in raw.get("languages", [])],
+        shared_languages=[l.lower() for l in raw.get("shared_languages", [])],
         currency=raw.get("currency", "EUR"),
         flags=signals.get("flags", []),
         tlds=signals.get("tlds", []),

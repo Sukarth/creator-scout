@@ -217,9 +217,9 @@ Rules:
 - Organisations (police, schools, public bodies, media outlets): is_organization=true; at most "maybe".
 - market_resolution: "{market.code}" if the creator is plausibly based in or speaks to {market.name}; another ISO country code if clearly elsewhere; "unclear" otherwise. Use market_bucket and market_evidence: "sure" means TikTok registration country is {market.code}.
 - content_language: ISO 639-1 code of the language the creator mainly writes or speaks in captions.
-- trust_content_score (0-5): ability to make trust content (builds, benchmarks, setup tours, upgrade stories, honest reviews).
-- gaming_pc_relevance (0-5): how central gaming or PC hardware is to the content.
-- "accept" needs gaming_pc_relevance >= 3 and a real creator; "maybe" when relevance is 2 or evidence is thin; otherwise "reject".
+- gaming_pc_relevance (0-5): 5 = PC hardware, builds or setups are the focus; 4 = mostly gameplay, streaming or game content; 3 = gaming is a regular part of the content; 2 = occasional gaming; 1 = a single mention; 0 = none.
+- trust_content_score (0-5): how well the creator could make trust content (builds, benchmarks, setup tours, upgrade stories, honest reviews). It is a score for prioritising, not a requirement: a gamer whose audience plays games is a good partner even without hardware content today, because a PC upgrade story is a natural video for them.
+- "accept": a real creator (own content, not a repost or clip account) with gaming_pc_relevance >= 3. "maybe": relevance 2, or the evidence is thin. "reject": relevance 0-1, not a real creator, business account, or brand-unsafe.
 - reasons: one or two sentences in English.
 Return JSON: {{"results": [{{"id": "<id>", "decision": "accept|maybe|reject", "fit_score": 0-100, "is_business_account": bool, "is_organization": bool, "market_resolution": "...", "content_language": "..", "niche_tags": [], "content_styles": [], "trust_content_score": 0-5, "gaming_pc_relevance": 0-5, "sponsors_mentioned": [], "competitor_conflict": bool, "brand_safety_flags": [], "reasons": "...", "evidence_quote": "..."}}]}} with exactly one entry per input id."""
 

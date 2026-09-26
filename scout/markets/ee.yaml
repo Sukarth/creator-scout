@@ -1,6 +1,9 @@
 country_code: EE
 name: Estonia
 languages: [et, ru]
+# Russian is spoken far beyond Estonia: it counts only together with a region
+# match or another signal (city, flag, domain, local word).
+shared_languages: [ru]
 currency: EUR
 
 market_signals:

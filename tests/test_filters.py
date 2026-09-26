@@ -46,6 +46,18 @@ def test_keyword_author_with_video_region():
     assert any("posted from FI" in e for e in r.evidence)
 
 
+def test_shared_language_alone_is_not_evidence():
+    # Russian-speaking account registered in Ukraine: not Estonian.
+    r = bucket(EE, region="UA", language="ru",
+               videos=[{"caption_language": "ru", "caption": "новый игровой пк", "region": "UA"}])
+    assert r.bucket == filters.OTHER
+    # Russian speaker with an Estonian city in the bio stays open.
+    r = bucket(EE, region=None, language="ru", bio="Таллинн, стримы каждый день")
+    assert r.bucket == filters.UNSURE
+    # Registered in Estonia: sure, whatever the language.
+    assert bucket(EE, region="EE", language="ru").bucket == filters.SURE
+
+
 def test_no_signals_is_other():
     r = bucket(EE, region="US", language="en", bio="LA vibes")
     assert r.bucket == filters.OTHER

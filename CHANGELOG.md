@@ -79,6 +79,20 @@ All notable changes to this project are documented here. The format follows
   placeholder that keeps the top-level domain.
 
 ### Fixed
+- Market languages that are widely spoken elsewhere (`shared_languages`,
+  Russian for Estonia, Swedish for Finland) no longer make an account a
+  market candidate on their own; a region match or another signal is needed.
+  Without this, Russian-speaking accounts from any country entered the
+  Estonian candidate pool.
+- Unsure-market accounts get the 1-credit region lookup before the profile.
+- Enrichment order puts confirmed-market accounts first; hashtag authors with
+  unknown follower counts are ranked by the harvested video's views.
+- Judge rubric: gaming and streaming creators qualify; trust content is a
+  ranking score, not a requirement. The relevance scale has explicit anchors.
+- Edges are stored per run, so accounts re-found in a later run are
+  attributed to that run's sources.
+- `scout resume --rescreen --rejudge` re-applies filters and the judge to a
+  stored run without new API calls.
 - Market words matched as prefixes (Estonian "tere" inside "Terezinha");
   they now match whole words only.
 - Social links scraped from bio-link pages could pick up asset paths such as
