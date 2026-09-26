@@ -1,0 +1,43 @@
+country_code: EE
+name: Estonia
+languages: [et, ru]
+currency: EUR
+
+market_signals:
+  flags: ["🇪🇪"]
+  tlds: [".ee"]
+  cities: [Tallinn, Tartu, Narva, Pärnu, Kohtla-Järve, Viljandi, Rakvere, Maardu, Kuressaare, Haapsalu]
+  words: [eesti, eestlane, eestis, eestikeelne, mängimine, koostöö, koostööd, tere, aitäh]
+
+seed_hashtags:
+  - eestigamer
+  - mängimine
+  - eestigaming
+  - eestitiktok
+  - mänguarvuti
+  - arvutimängud
+  - eestistriimer
+  - gamingeesti
+  - eestiyoutuber
+  - eesti
+
+seed_keywords:
+  - eesti gamer
+  - mänguarvuti
+  - arvutimängud
+  - eesti striimer
+  - cs2 eesti
+  - fortnite eesti
+
+# Local PC and electronics retailers and competitors. Their following lists
+# tend to include the creators they sponsor. ``handle`` is used directly when
+# known; otherwise ``query`` is resolved through user search at run time.
+retailer_seeds:
+  - {name: Arvutitark, query: arvutitark}
+  - {name: Photopoint, query: photopoint}
+  - {name: Klick, query: klick eesti}
+  - {name: Euronics Eesti, query: euronics eesti}
+  - {name: 1a.ee, query: 1a.ee}
+  - {name: Kaup24, query: kaup24}
+
+ad_markers: [reklaam, koostöös, koostöö, sponsoreeritud, tasuline koostöö]

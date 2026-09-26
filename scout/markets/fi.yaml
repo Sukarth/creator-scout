@@ -1,0 +1,41 @@
+country_code: FI
+name: Finland
+languages: [fi, sv]
+currency: EUR
+
+market_signals:
+  flags: ["🇫🇮"]
+  tlds: [".fi"]
+  cities: [Helsinki, Espoo, Tampere, Vantaa, Oulu, Turku, Jyväskylä, Kuopio, Lahti, Pori, Joensuu, Rovaniemi]
+  words: [suomi, suomalainen, suomeksi, pelikone, yhteistyö, yhteistyössä, moi, kiitos]
+
+seed_hashtags:
+  - pelikone
+  - pelitietokone
+  - suomigaming
+  - gamingsuomi
+  - pelisetup
+  - suomitiktok
+  - pelaaminen
+  - suomistriimaaja
+  - suomitubettaja
+  - tietokone
+
+seed_keywords:
+  - pelikone
+  - pelitietokone
+  - pelisetup
+  - näytönohjain
+  - pc build suomi
+  - cs2 suomi
+
+retailer_seeds:
+  - {name: "Jimm's PC", handle: jimmspc}
+  - {name: Nuvoo, handle: nuvoosuomi}
+  - {name: Verkkokauppa.com, query: verkkokauppa.com}
+  - {name: Gigantti, query: gigantti}
+  - {name: Power, query: power suomi}
+  - {name: Proshop, query: proshop suomi}
+  - {name: Datatronic, query: datatronic}
+
+ad_markers: [mainos, kaupallinen yhteistyö, yhteistyössä, yhteistyö, sponsoroitu, maksettu kumppanuus]

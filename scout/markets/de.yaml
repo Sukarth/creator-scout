@@ -1,0 +1,36 @@
+country_code: DE
+name: Germany
+languages: [de]
+currency: EUR
+
+market_signals:
+  flags: ["🇩🇪"]
+  tlds: [".de"]
+  cities: [Berlin, Hamburg, München, Köln, Frankfurt, Stuttgart, Düsseldorf, Leipzig, Dortmund, Essen, Bremen, Dresden, Hannover, Nürnberg]
+  words: [deutsch, deutschland, zocken, zocker, kooperation, anfragen, danke]
+
+seed_hashtags:
+  - zockerpc
+  - gamingpcdeutschland
+  - pcbuilddeutsch
+  - zocken
+  - gamingdeutschland
+  - pcsetupdeutsch
+  - deutschgaming
+  - streamerdeutsch
+
+seed_keywords:
+  - gaming pc deutsch
+  - pc zusammenbauen
+  - zocker pc
+  - grafikkarte test
+  - pc build deutsch
+
+retailer_seeds:
+  - {name: Mindfactory, query: mindfactory}
+  - {name: Alternate, query: alternate de}
+  - {name: Caseking, query: caseking}
+  - {name: Notebooksbilliger, query: notebooksbilliger}
+  - {name: Cyberport, query: cyberport}
+
+ad_markers: [werbung, anzeige, unbezahlte werbung, bezahlte partnerschaft, kooperation]

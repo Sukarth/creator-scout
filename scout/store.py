@@ -89,6 +89,8 @@ CREATE TABLE IF NOT EXISTS videos (
     comment_count INTEGER,
     share_count INTEGER,
     is_ad INTEGER,
+    region TEXT,
+    caption_language TEXT,
     source TEXT,
     PRIMARY KEY (platform, video_id)
 );
@@ -102,17 +104,23 @@ CREATE TABLE IF NOT EXISTS metrics (
     PRIMARY KEY (platform, uid)
 );
 
-CREATE TABLE IF NOT EXISTS seeds (
+CREATE TABLE IF NOT EXISTS snowball_seeds (
     market TEXT NOT NULL,
     platform TEXT NOT NULL,
-    uid TEXT NOT NULL,
+    handle TEXT NOT NULL,
+    uid TEXT,
     kind TEXT NOT NULL,
+    label TEXT,
     pages_fetched INTEGER DEFAULT 0,
     next_cursor TEXT,
     exhausted INTEGER DEFAULT 0,
+    exhausted_reason TEXT,
+    accounts_seen INTEGER DEFAULT 0,
     new_in_market INTEGER DEFAULT 0,
     credits_spent INTEGER DEFAULT 0,
-    PRIMARY KEY (market, platform, uid)
+    total_following INTEGER,
+    added_run INTEGER,
+    PRIMARY KEY (market, platform, handle)
 );
 
 CREATE TABLE IF NOT EXISTS decisions (
@@ -143,6 +151,15 @@ CREATE TABLE IF NOT EXISTS runs (
     finished_at REAL
 );
 
+CREATE TABLE IF NOT EXISTS run_members (
+    run_id INTEGER NOT NULL,
+    market TEXT NOT NULL,
+    platform TEXT NOT NULL,
+    uid TEXT NOT NULL,
+    status TEXT NOT NULL,
+    PRIMARY KEY (run_id, platform, uid)
+);
+
 CREATE TABLE IF NOT EXISTS cache (
     key TEXT PRIMARY KEY,
     endpoint TEXT NOT NULL,
@@ -158,6 +175,12 @@ CREATE TABLE IF NOT EXISTS meta (
     value TEXT
 );
 """
+
+# (table, column, declaration) for columns added to the schema over time.
+ADDED_COLUMNS = [
+    ("videos", "region", "TEXT"),
+    ("videos", "caption_language", "TEXT"),
+]
 
 # Columns a caller may set on ``creators`` via ``upsert_creator``.
 CREATOR_FIELDS = (
@@ -179,7 +202,16 @@ class Store:
         self.conn.row_factory = sqlite3.Row
         self.conn.execute("PRAGMA journal_mode=WAL")
         self.conn.executescript(SCHEMA)
+        self._migrate()
         self.conn.commit()
+
+    def _migrate(self) -> None:
+        """Add columns introduced after a database was first created."""
+        self.conn.execute("DROP TABLE IF EXISTS seeds")
+        for table, column, decl in ADDED_COLUMNS:
+            cols = {r["name"] for r in self.conn.execute(f"PRAGMA table_info({table})")}
+            if column not in cols:
+                self.conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {decl}")
 
     def close(self) -> None:
         self.conn.close()
@@ -347,12 +379,13 @@ class Store:
     def upsert_videos(self, platform: str, videos: Iterable[dict]) -> None:
         self.conn.executemany(
             "INSERT OR REPLACE INTO videos (platform, video_id, uid, caption, create_time,"
-            " play_count, digg_count, comment_count, share_count, is_ad, source)"
-            " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            " play_count, digg_count, comment_count, share_count, is_ad, region, caption_language,"
+            " source) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
             [
                 (platform, v["video_id"], v["uid"], v.get("caption"), v.get("create_time"),
                  v.get("play_count"), v.get("digg_count"), v.get("comment_count"),
-                 v.get("share_count"), int(bool(v.get("is_ad"))), v.get("source"))
+                 v.get("share_count"), int(bool(v.get("is_ad"))), v.get("region"),
+                 v.get("caption_language"), v.get("source"))
                 for v in videos
             ],
         )
@@ -429,25 +462,42 @@ class Store:
             out.append(d)
         return out
 
-    # ---- seeds -----------------------------------------------------------
-
-    def upsert_seed(self, market: str, platform: str, uid: str, kind: str) -> None:
+    def add_run_member(self, run_id: int, market: str, platform: str, uid: str, status: str) -> None:
         self.conn.execute(
-            "INSERT OR IGNORE INTO seeds (market, platform, uid, kind) VALUES (?, ?, ?, ?)",
-            (market, platform, uid, kind),
-        )
+            "INSERT OR REPLACE INTO run_members (run_id, market, platform, uid, status)"
+            " VALUES (?, ?, ?, ?, ?)", (run_id, market, platform, uid, status))
         self.conn.commit()
 
-    def update_seed(self, market: str, platform: str, uid: str, **fields: Any) -> None:
+    def earlier_members(self, run_id: int, market: str, platform: str) -> set[str]:
+        rows = self.conn.execute(
+            "SELECT uid FROM run_members WHERE market = ? AND platform = ? AND run_id < ?",
+            (market, platform, run_id)).fetchall()
+        return {r["uid"] for r in rows}
+
+    # ---- seeds -----------------------------------------------------------
+
+    def add_seed(self, market: str, platform: str, handle: str, kind: str,
+                 uid: str | None = None, label: str | None = None,
+                 run_id: int | None = None) -> bool:
+        """Register a snowball seed. Returns True when it was not known before."""
+        cur = self.conn.execute(
+            "INSERT OR IGNORE INTO snowball_seeds (market, platform, handle, uid, kind, label,"
+            " added_run) VALUES (?, ?, ?, ?, ?, ?, ?)",
+            (market, platform, handle.lower(), uid, kind, label, run_id),
+        )
+        self.conn.commit()
+        return cur.rowcount > 0
+
+    def update_seed(self, market: str, platform: str, handle: str, **fields: Any) -> None:
         cols = ", ".join(f"{k} = ?" for k in fields)
         self.conn.execute(
-            f"UPDATE seeds SET {cols} WHERE market = ? AND platform = ? AND uid = ?",
-            (*fields.values(), market, platform, uid),
+            f"UPDATE snowball_seeds SET {cols} WHERE market = ? AND platform = ? AND handle = ?",
+            (*fields.values(), market, platform, handle.lower()),
         )
         self.conn.commit()
 
     def seeds(self, market: str, platform: str = "tiktok", active_only: bool = True) -> list[dict]:
-        sql = "SELECT * FROM seeds WHERE market = ? AND platform = ?"
+        sql = "SELECT * FROM snowball_seeds WHERE market = ? AND platform = ?"
         if active_only:
             sql += " AND exhausted = 0"
         return [dict(r) for r in self.conn.execute(sql, (market, platform)).fetchall()]
