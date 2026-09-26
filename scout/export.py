@@ -63,7 +63,11 @@ def _date(ts: float | int | None) -> str:
 
 SOURCE_LABELS = {
     "hashtag": "#{via}", "keyword": "TikTok search '{via}'", "following": "followed by @{via}",
-    "retailer_search": "user search '{via}'", "yt_search": "YouTube search '{via}'",
+    "keyword_liked": "TikTok search (most liked) '{via}'", "tt_top": "TikTok top search '{via}'",
+    "tt_users": "TikTok user search '{via}'", "retailer_search": "user search '{via}'",
+    "yt_search": "YouTube search '{via}'", "yt_channels": "YouTube channel search '{via}'",
+    "yt_shorts": "YouTube Shorts search '{via}'", "yt_shorts_tag": "YouTube Shorts #{via}",
+    "yt_api_shorts": "YouTube Shorts (official search) '{via}'",
     "tiktok_link": "linked from TikTok @{via}", "youtube_link": "linked from YouTube {via}",
 }
 
