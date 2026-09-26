@@ -1,0 +1,20 @@
+# Internal planning and agent instructions
+.planning/
+CLAUDE.md
+TODO.md
+
+# Secrets
+.env
+
+# Local data
+data/*.db
+cache/
+exports/
+*.db
+!demo/snapshot.db
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
