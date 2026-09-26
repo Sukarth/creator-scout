@@ -101,6 +101,22 @@ def test_unverifiable_evidence_downgrades_accept_to_maybe(cached_store):
     assert "evidence quote not found in bio or captions" in d["data"]["code_notes"]
 
 
+def test_decision_follows_rubric_scores(cached_store):
+    store = cached_store
+    pipe, run_id = make(store, StubJudge())
+    pipe.run(hashtags=[], keywords=[])
+    digi = store.get_creator_by_handle("tiktok", "digikamu")
+    base = {"id": digi["uid"], "fit_score": 60, "market_resolution": "FI",
+            "evidence_quote": "Tech, News, Reviews", "reasons": "x"}
+    status = pipe.apply_decision(digi["uid"], {**base, "decision": "maybe",
+                                               "gaming_pc_relevance": 3}, "stub")
+    assert status == "accepted"
+    status = pipe.apply_decision(digi["uid"], {**base, "decision": "accept",
+                                               "gaming_pc_relevance": 1, "young_gamer_appeal": 2},
+                                 "stub")
+    assert status == "maybe"
+
+
 def test_rejected_creators_are_not_seeds(cached_store):
     store = cached_store
     pipe, run_id = make(store, StubJudge(), target=5)

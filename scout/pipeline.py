@@ -675,6 +675,17 @@ class Pipeline(YouTubeStage):
             decision = to
             notes.append(note)
 
+        # Keep the decision consistent with the rubric's own score thresholds.
+        relevance = r.get("gaming_pc_relevance") or 0
+        appeal = r.get("young_gamer_appeal") or 0
+        meets_rule = relevance >= 3 or appeal >= 4
+        if decision == "maybe" and meets_rule and not r.get("brand_safety_flags") \
+                and not r.get("is_business_account") and not r.get("is_organization") \
+                and self._evidence_found(r.get("evidence_quote"), uid, platform):
+            decision = "accept"
+            notes.append(f"upgraded: relevance {relevance}, appeal {appeal} meet the accept rule")
+        elif decision == "accept" and not meets_rule:
+            downgrade("maybe", f"relevance {relevance}, appeal {appeal} below the accept rule")
         if r.get("is_business_account") and decision != "reject":
             downgrade("reject", "business account")
         if r.get("is_organization") and decision == "accept":
