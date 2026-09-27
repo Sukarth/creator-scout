@@ -92,6 +92,13 @@ class JudgeResult(_Lenient):
     def _decision(cls, v):
         return str(v).strip().lower()
 
+    @field_validator("market_resolution", mode="before")
+    @classmethod
+    def _market(cls, v):
+        """Country codes are upper case ("ee" -> "EE"); words such as "unclear" stay."""
+        v = str(v or "unclear").strip()
+        return v.upper() if len(v) == 2 and v.isalpha() else v.lower()
+
     @field_validator("fit_score", "trust_content_score", "gaming_pc_relevance",
                      "young_gamer_appeal", mode="before")
     @classmethod

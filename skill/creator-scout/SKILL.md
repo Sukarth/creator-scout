@@ -65,10 +65,33 @@ scout run --market ee --preset hidden-gems --target 5 --budget 40 --judge hybrid
 
 For a niche request, pass the games in local phrasing as `--keywords` (used for
 TikTok and YouTube search) and `--hashtags`. The run stops with
-`awaiting_judgment`: run `scout candidates --stage judge`, judge every account in
-one file, `scout decide --stage judge --file judge.json`, then `scout resume`
-(it finishes at once when the budget is spent), `scout check` and `scout export`.
-Do not start a second run to reach the target; report what one run found.
+`awaiting_judgment`. Then, in this order and nothing else:
+
+1. `scout candidates --stage judge` and judge every account, in one file.
+2. `scout decide --stage judge --file judge.json`
+3. `scout resume` finishes at once (the budget is spent) and prints the XLSX path.
+4. `scout check`, then report.
+
+Do not start a second run to reach the target; report what one run found. The
+command output has everything needed: do not open the XLSX, CSVs, the database
+or the tool's source.
+
+The judge file (one entry per candidate id; `platform` as given):
+
+```json
+{"results": [
+  {"id": "6884168840017773573", "platform": "tiktok", "decision": "accept",
+   "fit_score": 78, "gaming_pc_relevance": 4, "young_gamer_appeal": 4,
+   "trust_content_score": 2, "market_resolution": "EE", "content_language": "et",
+   "niche_category": "gaming", "games": ["Minecraft", "Fortnite"],
+   "sponsors_mentioned": [], "competitor_conflict": false, "brand_safety_flags": [],
+   "reasons": "Estonian Minecraft creator posting weekly gameplay.",
+   "evidence_quote": "exact text copied from the bio, a caption or a title"}
+]}
+```
+
+`decision` is `accept`, `maybe` or `reject`; scores are 0-5 except `fit_score`
+(0-100). The quote must be copied exactly, or the accept becomes maybe.
 
 Report to the user: accepted creators, credits spent, where they came from
 (`scout yield`), anything flagged (competitor sponsorship, brand safety,

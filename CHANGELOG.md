@@ -64,6 +64,10 @@ All notable changes to this project are documented here. The format follows
   replaced by another verbatim line.
 
 ### Fixed
+- `scout run` and `scout resume` no longer export a run that is paused for an
+  external judge; the sheet is written once the run is finished.
+- Judge results normalise country codes ("ee" becomes "EE"), so a lower-case
+  market no longer fails the "market resolved" check.
 - Live-run downloads no longer depend on the server instance that ran the job:
   both workbooks are sent with the finished event and saved in the browser.
 - The web app counts creators and accepted accounts separately (a creator

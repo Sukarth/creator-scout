@@ -107,6 +107,11 @@ def _band_params(preset: str, band: Optional[str], yt_band: Optional[str]) -> di
     return {"preset": preset, "band_min": tlo, "band_max": thi, "yt_band_min": ylo, "yt_band_max": yhi}
 
 
+def _finished(result: dict) -> bool:
+    """A run paused for an external judge is not exported yet: the sheet would be incomplete."""
+    return not str(result.get("status") or "").startswith("awaiting")
+
+
 def _summary(store: Store, result: dict, paths: list[Path]) -> None:
     f = result["funnel"]
     judged = result["params"].get("judge", "none") != "none"
@@ -164,7 +169,7 @@ def run(
         keywords=[k.strip() for k in keywords.split(",")] if keywords else None,
     )
     pipe.client.close()
-    paths = export_run(store, run_id, config.exports_dir()) if export else []
+    paths = export_run(store, run_id, config.exports_dir()) if _finished(result) and export else []
     if as_json:
         typer.echo(json.dumps({"run": result, "exports": [str(p) for p in paths]}, default=str))
         return
@@ -200,7 +205,7 @@ def resume(run_id: Optional[int] = typer.Option(None, "--run", help="Run id (def
     pipe = _pipeline_for(store, run_row, _print_progress)
     result = pipe.run(resume=True, rescreen=rescreen, rejudge=rejudge)
     pipe.client.close()
-    paths = export_run(store, run_id, config.exports_dir()) if export else []
+    paths = export_run(store, run_id, config.exports_dir()) if _finished(result) and export else []
     _summary(store, result, paths)
 
 
