@@ -94,9 +94,10 @@ function renderRows(target, rows, countEl) {
 function creatorsLabel(run) {
   const accounts = run.funnel.accepted || 0, creators = run.creators ?? accounts, merged = accounts - creators;
   return merged > 0
-    ? `${creators} creators (${accounts} accounts; ${merged} ${merged === 1 ? "has" : "have"} both TikTok and YouTube, merged)`
-    : `${creators} creators`;
+    ? `${plural(creators, "creator")} (${accounts} accounts; ${merged} ${merged === 1 ? "has" : "have"} both TikTok and YouTube, merged)`
+    : plural(creators, "creator");
 }
+const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
 
 // ---- demo ----
 async function loadDemo() {
@@ -107,7 +108,7 @@ async function loadDemo() {
     <div class="card" data-id="${r.id}">
       <div class="muted small">${esc(r.market_name)} · ${(r.params.platforms || ["tiktok"]).join(" + ")}</div>
       <h3>${esc(r.brief || "Run " + r.id)}</h3>
-      <div class="big">${r.creators ?? r.funnel.accepted} creators</div>
+      <div class="big">${plural(r.creators ?? r.funnel.accepted, "creator")}</div>
       <div class="stats"><span>${fmt(r.funnel.reviewed)} reviewed</span><span>${r.funnel.accepted} accounts</span><span>${r.credits} credits</span>
       ${r.recall ? `<span>partners found: ${r.recall.found}/${r.recall.total}</span>` : ""}</div>
     </div>`).join("");
@@ -127,7 +128,7 @@ async function showRun(source, run) {
   renderYield($("#yield"), run.yield || []);
   $("#recall").innerHTML = run.recall
     ? `<div class="recall-big">${run.recall.found} of ${run.recall.total}</div><p class="muted">of the client's existing partners in this market were found by the tool on its own, without using the list as input.${run.recall.note ? " " + esc(run.recall.note) : ""}</p>`
-    : '<p class="muted">No hold-out check for this run.</p>';
+    : '<p class="muted">No hold-out result is shown for this run.</p>';
   allRows = await (await fetch(`/api/${source}/runs/${run.id}/rows`)).json();
   renderRows($("#rows"), allRows, $("#count"));
 }
