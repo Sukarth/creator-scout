@@ -20,7 +20,7 @@ document.querySelectorAll(".tab").forEach((b) => b.addEventListener("click", () 
 // ---- funnel ----
 function renderFunnel(el, f) {
   const steps = [["reviewed", "accounts reviewed"], ["in_market", "in the market"], ["in_band", "in the size band"],
-                 ["judged", "judged by AI"], ["accepted", "accepted creators"]];
+                 ["judged", "judged by AI"], ["accepted", "accepted accounts"]];
   const top = Math.max(f.reviewed || 1, 1);
   el.innerHTML = steps.map(([k, label], i) => {
     const v = f[k] || 0, w = Math.max(3, Math.round(100 * v / top));
