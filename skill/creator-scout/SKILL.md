@@ -63,6 +63,9 @@ scout run --market ee --preset hidden-gems --target 5 --budget 40 --judge hybrid
   --keywords "minecraft eesti,fortnite eesti" --hashtags "minecrafteesti,fortniteeesti"
 ```
 
+A run takes a few minutes: run it in the foreground with a long tool timeout
+(10 minutes), not in the background.
+
 For a niche request, pass the games in local phrasing as `--keywords` (used for
 TikTok and YouTube search) and `--hashtags`. The run stops with
 `awaiting_judgment`. Then, in this order and nothing else:
