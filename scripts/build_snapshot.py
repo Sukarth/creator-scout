@@ -35,7 +35,7 @@ def _mask(text):
 def mask_emails(snap: Store) -> None:
     """The snapshot is published: keep only the first letter and the domain of emails."""
     c = snap.conn
-    for table, key, cols in (("creators", ("platform", "uid"), ("bio", "emails", "links")),
+    for table, key, cols in (("creators", ("platform", "uid"), ("bio", "bio_link", "emails", "links")),
                              ("videos", ("platform", "video_id"), ("caption",)),
                              ("decisions", ("market", "platform", "uid"), ("data",))):
         rows = c.execute(f"SELECT {', '.join(key + cols)} FROM {table}").fetchall()
@@ -113,7 +113,60 @@ def scrub_brand(snap: Store, name: str) -> None:
             c.execute("UPDATE metrics SET data = ? WHERE platform = ? AND uid = ?",
                       (json.dumps(new, ensure_ascii=False), platform, uid))
     c.execute("UPDATE videos SET caption = '' WHERE caption LIKE ?", (f"%{name}%",))
+    _drop_brand_accounts(c, name)
+    _neutral_brand_mentions(c, brand)
     c.commit()
+
+
+def _drop_brand_accounts(c, name: str) -> None:
+    """The brand's own accounts are not creators; leave them out of the published data."""
+    like = f"%{name}%"
+    accounts = c.execute("SELECT platform, uid FROM creators WHERE handle LIKE ? OR nickname LIKE ?",
+                         (like, like)).fetchall()
+    tables = [r[0] for r in c.execute("SELECT name FROM sqlite_master WHERE type = 'table'")]
+    for platform, uid in accounts:
+        for t in tables:
+            cols = {r[1] for r in c.execute(f"PRAGMA table_info({t})")}
+            if {"platform", "uid"} <= cols:
+                c.execute(f"DELETE FROM {t} WHERE platform = ? AND uid = ?", (platform, uid))
+            if {"platform", "to_uid"} <= cols:
+                c.execute(f"DELETE FROM {t} WHERE platform = ? AND (to_uid = ? OR from_uid = ?)",
+                          (platform, uid, uid))
+            if {"platform_a", "uid_a"} <= cols:
+                c.execute(f"DELETE FROM {t} WHERE (platform_a = ? AND uid_a = ?) OR (platform_b = ? AND uid_b = ?)",
+                          (platform, uid, platform, uid))
+    c.execute("DELETE FROM snowball_seeds WHERE handle LIKE ?", (like,))
+    c.execute("DELETE FROM edges WHERE via LIKE ?", (like,))
+
+
+def neutral_brand(text, brand: re.Pattern):
+    """Plain mentions of the client ("fits Prenew's audience") become "the brand"."""
+    if not isinstance(text, str) or not brand.search(text):
+        return text
+
+    def repl(m):
+        word = "the brand's" if m.group(1) else "the brand"
+        start = m.start() == 0 or text[:m.start()].rstrip().endswith((".", "!", "?", ":"))
+        return word[0].upper() + word[1:] if start else word
+    return re.sub(brand.pattern + r"(['’]s)?", repl, text, flags=re.I)
+
+
+def _neutral_brand_mentions(c, brand: re.Pattern) -> None:
+    for market, platform, uid, raw in c.execute(
+            "SELECT market, platform, uid, data FROM decisions").fetchall():
+        d = json.loads(raw)
+        new = {k: ([neutral_brand(x, brand) for x in v] if isinstance(v, list) else neutral_brand(v, brand))
+               for k, v in d.items()}
+        if new != d:
+            c.execute("UPDATE decisions SET data = ? WHERE market = ? AND platform = ? AND uid = ?",
+                      (json.dumps(new, ensure_ascii=False), market, platform, uid))
+    for table in ("screenings", "prejudgments"):
+        for market, platform, uid, reason in c.execute(
+                f"SELECT market, platform, uid, reason FROM {table} WHERE reason IS NOT NULL").fetchall():
+            cleaned = neutral_brand(reason, brand)
+            if cleaned != reason:
+                c.execute(f"UPDATE {table} SET reason = ? WHERE market = ? AND platform = ? AND uid = ?",
+                          (cleaned, market, platform, uid))
 
 
 def build(run_ids: list[int], out: Path, titles: dict[int, str] | None = None,

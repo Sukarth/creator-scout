@@ -64,6 +64,7 @@ All notable changes to this project are documented here. The format follows
   replaced by another verbatim line.
 
 ### Fixed
+- Demo snapshot: emails in `bio_link` are masked, the brand's own accounts are left out and plain brand mentions read "the brand"; older snapshot versions were removed from history.
 - `scout run` and `scout resume` no longer export a run that is paused for an
   external judge; the sheet is written once the run is finished.
 - Judge results normalise country codes ("ee" becomes "EE"), so a lower-case
