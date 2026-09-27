@@ -49,8 +49,75 @@ def mask_emails(snap: Store) -> None:
     c.commit()
 
 
+TIE_WORDS = re.compile(r"(\bPR\b|\bads?\b|mainos|werbung|reklaam|sponsor|ladder|collab|campaign|"
+                       r"caption|[#@])", re.I)
+SEPARATORS = re.compile(r"(\s*(?:[;,]|\band\b|\.(?=\s|$))\s*)")
+
+
+def drop_brand_ties(text: str, brand: re.Pattern) -> str:
+    """Remove the parts of a sentence that tie the creator to the brand (an ad, a
+    sponsorship, a campaign), keeping the rest. Plain mentions such as "fits the
+    brand's audience" stay."""
+    if not isinstance(text, str) or not brand.search(text):
+        return text
+    parts = SEPARATORS.split(text)  # segment, separator, segment, ...
+    segments, seps = parts[0::2], [""] + parts[1::2]
+    kept = [(sep, seg) for sep, seg in zip(seps, segments)
+            if not (brand.search(seg) and TIE_WORDS.search(seg))]
+    out = "".join(sep + seg for sep, seg in kept).strip()
+    out = re.sub(r"^(?:[;,.]|and\b)\s*", "", out)
+    out = re.sub(r"\s*(?:[;,]|\band)\s*$", "", out).strip()
+    out = out[:1].upper() + out[1:]
+    if out and out[-1] not in ".!?":
+        out += "."
+    return out
+
+
+def scrub_brand(snap: Store, name: str) -> None:
+    """The snapshot is published: leave out anything showing an existing deal between
+    a creator and the brand, since that would hint at the client's private partner
+    list. Evidence quotes naming the brand are replaced by another verbatim line."""
+    brand = re.compile(re.escape(name), re.I)
+    c = snap.conn
+    for market, platform, uid, raw in c.execute(
+            "SELECT market, platform, uid, data FROM decisions").fetchall():
+        d = json.loads(raw)
+        new = dict(d)
+        for key in ("reasons", "summary"):
+            new[key] = drop_brand_ties(d.get(key), brand)
+        for key in ("sponsors_mentioned", "brand_safety_flags"):
+            if isinstance(d.get(key), list):
+                new[key] = [x for x in d[key] if not brand.search(str(x))]
+        if isinstance(d.get("evidence_quote"), str) and brand.search(d["evidence_quote"]):
+            bio = (c.execute("SELECT bio FROM creators WHERE platform = ? AND uid = ?",
+                             (platform, uid)).fetchone() or [None])[0]
+            captions = [r[0] for r in c.execute(
+                "SELECT caption FROM videos WHERE platform = ? AND uid = ? AND caption != '' "
+                "ORDER BY create_time DESC", (platform, uid))]
+            candidates = [t for t in [bio, *captions] if t and not brand.search(t)]
+            new["evidence_quote"] = candidates[0][:200] if candidates else ""
+        if new != d:
+            c.execute("UPDATE decisions SET data = ? WHERE market = ? AND platform = ? AND uid = ?",
+                      (json.dumps(new, ensure_ascii=False), market, platform, uid))
+    for market, platform, uid, reason in c.execute(
+            "SELECT market, platform, uid, reason FROM screenings WHERE reason IS NOT NULL").fetchall():
+        cleaned = drop_brand_ties(reason, brand)
+        if cleaned != reason:
+            c.execute("UPDATE screenings SET reason = ? WHERE market = ? AND platform = ? AND uid = ?",
+                      (cleaned, market, platform, uid))
+    for platform, uid, raw in c.execute("SELECT platform, uid, data FROM metrics").fetchall():
+        m = json.loads(raw)
+        new = {**m, **{k: [x for x in m[k] if not brand.search(str(x))]
+                       for k in ("sponsors", "competitors") if isinstance(m.get(k), list)}}
+        if new != m:
+            c.execute("UPDATE metrics SET data = ? WHERE platform = ? AND uid = ?",
+                      (json.dumps(new, ensure_ascii=False), platform, uid))
+    c.execute("UPDATE videos SET caption = '' WHERE caption LIKE ?", (f"%{name}%",))
+    c.commit()
+
+
 def build(run_ids: list[int], out: Path, titles: dict[int, str] | None = None,
-          no_recall: set[int] | None = None) -> None:
+          no_recall: set[int] | None = None, brand: str | None = None) -> None:
     config.load_dotenv()
     src_path = config.db_path()
     src = Store(src_path)
@@ -98,6 +165,8 @@ def build(run_ids: list[int], out: Path, titles: dict[int, str] | None = None,
     for rid, title in (titles or {}).items():
         snap.conn.execute("UPDATE runs SET brief = ? WHERE id = ?", (title, rid))
     mask_emails(snap)
+    if brand:
+        scrub_brand(snap, brand)
     snap.conn.execute("DELETE FROM cache")
     snap.conn.execute("DELETE FROM llm_cache")
     snap.conn.commit()
@@ -113,6 +182,8 @@ if __name__ == "__main__":
     ap.add_argument("--title", action="append", default=[], help="RUN_ID=display title")
     ap.add_argument("--no-recall", type=int, nargs="*", default=[],
                     help="Runs whose partner recall is not stored")
+    ap.add_argument("--brand", default="prenew",
+                    help="Client brand whose existing creator deals are left out of the snapshot")
     a = ap.parse_args()
     build(a.runs, a.out, {int(t.split("=", 1)[0]): t.split("=", 1)[1] for t in a.title},
-          set(a.no_recall))
+          set(a.no_recall), a.brand)

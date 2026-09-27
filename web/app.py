@@ -144,6 +144,17 @@ def creator_count(store: Store, run: dict) -> int:
     return count
 
 
+def top_games(store: Store, run: dict, limit: int = 6) -> list[list]:
+    """The games accepted accounts cover most, as ``[name, accounts]`` pairs."""
+    counts: dict[str, list] = {}
+    for s in store.screenings(run["market"], "accepted", run_id=run["id"]):
+        d = (store.get_decision(run["market"], s["platform"], s["uid"]) or {}).get("data") or {}
+        for game in {g.strip() for g in d.get("games") or [] if g and g.strip()}:
+            entry = counts.setdefault(game.lower(), [game, 0])
+            entry[1] += 1
+    return sorted(counts.values(), key=lambda e: -e[1])[:limit]
+
+
 def run_summary(store: Store, run: dict) -> dict:
     yield_raw = store.meta_get(f"yield:{run['id']}")
     return {"id": run["id"], "market": run["market"],
@@ -151,6 +162,7 @@ def run_summary(store: Store, run: dict) -> dict:
             "status": run["status"], "credits": run["credits_used"],
             "llm_calls": run.get("llm_calls"), "params": run["params"],
             "funnel": funnel(store, run), "creators": creator_count(store, run),
+            "top_games": top_games(store, run),
             "yield": json.loads(yield_raw) if yield_raw else source_yield(store, run["id"]),
             "recall": json.loads(store.meta_get(f"recall:{run['id']}") or "null")}
 

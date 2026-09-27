@@ -50,6 +50,8 @@ table { border-collapse: collapse; width: 100%; }
 .mini td, .mini th { padding: 6px 4px; border-bottom: 1px solid var(--line); text-align: left; font-size: 13.5px; }
 .mini td.r, .mini th.r { text-align: right; font-variant-numeric: tabular-nums; }
 .recall-big { font-size: 34px; font-weight: 700; color: var(--accent2); }
+.highlights { margin: 12px 0 0; padding-left: 18px; font-size: 14px; line-height: 1.6; }
+.highlights + p + div .pill { margin: 0 4px 6px 0; }
 .tablebar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
 .filters { display: flex; gap: 8px; }
 input, select { background: var(--panel2); color: var(--text); border: 1px solid var(--line); border-radius: 9px; padding: 8px 10px; font: inherit; }

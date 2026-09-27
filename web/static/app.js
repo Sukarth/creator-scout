@@ -99,9 +99,28 @@ function creatorsLabel(run) {
 }
 const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
 
+const per100 = (r) => (r.credits ? 100 * (r.funnel.accepted || 0) / r.credits : 0);
+
+// For runs without a hold-out result: scale, yield compared with the other saved runs, top games.
+function runHighlights(run, others) {
+  const rate = per100(run);
+  const cmp = others.filter((o) => o.id !== run.id && per100(o) > 0)
+    .map((o) => `about ${(rate / per100(o)).toFixed(1).replace(/\.0$/, "")}× ${esc(o.market_name)}`);
+  const games = (run.top_games || []).map(([g, n]) => `<span class="pill">${esc(g)} <span class="muted">${n}</span></span>`).join(" ");
+  return `<div class="recall-big">${rate.toFixed(1)} per 100 credits</div>
+    <p class="muted">accepted accounts per 100 credits${cmp.length ? ` (${cmp.join(", ")})` : ""}.</p>
+    <ul class="highlights">
+      <li><b>${esc(run.brief || run.market_name)}</b></li>
+      <li>${plural(run.creators ?? run.funnel.accepted, "creator")} from ${fmt(run.funnel.reviewed)} accounts reviewed, ${run.credits} credits</li>
+    </ul>
+    ${games ? `<p class="muted" style="margin:10px 0 6px">Top games among accepted accounts</p><div>${games}</div>` : ""}`;
+}
+
 // ---- demo ----
+let demoRuns = [];
 async function loadDemo() {
   const runs = await (await fetch("/api/demo/runs")).json();
+  demoRuns = runs;
   const cards = $("#run-cards");
   if (!runs.length) { cards.innerHTML = '<div class="muted">No saved runs in this deployment.</div>'; return; }
   cards.innerHTML = runs.map((r) => `
@@ -126,9 +145,10 @@ async function showRun(source, run) {
   $("#dl-prenew").href = `/api/${source}/runs/${run.id}/export?layout=prenew`;
   renderFunnel($("#funnel"), run.funnel);
   renderYield($("#yield"), run.yield || []);
+  $("#side-title").textContent = run.recall ? "Hold-out check" : "What this run shows";
   $("#recall").innerHTML = run.recall
     ? `<div class="recall-big">${run.recall.found} of ${run.recall.total}</div><p class="muted">of the client's existing partners in this market were found by the tool on its own, without using the list as input.${run.recall.note ? " " + esc(run.recall.note) : ""}</p>`
-    : '<p class="muted">No hold-out result is shown for this run.</p>';
+    : runHighlights(run, source === "demo" ? demoRuns : []);
   allRows = await (await fetch(`/api/${source}/runs/${run.id}/rows`)).json();
   renderRows($("#rows"), allRows, $("#count"));
 }

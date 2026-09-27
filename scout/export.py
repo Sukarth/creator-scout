@@ -426,7 +426,7 @@ ENRICHMENT = {"/v1/tiktok/profile", "/v1/tiktok/profile/region", "/v3/tiktok/pro
 def source_group(kind: str, via: str, market, partner_seeds: set[str] | None = None) -> str:
     if kind == "hashtag":
         return "local hashtags" if via in market.seed_hashtags or via not in market.global_hashtags \
-            else "global / Russian hashtags (proxy)"
+            else "global game hashtags (via local proxy)"
     if kind == "following" and partner_seeds and via.lower() in partner_seeds:
         return "snowball from partner seeds"
     return {"keyword": "TikTok keyword search", "keyword_liked": "TikTok keyword search (most liked)",
