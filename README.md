@@ -15,15 +15,16 @@ turn up.
 
 ## Results on real markets
 
-| Market | Accounts reviewed | Accepted creators | Credits | Accepted per 100 credits |
+| Market | Accounts reviewed | Accepted creators (accounts) | Credits | Accepted accounts per 100 credits |
 |---|---|---|---|---|
-| Finland | 3,039 | 63 | 650 | 9.7 |
-| Estonia | 2,738 | 19 | 550 | 3.5 |
-| Germany | 292 | 60 | 319 | 18.8 |
+| Finland | 3,039 | 60 (63) | 650 | 9.7 |
+| Estonia | 2,738 | 19 (19) | 550 | 3.5 |
+| Germany | 1,542 | 109 (118) | 400 | 29.5 |
 
-Germany is mostly a by-product: nothing is thrown away, so German creators
-met while scouting Estonia and Finland were queued for Germany, and 49 of the
-60 came from that queue before Germany's own search had even started.
+A creator accepted on both TikTok and YouTube is one row, so there are fewer
+creators than accepted accounts. The Germany run used only Germany's own
+searches and snowballing, starting from a clean state. No creators queued
+while scouting other markets were used.
 
 **Hold-out recall.** The client shared a list of creators they already work with.
 We ran each market *without* the list, then checked how many of those
@@ -34,20 +35,20 @@ partners the tool found on its own:
   entertainment channel, one Twitch-only streamer.
 - **Estonia: 2 of 3**, both accepted. The third posts GTA content, and GTA
   wasn't one of our Estonian search sources. It is now.
-
 Using the partners as seeds afterwards found 12 more new Finnish creators for
 150 credits; the partners' following lists gave 9.9 accepted per 100 credits.
 
 **Where creators come from** (accepted per 100 credits, Finland): YouTube
 search in the local language 75, local gaming hashtags 10.8, snowballing
-through following lists 6.4 (and 27 of the 63 creators). In Estonia, global
+through following lists 6.4 (and 27 of the 63 accepted accounts). In Germany,
+snowballing found 44 of 118 and the free official Shorts search 29. In Estonia, global
 game hashtags through a local proxy returned 0–4% Estonian authors; in Germany
 the same tags returned 22–56% German authors. So they are a last resort for
 small markets and a main source for big ones.
 
-**Cost.** About 10 credits per accepted creator in Finland and 29 in Estonia.
-On ScrapeCreators' paid plans ($1–1.9 per 1,000 credits) that is roughly
-1–5 cents per creator. The LLMs are free tiers.
+**Cost.** About 11 credits per accepted creator in Finland, 29 in Estonia and
+4 in Germany. On ScrapeCreators' paid plans ($1–1.9 per 1,000 credits) that
+is under 1 cent to about 5 cents per creator. The LLMs are free tiers.
 
 ## How it works
 
@@ -130,7 +131,9 @@ Only public, logged-out profile data is used, via a data provider
 outreach are kept. The tool drafts; a person decides and sends, and first
 contact should say where the profile was found and offer an opt-out (GDPR
 Art. 14). Platform terms restrict automated collection; a compliance review
-is advisable before commercial scale. The public demo masks email addresses.
+is advisable before commercial scale. The public demo masks email addresses,
+and the web app never uses the client's private partner list to label
+creators; only the aggregate hold-out numbers are shown.
 
 ## Built with
 

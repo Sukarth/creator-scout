@@ -50,6 +50,17 @@ All notable changes to this project are documented here. The format follows
 - Accounts whose region is unknown are queued for the markets whose signals
   they match, and are reported as a separate source in the yield table.
 - `scout recall --run` limits the report to one run and ignores later runs.
+- `scout backfill-format` labels YouTube channels enriched before the format
+  label existed, from cached upload lists (no credits).
+- `build_snapshot.py --no-recall` leaves a run's partner recall out of the snapshot.
+
+### Fixed
+- Live-run downloads no longer depend on the server instance that ran the job:
+  both workbooks are sent with the finished event and saved in the browser.
+- The web app counts creators and accepted accounts separately (a creator
+  accepted on TikTok and YouTube is one row) and says so.
+- The web app no longer labels existing partners: `build_sheets(mark_partners=False)`
+  leaves out the partner sheet, the partner columns and partner seeds.
 
 ### Changed
 - The free LLM chain judges batches in parallel across all configured models,

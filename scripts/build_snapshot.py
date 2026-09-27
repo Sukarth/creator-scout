@@ -49,7 +49,8 @@ def mask_emails(snap: Store) -> None:
     c.commit()
 
 
-def build(run_ids: list[int], out: Path, titles: dict[int, str] | None = None) -> None:
+def build(run_ids: list[int], out: Path, titles: dict[int, str] | None = None,
+          no_recall: set[int] | None = None) -> None:
     config.load_dotenv()
     src_path = config.db_path()
     src = Store(src_path)
@@ -88,7 +89,7 @@ def build(run_ids: list[int], out: Path, titles: dict[int, str] | None = None) -
     for rid in run_ids:
         run = src.get_run(rid)
         snap.meta_set(f"yield:{rid}", json.dumps(source_yield(src, rid)))
-        if partners:
+        if partners and rid not in (no_recall or set()):
             rep = recall_report(src, run["market"], run_id=rid, partners=partners)
             snap.meta_set(f"recall:{rid}", json.dumps({
                 "found": sum(1 for r in rep if r["found"]), "total": len(rep),
@@ -110,5 +111,8 @@ if __name__ == "__main__":
     ap.add_argument("--runs", type=int, nargs="+", required=True)
     ap.add_argument("--out", type=Path, default=ROOT / "demo" / "snapshot.db")
     ap.add_argument("--title", action="append", default=[], help="RUN_ID=display title")
+    ap.add_argument("--no-recall", type=int, nargs="*", default=[],
+                    help="Runs whose partner recall is not stored")
     a = ap.parse_args()
-    build(a.runs, a.out, {int(t.split("=", 1)[0]): t.split("=", 1)[1] for t in a.title})
+    build(a.runs, a.out, {int(t.split("=", 1)[0]): t.split("=", 1)[1] for t in a.title},
+          set(a.no_recall))
