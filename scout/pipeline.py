@@ -348,10 +348,16 @@ class Pipeline(YouTubeStage):
         if hashtags is not None or keywords is not None:
             global_tags = set(self.market.global_hashtags)
             global_tags |= set(self.generated_keywords().get("global_hashtags", []))
+            explicit_platforms = self.s.extra.get("platforms", ["tiktok", "youtube"])
             for t in hashtags or []:
                 add("hashtag", t, code if t.lstrip("#") in global_tags else None)
             for q in keywords or []:
-                add("keyword", q, code)
+                if "tiktok" in explicit_platforms:
+                    add("keyword", q, code)
+                    add("tt_top", q, code)
+                if "youtube" in explicit_platforms and getattr(self, "youtube", None) is not None:
+                    add("yt_search", q, code)
+                    add("yt_api_shorts", q, code)
             return plan
         gen = self.generated_keywords()
         platforms = self.s.extra.get("platforms", ["tiktok", "youtube"])
@@ -776,9 +782,13 @@ class Pipeline(YouTubeStage):
 
     # ---- stage: judge ----------------------------------------------------
 
-    def judge_qualified(self) -> int:
-        """Judge enriched candidates of this run. Returns the number judged."""
-        if not self.judging:
+    def judge_qualified(self, final: bool = False) -> int:
+        """Judge enriched candidates of this run. Returns the number judged.
+
+        Judges that ask for one judgment at the end (``judge_at_end``) are only
+        called with ``final=True``, once fetching has stopped.
+        """
+        if not self.judging or (getattr(self.judge, "judge_at_end", False) and not final):
             return 0
         code = self.market.code
         todo = [(s["platform"], s["uid"])
@@ -1128,6 +1138,7 @@ class Pipeline(YouTubeStage):
                     self.resolve_retailer_seeds()
             self._plan_hashtags, self._plan_keywords = hashtags, keywords
             self.main_loop()
+            self.judge_qualified(final=True)
             if self.s.extra.get("pitches"):
                 self.write_pitches()
             self.status = "target_met" if self.target_met() else "done"
@@ -1136,7 +1147,7 @@ class Pipeline(YouTubeStage):
             self.emit("budget", f"{'time limit' if isinstance(exc, TimeLimit) else 'credit budget'} "
                                 "reached; judging what was enriched")
             try:
-                self.judge_qualified()
+                self.judge_qualified(final=True)
                 if self.s.extra.get("pitches"):
                     self.write_pitches()
             except (Paused, BudgetExhausted) as p:

@@ -283,6 +283,24 @@ class DeferredJudge:
         return None
 
 
+class HybridJudge(DeferredJudge):
+    """Free LLM pre-judge and keyword ideas; the fit judgment is left to an external
+    judge (Claude), asked once for all enriched candidates when the run's budget is
+    spent. One handoff instead of one per batch keeps interactive runs short."""
+
+    name = "hybrid"
+    judge_at_end = True
+
+    def __init__(self, free: "FreeJudge"):
+        self.free = free
+
+    def prejudge(self, market: Market, items: list[dict]):
+        return self.free.prejudge(market, items)
+
+    def keywords(self, market: Market) -> dict:
+        return self.free.keywords(market)
+
+
 class FreeJudge:
     name = "free"
     PREJUDGE_BATCH = 30

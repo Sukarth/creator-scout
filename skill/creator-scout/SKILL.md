@@ -52,6 +52,24 @@ With `--judge claude` the run pauses whenever it needs a judgment:
 5. `scout check` must pass before you report anything. Then `scout export`
    and `scout yield` for the numbers.
 
+### Quick runs (a few minutes, small budgets)
+
+For a short request ("find 5 Estonian Minecraft creators, budget 40"), use the
+hybrid judge: the free LLM does the pre-judge inside the run and you judge once,
+at the end, all enriched candidates together.
+
+```bash
+scout run --market ee --preset hidden-gems --target 5 --budget 40 --judge hybrid \
+  --keywords "minecraft eesti,fortnite eesti" --hashtags "minecrafteesti,fortniteeesti"
+```
+
+For a niche request, pass the games in local phrasing as `--keywords` (used for
+TikTok and YouTube search) and `--hashtags`. The run stops with
+`awaiting_judgment`: run `scout candidates --stage judge`, judge every account in
+one file, `scout decide --stage judge --file judge.json`, then `scout resume`
+(it finishes at once when the budget is spent), `scout check` and `scout export`.
+Do not start a second run to reach the target; report what one run found.
+
 Report to the user: accepted creators, credits spent, where they came from
 (`scout yield`), anything flagged (competitor sponsorship, brand safety,
 inactive, above typical size) and the path to the XLSX.

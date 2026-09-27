@@ -53,6 +53,15 @@ All notable changes to this project are documented here. The format follows
 - `scout backfill-format` labels YouTube channels enriched before the format
   label existed, from cached upload lists (no credits).
 - `build_snapshot.py --no-recall` leaves a run's partner recall out of the snapshot.
+- `--judge hybrid`: the free LLM pre-judges during the run and Claude judges all
+  enriched candidates once at the end, for short interactive skill runs.
+- Explicit `--keywords` also drive YouTube search and the official Shorts search
+  when YouTube is enabled, not only TikTok keyword search.
+- Web: runs without a hold-out result show "What this run shows" (yield compared
+  with the other saved runs, scale, top games).
+- The demo snapshot leaves out mentions of existing creator deals with the client
+  brand (ads, sponsorships, campaigns); evidence quotes naming the brand are
+  replaced by another verbatim line.
 
 ### Fixed
 - Live-run downloads no longer depend on the server instance that ran the job:

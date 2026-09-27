@@ -8,7 +8,8 @@ from conftest import FIXTURE_NOW
 from scout.checks import check_run
 from scout.config import RunSettings
 from scout.export import accepted_by_first_source, build_sheets
-from scout.judge import DeferredJudge, FreeJudge, JudgeResult, batches, judge_payload, prejudge_payload
+from scout.judge import (DeferredJudge, FreeJudge, HybridJudge, JudgeResult, batches, judge_payload,
+                         prejudge_payload)
 from scout.llm import LLMClient, Model, parse_json_object
 from scout.market import load_market
 from scout.pipeline import Pipeline
@@ -177,6 +178,24 @@ def test_deferred_judge_pauses_and_resumes(cached_store):
     run = pipe3.run(resume=True)
     assert run["status"] == "target_met"
     assert run["funnel"]["accepted"] == 1
+
+
+def test_hybrid_judge_prejudges_itself_and_asks_for_judgment_once(cached_store):
+    store = cached_store
+    stub = StubJudge()
+    pipe, run_id = make(store, HybridJudge(stub), judge_kind="hybrid")
+    run = pipe.run(hashtags=[], keywords=[])
+    # The free pre-judge ran inside the run; the only pause is the final judgment.
+    assert "digikamu" in stub.prejudged
+    assert run["status"] == "awaiting_judgment"
+    assert all(store.get_prejudgment("FI", s["platform"], s["uid"])
+               for s in store.screenings("FI", "pending", run_id=run_id))
+
+    items = [judge_payload(store, pipe.market, s["uid"])
+             for s in store.screenings("FI", "needs_judgment", run_id=run_id)]
+    for uid, r in stub.judge(pipe.market, items).items():
+        pipe.apply_decision(uid, r, "claude")
+    assert store.screenings("FI", "accepted", run_id=run_id)
 
 
 def test_harvest_plan_is_gaming_first_with_proxy_for_global_tags():

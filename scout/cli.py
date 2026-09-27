@@ -13,7 +13,7 @@ import typer
 from . import config
 from .checks import check_run
 from .export import export_run
-from .judge import (DeferredJudge, FreeJudge, JudgeResult, PitchResult, PrejudgeResult,
+from .judge import (DeferredJudge, FreeJudge, HybridJudge, JudgeResult, PitchResult, PrejudgeResult,
                     judge_payload, pitch_payload, prejudge_payload)
 from .llm import LLMClient
 from .sources.youtube import YouTubeData
@@ -54,7 +54,7 @@ def markets() -> None:
                    f"retailer_seeds={len(m.retailer_seeds)}")
 
 
-JUDGES = ("none", "free", "claude")
+JUDGES = ("none", "free", "claude", "hybrid")
 
 
 def _make_judge(store: Store, kind: str):
@@ -63,11 +63,11 @@ def _make_judge(store: Store, kind: str):
         return None, None
     if kind == "claude":
         return DeferredJudge(), None
-    if kind == "free":
+    if kind in ("free", "hybrid"):
         llm = LLMClient(store)
         if not llm.available():
-            raise typer.BadParameter("judge 'free' needs GROQ_API_KEY or OPENCODE_API_KEY")
-        return FreeJudge(llm), llm
+            raise typer.BadParameter(f"judge '{kind}' needs GROQ_API_KEY or OPENCODE_API_KEY")
+        return (FreeJudge(llm) if kind == "free" else HybridJudge(FreeJudge(llm))), llm
     raise typer.BadParameter(f"judge must be one of {', '.join(JUDGES)}")
 
 
@@ -133,7 +133,8 @@ def run(
     pitches: bool = typer.Option(False, help="Also draft outreach pitches for accepted creators"),
     target: int = typer.Option(40, help="Stop after this many accepted (or qualified) creators"),
     budget: int = typer.Option(300, help="Hard credit budget for this run"),
-    judge: str = typer.Option("free", help="Fit judge: free (LLM chain), claude (file handoff) or none"),
+    judge: str = typer.Option("free", help="Fit judge: free (LLM chain), claude (file handoff), "
+                                           "hybrid (free pre-judge, one Claude handoff at the end) or none"),
     hashtags: Optional[str] = typer.Option(None, help="Comma-separated hashtags (default: market plan)"),
     keywords: Optional[str] = typer.Option(None, help="Comma-separated keywords (default: market plan)"),
     general_tags: bool = typer.Option(False, help="Also harvest general country tags (lifestyle-heavy)"),
