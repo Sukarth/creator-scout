@@ -5,13 +5,14 @@ Two modes over the same core:
 - Live: start a short run (access code required) and watch progress stream in.
 
 Secrets stay on the server; the browser only ever sees results. Public demo
-data shows creators' email addresses masked.
+data shows creators' email addresses masked, and the client's private partner
+list is never used to label rows.
 """
 
 from __future__ import annotations
 
+import base64
 import hmac
-import io
 import json
 import os
 import queue
@@ -38,6 +39,7 @@ SNAPSHOT = config.ROOT / "demo" / "snapshot.db"
 LIVE_SECONDS = int(os.environ.get("SCOUT_LIVE_SECONDS", "170"))      # stop fetching
 LIVE_HARD_SECONDS = int(os.environ.get("SCOUT_LIVE_HARD_SECONDS", "235"))  # stop judging
 MAX_LIVE_BUDGET = int(os.environ.get("SCOUT_MAX_LIVE_BUDGET", "60"))
+XLSX_TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 EMAIL_RE = re.compile(r"([A-Za-z0-9._%+\-])[A-Za-z0-9._%+\-]*(@[A-Za-z0-9.\-]+\.[A-Za-z]{2,})")
 
 config.load_dotenv()
@@ -128,13 +130,27 @@ def funnel(store: Store, run: dict) -> dict:
             "judged": judged, "accepted": accepted}
 
 
+def creator_count(store: Store, run: dict) -> int:
+    """Accepted creators: accepted accounts linked across platforms count once."""
+    placed: set[tuple[str, str]] = set()
+    count = 0
+    for s in store.screenings(run["market"], "accepted", run_id=run["id"]):
+        key = (s["platform"], s["uid"])
+        if key in placed:
+            continue
+        count += 1
+        placed.add(key)
+        placed.update((p, u) for p, u, _ in store.linked_accounts(*key))
+    return count
+
+
 def run_summary(store: Store, run: dict) -> dict:
     yield_raw = store.meta_get(f"yield:{run['id']}")
     return {"id": run["id"], "market": run["market"],
             "market_name": load_market(run["market"]).name, "brief": run["brief"],
             "status": run["status"], "credits": run["credits_used"],
             "llm_calls": run.get("llm_calls"), "params": run["params"],
-            "funnel": funnel(store, run),
+            "funnel": funnel(store, run), "creators": creator_count(store, run),
             "yield": json.loads(yield_raw) if yield_raw else source_yield(store, run["id"]),
             "recall": json.loads(store.meta_get(f"recall:{run['id']}") or "null")}
 
@@ -146,6 +162,28 @@ ROW_FIELDS = ["creator", "platforms", "market", "country", "followers_tiktok", "
               "decision", "fit_score", "young_gamer_appeal", "gaming_pc_relevance", "reasons",
               "evidence_quote", "found_via", "tiktok_url", "youtube_url", "market_evidence",
               "other_links"]
+
+
+def sheet_rows(sheets: dict) -> list[dict]:
+    return [{**{k: r.get(k) for k in ROW_FIELDS}, "list": lst}
+            for lst, sheet in (("shortlist", "Shortlist"), ("maybe", "Maybe"))
+            for r in sheets[sheet]]
+
+
+def xlsx_bytes(sheets: dict, layout: str) -> bytes:
+    """One workbook: every sheet (``full``) or only the client's layout (``prenew``)."""
+    if layout == "prenew":
+        sheets = {"Prenew format": sheets["Prenew format"]}
+    elif layout != "full":
+        raise HTTPException(400, "layout must be full or prenew")
+    fd, name = tempfile.mkstemp(suffix=".xlsx")
+    os.close(fd)
+    tmp = Path(name)
+    try:
+        write_xlsx(sheets, tmp)
+        return tmp.read_bytes()
+    finally:
+        tmp.unlink(missing_ok=True)
 
 
 # ---- pages -----------------------------------------------------------------
@@ -188,9 +226,7 @@ def run_rows(source: str, run_id: int) -> JSONResponse:
     store = store_for(source)
     if store.get_run(run_id) is None:
         raise HTTPException(404, "run not found")
-    sheets = build_sheets(store, run_id)
-    rows = [{**{k: r.get(k) for k in ROW_FIELDS}, "list": "shortlist"} for r in sheets["Shortlist"]]
-    rows += [{**{k: r.get(k) for k in ROW_FIELDS}, "list": "maybe"} for r in sheets["Maybe"]]
+    rows = sheet_rows(build_sheets(store, run_id, mark_partners=False))
     return JSONResponse(mask(rows) if source == "demo" else rows)
 
 
@@ -201,21 +237,16 @@ def run_export(source: str, run_id: int, layout: str = "full") -> Response:
     run = store.get_run(run_id)
     if run is None:
         raise HTTPException(404, "run not found")
-    sheets = build_sheets(store, run_id)
+    sheets = build_sheets(store, run_id, mark_partners=False)
     if source == "demo":
         sheets = {k: mask(v) for k, v in sheets.items()}
-    if layout == "prenew":
-        sheets = {"Prenew format": sheets["Prenew format"]}
-    elif layout != "full":
-        raise HTTPException(400, "layout must be full or prenew")
-    buf = io.BytesIO()
-    tmp = Path(tempfile.gettempdir()) / f"scout-export-{os.getpid()}-{run_id}.xlsx"
-    write_xlsx(sheets, tmp)
-    buf.write(tmp.read_bytes())
-    tmp.unlink(missing_ok=True)
-    name = f"creator-scout_{run['market'].lower()}_run{run_id}_{layout}.xlsx"
-    return Response(buf.getvalue(), headers={"Content-Disposition": f'attachment; filename="{name}"'},
-                    media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+    data = xlsx_bytes(sheets, layout)
+    return Response(data, headers={"Content-Disposition": f'attachment; filename="{export_name(run, layout)}"'},
+                    media_type=XLSX_TYPE)
+
+
+def export_name(run: dict, layout: str) -> str:
+    return f"creator-scout_{run['market'].lower()}_run{run['id']}_{layout}.xlsx"
 
 
 # ---- live runs ---------------------------------------------------------------
@@ -279,13 +310,15 @@ async def live_run(request: Request) -> StreamingResponse:
             now = time.time()
             pipe.deadline, pipe.hard_deadline = now + LIVE_SECONDS, now + LIVE_HARD_SECONDS
             result = pipe.run()
-            # Rows travel with the final event: on serverless hosts a follow-up
-            # request may reach another instance that has no copy of this run.
-            sheets = build_sheets(store, run_id)
-            rows = [{**{k: r.get(k) for k in ROW_FIELDS}, "list": lst}
-                    for lst, sheet in (("shortlist", "Shortlist"), ("maybe", "Maybe"))
-                    for r in sheets[sheet]]
-            events.put({"stage": "finished", "run": run_summary(store, result), "rows": rows})
+            # Rows and both workbooks travel with the final event: on serverless
+            # hosts a follow-up request may reach another instance that has no
+            # copy of this run.
+            sheets = build_sheets(store, run_id, mark_partners=False)
+            files = {layout: {"name": export_name(result, layout),
+                              "data": base64.b64encode(xlsx_bytes(sheets, layout)).decode("ascii")}
+                     for layout in ("full", "prenew")}
+            events.put({"stage": "finished", "run": run_summary(store, result),
+                        "rows": sheet_rows(sheets), "files": files})
         except Exception as exc:  # report the type only; details go to the server log
             import traceback
             traceback.print_exc()

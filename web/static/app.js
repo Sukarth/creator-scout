@@ -90,6 +90,14 @@ function renderRows(target, rows, countEl) {
 }
 ["#q", "#list-filter"].forEach((s) => $(s)?.addEventListener("input", () => renderRows($("#rows"), allRows, $("#count"))));
 
+// Accepted accounts vs creators: a creator accepted on both TikTok and YouTube is one row.
+function creatorsLabel(run) {
+  const accounts = run.funnel.accepted || 0, creators = run.creators ?? accounts, merged = accounts - creators;
+  return merged > 0
+    ? `${creators} creators (${accounts} accounts; ${merged} ${merged === 1 ? "has" : "have"} both TikTok and YouTube, merged)`
+    : `${creators} creators`;
+}
+
 // ---- demo ----
 async function loadDemo() {
   const runs = await (await fetch("/api/demo/runs")).json();
@@ -99,8 +107,8 @@ async function loadDemo() {
     <div class="card" data-id="${r.id}">
       <div class="muted small">${esc(r.market_name)} · ${(r.params.platforms || ["tiktok"]).join(" + ")}</div>
       <h3>${esc(r.brief || "Run " + r.id)}</h3>
-      <div class="big">${r.funnel.accepted} creators</div>
-      <div class="stats"><span>${fmt(r.funnel.reviewed)} reviewed</span><span>${r.credits} credits</span>
+      <div class="big">${r.creators ?? r.funnel.accepted} creators</div>
+      <div class="stats"><span>${fmt(r.funnel.reviewed)} reviewed</span><span>${r.funnel.accepted} accounts</span><span>${r.credits} credits</span>
       ${r.recall ? `<span>partners found: ${r.recall.found}/${r.recall.total}</span>` : ""}</div>
     </div>`).join("");
   cards.querySelectorAll(".card").forEach((c) => c.addEventListener("click", () => showRun("demo", runs.find((r) => String(r.id) === c.dataset.id))));
@@ -110,7 +118,7 @@ async function loadDemo() {
 async function showRun(source, run) {
   document.querySelectorAll(".card").forEach((c) => c.classList.toggle("sel", c.dataset.id === String(run.id)));
   $("#run-view").hidden = false;
-  $("#run-title").textContent = `${run.market_name}: ${run.funnel.accepted} accepted creators`;
+  $("#run-title").textContent = `${run.market_name}: ${creatorsLabel(run)}`;
   const p = run.params || {};
   $("#run-sub").textContent = `${(p.platforms || ["tiktok"]).join(" + ")} · TikTok ${fmt(p.band_min)}–${fmt(p.band_max)} · YouTube ${fmt(p.yt_band_min)}–${fmt(p.yt_band_max)} · ${run.credits} credits · ${run.llm_calls || 0} LLM calls`;
   $("#dl-full").href = `/api/${source}/runs/${run.id}/export?layout=full`;
@@ -158,7 +166,7 @@ $("#live-form").addEventListener("submit", async (ev) => {
         const e = JSON.parse(chunk.slice(6));
         if (e.stage === "started") { add("start", `run ${e.run_id} in ${e.market}, budget ${e.budget} credits`); continue; }
         if (e.stage === "failed") { add("error", "run failed: " + e.message); continue; }
-        if (e.stage === "finished") { await showLiveResult(e.run, e.rows); continue; }
+        if (e.stage === "finished") { await showLiveResult(e.run, e.rows, e.files); continue; }
         if (e.message) add(e.stage, e.message);
         if (e.funnel) {
           const f = e.funnel;
@@ -172,12 +180,22 @@ $("#live-form").addEventListener("submit", async (ev) => {
   finally { $("#go").disabled = false; $("#go").textContent = "Run (about 4 minutes)"; }
 });
 
-async function showLiveResult(run, rows) {
+// Workbooks arrive inside the finished event, so downloading never depends on
+// which server instance ran the job.
+function downloadAttrs(file, fallback) {
+  if (!file) return `href="${esc(fallback)}"`;
+  const bytes = Uint8Array.from(atob(file.data), (c) => c.charCodeAt(0));
+  const url = URL.createObjectURL(new Blob([bytes], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }));
+  return `href="${url}" download="${esc(file.name)}"`;
+}
+
+async function showLiveResult(run, rows, files) {
   rows = rows || await (await fetch(`/api/live/runs/${run.id}/rows`)).json();
+  files = files || {};
   const box = $("#live-results");
-  box.innerHTML = `<div class="box"><div class="tablebar"><h3>${esc(run.market_name)}: ${run.funnel.accepted} accepted creators <span class="muted">(${run.credits} credits)</span></h3>
-    <div class="actions"><a class="btn" href="/api/live/runs/${run.id}/export?layout=full">Download XLSX</a>
-    <a class="btn primary" href="/api/live/runs/${run.id}/export?layout=prenew">Download in Prenew format</a></div></div>
+  box.innerHTML = `<div class="box"><div class="tablebar"><h3>${esc(run.market_name)}: ${esc(creatorsLabel(run))} <span class="muted">(${run.credits} credits)</span></h3>
+    <div class="actions"><a class="btn" ${downloadAttrs(files.full, `/api/live/runs/${run.id}/export?layout=full`)}>Download XLSX</a>
+    <a class="btn primary" ${downloadAttrs(files.prenew, `/api/live/runs/${run.id}/export?layout=prenew`)}>Download in Prenew format</a></div></div>
     <div class="tablewrap"><table class="rows" id="live-rows"></table></div></div>`;
   renderFunnel($("#live-funnel"), run.funnel);
   const listSel = $("#list-filter"); const prev = listSel.value; listSel.value = "all";

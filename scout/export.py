@@ -245,14 +245,20 @@ def group_accounts(store: Store, market: str, screenings: list[dict]) -> list[li
     return groups
 
 
-def build_sheets(store: Store, run_id: int) -> dict[str, list[dict]]:
+def build_sheets(store: Store, run_id: int, mark_partners: bool = True) -> dict[str, list[dict]]:
+    """All export sheets of a run.
+
+    With ``mark_partners=False`` the client's partner list is not consulted:
+    partners stay in the shortlist unlabelled and no partner sheet or column is
+    produced, so the output reveals nothing about the private list.
+    """
     from .partners import PartnerIndex, load_partners
 
     run = store.get_run(run_id)
     if run is None:
         raise ValueError(f"run {run_id} not found")
     market = run["market"]
-    partners = PartnerIndex(load_partners())
+    partners = PartnerIndex(load_partners()) if mark_partners else None
     scr = store.screenings(market, run_id=run_id)
     params = run["params"] or {}
     judged_run = params.get("judge", "none") != "none"
@@ -304,7 +310,8 @@ def build_sheets(store: Store, run_id: int) -> dict[str, list[dict]]:
               "new_in_market": s["new_in_market"], "credits_spent": s["credits_spent"],
               "total_following": s["total_following"], "exhausted": bool(s["exhausted"]),
               "exhausted_reason": s["exhausted_reason"]}
-             for s in store.seeds(market, active_only=False)]
+             for s in store.seeds(market, active_only=False)
+             if mark_partners or s["kind"] != "partner"]
     seeds += source_summary(store, run_id, market)
 
     funnel = run["funnel"] or {}
@@ -320,11 +327,20 @@ def build_sheets(store: Store, run_id: int) -> dict[str, list[dict]]:
         ("duration_s", round((run["finished_at"] or run["started_at"]) - run["started_at"], 1)),
     ]] + [{"field": f"funnel.{k}", "value": v} for k, v in funnel.items()]
 
-    return {"Shortlist": shortlist, "Maybe": maybe, "Existing partners": existing,
-            "Prenew format": [prenew_row(r, market) for r in shortlist + existing],
-            "Yield by source": source_yield(store, run_id),
-            "Other markets pool": other, "Seeds and sources": seeds, "All screened": everyone,
-            "Run log": log}
+    prenew = [prenew_row(r, market) for r in shortlist + existing]
+    if not mark_partners:
+        for r in shortlist + maybe:
+            r.pop("existing_partner", None)
+        for r in prenew:
+            r.pop("Existing partner", None)
+    sheets = {"Shortlist": shortlist, "Maybe": maybe, "Existing partners": existing,
+              "Prenew format": prenew,
+              "Yield by source": source_yield(store, run_id),
+              "Other markets pool": other, "Seeds and sources": seeds, "All screened": everyone,
+              "Run log": log}
+    if not mark_partners:
+        del sheets["Existing partners"]
+    return sheets
 
 
 def prenew_row(r: dict, market: str) -> dict:
@@ -527,11 +543,16 @@ def _iso(ts: float | None) -> str:
 
 
 def _sheet_columns(name: str, rows: list[dict]) -> list[str]:
+    """Fixed column order for the creator sheets; columns the rows leave out are dropped."""
     if name in ("Shortlist", "Maybe", "Existing partners"):
-        return SHORTLIST_COLUMNS
-    if name == "Prenew format":
-        return PRENEW_COLUMNS
-    return _columns(rows)
+        fixed = SHORTLIST_COLUMNS
+    elif name == "Prenew format":
+        fixed = PRENEW_COLUMNS
+    else:
+        return _columns(rows)
+    if not rows:
+        return [c for c in fixed if c not in ("existing_partner", "Existing partner")]
+    return [c for c in fixed if any(c in r for r in rows)]
 
 
 def write_xlsx(sheets: dict[str, list[dict]], path: Path) -> Path:

@@ -337,6 +337,33 @@ def refresh_metrics(run_id: Optional[int] = typer.Option(None, "--run", help="Ru
     typer.echo(f"refreshed metrics for {n} accounts")
 
 
+@app.command("backfill-format")
+def backfill_format(offline: bool = typer.Option(False, help="Use cached upload lists only")) -> None:
+    """Add the Shorts-first / long-form / mixed label to YouTube channels enriched without it.
+
+    Upload counts come from cached playlist responses; missing ones use the free
+    YouTube Data API quota (no ScrapeCreators credits).
+    """
+    from .sources.youtube import format_label
+    store = _setup()
+    youtube = YouTubeData(store, offline=offline)
+    rows = store.conn.execute("SELECT uid FROM metrics WHERE platform = 'youtube'").fetchall()
+    n = 0
+    for r in rows:
+        m = store.get_metrics("youtube", r["uid"]) or {}
+        if m.get("format"):
+            continue
+        _, long_total = youtube.uploads(r["uid"], "long", 30, max_age=float("inf"))
+        _, short_total = youtube.uploads(r["uid"], "shorts", 30, max_age=float("inf"))
+        label = format_label(short_total, long_total)
+        if not label:
+            continue
+        m.update(format=label, long_total=long_total, shorts_total=short_total)
+        store.put_metrics("youtube", r["uid"], m)
+        n += 1
+    typer.echo(f"labelled {n} channels ({youtube.calls} API calls, {youtube.cache_hits} from cache)")
+
+
 @app.command("yield")
 def yield_(run_id: Optional[int] = typer.Option(None, "--run", help="Run id (default: latest)")) -> None:
     """Accepted creators per 100 credits, by source type."""

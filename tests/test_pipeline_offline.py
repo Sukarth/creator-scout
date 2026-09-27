@@ -4,7 +4,7 @@ from conftest import FIXTURE_NOW
 
 from scout.checks import check_run
 from scout.config import RunSettings
-from scout.export import build_sheets, export_run
+from scout.export import _sheet_columns, build_sheets, export_run
 from scout.market import load_market
 from scout.pipeline import Pipeline
 from scout.sources.scrapecreators import CreditMeter, ScrapeCreators
@@ -76,6 +76,12 @@ def test_snowball_from_retailer_finds_digikamu(cached_store, tmp_path):
     paths = export_run(store, run_id, tmp_path)
     assert paths[0].suffix == ".xlsx" and paths[0].stat().st_size > 0
     assert check_run(store, run_id).passed
+
+    public = build_sheets(store, run_id, mark_partners=False)
+    assert "Existing partners" not in public
+    assert "existing_partner" not in public["Shortlist"][0]
+    assert "Existing partner" not in public["Prenew format"][0]
+    assert _sheet_columns("Prenew format", public["Prenew format"])[-1] == "Links"
 
 
 def test_second_run_returns_no_duplicates(cached_store):
